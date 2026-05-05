@@ -24,6 +24,26 @@
     "ByteDance": {
       "valuation_m": 580000,
       "valuation_str": "$580B"
+    },
+    "Cursor": {
+      "valuation_m": 50000,
+      "valuation_str": "$50B"
+    },
+    "DJI": {
+      "valuation_m": 23000,
+      "valuation_str": "$23B"
+    },
+    "Tether": {
+      "valuation_m": 50000,
+      "valuation_str": "$50B"
+    },
+    "Moonshot": {
+      "valuation_m": 18000,
+      "valuation_str": "$18B"
+    },
+    "Cohere": {
+      "valuation_m": 20000,
+      "valuation_str": "$20B"
     }
   },
   "additions": [],
