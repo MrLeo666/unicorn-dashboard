@@ -169,11 +169,57 @@
 // ====== TOP 100 + AREA-PROPORTIONAL + WANDER + COLLISION ======
 let DATA = [];
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
+// Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
+// — no need to wait for a full canonical merge.
 async function loadData() {
-  const r = await fetch('./data/unicorns.json?t=' + Date.now());
+  const ts = Date.now();
+  const r = await fetch('./data/unicorns.json?t=' + ts);
   if (!r.ok) throw new Error('HTTP ' + r.status);
-  DATA = await r.json();
+  let base = await r.json();
+  // overrides.json is optional; missing/malformed → use raw base unchanged
+  let overrides = { edits: {}, additions: [], deletions: [] };
+  try {
+    const o = await fetch('./data/overrides.json?t=' + ts);
+    if (o.ok) overrides = Object.assign(overrides, await o.json());
+  } catch {}
+  DATA = applyOverridesClient(base, overrides);
   DATA.sort((a, b) => b.valuation_m - a.valuation_m);
+}
+
+function applyOverridesClient(records, overrides) {
+  const deletions = new Set(overrides.deletions || []);
+  const edits = overrides.edits || {};
+  const out = [];
+  for (const r of records) {
+    if (deletions.has(r.company)) continue;
+    if (edits[r.company]) {
+      const merged = Object.assign({}, r, edits[r.company]);
+      // recompute valuation_str if only the number was overridden
+      if ('valuation_m' in edits[r.company] && !('valuation_str' in edits[r.company])) {
+        merged.valuation_str = '$' + (merged.valuation_m / 1000) + 'B';
+      }
+      out.push(merged);
+    } else {
+      out.push(r);
+    }
+  }
+  for (const a of (overrides.additions || [])) {
+    if (!a.company) continue;
+    out.push(Object.assign({
+      id: 'admin-' + out.length,
+      source: 'admin',
+      description: '',
+      valuation_str: a.valuation_m ? ('$' + (a.valuation_m / 1000) + 'B') : '',
+      valuation_m: 0,
+      vc_raised: '—',
+      lead_investors: '—',
+      country: '',
+      industry: 'Other',
+      founders: '',
+      wikiLink: '',
+    }, a));
+  }
+  return out;
 }
 
 let PARTICLES = [];

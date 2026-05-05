@@ -76,6 +76,42 @@
   details summary { cursor: pointer; color: #8892b0; font-size: 12px; }
   details pre { font-family: ui-monospace, monospace; font-size: 11px; color: #c5cce0;
                 margin-top: 10px; max-height: 200px; overflow: auto; }
+  /* Pending review panel */
+  #pendingBanner { display: none; align-items: center; gap: 14px; padding: 14px 18px;
+                   margin-bottom: 14px; border-radius: 12px;
+                   background: linear-gradient(135deg, rgba(91,141,239,0.10), rgba(122,92,255,0.10));
+                   border: 1px solid rgba(91,141,239,0.30); }
+  #pendingBanner.has-pending { display: flex; }
+  #pendingBanner .icon { font-size: 22px; }
+  #pendingBanner h3 { font-size: 15px; font-weight: 600; color: #e8ecf4; margin: 0; }
+  #pendingBanner .desc { font-size: 12px; color: #c5cce0; margin-top: 2px; }
+  #pendingBanner .grow { flex-grow: 1; }
+  #pendingPanel { display: none; padding: 16px 18px; margin-bottom: 16px;
+                  background: rgba(15,21,50,0.55); border-radius: 12px;
+                  border: 1px solid rgba(91,141,239,0.25); }
+  #pendingPanel.open { display: block; }
+  #pendingPanel .pending-section { margin-bottom: 18px; }
+  #pendingPanel .pending-section:last-child { margin-bottom: 0; }
+  #pendingPanel .pending-section h4 { font-size: 13px; color: #c5cce0; font-weight: 600; margin-bottom: 8px;
+                                       display: flex; align-items: center; gap: 10px; }
+  #pendingPanel .pending-section h4 .count { color: #8892b0; font-weight: 400; font-size: 12px; }
+  #pendingPanel .bulk-btn { padding: 4px 10px; font-size: 11px; }
+  .pending-item { padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.03);
+                  margin-bottom: 6px; display: flex; align-items: center; gap: 12px; font-size: 13px; }
+  .pending-item.add { border-left: 3px solid #4ade80; }
+  .pending-item.mod { border-left: 3px solid #5b8def; }
+  .pending-item.rem { border-left: 3px solid #ef4444; }
+  .pending-item .name { font-weight: 600; color: #fff; }
+  .pending-item .delta { color: #8892b0; font-size: 12px; flex-grow: 1; }
+  .pending-item .delta b { color: #fcd34d; font-weight: 500; }
+  .pending-item .delta .arrow { color: #6c7494; margin: 0 4px; }
+  .pending-actions { display: flex; gap: 5px; }
+  .pending-actions button { padding: 4px 10px; font-size: 11px; border-radius: 6px; cursor: pointer;
+                            border: 1px solid transparent; }
+  .pending-actions .approve { background: rgba(74,222,128,0.15); color: #86efac; border-color: rgba(74,222,128,0.3); }
+  .pending-actions .approve:hover { background: rgba(74,222,128,0.25); }
+  .pending-actions .reject { background: rgba(239,68,68,0.10); color: #fda4af; border-color: rgba(239,68,68,0.25); }
+  .pending-actions .reject:hover { background: rgba(239,68,68,0.20); }
 </style>
 </head>
 <body>
@@ -100,6 +136,34 @@
     <span><b id="editCount">0</b> edits</span>
     <span><b id="addCount">0</b> adds</span>
     <span><b id="delCount">0</b> deletes</span>
+  </div>
+</div>
+
+<div id="pendingBanner">
+  <div class="icon">📥</div>
+  <div>
+    <h3>Pending updates from latest data refresh</h3>
+    <div class="desc" id="pendingSummary">—</div>
+  </div>
+  <div class="grow"></div>
+  <button class="btn primary" id="btnReview">Review &amp; approve</button>
+</div>
+
+<div id="pendingPanel">
+  <div class="pending-section" id="pendingMods">
+    <h4>🔄 Modifications <span class="count" id="modCount">0</span>
+        <button class="btn bulk-btn" id="bulkMods">Approve all</button></h4>
+    <div id="modList"></div>
+  </div>
+  <div class="pending-section" id="pendingAdds">
+    <h4>🆕 New companies <span class="count" id="addCountP">0</span>
+        <button class="btn bulk-btn" id="bulkAdds">Approve all</button></h4>
+    <div id="addList"></div>
+  </div>
+  <div class="pending-section" id="pendingRems">
+    <h4>❌ Proposed removals <span class="count" id="remCount">0</span>
+        <button class="btn bulk-btn" id="bulkRems">Approve all</button></h4>
+    <div id="remList"></div>
   </div>
 </div>
 
@@ -167,8 +231,11 @@ const STORAGE_KEY = 'unicornAdminOverrides_v1';
 // ============================================================================
 //  LOAD
 // ============================================================================
+let PENDING = { additions: [], modifications: [], removals: [] };
+
 async function loadData() {
-  const r = await fetch('./data/unicorns.json?t=' + Date.now());
+  const ts = Date.now();
+  const r = await fetch('./data/unicorns.json?t=' + ts);
   RAW = await r.json();
   // Bootstrap STATE from localStorage if present, else from data/overrides.json
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -176,11 +243,47 @@ async function loadData() {
     try { STATE = JSON.parse(saved); } catch {}
   } else {
     try {
-      const o = await (await fetch('./data/overrides.json?t=' + Date.now())).json();
+      const o = await (await fetch('./data/overrides.json?t=' + ts)).json();
       STATE = { edits: o.edits || {}, additions: o.additions || [], deletions: o.deletions || [] };
     } catch {}
   }
+  // Pending updates from latest data refresh (optional)
+  try {
+    const p = await fetch('./data/pending.json?t=' + ts);
+    if (p.ok) {
+      const obj = await p.json();
+      PENDING = {
+        additions: obj.additions || [],
+        modifications: obj.modifications || [],
+        removals: obj.removals || []
+      };
+    }
+  } catch {}
+  // Strip already-handled pending items so we never re-prompt
+  reconcilePending();
   render();
+  renderPending();
+}
+
+function reconcilePending() {
+  // If something was already approved (in STATE), drop it from the visible pending list.
+  const approvedAdds = new Set((STATE.additions || []).map(a => a.company));
+  PENDING.additions = PENDING.additions.filter(a => !approvedAdds.has(a.company));
+
+  PENDING.modifications = PENDING.modifications.filter(m => {
+    const ed = (STATE.edits || {})[m.company];
+    if (!ed) return true;
+    // If every changed field already in edits matches the proposed value, drop it.
+    return !Object.keys(m.changes).every(f => {
+      const propVal = m.changes[f].to;
+      const edVal = ed[f];
+      if (typeof propVal === 'number') return Math.abs((edVal || 0) - propVal) < 0.5;
+      return (edVal || '') === (propVal || '');
+    });
+  });
+
+  const approvedDels = new Set(STATE.deletions || []);
+  PENDING.removals = PENDING.removals.filter(r => !approvedDels.has(r.company));
 }
 
 function persist() {
@@ -279,6 +382,134 @@ function renderRow(baseRec, rec, status) {
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ============================================================================
+//  PENDING REVIEW
+// ============================================================================
+function renderPending() {
+  const banner  = document.getElementById('pendingBanner');
+  const summary = document.getElementById('pendingSummary');
+  const nA = PENDING.additions.length, nM = PENDING.modifications.length, nR = PENDING.removals.length;
+  const total = nA + nM + nR;
+  if (total === 0) {
+    banner.classList.remove('has-pending');
+    document.getElementById('pendingPanel').classList.remove('open');
+    return;
+  }
+  banner.classList.add('has-pending');
+  summary.textContent = `${nA} new · ${nM} modified · ${nR} removed`;
+
+  document.getElementById('addCountP').textContent = nA;
+  document.getElementById('modCount').textContent = nM;
+  document.getElementById('remCount').textContent = nR;
+
+  document.getElementById('pendingMods').style.display = nM ? '' : 'none';
+  document.getElementById('pendingAdds').style.display = nA ? '' : 'none';
+  document.getElementById('pendingRems').style.display = nR ? '' : 'none';
+
+  const fmtVal = v => '$' + (Number(v||0)/1000).toFixed(1) + 'B';
+
+  // Modifications
+  const modList = document.getElementById('modList');
+  modList.innerHTML = '';
+  PENDING.modifications.forEach((m, i) => {
+    const div = document.createElement('div');
+    div.className = 'pending-item mod';
+    const cs = Object.entries(m.changes).map(([f, v]) => {
+      const from = (f === 'valuation_m') ? fmtVal(v.from) : esc(String(v.from || '—'));
+      const to   = (f === 'valuation_m') ? fmtVal(v.to)   : esc(String(v.to   || '—'));
+      return `<b>${esc(f)}</b> ${from} <span class="arrow">→</span> ${to}`;
+    }).join(' &nbsp; · &nbsp; ');
+    div.innerHTML = `
+      <span class="name">${esc(m.company)}</span>
+      <span class="delta">${cs}</span>
+      <div class="pending-actions">
+        <button class="approve" data-i="${i}">Approve</button>
+        <button class="reject" data-i="${i}">Reject</button>
+      </div>`;
+    div.querySelector('.approve').addEventListener('click', () => approveMod(i));
+    div.querySelector('.reject').addEventListener('click', () => rejectMod(i));
+    modList.appendChild(div);
+  });
+
+  // Additions
+  const addList = document.getElementById('addList');
+  addList.innerHTML = '';
+  PENDING.additions.forEach((a, i) => {
+    const div = document.createElement('div');
+    div.className = 'pending-item add';
+    div.innerHTML = `
+      <span class="name">${esc(a.company)}</span>
+      <span class="delta">${fmtVal(a.valuation_m)} · ${esc(a.country || '—')} · ${esc(a.industry || '—')}</span>
+      <div class="pending-actions">
+        <button class="approve" data-i="${i}">Approve</button>
+        <button class="reject" data-i="${i}">Reject</button>
+      </div>`;
+    div.querySelector('.approve').addEventListener('click', () => approveAdd(i));
+    div.querySelector('.reject').addEventListener('click', () => rejectAdd(i));
+    addList.appendChild(div);
+  });
+
+  // Removals
+  const remList = document.getElementById('remList');
+  remList.innerHTML = '';
+  PENDING.removals.forEach((r, i) => {
+    const div = document.createElement('div');
+    div.className = 'pending-item rem';
+    div.innerHTML = `
+      <span class="name">${esc(r.company)}</span>
+      <span class="delta">${fmtVal(r.valuation_m)} · ${esc(r.country || '—')} · removed from upstream</span>
+      <div class="pending-actions">
+        <button class="approve" data-i="${i}">Approve</button>
+        <button class="reject" data-i="${i}">Reject</button>
+      </div>`;
+    div.querySelector('.approve').addEventListener('click', () => approveRem(i));
+    div.querySelector('.reject').addEventListener('click', () => rejectRem(i));
+    remList.appendChild(div);
+  });
+}
+
+function approveMod(i) {
+  const m = PENDING.modifications[i];
+  if (!m) return;
+  STATE.edits[m.company] = STATE.edits[m.company] || {};
+  for (const [f, v] of Object.entries(m.changes)) {
+    STATE.edits[m.company][f] = v.to;
+    if (f === 'valuation_m') {
+      STATE.edits[m.company].valuation_str = '$' + (v.to/1000) + 'B';
+    }
+  }
+  PENDING.modifications.splice(i, 1);
+  persist(); render(); renderPending();
+  toast(`Approved: ${m.company}`);
+}
+function rejectMod(i) { PENDING.modifications.splice(i, 1); renderPending(); toast('Rejected'); }
+
+function approveAdd(i) {
+  const a = PENDING.additions[i];
+  if (!a) return;
+  STATE.additions.push(a);
+  PENDING.additions.splice(i, 1);
+  persist(); render(); renderPending();
+  toast(`Added: ${a.company}`);
+}
+function rejectAdd(i) { PENDING.additions.splice(i, 1); renderPending(); toast('Rejected'); }
+
+function approveRem(i) {
+  const r = PENDING.removals[i];
+  if (!r) return;
+  if (!STATE.deletions.includes(r.company)) STATE.deletions.push(r.company);
+  PENDING.removals.splice(i, 1);
+  persist(); render(); renderPending();
+  toast(`Removed: ${r.company}`);
+}
+function rejectRem(i) { PENDING.removals.splice(i, 1); renderPending(); toast('Rejected'); }
+
+function bulkApprove(kind) {
+  if (kind === 'mod') for (let i = PENDING.modifications.length - 1; i >= 0; i--) approveMod(i);
+  if (kind === 'add') for (let i = PENDING.additions.length - 1; i >= 0; i--) approveAdd(i);
+  if (kind === 'rem') for (let i = PENDING.removals.length - 1; i >= 0; i--) approveRem(i);
+}
 
 // ============================================================================
 //  EDIT / ADD MODAL
@@ -463,6 +694,14 @@ document.querySelectorAll('.filter-pill').forEach(el => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && document.getElementById('modalBg').classList.contains('open')) closeModal();
 });
+
+// Pending-review wiring
+document.getElementById('btnReview').addEventListener('click', () => {
+  document.getElementById('pendingPanel').classList.toggle('open');
+});
+document.getElementById('bulkMods').addEventListener('click', () => bulkApprove('mod'));
+document.getElementById('bulkAdds').addEventListener('click', () => bulkApprove('add'));
+document.getElementById('bulkRems').addEventListener('click', () => bulkApprove('rem'));
 
 loadData().catch(err => {
   document.body.innerHTML = '<h1>Failed to load data</h1><p style="color:#ff6b8a">' + esc(err.message) +
