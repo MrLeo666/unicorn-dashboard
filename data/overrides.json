@@ -1,5 +1,27 @@
 {
-  "edits": {},
+  "edits": {
+    "Anthropic": {
+      "valuation_m": 900000,
+      "valuation_str": "$900B"
+    },
+    "Talent": {
+      "companyZh": "太蓝新能源"
+    },
+    "Busy": {
+      "companyZh": "良品铺子"
+    },
+    "Beijing": {
+      "companyZh": "北汽蓝谷"
+    },
+    "Jue": {
+      "companyZh": "觉芯科技",
+      "valuation_str": "$4B"
+    },
+    "Shein": {
+      "companyZh": "",
+      "pinyinInitial": "S"
+    }
+  },
   "additions": [],
   "deletions": []
 }
