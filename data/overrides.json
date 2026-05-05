@@ -20,6 +20,10 @@
     "Shein": {
       "companyZh": "",
       "pinyinInitial": "S"
+    },
+    "ByteDance": {
+      "valuation_m": 580000,
+      "valuation_str": "$580B"
     }
   },
   "additions": [],
