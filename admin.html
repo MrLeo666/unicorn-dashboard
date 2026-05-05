@@ -121,10 +121,12 @@
 
 <div class="toolbar">
   <button class="btn primary" id="btnAdd">+ Add company</button>
-  <button class="btn" id="btnImport">Import overrides…</button>
+  <button class="btn" id="btnPublish" title="Push overrides directly to GitHub">📤 Publish</button>
+  <button class="btn" id="btnImport">Import…</button>
   <input type="file" id="fileInput" accept="application/json" style="display:none">
-  <button class="btn" id="btnExport">Export overrides ↓</button>
-  <button class="btn danger" id="btnReset">Reset all changes</button>
+  <button class="btn" id="btnExport">Export ↓</button>
+  <button class="btn" id="btnSettings" title="Configure GitHub publishing">⚙</button>
+  <button class="btn danger" id="btnReset">Reset</button>
   <input type="text" id="search" placeholder="Search by name / 中文 / country…">
   <span class="filter-pill active" data-filter="all">All</span>
   <span class="filter-pill" data-filter="edited">Edited</span>
@@ -190,6 +192,38 @@
   <summary>Live overrides preview (this is what gets exported)</summary>
   <pre id="overridesPreview"></pre>
 </details>
+
+<!-- Settings Modal -->
+<div class="modal-bg" id="settingsBg">
+  <div class="modal">
+    <h2>GitHub publishing</h2>
+    <p style="color:#8892b0;font-size:13px;margin-bottom:14px;line-height:1.5">
+      Configure once, then click <b>Publish</b> to push <code>data/overrides.json</code> directly to your repo —
+      no local git, no terminal. Your token is stored only in this browser's localStorage.
+    </p>
+    <div class="field"><label>Repo (owner/name)</label>
+      <input id="cfg_repo" type="text" placeholder="MrLeo666/unicorn-dashboard"></div>
+    <div class="field"><label>Branch</label>
+      <input id="cfg_branch" type="text" placeholder="main" value="main"></div>
+    <div class="field"><label>Personal Access Token</label>
+      <input id="cfg_token" type="password" placeholder="github_pat_… or ghp_…">
+      <div style="font-size:11px;color:#8892b0;margin-top:6px;line-height:1.55">
+        Generate at <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" style="color:#5b8def">github.com/settings/personal-access-tokens/new</a>.
+        Recommended: <b>Fine-grained token</b> · This repository only · Repository permissions → <b>Contents: Read and write</b>.
+        90-day expiration is fine.
+      </div>
+    </div>
+    <div class="field" style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+      <button class="btn" id="cfgTest">Test connection</button>
+      <span id="cfgStatus" style="font-size:12px;color:#8892b0"></span>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn" id="settingsCancel">Cancel</button>
+      <button class="btn danger" id="settingsForget" title="Erase token from this browser">Forget token</button>
+      <button class="btn primary" id="settingsSave">Save</button>
+    </div>
+  </div>
+</div>
 
 <!-- Edit / Add Modal -->
 <div class="modal-bg" id="modalBg">
@@ -669,9 +703,171 @@ function toast(msg) {
 }
 
 // ============================================================================
+//  GITHUB PUBLISHING (PAT + Contents API)
+// ============================================================================
+const CFG_KEY = 'unicornAdminGitConfig_v1';
+
+function getCfg() {
+  try { return JSON.parse(localStorage.getItem(CFG_KEY)) || {}; }
+  catch { return {}; }
+}
+function setCfg(c) { localStorage.setItem(CFG_KEY, JSON.stringify(c)); }
+function clearCfgToken() {
+  const c = getCfg();
+  delete c.token;
+  setCfg(c);
+}
+
+// Build the overrides.json payload from current STATE (mirrors exportOverrides).
+function buildOverridesPayload() {
+  const edits = {};
+  for (const k of Object.keys(STATE.edits)) {
+    if (Object.keys(STATE.edits[k]).length > 0) edits[k] = STATE.edits[k];
+  }
+  return {
+    edits,
+    additions: STATE.additions.filter(a => a.company),
+    deletions: STATE.deletions.slice()
+  };
+}
+
+// UTF-8 safe base64 (handles Chinese characters).
+function b64encode(s) {
+  return btoa(unescape(encodeURIComponent(s)));
+}
+
+async function ghGet(cfg, path) {
+  const url = `https://api.github.com/repos/${cfg.repo}/contents/${path}?ref=${encodeURIComponent(cfg.branch || 'main')}`;
+  return fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${cfg.token}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  });
+}
+
+async function ghPut(cfg, path, body) {
+  const url = `https://api.github.com/repos/${cfg.repo}/contents/${path}`;
+  return fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${cfg.token}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+}
+
+async function publishOverrides() {
+  const cfg = getCfg();
+  if (!cfg.token || !cfg.repo) {
+    openSettings();
+    toast('Configure your GitHub repo + token first');
+    return;
+  }
+  const path = 'data/overrides.json';
+  const payload = buildOverridesPayload();
+  const json = JSON.stringify(payload, null, 2) + '\n';
+  const content = b64encode(json);
+
+  // 1) Get current SHA (404 means file doesn't exist yet — we'll create it)
+  toast('Reading current overrides.json…');
+  const getRes = await ghGet(cfg, path);
+  let sha = null;
+  if (getRes.ok) {
+    sha = (await getRes.json()).sha;
+  } else if (getRes.status !== 404) {
+    const err = await getRes.json().catch(() => ({}));
+    toast(`GET failed: ${getRes.status} ${err.message || ''}`);
+    return;
+  }
+
+  // 2) PUT new content
+  toast('Pushing to GitHub…');
+  const putRes = await ghPut(cfg, path, {
+    message: 'data: admin overrides via web UI',
+    content,
+    branch: cfg.branch || 'main',
+    ...(sha ? { sha } : {})
+  });
+  if (!putRes.ok) {
+    const err = await putRes.json().catch(() => ({}));
+    toast(`Publish failed: ${putRes.status} ${err.message || 'check token & repo'}`);
+    return;
+  }
+  const result = await putRes.json();
+  const commitUrl = result.commit && result.commit.html_url;
+  toast('✓ Published! Pages will rebuild in ~30s');
+  if (commitUrl) console.log('Committed:', commitUrl);
+}
+
+// ----- Settings modal -----
+function openSettings() {
+  const c = getCfg();
+  document.getElementById('cfg_repo').value = c.repo || '';
+  document.getElementById('cfg_branch').value = c.branch || 'main';
+  document.getElementById('cfg_token').value = c.token || '';
+  document.getElementById('cfgStatus').textContent = '';
+  document.getElementById('settingsBg').classList.add('open');
+}
+function closeSettings() { document.getElementById('settingsBg').classList.remove('open'); }
+function saveSettings() {
+  const repo = document.getElementById('cfg_repo').value.trim();
+  const branch = document.getElementById('cfg_branch').value.trim() || 'main';
+  const token = document.getElementById('cfg_token').value.trim();
+  if (repo && !/^[\w.-]+\/[\w.-]+$/.test(repo)) {
+    toast('Repo must be in "owner/name" format');
+    return;
+  }
+  setCfg({ repo, branch, token });
+  closeSettings();
+  toast('Settings saved');
+}
+async function testConnection() {
+  const cfg = {
+    repo: document.getElementById('cfg_repo').value.trim(),
+    branch: document.getElementById('cfg_branch').value.trim() || 'main',
+    token: document.getElementById('cfg_token').value.trim(),
+  };
+  const status = document.getElementById('cfgStatus');
+  if (!cfg.repo || !cfg.token) { status.textContent = 'Fill repo + token first'; return; }
+  status.textContent = 'Testing…';
+  try {
+    const r = await ghGet(cfg, 'data/overrides.json');
+    if (r.ok || r.status === 404) {
+      status.style.color = '#86efac';
+      status.textContent = '✓ Connected (' + cfg.repo + ')';
+    } else {
+      const err = await r.json().catch(() => ({}));
+      status.style.color = '#fda4af';
+      status.textContent = '✗ ' + r.status + ' ' + (err.message || '');
+    }
+  } catch (e) {
+    status.style.color = '#fda4af';
+    status.textContent = '✗ ' + e.message;
+  }
+}
+
+// ============================================================================
 //  WIRING
 // ============================================================================
 document.getElementById('btnAdd').addEventListener('click', openAddModal);
+document.getElementById('btnPublish').addEventListener('click', publishOverrides);
+document.getElementById('btnSettings').addEventListener('click', openSettings);
+document.getElementById('settingsCancel').addEventListener('click', closeSettings);
+document.getElementById('settingsSave').addEventListener('click', saveSettings);
+document.getElementById('settingsForget').addEventListener('click', () => {
+  clearCfgToken();
+  document.getElementById('cfg_token').value = '';
+  toast('Token erased from this browser');
+});
+document.getElementById('cfgTest').addEventListener('click', testConnection);
+document.getElementById('settingsBg').addEventListener('click', e => {
+  if (e.target.id === 'settingsBg') closeSettings();
+});
 document.getElementById('btnExport').addEventListener('click', exportOverrides);
 document.getElementById('btnImport').addEventListener('click', () => document.getElementById('fileInput').click());
 document.getElementById('fileInput').addEventListener('change', e => {
@@ -692,7 +888,10 @@ document.querySelectorAll('.filter-pill').forEach(el => {
   });
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('modalBg').classList.contains('open')) closeModal();
+  if (e.key === 'Escape') {
+    if (document.getElementById('modalBg').classList.contains('open')) closeModal();
+    if (document.getElementById('settingsBg').classList.contains('open')) closeSettings();
+  }
 });
 
 // Pending-review wiring
