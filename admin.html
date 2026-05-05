@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unicorn Dashboard — Admin</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+               background: #0a0e27; color: #e8ecf4; min-height: 100vh; }
+  body { padding: 20px 28px 60px; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .sub { font-size: 13px; color: #8892b0; margin-bottom: 22px; }
+  .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 16px;
+             padding: 14px 18px; background: rgba(15, 21, 50, 0.6); border-radius: 12px;
+             border: 1px solid rgba(255,255,255,0.07); position: sticky; top: 12px; z-index: 5;
+             backdrop-filter: blur(14px); }
+  .btn { padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500;
+         background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+         color: #c5cce0; transition: all 0.12s ease; }
+  .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .btn.primary { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+  .btn.danger { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.3); color: #fda4af; }
+  .stats { color: #8892b0; font-size: 12px; margin-left: auto; display: flex; gap: 18px; }
+  .stats b { color: #fff; font-weight: 600; font-size: 14px; }
+  input[type="text"], input[type="number"], select, textarea {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); color: #fff;
+    padding: 7px 10px; border-radius: 6px; font: inherit; font-size: 13px; outline: none;
+  }
+  input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+    border-color: #5b8def;
+  }
+  #search { width: 280px; }
+  .filter-pill { padding: 6px 12px; border-radius: 999px; font-size: 12px; cursor: pointer;
+                 background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #c5cce0; user-select: none; }
+  .filter-pill.active { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { position: sticky; top: 76px; background: #0a0e27; z-index: 2; }
+  th { text-align: left; padding: 10px 12px; font-weight: 500; color: #8892b0; font-size: 11px;
+       text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  tr.edited td { background: rgba(91,141,239,0.06); }
+  tr.deleted td { opacity: 0.4; text-decoration: line-through; }
+  tr.added td { background: rgba(74,222,128,0.06); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 10px;
+           letter-spacing: 0.4px; text-transform: uppercase; font-weight: 500; }
+  .badge.edited { background: rgba(91,141,239,0.2); color: #93c5fd; }
+  .badge.added { background: rgba(74,222,128,0.2); color: #86efac; }
+  .badge.deleted { background: rgba(239,68,68,0.2); color: #fda4af; }
+  .badge.src-wiki { background: rgba(168,85,247,0.15); color: #d8b4fe; }
+  .badge.src-pb { background: rgba(245,158,11,0.15); color: #fcd34d; }
+  .badge.src-admin { background: rgba(74,222,128,0.15); color: #86efac; }
+  .small { font-size: 11px; color: #8892b0; }
+  .row-actions { display: flex; gap: 6px; }
+  .row-actions button { padding: 4px 10px; font-size: 12px; }
+  /* Modal */
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none;
+              align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(4px); }
+  .modal-bg.open { display: flex; }
+  .modal { background: #15193b; border-radius: 14px; padding: 24px 28px; max-width: 560px; width: 92%;
+           border: 1px solid rgba(255,255,255,0.10); max-height: 90vh; overflow-y: auto; }
+  .modal h2 { font-size: 18px; margin-bottom: 16px; font-weight: 600; }
+  .modal .field { margin-bottom: 14px; }
+  .modal .field label { display: block; font-size: 11px; color: #8892b0; margin-bottom: 4px;
+                        text-transform: uppercase; letter-spacing: 0.6px; }
+  .modal .field input, .modal .field select, .modal .field textarea { width: 100%; }
+  .modal .field textarea { min-height: 70px; resize: vertical; }
+  .modal-buttons { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+           background: rgba(15,21,50,0.95); border: 1px solid rgba(255,255,255,0.15); padding: 12px 20px;
+           border-radius: 10px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+           backdrop-filter: blur(8px); z-index: 200; font-size: 13px; }
+  .toast.show { opacity: 1; }
+  .empty { padding: 40px; text-align: center; color: #6c7494; }
+  details { margin-top: 14px; padding: 10px 14px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+  details summary { cursor: pointer; color: #8892b0; font-size: 12px; }
+  details pre { font-family: ui-monospace, monospace; font-size: 11px; color: #c5cce0;
+                margin-top: 10px; max-height: 200px; overflow: auto; }
+</style>
+</head>
+<body>
+
+<h1>Unicorn Dashboard — Admin</h1>
+<div class="sub">Edit data manually here, export <code>overrides.json</code>, commit it to the repo. The merge script will apply your overrides on top of the next Wikipedia scrape.</div>
+
+<div class="toolbar">
+  <button class="btn primary" id="btnAdd">+ Add company</button>
+  <button class="btn" id="btnImport">Import overrides…</button>
+  <input type="file" id="fileInput" accept="application/json" style="display:none">
+  <button class="btn" id="btnExport">Export overrides ↓</button>
+  <button class="btn danger" id="btnReset">Reset all changes</button>
+  <input type="text" id="search" placeholder="Search by name / 中文 / country…">
+  <span class="filter-pill active" data-filter="all">All</span>
+  <span class="filter-pill" data-filter="edited">Edited</span>
+  <span class="filter-pill" data-filter="added">Added</span>
+  <span class="filter-pill" data-filter="deleted">Deleted</span>
+  <span class="filter-pill" data-filter="cn">Chinese only</span>
+  <div class="stats">
+    <span><b id="totalCount">—</b> total</span>
+    <span><b id="editCount">0</b> edits</span>
+    <span><b id="addCount">0</b> adds</span>
+    <span><b id="delCount">0</b> deletes</span>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:46px">#</th>
+      <th>Company</th>
+      <th>中文 / 拼音</th>
+      <th>Valuation</th>
+      <th>Country</th>
+      <th>Industry</th>
+      <th>Source</th>
+      <th style="width:140px">Status</th>
+      <th style="width:160px">Actions</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<div id="emptyMsg" class="empty" style="display:none;">No companies match your filter.</div>
+
+<details>
+  <summary>Live overrides preview (this is what gets exported)</summary>
+  <pre id="overridesPreview"></pre>
+</details>
+
+<!-- Edit / Add Modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2 id="modalTitle">Edit company</h2>
+    <div class="field"><label>Company (English)</label><input id="f_company" type="text"></div>
+    <div class="field"><label>Chinese name (companyZh)</label><input id="f_companyZh" type="text" placeholder="字节跳动 / leave blank for non-Chinese"></div>
+    <div class="field"><label>Pinyin first letter</label><input id="f_pinyinInitial" type="text" maxlength="1" placeholder="Z" style="width:80px"></div>
+    <div class="field"><label>Valuation ($B, e.g. 1.5)</label><input id="f_valuation_b" type="number" step="0.1" min="0"></div>
+    <div class="field"><label>Country</label><input id="f_country" type="text"></div>
+    <div class="field"><label>Industry</label>
+      <select id="f_industry">
+        <option value="">—</option>
+        <option>AI/ML</option><option>Robotics</option><option>Crypto/Web3</option>
+        <option>Fintech</option><option>Biotech/Health</option><option>Semiconductors</option>
+        <option>Aerospace/Defense</option><option>Climate/Energy</option><option>Cybersecurity</option>
+        <option>SaaS/Enterprise</option><option>Consumer</option><option>Other</option>
+      </select>
+    </div>
+    <div class="field"><label>Description</label><textarea id="f_description"></textarea></div>
+    <div class="field"><label>Wikipedia link</label><input id="f_wikiLink" type="text" placeholder="https://en.wikipedia.org/wiki/..."></div>
+    <div class="modal-buttons">
+      <button class="btn" id="modalCancel">Cancel</button>
+      <button class="btn primary" id="modalSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================================
+//  STATE
+// ============================================================================
+let RAW = [];                                     // unicorns.json (read-only baseline)
+let STATE = { edits: {}, additions: [], deletions: [] };
+const STORAGE_KEY = 'unicornAdminOverrides_v1';
+
+// ============================================================================
+//  LOAD
+// ============================================================================
+async function loadData() {
+  const r = await fetch('./data/unicorns.json?t=' + Date.now());
+  RAW = await r.json();
+  // Bootstrap STATE from localStorage if present, else from data/overrides.json
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try { STATE = JSON.parse(saved); } catch {}
+  } else {
+    try {
+      const o = await (await fetch('./data/overrides.json?t=' + Date.now())).json();
+      STATE = { edits: o.edits || {}, additions: o.additions || [], deletions: o.deletions || [] };
+    } catch {}
+  }
+  render();
+}
+
+function persist() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
+}
+
+// ============================================================================
+//  RENDER
+// ============================================================================
+let currentFilter = 'all';
+
+function effective(rec) {
+  // Returns the rendered version of a base record after applying STATE.edits
+  const e = STATE.edits[rec.company];
+  if (!e) return rec;
+  return Object.assign({}, rec, e);
+}
+
+function statusOf(rec) {
+  if (STATE.deletions.includes(rec.company)) return 'deleted';
+  if (STATE.edits[rec.company]) return 'edited';
+  return null;
+}
+
+function render() {
+  const search = document.getElementById('search').value.trim().toLowerCase();
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+
+  // Combine: base records + additions
+  const additions = STATE.additions.map((a, i) => Object.assign({}, a, {
+    _isAddition: true, _addIdx: i, source: 'admin'
+  }));
+  const all = RAW.concat(additions);
+
+  let visible = 0;
+  for (const baseRec of all) {
+    const rec = baseRec._isAddition ? baseRec : effective(baseRec);
+    const status = baseRec._isAddition ? 'added' : statusOf(baseRec);
+
+    // Filter
+    if (currentFilter === 'edited' && status !== 'edited') continue;
+    if (currentFilter === 'added' && !baseRec._isAddition) continue;
+    if (currentFilter === 'deleted' && status !== 'deleted') continue;
+    if (currentFilter === 'cn') {
+      const c = (rec.country || '').toLowerCase();
+      if (!c.includes('china') && !c.includes('hong kong')) continue;
+    }
+    if (search) {
+      const haystack = [rec.company, rec.companyZh, rec.country, rec.industry, rec.pinyinInitial]
+        .filter(Boolean).join(' ').toLowerCase();
+      if (!haystack.includes(search)) continue;
+    }
+    visible++;
+    tbody.appendChild(renderRow(baseRec, rec, status));
+  }
+
+  document.getElementById('emptyMsg').style.display = visible === 0 ? 'block' : 'none';
+  document.getElementById('totalCount').textContent = RAW.length + STATE.additions.length;
+  document.getElementById('editCount').textContent = Object.keys(STATE.edits).length;
+  document.getElementById('addCount').textContent = STATE.additions.length;
+  document.getElementById('delCount').textContent = STATE.deletions.length;
+  document.getElementById('overridesPreview').textContent = JSON.stringify(STATE, null, 2);
+}
+
+function renderRow(baseRec, rec, status) {
+  const tr = document.createElement('tr');
+  if (status) tr.classList.add(status);
+  if (baseRec._isAddition) tr.classList.add('added');
+  const valStr = rec.valuation_str || '$' + (Number(rec.valuation_m||0)/1000).toFixed(1) + 'B';
+  const zh = rec.companyZh && rec.companyZh !== rec.company
+    ? `<div>${esc(rec.companyZh)}</div><div class="small">${esc(rec.pinyinInitial || '')}</div>`
+    : `<div class="small">—</div>`;
+  const sourceBadge = `<span class="badge src-${rec.source||'pb'}">${esc(rec.source||'pb')}</span>`;
+  const statusBadge = baseRec._isAddition
+    ? '<span class="badge added">Added</span>'
+    : status ? `<span class="badge ${status}">${status}</span>` : '';
+
+  tr.innerHTML = `
+    <td class="small">${esc(String(rec.id || ''))}</td>
+    <td><div><b>${esc(rec.company)}</b></div><div class="small">${esc(rec.industry || '')}</div></td>
+    <td>${zh}</td>
+    <td>${esc(valStr)}</td>
+    <td>${esc(rec.country || '')}</td>
+    <td>${esc(rec.industry || '')}</td>
+    <td>${sourceBadge}</td>
+    <td>${statusBadge}</td>
+    <td class="row-actions">
+      <button class="btn" data-act="edit">Edit</button>
+      <button class="btn danger" data-act="del">${status === 'deleted' || baseRec._isAddition ? '✕' : 'Delete'}</button>
+    </td>`;
+  tr.querySelector('[data-act="edit"]').addEventListener('click', () => openEditModal(baseRec));
+  tr.querySelector('[data-act="del"]').addEventListener('click', () => toggleDelete(baseRec));
+  return tr;
+}
+
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ============================================================================
+//  EDIT / ADD MODAL
+// ============================================================================
+let modalContext = null;  // {kind:'edit', baseRec} or {kind:'add'} or {kind:'edit-add', addIdx}
+
+function openEditModal(baseRec) {
+  const rec = baseRec._isAddition ? baseRec : effective(baseRec);
+  modalContext = baseRec._isAddition
+    ? { kind: 'edit-add', addIdx: baseRec._addIdx }
+    : { kind: 'edit', baseRec };
+  document.getElementById('modalTitle').textContent = 'Edit: ' + rec.company;
+  fillModal(rec);
+  document.getElementById('modalBg').classList.add('open');
+}
+
+function openAddModal() {
+  modalContext = { kind: 'add' };
+  document.getElementById('modalTitle').textContent = 'Add new company';
+  fillModal({});
+  document.getElementById('modalBg').classList.add('open');
+}
+
+function fillModal(rec) {
+  document.getElementById('f_company').value = rec.company || '';
+  document.getElementById('f_companyZh').value = rec.companyZh || '';
+  document.getElementById('f_pinyinInitial').value = rec.pinyinInitial || '';
+  document.getElementById('f_valuation_b').value = rec.valuation_m ? (rec.valuation_m / 1000) : '';
+  document.getElementById('f_country').value = rec.country || '';
+  document.getElementById('f_industry').value = rec.industry || '';
+  document.getElementById('f_description').value = rec.description || '';
+  document.getElementById('f_wikiLink').value = rec.wikiLink || '';
+}
+
+function readModal() {
+  const valB = parseFloat(document.getElementById('f_valuation_b').value);
+  return {
+    company: document.getElementById('f_company').value.trim(),
+    companyZh: document.getElementById('f_companyZh').value.trim(),
+    pinyinInitial: document.getElementById('f_pinyinInitial').value.trim().toUpperCase(),
+    valuation_m: isNaN(valB) ? 0 : valB * 1000,
+    valuation_str: isNaN(valB) ? '' : '$' + valB + 'B',
+    country: document.getElementById('f_country').value.trim(),
+    industry: document.getElementById('f_industry').value.trim(),
+    description: document.getElementById('f_description').value.trim(),
+    wikiLink: document.getElementById('f_wikiLink').value.trim(),
+  };
+}
+
+function saveModal() {
+  const v = readModal();
+  if (!v.company) { toast('Company name required'); return; }
+  if (modalContext.kind === 'add') {
+    STATE.additions.push(v);
+  } else if (modalContext.kind === 'edit-add') {
+    STATE.additions[modalContext.addIdx] = v;
+  } else {
+    // Edit on a base record: store ONLY changed fields (compared to base)
+    const base = modalContext.baseRec;
+    const diff = {};
+    for (const k of Object.keys(v)) {
+      const baseVal = base[k];
+      const newVal = v[k];
+      if ((baseVal || '') !== (newVal || '') && !(k === 'valuation_str' && !newVal)) {
+        diff[k] = newVal;
+      }
+    }
+    // Always strip companyZh/pinyinInitial if cleared
+    if (Object.keys(diff).length === 0) {
+      delete STATE.edits[base.company];
+    } else {
+      STATE.edits[base.company] = diff;
+    }
+  }
+  closeModal();
+  persist();
+  render();
+  toast('Saved (' + Object.keys(STATE.edits).length + ' edits, ' + STATE.additions.length + ' adds)');
+}
+
+function closeModal() {
+  document.getElementById('modalBg').classList.remove('open');
+  modalContext = null;
+}
+
+function toggleDelete(baseRec) {
+  if (baseRec._isAddition) {
+    STATE.additions.splice(baseRec._addIdx, 1);
+  } else {
+    const co = baseRec.company;
+    const i = STATE.deletions.indexOf(co);
+    if (i >= 0) STATE.deletions.splice(i, 1);
+    else STATE.deletions.push(co);
+  }
+  persist();
+  render();
+}
+
+// ============================================================================
+//  IMPORT / EXPORT / RESET
+// ============================================================================
+function exportOverrides() {
+  // Strip empty edit objects
+  const edits = {};
+  for (const k of Object.keys(STATE.edits)) {
+    if (Object.keys(STATE.edits[k]).length > 0) edits[k] = STATE.edits[k];
+  }
+  const out = {
+    edits,
+    additions: STATE.additions.filter(a => a.company),
+    deletions: STATE.deletions.slice()
+  };
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'overrides.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('overrides.json downloaded — commit to data/ in your repo');
+}
+
+function importOverrides(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const o = JSON.parse(e.target.result);
+      STATE = {
+        edits: o.edits || {},
+        additions: o.additions || [],
+        deletions: o.deletions || []
+      };
+      persist();
+      render();
+      toast('Imported ' + Object.keys(STATE.edits).length + ' edits, ' + STATE.additions.length + ' adds, ' + STATE.deletions.length + ' deletes');
+    } catch (err) {
+      toast('Import failed: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetAll() {
+  if (!confirm('Discard ALL local edits, additions, and deletions? This cannot be undone.')) return;
+  STATE = { edits: {}, additions: [], deletions: [] };
+  persist();
+  render();
+  toast('Reset done');
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ============================================================================
+//  WIRING
+// ============================================================================
+document.getElementById('btnAdd').addEventListener('click', openAddModal);
+document.getElementById('btnExport').addEventListener('click', exportOverrides);
+document.getElementById('btnImport').addEventListener('click', () => document.getElementById('fileInput').click());
+document.getElementById('fileInput').addEventListener('change', e => {
+  if (e.target.files[0]) importOverrides(e.target.files[0]);
+  e.target.value = '';
+});
+document.getElementById('btnReset').addEventListener('click', resetAll);
+document.getElementById('modalSave').addEventListener('click', saveModal);
+document.getElementById('modalCancel').addEventListener('click', closeModal);
+document.getElementById('modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
+document.getElementById('search').addEventListener('input', () => render());
+document.querySelectorAll('.filter-pill').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(x => x.classList.remove('active'));
+    el.classList.add('active');
+    currentFilter = el.dataset.filter;
+    render();
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('modalBg').classList.contains('open')) closeModal();
+});
+
+loadData().catch(err => {
+  document.body.innerHTML = '<h1>Failed to load data</h1><p style="color:#ff6b8a">' + esc(err.message) +
+    '</p><p>Make sure <code>data/unicorns.json</code> exists and the page is served via HTTP (not file://).</p>';
+});
+</script>
+</body>
+</html>

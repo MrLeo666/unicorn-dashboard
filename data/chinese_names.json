@@ -1,0 +1,434 @@
+{
+  "58 Daojia": {
+    "pinyin": "W",
+    "zh": "58到家"
+  },
+  "AI2": {
+    "pinyin": "Z",
+    "zh": "智元机器人 (?)"
+  },
+  "Aiways": {
+    "pinyin": "A",
+    "zh": "爱驰"
+  },
+  "Apus Group": {
+    "pinyin": "A",
+    "zh": "APUS"
+  },
+  "Axera": {
+    "pinyin": "A",
+    "zh": "爱芯元智"
+  },
+  "Beibei": {
+    "pinyin": "B",
+    "zh": "贝贝网"
+  },
+  "Beijing": {
+    "pinyin": "B",
+    "zh": "北汽蓝谷 (?)"
+  },
+  "Bitmain": {
+    "pinyin": "B",
+    "zh": "比特大陆"
+  },
+  "Busy": {
+    "pinyin": "L",
+    "zh": "良品铺子 (?)"
+  },
+  "ByteDance": {
+    "pinyin": "Z",
+    "zh": "字节跳动"
+  },
+  "CRRC": {
+    "pinyin": "Z",
+    "zh": "中车"
+  },
+  "Centennial": {
+    "pinyin": "B",
+    "zh": "百年人寿"
+  },
+  "Chehaoduo": {
+    "pinyin": "C",
+    "zh": "车好多"
+  },
+  "Chongqing": {
+    "pinyin": "C",
+    "zh": "重庆芯讯 (?)"
+  },
+  "Chubao Technology": {
+    "pinyin": "C",
+    "zh": "储宝科技 (?)"
+  },
+  "DJI": {
+    "pinyin": "D",
+    "zh": "大疆"
+  },
+  "DXY": {
+    "pinyin": "D",
+    "zh": "丁香园"
+  },
+  "Dingxin": {
+    "pinyin": "D",
+    "zh": "鼎芯"
+  },
+  "Dt Dream": {
+    "pinyin": "S",
+    "zh": "数梦工场"
+  },
+  "ETCP": {
+    "pinyin": "S",
+    "zh": "速通停车"
+  },
+  "Elite": {
+    "pinyin": "J",
+    "zh": "节卡机器人 (?)"
+  },
+  "EngineAi": {
+    "pinyin": "Z",
+    "zh": "众擎机器人 (?)"
+  },
+  "FXiaoKe": {
+    "pinyin": "F",
+    "zh": "纷享销客"
+  },
+  "Firstp2p": {
+    "pinyin": "F",
+    "zh": "First P2P"
+  },
+  "Fosun": {
+    "pinyin": "F",
+    "zh": "复星"
+  },
+  "Fourier": {
+    "pinyin": "F",
+    "zh": "傅利叶智能"
+  },
+  "GalBot": {
+    "pinyin": "Y",
+    "zh": "银河通用"
+  },
+  "Galaxea": {
+    "pinyin": "X",
+    "zh": "星海图"
+  },
+  "Game": {
+    "pinyin": "Y",
+    "zh": "未知游戏 (?)"
+  },
+  "GigaAI": {
+    "pinyin": "J",
+    "zh": "极佳视界 (?)"
+  },
+  "HIPAC": {
+    "pinyin": "H",
+    "zh": "海拍客"
+  },
+  "Hello TransTech": {
+    "pinyin": "H",
+    "zh": "哈啰出行"
+  },
+  "Hellobike": {
+    "pinyin": "H",
+    "zh": "哈啰单车"
+  },
+  "HeyTea": {
+    "pinyin": "X",
+    "zh": "喜茶"
+  },
+  "Honor": {
+    "pinyin": "R",
+    "zh": "荣耀监管 (?)"
+  },
+  "Huihe": {
+    "pinyin": "H",
+    "zh": "汇禾医疗"
+  },
+  "Huikedu Group": {
+    "pinyin": "H",
+    "zh": "慧科教育"
+  },
+  "Huimin.cn": {
+    "pinyin": "H",
+    "zh": "惠民网"
+  },
+  "ICLeague": {
+    "pinyin": "A",
+    "zh": "爱集微 (?)"
+  },
+  "Immorta": {
+    "pinyin": "H",
+    "zh": "黑芝麻智能 (?)"
+  },
+  "Iwjw": {
+    "pinyin": "A",
+    "zh": "爱屋吉屋"
+  },
+  "Jollychic": {
+    "pinyin": "Z",
+    "zh": "执御"
+  },
+  "Jue": {
+    "pinyin": "J",
+    "zh": "觉芯科技 (?)"
+  },
+  "Keyuan": {
+    "pinyin": "K",
+    "zh": "科元化工 (?)"
+  },
+  "Klook": {
+    "pinyin": "K",
+    "zh": "客路"
+  },
+  "Koudai Gouwu": {
+    "pinyin": "K",
+    "zh": "口袋购物"
+  },
+  "Kr Space": {
+    "pinyin": "K",
+    "zh": "氪空间"
+  },
+  "KylinSoft": {
+    "pinyin": "Q",
+    "zh": "麒麟软件"
+  },
+  "Lalamove": {
+    "pinyin": "H",
+    "zh": "货拉拉"
+  },
+  "LinkSure Network": {
+    "pinyin": "L",
+    "zh": "连尚网络"
+  },
+  "Luoji Siwei": {
+    "pinyin": "L",
+    "zh": "罗辑思维"
+  },
+  "LuxVisions": {
+    "pinyin": "L",
+    "zh": "立景创新"
+  },
+  "Maimai": {
+    "pinyin": "M",
+    "zh": "脉脉"
+  },
+  "Megvii": {
+    "pinyin": "K",
+    "zh": "旷视"
+  },
+  "Meicai.cn": {
+    "pinyin": "M",
+    "zh": "美菜网"
+  },
+  "Mia.com": {
+    "pinyin": "M",
+    "zh": "蜜芽"
+  },
+  "MioTech": {
+    "pinyin": "M",
+    "zh": "妙盈科技"
+  },
+  "Mofang Apartment": {
+    "pinyin": "M",
+    "zh": "魔方公寓"
+  },
+  "Moonshot": {
+    "pinyin": "Y",
+    "zh": "月之暗面"
+  },
+  "Nanos": {
+    "pinyin": "W",
+    "zh": "唯迈医疗 (?)"
+  },
+  "PaXini": {
+    "pinyin": "P",
+    "zh": "帕西尼"
+  },
+  "Qiyuan": {
+    "pinyin": "Q",
+    "zh": "启源芯动力 (?)"
+  },
+  "Robotera": {
+    "pinyin": "X",
+    "zh": "星动纪元"
+  },
+  "SE": {
+    "pinyin": "S",
+    "zh": "上海环境 (?)"
+  },
+  "Sanpower Group": {
+    "pinyin": "S",
+    "zh": "三胞集团"
+  },
+  "Shein": {
+    "pinyin": "X",
+    "zh": "希音"
+  },
+  "Shengshu": {
+    "pinyin": "S",
+    "zh": "生数科技"
+  },
+  "Shouqi": {
+    "pinyin": "S",
+    "zh": "首汽"
+  },
+  "Simcere": {
+    "pinyin": "X",
+    "zh": "先声药业"
+  },
+  "Smart": {
+    "pinyin": "J",
+    "zh": "进迭时空 (?)"
+  },
+  "SmartMore": {
+    "pinyin": "S",
+    "zh": "思谋科技"
+  },
+  "Souche": {
+    "pinyin": "D",
+    "zh": "大搜车"
+  },
+  "Spirit": {
+    "pinyin": "X",
+    "zh": "星动机器人 (?)"
+  },
+  "Spring Rain Software": {
+    "pinyin": "C",
+    "zh": "春雨软件 (?)"
+  },
+  "Sungrow": {
+    "pinyin": "Y",
+    "zh": "阳光电源"
+  },
+  "Suning Sports": {
+    "pinyin": "S",
+    "zh": "苏宁体育"
+  },
+  "Talent": {
+    "pinyin": "T",
+    "zh": "太蓝新能源 (?)"
+  },
+  "Tezign": {
+    "pinyin": "T",
+    "zh": "特赞"
+  },
+  "Tongdun Technology": {
+    "pinyin": "T",
+    "zh": "同盾科技"
+  },
+  "Trendy International Group": {
+    "pinyin": "Q",
+    "zh": "趋势国际 (?)"
+  },
+  "Tujia.com": {
+    "pinyin": "T",
+    "zh": "途家"
+  },
+  "Unitree": {
+    "pinyin": "Y",
+    "zh": "宇树科技"
+  },
+  "VANCL": {
+    "pinyin": "F",
+    "zh": "凡客诚品"
+  },
+  "Vital": {
+    "pinyin": "J",
+    "zh": "江丰电子 (?)"
+  },
+  "Wacai.com": {
+    "pinyin": "W",
+    "zh": "挖财"
+  },
+  "WeDoctor": {
+    "pinyin": "W",
+    "zh": "微医"
+  },
+  "Womai": {
+    "pinyin": "W",
+    "zh": "我买"
+  },
+  "Xcmg": {
+    "pinyin": "X",
+    "zh": "徐工集团"
+  },
+  "Xiaohongshu": {
+    "pinyin": "X",
+    "zh": "小红书"
+  },
+  "Xiaozhu.com": {
+    "pinyin": "X",
+    "zh": "小猪短租"
+  },
+  "Xingsheng Youxuan": {
+    "pinyin": "X",
+    "zh": "兴盛优选"
+  },
+  "YH Global": {
+    "pinyin": "Y",
+    "zh": "越海全球 (?)"
+  },
+  "Yangtze": {
+    "pinyin": "C",
+    "zh": "长江存储"
+  },
+  "Yi'an": {
+    "pinyin": "Y",
+    "zh": "易安"
+  },
+  "Yidian Zixun": {
+    "pinyin": "Y",
+    "zh": "一点资讯"
+  },
+  "Yitu Technology": {
+    "pinyin": "Y",
+    "zh": "依图科技"
+  },
+  "Youxia Motors": {
+    "pinyin": "Y",
+    "zh": "游侠汽车"
+  },
+  "Yuanfudao": {
+    "pinyin": "Y",
+    "zh": "猿辅导"
+  },
+  "YunQuNa": {
+    "pinyin": "Y",
+    "zh": "运去哪"
+  },
+  "Yuyuan": {
+    "pinyin": "Y",
+    "zh": "豫园股份"
+  },
+  "ZBJ.com": {
+    "pinyin": "Z",
+    "zh": "猪八戒"
+  },
+  "Zhizi": {
+    "pinyin": "Z",
+    "zh": "智子 (?)"
+  },
+  "Zhuanzhuan": {
+    "pinyin": "Z",
+    "zh": "转转"
+  },
+  "Zhuoyu": {
+    "pinyin": "Z",
+    "zh": "卓驭科技"
+  },
+  "Ziroom": {
+    "pinyin": "Z",
+    "zh": "自如"
+  },
+  "ZongMu Technology": {
+    "pinyin": "Z",
+    "zh": "纵目科技"
+  },
+  "Zuoyebang": {
+    "pinyin": "Z",
+    "zh": "作业帮"
+  },
+  "iCarbonX": {
+    "pinyin": "T",
+    "zh": "碳云智能"
+  }
+}

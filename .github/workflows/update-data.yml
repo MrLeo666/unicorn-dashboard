@@ -1,0 +1,40 @@
+name: Update unicorn data
+
+on:
+  schedule:
+    # Every Monday at 08:00 UTC (16:00 Beijing time)
+    - cron: '0 8 * * 1'
+  workflow_dispatch: {}      # also trigger manually from the Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # needed to commit the regenerated data files
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python deps
+        run: pip install --upgrade pip && pip install -r scripts/requirements.txt
+
+      - name: Scrape Wikipedia
+        run: python scripts/scrape_wikipedia.py
+
+      - name: Merge data sources
+        run: python scripts/merge.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/wiki_raw.json data/unicorns.json
+          if git diff --cached --quiet; then
+            echo 'Nothing changed.'
+          else
+            git commit -m "data: weekly auto-update from Wikipedia"
+            git push
+          fi

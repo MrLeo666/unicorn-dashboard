@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unicorn Bubble Dashboard — Top 100</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0e27; color: #e8ecf4;
+               font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+  #stage { position: fixed; inset: 0; }
+  canvas { display: block; cursor: default; }
+  #topbar {
+    position: fixed; top: 24px; left: 24px; right: 24px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    padding: 18px 28px; border-radius: 16px;
+    background: rgba(15, 21, 50, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.07);
+    z-index: 10;
+    /* Default = idle: stays in place but mostly transparent so the bubble field is unobstructed */
+    opacity: 0.18;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+  }
+  #topbar.visible { opacity: 1; pointer-events: auto; }
+  /* Invisible hover-trigger strip across the top of the viewport */
+  #topbarHotzone {
+    position: fixed; top: 0; left: 0; right: 0; height: 60px;
+    z-index: 9; pointer-events: auto;
+  }
+  /* Fullscreen toggle button */
+  #fullscreenBtn {
+    width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+    display: flex; align-items: center; justify-content: center;
+    color: #c5cce0; transition: all 0.15s ease; padding: 0;
+  }
+  #fullscreenBtn:hover { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.2); }
+  #fullscreenBtn svg { width: 18px; height: 18px; display: block; }
+  #title { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; color: #fff; white-space: nowrap; }
+  #title small { display: block; font-size: 12px; color: #8892b0; font-weight: 400; margin-top: 2px; }
+  .group { display: flex; align-items: center; gap: 8px; }
+  .group label { font-size: 11px; color: #8892b0; text-transform: uppercase; letter-spacing: 0.8px; margin-right: 4px; }
+  .pill {
+    padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    color: #c5cce0; transition: all 0.15s ease; user-select: none;
+  }
+  .pill:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .pill.active { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+  select.pill { appearance: none; padding-right: 28px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%23c5cce0" stroke-width="1.5" fill="none"/></svg>');
+    background-repeat: no-repeat; background-position: right 10px center;
+  }
+  select.pill option { background: #15193b; color: #e8ecf4; }
+  /* Top-X slider */
+  #topSlider { -webkit-appearance: none; appearance: none; width: 220px; height: 4px; border-radius: 2px;
+               background: rgba(255,255,255,0.15); cursor: pointer; outline: none; }
+  #topSlider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+                                     background: linear-gradient(135deg, #5b8def, #7a5cff); cursor: pointer;
+                                     border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+  #topSlider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%;
+                                  background: linear-gradient(135deg, #5b8def, #7a5cff); cursor: pointer;
+                                  border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+  #topValue { min-width: 56px; text-align: center; }
+  #stats { margin-left: auto; display: flex; gap: 22px; align-items: center; color: #8892b0; font-size: 12px; }
+  #stats .num { color: #fff; font-weight: 600; font-size: 16px; margin-right: 4px; }
+  #tooltip {
+    position: fixed; pointer-events: none; opacity: 0; transition: opacity 0.12s ease;
+    background: rgba(20, 26, 58, 0.96); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+    padding: 14px 16px; max-width: 380px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    font-size: 13px; line-height: 1.5; z-index: 100;
+  }
+  #tooltip h3 { font-size: 16px; margin-bottom: 6px; color: #fff; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  #tooltip .badge { font-size: 10px; padding: 2px 8px; border-radius: 6px; background: rgba(255,255,255,0.1);
+                    color: #c5cce0; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
+  #tooltip .row { color: #8892b0; margin-top: 6px; }
+  #tooltip .row b { color: #c5cce0; font-weight: 500; }
+  #tooltip .desc { margin-top: 8px; color: #b3bdd6; font-size: 12px; padding-top: 8px;
+                   border-top: 1px solid rgba(255,255,255,0.08); }
+  #tooltip .val { color: #fdc25c; font-weight: 600; font-size: 18px; }
+  #tooltip .investors { font-size: 11px; color: #8892b0; margin-top: 4px; max-height: 60px; overflow: hidden; }
+  #legend {
+    position: fixed; bottom: 24px; left: 24px;
+    padding: 14px 18px; border-radius: 12px;
+    background: rgba(15, 21, 50, 0.78); backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.07);
+    font-size: 11px; z-index: 10;
+  }
+  #legend .lbl { color: #8892b0; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+  #legend .gradient { width: 240px; height: 10px; border-radius: 6px;
+    background: linear-gradient(90deg, #2c1e7e, #4d2dd6, #c93481, #f37b3b, #fee08b); }
+  #legend .ticks { display: flex; justify-content: space-between; color: #c5cce0; margin-top: 5px; font-size: 10px; }
+  #help {
+    position: fixed; bottom: 24px; right: 24px; font-size: 11px; color: #6c7494;
+    padding: 8px 14px; border-radius: 8px;
+    background: rgba(15, 21, 50, 0.5); backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+  #help kbd { padding: 1px 6px; border-radius: 4px; background: rgba(255,255,255,0.08); color: #c5cce0;
+              font-family: inherit; font-size: 10px; }
+  #loading { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+             background: #0a0e27; z-index: 1000; flex-direction: column; gap: 16px; color: #c5cce0; font-size: 14px; }
+  #loading .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1);
+                       border-top-color: #5b8def; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="loading"><div class="spinner"></div><div>Loading unicorns…</div></div>
+
+<div id="topbarHotzone"></div>
+
+<div id="topbar" style="display:none;">
+  <div id="title">Unicorn Bubble Dashboard <small>Loading… · PitchBook + Wikipedia · Click bubble for details · &lt;$5B shown as letter dots</small></div>
+
+  <div class="group" id="topGroup">
+    <label>Top</label>
+    <input id="topSlider" type="range" min="5" max="1011" value="1011" step="1">
+    <span class="pill" id="topValue">1,011</span>
+  </div>
+
+  <div class="group">
+    <label>Letter</label>
+    <select id="letterFilter" class="pill"><option value="all">All letters</option></select>
+  </div>
+
+  <div class="group">
+    <label>Country</label>
+    <select id="countryFilter" class="pill"><option value="all">All countries</option></select>
+  </div>
+
+  <div class="group">
+    <label>Industry</label>
+    <select id="industryFilter" class="pill"><option value="all">All industries</option></select>
+  </div>
+
+  <div id="stats">
+    <span><span class="num" id="visibleCount">—</span>visible</span>
+    <span><span class="num" id="totalValuation">—</span>cumulative valuation</span>
+  </div>
+
+  <button id="fullscreenBtn" title="Toggle fullscreen" aria-label="Toggle fullscreen">
+    <svg id="fsIconExpand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9V3h6"/><path d="M21 9V3h-6"/><path d="M3 15v6h6"/><path d="M21 15v6h-6"/>
+    </svg>
+    <svg id="fsIconCompress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+      <path d="M9 3v6H3"/><path d="M15 3v6h6"/><path d="M9 21v-6H3"/><path d="M15 21v-6h6"/>
+    </svg>
+  </button>
+</div>
+
+<div id="stage"><canvas id="canvas"></canvas></div>
+
+<div id="legend">
+  <div class="lbl">Bubble color · valuation</div>
+  <div class="gradient"></div>
+  <div class="ticks"><span>$5B</span><span>$25B</span><span>$100B</span><span>$1.25T</span></div>
+</div>
+
+<div id="help">Hover for details · Click to open Wikipedia / Google · Move cursor to top for menu</div>
+
+<div id="tooltip"></div>
+
+<script id="data" type="application/json">[]</script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+// ====== TOP 100 + AREA-PROPORTIONAL + WANDER + COLLISION ======
+let DATA = [];
+// Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
+async function loadData() {
+  const r = await fetch('./data/unicorns.json?t=' + Date.now());
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  DATA = await r.json();
+  DATA.sort((a, b) => b.valuation_m - a.valuation_m);
+}
+
+let PARTICLES = [];
+let WIDTH = 0, HEIGHT = 0, DPR = 1;
+let HOVER = null, LOCKED = null;
+const FILTER = { topX: 1011, country: 'all', industry: 'all', letter: 'all' };
+// Compute the "first letter" used for the Letter filter:
+// - Chinese companies: pinyin first letter (already stored in d.pinyinInitial)
+// - Other companies: first ASCII letter of the English name
+// - Numbers / unknown → '#'
+function firstLetter(d) {
+  if (d.pinyinInitial && /[A-Za-z]/.test(d.pinyinInitial)) return d.pinyinInitial.toUpperCase();
+  const ch = (d.company || '').replace(/^[^A-Za-z0-9]+/, '')[0] || '';
+  if (/[A-Za-z]/.test(ch)) return ch.toUpperCase();
+  if (/[0-9]/.test(ch)) return '#';
+  return '#';
+}
+let lastT = 0;
+
+const COLOR_SCALE = d3.scaleSequential(d3.interpolateMagma).domain([Math.log10(5000), Math.log10(1500000)]);
+function colorFor(valM) {
+  const v = Math.max(5000, Math.min(1500000, valM));
+  return COLOR_SCALE(Math.log10(v));
+}
+
+function buildFilters() {
+  const cs = {}, is = {}, ls = {};
+  DATA.forEach(d => {
+    cs[d.country] = (cs[d.country] || 0) + 1;
+    is[d.industry] = (is[d.industry] || 0) + 1;
+    const L = firstLetter(d);
+    ls[L] = (ls[L] || 0) + 1;
+  });
+  const csel = document.getElementById('countryFilter');
+  Object.entries(cs).sort((a,b)=>b[1]-a[1]).forEach(([c, n]) => {
+    const o = document.createElement('option'); o.value = c; o.textContent = c + ' (' + n + ')'; csel.appendChild(o);
+  });
+  const isel = document.getElementById('industryFilter');
+  Object.entries(is).sort((a,b)=>b[1]-a[1]).forEach(([c, n]) => {
+    const o = document.createElement('option'); o.value = c; o.textContent = c + ' (' + n + ')'; isel.appendChild(o);
+  });
+  // Letter dropdown: A-Z first (alphabetical), then '#' bucket. Show counts.
+  const lsel = document.getElementById('letterFilter');
+  const letters = Object.keys(ls).filter(L => L !== '#').sort();
+  letters.forEach(L => {
+    const o = document.createElement('option'); o.value = L; o.textContent = L + ' (' + ls[L] + ')'; lsel.appendChild(o);
+  });
+  if (ls['#']) {
+    const o = document.createElement('option'); o.value = '#'; o.textContent = '# (' + ls['#'] + ')'; lsel.appendChild(o);
+  }
+  csel.addEventListener('change', e => { FILTER.country = e.target.value; applyFilter(); });
+  isel.addEventListener('change', e => { FILTER.industry = e.target.value; applyFilter(); });
+  lsel.addEventListener('change', e => { FILTER.letter = e.target.value; applyFilter(); });
+  // Top-X slider: max value = total record count; slider drives FILTER.topX.
+  const slider = document.getElementById('topSlider');
+  const topValueLabel = document.getElementById('topValue');
+  slider.max = DATA.length;
+  slider.value = DATA.length;
+  topValueLabel.textContent = DATA.length.toLocaleString();
+  FILTER.topX = DATA.length;
+  slider.addEventListener('input', e => {
+    FILTER.topX = parseInt(e.target.value, 10);
+    topValueLabel.textContent = FILTER.topX.toLocaleString();
+    applyFilter();
+  });
+}
+
+function matchFilter(p) {
+  if (p.rank > FILTER.topX) return false;
+  const d = p.d;
+  if (FILTER.country !== 'all' && d.country !== FILTER.country) return false;
+  if (FILTER.industry !== 'all' && d.industry !== FILTER.industry) return false;
+  if (FILTER.letter !== 'all' && firstLetter(d) !== FILTER.letter) return false;
+  return true;
+}
+
+function applyFilter() {
+  let visible = 0, total = 0;
+  PARTICLES.forEach(p => {
+    p.visible = matchFilter(p);
+    if (p.visible) { visible++; total += p.d.valuation_m; }
+  });
+  document.getElementById('visibleCount').textContent = visible;
+  document.getElementById('totalValuation').textContent = '$' + (total/1000).toFixed(1) + 'B';
+}
+
+// ===== Sizing: area linear in valuation, $10B = unit step =====
+// All sizes (BASE_R, MIN_R, MAX_R) are derived from the viewport's shorter dimension,
+// so the dashboard looks proportionally identical at 5120x2160, 2560x1440, 1920x1080,
+// or any window size in between. Resize the window and everything zooms together.
+// ===== 5-tier sizing =====
+// T1: <$5B            — fixed (smallest dot, only first letter renders)
+// T2: $5B–$10B        — fixed (one step bigger)
+// T3: $10B–$50B       — fixed (mid)
+// T4: $50B–$100B      — fixed (large)
+// T5: ≥$100B          — proportional area, anchored at $100B so r = anchor × √(v/100)
+// All radii are derived from the viewport's shorter side; a global scale K
+// auto-fits the bubble cloud to fill the viewport.
+const TIER_REL = [0, 0.013, 0.026, 0.042, 0.062, 0.085];  // index = tier
+const MAX_REL  = 0.30;       // hard ceiling for T5 (SpaceX-class bubbles)
+const COVERAGE_TARGET = 0.55; // fraction of viewport area filled by bubbles
+let TIER_R = [0, 0, 0, 0, 0, 0];
+let MAX_R = 380;
+let MIN_R = 60;     // alias for tooltip placement and shadow guards (= T2 size)
+let SHORT = 1080;
+
+function tierFor(valM) {
+  const valB = valM / 1000;
+  if (valB < 5)   return 1;
+  if (valB < 10)  return 2;
+  if (valB < 50)  return 3;
+  if (valB < 100) return 4;
+  return 5;
+}
+
+function calibrateBaseR() {
+  SHORT = Math.min(WIDTH, HEIGHT);
+  // Binary-search a global scale K such that the total bubble area = COVERAGE_TARGET × viewport.
+  function totalAreaAtK(K) {
+    let total = 0;
+    for (const d of DATA) {
+      const t = tierFor(d.valuation_m);
+      let r;
+      if (t < 5) {
+        r = K * TIER_REL[t] * SHORT;
+      } else {
+        const valB = d.valuation_m / 1000;
+        r = K * TIER_REL[5] * SHORT * Math.sqrt(valB / 100);
+        r = Math.min(K * MAX_REL * SHORT, r);
+      }
+      total += r * r * Math.PI;
+    }
+    return total;
+  }
+  const target = WIDTH * HEIGHT * COVERAGE_TARGET;
+  let lo = 0.2, hi = 4.0;
+  for (let i = 0; i < 28; i++) {
+    const K = (lo + hi) / 2;
+    if (totalAreaAtK(K) > target) hi = K;
+    else lo = K;
+  }
+  const K = (lo + hi) / 2;
+  for (let t = 1; t <= 5; t++) TIER_R[t] = K * TIER_REL[t] * SHORT;
+  MAX_R = K * MAX_REL * SHORT;
+  MIN_R = TIER_R[2];  // used elsewhere as a "is this big enough to caption?" baseline
+}
+function radiusFor(d) {
+  const t = tierFor(d.valuation_m);
+  if (t < 5) return TIER_R[t];
+  // Tier 5: area ∝ valuation, anchored at $100B (so $200B = 2× area, $1.25T = 12.5× area)
+  const valB = d.valuation_m / 1000;
+  const r = TIER_R[5] * Math.sqrt(valB / 100);
+  return Math.min(MAX_R, r);
+}
+
+function initParticles() {
+  calibrateBaseR();
+  PARTICLES = DATA.map((d, i) => {
+    const r = radiusFor(d);
+    return {
+      id: i,
+      rank: i + 1,    // DATA is sorted by valuation desc, so index+1 = rank
+      d: d,
+      r: r,
+      x: WIDTH * (0.2 + 0.6 * Math.random()),
+      y: HEIGHT * (0.2 + 0.6 * Math.random()),
+      vx: (Math.random()-0.5) * 0.3,
+      vy: (Math.random()-0.5) * 0.3,
+      tx: 0, ty: 0,                      // wander target
+      tNext: 0,                          // next time to repick target
+      phase: Math.random() * Math.PI * 2,
+      freq: 0.4 + Math.random() * 0.6,
+      visible: true,
+      color: colorFor(d.valuation_m),
+    };
+  });
+}
+
+// One-shot d3 layout to spread bubbles before physics takes over.
+function initialLayout() {
+  const sim = d3.forceSimulation(PARTICLES)
+    .force('x', d3.forceX(WIDTH/2).strength(0.04))
+    .force('y', d3.forceY(HEIGHT/2).strength(0.04))
+    .force('collide', d3.forceCollide(p => p.r + 6).strength(0.95).iterations(4))
+    .alphaDecay(0.025)
+    .stop();
+  for (let i = 0; i < 320; i++) sim.tick();
+  PARTICLES.forEach(p => { p.vx = 0; p.vy = 0; });
+}
+
+// ===== Per-frame physics =====
+// "Big" is continuous: wanderStrength scales with radius. Bigger -> more aggressive wander.
+function pickWanderTarget(p, now) {
+  // Pick a target somewhere on screen, biased toward the opposite side of current position.
+  const margin = p.r + 30;
+  // Bias: occasionally pick anywhere, otherwise pick across the screen so bubbles traverse.
+  let nx, ny;
+  if (Math.random() < 0.35) {
+    nx = margin + Math.random() * (WIDTH - 2*margin);
+    ny = margin + Math.random() * (HEIGHT - 2*margin);
+  } else {
+    nx = (p.x < WIDTH/2)
+      ? WIDTH/2 + Math.random() * (WIDTH/2 - margin)
+      : margin + Math.random() * (WIDTH/2 - margin);
+    ny = (p.y < HEIGHT/2)
+      ? HEIGHT/2 + Math.random() * (HEIGHT/2 - margin)
+      : margin + Math.random() * (HEIGHT/2 - margin);
+  }
+  p.tx = nx; p.ty = ny;
+  // Bigger bubbles repick targets less frequently (slower drift, longer trajectories)
+  const dwell = 4500 + Math.random() * 5500 + Math.min(8000, p.r * 18);
+  p.tNext = now + dwell;
+}
+
+function physicsStep(now, dt) {
+  // 1) Wander targets for big bubbles, gentle motion for small ones.
+  // The hovered bubble is frozen — no force/velocity/position update — so the
+  // user can read its tooltip without it sliding away.
+  for (const p of PARTICLES) {
+    if (!p.visible) continue;
+    if (HOVER && HOVER === p) {
+      p.vx = 0; p.vy = 0;
+      continue;
+    }
+
+    const tNorm = Math.min(1, Math.max(0, (p.r - 50) / 200));
+    const wanderStrength = tNorm * tNorm * 0.12;
+
+    if (wanderStrength > 0.001) {
+      if (now > p.tNext) pickWanderTarget(p, now);
+      const dx = p.tx - p.x, dy = p.ty - p.y;
+      const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+      p.vx += (dx / dist) * wanderStrength * dt * 0.06;
+      p.vy += (dy / dist) * wanderStrength * dt * 0.06;
+    }
+
+    const floatAmp = 0.03;
+    p.vx += Math.sin(now * 0.0007 * p.freq + p.phase) * floatAmp;
+    p.vy += Math.cos(now * 0.00091 * p.freq + p.phase) * floatAmp;
+
+    p.vx *= 0.965;
+    p.vy *= 0.965;
+
+    const maxSpd = 0.7 + Math.min(2.5, p.r / 60);
+    const spd = Math.hypot(p.vx, p.vy);
+    if (spd > maxSpd) {
+      p.vx = p.vx / spd * maxSpd;
+      p.vy = p.vy / spd * maxSpd;
+    }
+
+    p.x += p.vx * dt * 0.06;
+    p.y += p.vy * dt * 0.06;
+  }
+
+  // 2) Collision resolution via spatial-hash grid (O(N) typical with N=1000+).
+  // Cell size = 2 * MAX_R so any colliding pair is within neighboring cells.
+  const cellSize = Math.max(60, MAX_R * 2);
+  const grid = new Map();
+  const visible = [];
+  for (const p of PARTICLES) {
+    if (!p.visible) continue;
+    visible.push(p);
+    const cx = Math.floor(p.x / cellSize);
+    const cy = Math.floor(p.y / cellSize);
+    const key = cx + ',' + cy;
+    let arr = grid.get(key);
+    if (!arr) { arr = []; grid.set(key, arr); }
+    arr.push(p);
+  }
+  function resolve(a, b) {
+    if (a.id >= b.id) return;  // dedupe pairs
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const minD = a.r + b.r;
+    const d2 = dx*dx + dy*dy;
+    if (d2 >= minD*minD || d2 < 0.0001) return;
+    const dist = Math.sqrt(d2);
+    const overlap = minD - dist;
+    const nx = dx / dist, ny = dy / dist;
+    // Hovered bubbles are treated as immovable (infinite mass). Other bubbles take
+    // the full displacement and are bounced back.
+    const aFrozen = (HOVER === a);
+    const bFrozen = (HOVER === b);
+    const ma = a.r * a.r;
+    const mb = b.r * b.r;
+    let pushA = 0, pushB = 0;
+    if (aFrozen && bFrozen) {
+      // Both frozen — nothing moves. Skip.
+      return;
+    } else if (aFrozen) {
+      pushB = overlap;
+    } else if (bFrozen) {
+      pushA = overlap;
+    } else {
+      const totalM = ma + mb;
+      pushA = overlap * (mb / totalM);
+      pushB = overlap * (ma / totalM);
+    }
+    a.x -= nx * pushA; a.y -= ny * pushA;
+    b.x += nx * pushB; b.y += ny * pushB;
+    const vRel = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+    if (vRel < 0) {
+      const restitution = 0.55;
+      // Effective masses: frozen bubble has infinite mass -> 1/m == 0
+      const invA = aFrozen ? 0 : 1/ma;
+      const invB = bFrozen ? 0 : 1/mb;
+      const invSum = invA + invB;
+      if (invSum > 0) {
+        const j = -(1 + restitution) * vRel / invSum;
+        const impx = j * nx, impy = j * ny;
+        if (!aFrozen) { a.vx -= impx / ma; a.vy -= impy / ma; }
+        if (!bFrozen) { b.vx += impx / mb; b.vy += impy / mb; }
+      }
+    }
+  }
+  for (const p of visible) {
+    const cx = Math.floor(p.x / cellSize);
+    const cy = Math.floor(p.y / cellSize);
+    for (let ox = -1; ox <= 1; ox++) {
+      for (let oy = -1; oy <= 1; oy++) {
+        const arr = grid.get((cx+ox) + ',' + (cy+oy));
+        if (!arr) continue;
+        for (const q of arr) {
+          if (q !== p) resolve(p, q);
+        }
+      }
+    }
+  }
+
+  // 3) Edge bounds — soft bounce so bubbles stay on screen.
+  for (const p of PARTICLES) {
+    if (!p.visible) continue;
+    if (p.x - p.r < 0)        { p.x = p.r;          p.vx = Math.abs(p.vx) * 0.6; }
+    if (p.x + p.r > WIDTH)    { p.x = WIDTH - p.r;  p.vx = -Math.abs(p.vx) * 0.6; }
+    if (p.y - p.r < 0)        { p.y = p.r;          p.vy = Math.abs(p.vy) * 0.6; }
+    if (p.y + p.r > HEIGHT)   { p.y = HEIGHT - p.r; p.vy = -Math.abs(p.vy) * 0.6; }
+  }
+}
+
+// ===== Canvas rendering =====
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  DPR = Math.max(1, window.devicePixelRatio || 1);
+  WIDTH = window.innerWidth;
+  HEIGHT = window.innerHeight;
+  canvas.width = Math.round(WIDTH * DPR);
+  canvas.height = Math.round(HEIGHT * DPR);
+  canvas.style.width = WIDTH + 'px';
+  canvas.style.height = HEIGHT + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+}
+
+// ===== Contrast-aware text colors =====
+// Pick dark or light text based on the bubble's perceived luminance.
+// Magma palette goes from deep purple → bright yellow, so the bright end (yellow)
+// needs DARK text and the dark end (purple) needs WHITE text for legibility.
+function getContrastColors(bubbleHex) {
+  const c = d3.color(bubbleHex).rgb();
+  // Perceived luminance (sRGB), 0..1
+  const lum = (0.299 * c.r + 0.587 * c.g + 0.114 * c.b) / 255;
+  if (lum > 0.62) {
+    // Light bubble (yellow/orange/pink): use dark navy text with light halo
+    return { fg: '#0a0e27', shadow: 'rgba(255,255,255,0.65)', valFg: '#0a0e27', valShadow: 'rgba(255,255,255,0.65)' };
+  } else if (lum > 0.42) {
+    // Mid bubble (coral/magenta): use white text with dark halo
+    return { fg: '#ffffff', shadow: 'rgba(0,0,0,0.7)',       valFg: '#ffffff', valShadow: 'rgba(0,0,0,0.7)' };
+  } else {
+    // Dark bubble (purple/navy): white text with strong dark halo, valuation in warm yellow accent
+    return { fg: '#ffffff', shadow: 'rgba(0,0,0,0.75)',      valFg: '#ffd06b', valShadow: 'rgba(0,0,0,0.75)' };
+  }
+}
+
+// ===== Stylized name rendering. Always shown; auto-fits multi-line. =====
+function hasChinese(s) { return /[一-鿿]/.test(s); }
+function drawArtName(ctx, name, x, y, r, colors) {
+  let display = name.replace(/\s*\([^)]*\)\s*$/, '');
+  // CJK chars take ~1.0× font size in width vs Latin's ~0.55×, so layout uses a
+  // different per-char factor when the name is Chinese.
+  const cjk = hasChinese(display);
+  const charWidth = cjk ? 1.0 : 0.55;
+  // For CJK names, treat each character as a "word" since there are no spaces to break on
+  let lines;
+  const singleLineCutoff = cjk ? 5 : 10;  // Chinese fits ~5 chars on one line in the bubble
+  if (display.length <= singleLineCutoff) {
+    lines = [display];
+  } else if (cjk) {
+    // Chinese: split roughly in half by char count
+    const half = Math.ceil(display.length / 2);
+    lines = [display.slice(0, half), display.slice(half)];
+  } else {
+    const parts = display.split(/\s+/);
+    if (parts.length >= 2) {
+      const maxCharsPerLine = Math.max(6, Math.round(r * 0.18));
+      lines = [];
+      let cur = parts[0];
+      for (let i = 1; i < parts.length; i++) {
+        if ((cur + ' ' + parts[i]).length <= maxCharsPerLine) cur += ' ' + parts[i];
+        else { lines.push(cur); cur = parts[i]; }
+      }
+      lines.push(cur);
+      if (lines.length > 3) lines = [lines[0], lines[1], lines.slice(2).join(' ')];
+    } else {
+      lines = [display];
+    }
+  }
+  const longest = Math.max.apply(null, lines.map(l => l.length));
+  // Font size scales with bubble radius. The chord length = ~1.55r constrains the
+  // single-line case. No absolute pixel caps — everything stays viewport-relative.
+  let fontSize = Math.min(r * 0.46, (r * 1.55) / (longest * charWidth));
+  fontSize = Math.max(8, fontSize);
+  ctx.font = '800 ' + fontSize + 'px -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = colors.shadow;
+  ctx.shadowBlur = 6;
+  const lineH = fontSize * 1.06;
+  const totalH = lineH * lines.length;
+  let yy = y - totalH / 2 + lineH / 2 - r * 0.08;
+  ctx.fillStyle = colors.fg;
+  for (const ln of lines) {
+    ctx.fillText(ln, x, yy);
+    yy += lineH;
+  }
+  ctx.shadowBlur = 0;
+}
+
+function drawBubble(p) {
+  const dim = LOCKED ? (p.d === LOCKED.d ? false : true) : false;
+  const alpha = !p.visible ? 0.06 : (dim ? 0.18 : 1.0);
+  const x = p.x, y = p.y, r = p.r;
+
+  if (alpha > 0.5 && r > 60) {
+    const grdGlow = ctx.createRadialGradient(x, y, r * 0.85, x, y, r * 1.45);
+    grdGlow.addColorStop(0, p.color + '55');
+    grdGlow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grdGlow;
+    ctx.globalAlpha = alpha * 0.6;
+    ctx.beginPath();
+    ctx.arc(x, y, r * 1.45, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  const grd = ctx.createRadialGradient(x - r * 0.3, y - r * 0.4, r * 0.1, x, y, r);
+  const c = d3.color(p.color);
+  const cLight = c.brighter(0.8).formatHex();
+  const cDark = c.darker(0.7).formatHex();
+  grd.addColorStop(0, cLight);
+  grd.addColorStop(0.45, p.color);
+  grd.addColorStop(1, cDark);
+
+  ctx.globalAlpha = alpha;
+  ctx.fillStyle = grd;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+
+  if (alpha > 0.3) {
+    ctx.globalAlpha = alpha * 0.4;
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.ellipse(x - r * 0.3, y - r * 0.45, r * 0.22, r * 0.12, -0.6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  if (alpha > 0.4) {
+    const colors = getContrastColors(p.color);
+    const t = tierFor(p.d.valuation_m);
+    // Display name: prefer Chinese (companyZh) when present.
+    const displayName = p.d.companyZh || p.d.company;
+    if (t === 1) {
+      // Tier 1 (<$5B): single first letter (pinyin initial for Chinese companies).
+      const initial = (p.d.pinyinInitial && p.d.pinyinInitial !== '?')
+        ? p.d.pinyinInitial
+        : ((p.d.company[0] || '?').toUpperCase());
+      ctx.fillStyle = colors.fg;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.font = '800 ' + Math.max(8, r * 0.95) + 'px -apple-system, sans-serif';
+      ctx.shadowColor = colors.shadow; ctx.shadowBlur = Math.max(2, r * 0.08);
+      ctx.fillText(initial, x, y);
+      ctx.shadowBlur = 0;
+    } else {
+      // Tier 2-5: full company name (Chinese if available) + valuation label
+      drawArtName(ctx, displayName, x, y, r, colors);
+      if (r >= TIER_R[2] * 0.85) {
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = colors.valFg;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const valFontSize = Math.max(8, r * 0.20);
+        ctx.font = '700 ' + valFontSize + 'px -apple-system, "SF Pro Display", sans-serif';
+        ctx.shadowColor = colors.valShadow; ctx.shadowBlur = Math.max(2, r * 0.025);
+        ctx.fillText(p.d.valuation_str, x, y + r * 0.66);
+        ctx.shadowBlur = 0;
+      }
+    }
+  }
+
+  ctx.globalAlpha = alpha;
+  if (LOCKED && p.d === LOCKED.d) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; }
+  else if (HOVER && p.d === HOVER.d) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; }
+  else { ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 1; }
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.stroke();
+}
+
+function tick(now) {
+  const dt = Math.min(40, lastT ? now - lastT : 16);
+  lastT = now;
+
+  physicsStep(now, dt);
+
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  // Draw smaller bubbles first so larger ones overlay them
+  const sorted = PARTICLES.slice().sort((a, b) => {
+    if (LOCKED && a.d === LOCKED.d) return 1;
+    if (LOCKED && b.d === LOCKED.d) return -1;
+    if (HOVER && a.d === HOVER.d) return 1;
+    if (HOVER && b.d === HOVER.d) return -1;
+    return a.r - b.r;
+  });
+  for (const p of sorted) drawBubble(p);
+  ctx.globalAlpha = 1;
+}
+
+function animate() {
+  function loop(t) { tick(t); requestAnimationFrame(loop); }
+  requestAnimationFrame(loop);
+}
+
+function pickAt(x, y) {
+  const sorted = PARTICLES.filter(p => p.visible).sort((a, b) => b.r - a.r);
+  for (const p of sorted) {
+    const dx = x - p.x, dy = y - p.y;
+    if (dx*dx + dy*dy <= p.r * p.r) return p;
+  }
+  return null;
+}
+
+const tooltip = document.getElementById('tooltip');
+function showTooltip(p) {
+  const d = p.d;
+  const sourceTag = d.source.includes('wiki') ? 'wikipedia' : 'pitchbook';
+  const parts = [];
+  // For Chinese companies, show Chinese name as primary + English as secondary line.
+  let titleHTML;
+  if (d.companyZh && d.companyZh !== d.company && !d.companyZh.startsWith('Unnamed')) {
+    titleHTML = esc(d.companyZh) + ' <small style="color:#8892b0;font-weight:400;font-size:13px;">' + esc(d.company) + '</small>';
+  } else {
+    titleHTML = esc(d.company);
+  }
+  parts.push('<h3>' + titleHTML + ' <span class="badge">' + esc(d.industry) + '</span><span class="badge">' + sourceTag + '</span></h3>');
+  parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
+  if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
+  parts.push('<div class="row"><b>Country:</b> ' + esc(d.country || '—') + ' · <b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
+  if (d.description) parts.push('<div class="desc">' + esc(d.description) + '</div>');
+  if (d.lead_investors && d.lead_investors !== '—') parts.push('<div class="investors"><b>Lead investors:</b> ' + esc(d.lead_investors) + '</div>');
+  if (d.founders && (!d.lead_investors || !d.lead_investors.includes('Founders'))) parts.push('<div class="investors"><b>Founders:</b> ' + esc(d.founders) + '</div>');
+  tooltip.innerHTML = parts.join('');
+  tooltip.style.opacity = '1';
+}
+function hideTooltip() { tooltip.style.opacity = '0'; }
+function moveTooltip(x, y) {
+  const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+  let tx = x + 18, ty = y + 18;
+  if (tx + tw > WIDTH - 12) tx = x - tw - 18;
+  if (ty + th > HEIGHT - 12) ty = y - th - 18;
+  tooltip.style.left = tx + 'px';
+  tooltip.style.top = ty + 'px';
+}
+function esc(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+canvas.addEventListener('mousemove', e => {
+  const p = pickAt(e.clientX, e.clientY);
+  HOVER = p;
+  canvas.style.cursor = p ? 'pointer' : 'default';
+  if (p) { showTooltip(p); moveTooltip(e.clientX, e.clientY); }
+  else hideTooltip();
+});
+canvas.addEventListener('click', e => {
+  const p = pickAt(e.clientX, e.clientY);
+  if (!p) {
+    LOCKED = null;
+    return;
+  }
+  // Click → open external link in a new tab.
+  // Wiki source: open the Wikipedia page directly. Otherwise fall back to a Google search.
+  const d = p.d;
+  let url;
+  if (d.wikiLink && /wikipedia\.org\/wiki\//.test(d.wikiLink)) {
+    url = d.wikiLink;
+  } else {
+    const q = (d.companyZh && d.companyZh !== d.company)
+      ? d.companyZh + ' ' + d.company
+      : d.company;
+    url = 'https://www.google.com/search?q=' + encodeURIComponent(q);
+  }
+  window.open(url, '_blank', 'noopener');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { LOCKED = null; HOVER = null; hideTooltip(); }
+});
+window.addEventListener('resize', () => {
+  resize();
+  initParticles();
+  initialLayout();
+});
+
+(async () => {
+  try {
+    await loadData();
+    // Update the slider's max + initial value to match actual record count
+    const total = DATA.length;
+    FILTER.topX = total;
+    const slider = document.getElementById('topSlider');
+    if (slider) { slider.max = total; slider.value = total; }
+    const tv = document.getElementById('topValue');
+    if (tv) tv.textContent = total.toLocaleString();
+    const titleSmall = document.querySelector('#title small');
+    if (titleSmall) titleSmall.textContent = total.toLocaleString() + ' unicorns · auto-updated weekly';
+    resize();
+    buildFilters();
+    initParticles();
+    initialLayout();
+    applyFilter();
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('topbar').style.display = 'flex';
+    animate();
+  } catch (e) {
+    document.getElementById('loading').innerHTML =
+      '<div style="color:#ff6b8a;text-align:center;line-height:1.6">Failed to load data.<br><small>' + String(e) + '</small></div>';
+  }
+})();
+
+// ===== Auto-hide topbar =====
+// Hidden by default. Slides in when the cursor enters the top hot-zone or the
+// topbar itself; slides out 600ms after the cursor leaves the topbar+hot-zone area.
+const topbarEl = document.getElementById('topbar');
+const hotzone  = document.getElementById('topbarHotzone');
+let topbarHideTimer = null;
+function showTopbar() {
+  if (topbarHideTimer) { clearTimeout(topbarHideTimer); topbarHideTimer = null; }
+  topbarEl.classList.add('visible');
+}
+function scheduleHide() {
+  if (topbarHideTimer) clearTimeout(topbarHideTimer);
+  topbarHideTimer = setTimeout(() => {
+    topbarEl.classList.remove('visible');
+    topbarHideTimer = null;
+  }, 600);
+}
+hotzone.addEventListener('mouseenter', showTopbar);
+hotzone.addEventListener('mousemove', showTopbar);
+topbarEl.addEventListener('mouseenter', showTopbar);
+topbarEl.addEventListener('mouseleave', scheduleHide);
+hotzone.addEventListener('mouseleave', e => {
+  // Only schedule hide if leaving downward (not into the topbar itself)
+  if (e.clientY > 60) scheduleHide();
+});
+
+// ===== Fullscreen toggle =====
+const fsBtn = document.getElementById('fullscreenBtn');
+const fsExpand = document.getElementById('fsIconExpand');
+const fsCompress = document.getElementById('fsIconCompress');
+function isFullscreen() {
+  return !!(document.fullscreenElement || document.webkitFullscreenElement);
+}
+function updateFsIcon() {
+  if (isFullscreen()) {
+    fsExpand.style.display = 'none';
+    fsCompress.style.display = 'block';
+  } else {
+    fsExpand.style.display = 'block';
+    fsCompress.style.display = 'none';
+  }
+}
+fsBtn.addEventListener('click', () => {
+  if (isFullscreen()) {
+    (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+  } else {
+    const el = document.documentElement;
+    (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+  }
+});
+document.addEventListener('fullscreenchange', updateFsIcon);
+document.addEventListener('webkitfullscreenchange', updateFsIcon);
+updateFsIcon();
+
+</script>
+</body>
+</html>
