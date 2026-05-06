@@ -168,6 +168,11 @@
 <script>
 // ====== TOP 100 + AREA-PROPORTIONAL + WANDER + COLLISION ======
 let DATA = [];
+// Forge Global secondary-market overlay. Map: company → { forge_price, forge_valuation_m,
+// prev_forge_price, prev_forge_valuation_m, slug, fetched_at }. Refreshed weekly by
+// scripts/scrape_forge.py for the Top 50 by valuation. The dashboard reads it directly;
+// admin overrides do not apply.
+let FORGE = {};
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -182,8 +187,42 @@ async function loadData() {
     const o = await fetch('./data/overrides.json?t=' + ts);
     if (o.ok) overrides = Object.assign(overrides, await o.json());
   } catch {}
+  // forge_data.json is optional; missing → bubbles render without the overlay
+  try {
+    const f = await fetch('./data/forge_data.json?t=' + ts);
+    if (f.ok) {
+      const fb = await f.json();
+      FORGE = (fb && fb.records) || {};
+    }
+  } catch {}
   DATA = applyOverridesClient(base, overrides);
   DATA.sort((a, b) => b.valuation_m - a.valuation_m);
+}
+
+// ----- Forge formatting helpers -----
+function fmtForgePrice(p) {
+  if (p == null) return '';
+  if (p >= 10000) return '$' + Math.round(p).toLocaleString();
+  if (p >= 100)   return '$' + p.toFixed(0);
+  return '$' + p.toFixed(2);
+}
+function fmtForgeVal(m) {
+  if (m == null) return '';
+  if (m >= 1_000_000) {
+    const t = m / 1_000_000;
+    return '$' + (t >= 10 ? t.toFixed(0) : t.toFixed(1).replace(/\.0$/, '')) + 'T';
+  }
+  if (m >= 1000) {
+    const b = m / 1000;
+    return '$' + (b >= 100 ? b.toFixed(0) : b.toFixed(1).replace(/\.0$/, '')) + 'B';
+  }
+  return '$' + m.toFixed(0) + 'M';
+}
+// Color coding: new ≥ prev → red ; new < prev → green ; no prev → neutral (white).
+function forgeColor(curr, prev) {
+  if (curr == null) return null;
+  if (prev == null) return '#ffffff';
+  return (curr >= prev) ? '#ff5a5a' : '#3edc81';
 }
 
 function applyOverridesClient(records, overrides) {
@@ -715,6 +754,27 @@ function drawBubble(p) {
         ctx.shadowColor = colors.valShadow; ctx.shadowBlur = Math.max(2, r * 0.025);
         ctx.fillText(p.d.valuation_str, x, y + r * 0.66);
         ctx.shadowBlur = 0;
+
+        // Forge Global secondary-market overlay (Top 50 only — driven by FORGE map).
+        // Renders ABOVE the original valuation label, in a slightly larger weight, with
+        // red/green coloring vs the previous fetch (red = new ≥ prev, green = new < prev).
+        const fg = FORGE[p.d.company];
+        if (fg && (fg.forge_price != null || fg.forge_valuation_m != null)) {
+          const col = forgeColor(fg.forge_price, fg.prev_forge_price)
+                   || forgeColor(fg.forge_valuation_m, fg.prev_forge_valuation_m)
+                   || '#ffffff';
+          const parts = [];
+          if (fg.forge_price != null) parts.push(fmtForgePrice(fg.forge_price));
+          if (fg.forge_valuation_m != null) parts.push(fmtForgeVal(fg.forge_valuation_m));
+          const txt = parts.join('  ·  ');
+          const forgeFont = Math.max(10, r * 0.26);
+          ctx.fillStyle = col;
+          ctx.font = '800 ' + forgeFont + 'px -apple-system, "SF Pro Display", sans-serif';
+          ctx.shadowColor = 'rgba(0,0,0,0.55)';
+          ctx.shadowBlur = Math.max(3, r * 0.04);
+          ctx.fillText(txt, x, y + r * 0.42);
+          ctx.shadowBlur = 0;
+        }
       }
     }
   }
@@ -775,6 +835,27 @@ function showTooltip(p) {
   }
   parts.push('<h3>' + titleHTML + ' <span class="badge">' + esc(d.industry) + '</span><span class="badge">' + sourceTag + '</span></h3>');
   parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
+  // Forge Global secondary-market overlay (Top 50 only).
+  const fgT = FORGE[d.company];
+  if (fgT && (fgT.forge_price != null || fgT.forge_valuation_m != null)) {
+    const c = forgeColor(fgT.forge_price, fgT.prev_forge_price)
+           || forgeColor(fgT.forge_valuation_m, fgT.prev_forge_valuation_m)
+           || '#ffffff';
+    const bits = [];
+    if (fgT.forge_price != null) {
+      let s = '<b>Forge Price:</b> ' + fmtForgePrice(fgT.forge_price);
+      if (fgT.prev_forge_price != null) {
+        const dlt = fgT.forge_price - fgT.prev_forge_price;
+        const pct = (dlt / fgT.prev_forge_price * 100);
+        s += ' <span style="font-size:12px;opacity:.85;">' + (dlt >= 0 ? '+' : '') + fmtForgePrice(dlt) + ' (' + pct.toFixed(1) + '%)</span>';
+      }
+      bits.push(s);
+    }
+    if (fgT.forge_valuation_m != null) {
+      bits.push('<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m));
+    }
+    parts.push('<div class="row" style="color:' + c + ';margin-top:4px;">' + bits.join(' · ') + '</div>');
+  }
   if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
   parts.push('<div class="row"><b>Country:</b> ' + esc(d.country || '—') + ' · <b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
   if (d.description) parts.push('<div class="desc">' + esc(d.description) + '</div>');

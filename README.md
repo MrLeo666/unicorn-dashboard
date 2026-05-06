@@ -16,11 +16,14 @@ deploy/
 │   ├── overrides.json          # ✱ admin-page exported edits (live-applied client-side)
 │   ├── pending.json            # ✱ proposed changes from latest scrape, awaiting review
 │   ├── wiki_raw.json           # ✱ fresh Wikipedia scrape (auto-updated weekly)
+│   ├── forge_data.json         # ✱ Forge Global secondary-market overlay (Top 50, weekly)
+│   ├── forge_slugs.json        # company → forgeglobal.com URL slug mapping
 │   ├── seed_pitchbook.json     # frozen PitchBook-only rows from the initial seed
 │   └── chinese_names.json      # manual mapping: English → {zh, pinyin}
 ├── scripts/
 │   ├── _lib.py                 # shared merge / diff helpers
 │   ├── scrape_wikipedia.py     # HTTP + BeautifulSoup
+│   ├── scrape_forge.py         # weekly Forge Global secondary-market scrape (Top 50)
 │   ├── compute_pending.py      # runs weekly; writes pending.json
 │   ├── merge.py                # promote canonical (run only when compacting overrides)
 │   └── requirements.txt
@@ -62,6 +65,20 @@ Dashboard
 ```
 
 The dashboard never reads `pending.json`. It's purely an admin staging area.
+
+### Forge Global secondary-market overlay
+
+For the Top 50 unicorns by valuation, the weekly Action also runs `scrape_forge.py`,
+which fetches `forgeglobal.com/<slug>_stock/` for each mapped company and extracts:
+
+- **Forge Price** — Forge's daily proprietary indicative price per share
+- **Forge Price Valuation** — implied company valuation at that price
+
+Both are written to `data/forge_data.json` (committed). The dashboard renders this
+overlay above each bubble's original valuation label, with **red** when the new value
+is ≥ the previous run's, and **green** when it's < the previous run's. The slug map is
+in `data/forge_slugs.json`; add to `manual_overrides` there to extend coverage to
+companies the auto-matcher missed.
 
 ## Deploy in 5 minutes (GitHub Pages)
 
