@@ -745,34 +745,51 @@ function drawBubble(p) {
       // Tier 2-5: full company name (Chinese if available) + valuation label
       drawArtName(ctx, displayName, x, y, r, colors);
       if (r >= TIER_R[2] * 0.85) {
+        // If Forge secondary-market data exists, it REPLACES the canonical
+        // valuation_str (price-per-share + Forge implied valuation rendered as
+        // two stacked lines). Otherwise render the canonical valuation as before.
+        const fg = FORGE[p.d.company];
+        const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
+
         ctx.globalAlpha = alpha;
-        ctx.fillStyle = colors.valFg;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        const valFontSize = Math.max(8, r * 0.20);
-        ctx.font = '700 ' + valFontSize + 'px -apple-system, "SF Pro Display", sans-serif';
-        ctx.shadowColor = colors.valShadow; ctx.shadowBlur = Math.max(2, r * 0.025);
-        ctx.fillText(p.d.valuation_str, x, y + r * 0.66);
-        ctx.shadowBlur = 0;
 
-        // Forge Global secondary-market overlay (Top 50 only — driven by FORGE map).
-        // Renders ABOVE the original valuation label, in a slightly larger weight, with
-        // red/green coloring vs the previous fetch (red = new ≥ prev, green = new < prev).
-        const fg = FORGE[p.d.company];
-        if (fg && (fg.forge_price != null || fg.forge_valuation_m != null)) {
+        if (hasForge) {
           const col = forgeColor(fg.forge_price, fg.prev_forge_price)
                    || forgeColor(fg.forge_valuation_m, fg.prev_forge_valuation_m)
                    || '#ffffff';
-          const parts = [];
-          if (fg.forge_price != null) parts.push(fmtForgePrice(fg.forge_price));
-          if (fg.forge_valuation_m != null) parts.push(fmtForgeVal(fg.forge_valuation_m));
-          const txt = parts.join('  ·  ');
-          const forgeFont = Math.max(10, r * 0.26);
+          const priceTxt = fg.forge_price != null ? fmtForgePrice(fg.forge_price) : '';
+          const valTxt   = fg.forge_valuation_m != null ? fmtForgeVal(fg.forge_valuation_m) : '';
+          // Two stacked lines, occupying roughly the same vertical band the
+          // single canonical valuation used to live in.
+          const yPrice = y + r * 0.42;
+          const yVal   = y + r * 0.66;
+          // Font size constraints:
+          //   1. r * 0.20  — global cap (slightly smaller than canonical so two
+          //                  lines fit inside the sphere comfortably).
+          //   2. chord-at-lowest-line — guarantees text never escapes the circle.
+          const dyMax  = (yVal - y) / r;                          // 0.66
+          const chord  = 2 * r * Math.sqrt(Math.max(0.05, 1 - dyMax * dyMax));
+          const longest = Math.max(priceTxt.length, valTxt.length, 1);
+          const charW  = 0.55;
+          let forgeFont = Math.min(r * 0.20, (chord * 0.88) / (longest * charW));
+          forgeFont = Math.max(8, forgeFont);
+
           ctx.fillStyle = col;
           ctx.font = '800 ' + forgeFont + 'px -apple-system, "SF Pro Display", sans-serif';
           ctx.shadowColor = 'rgba(0,0,0,0.55)';
-          ctx.shadowBlur = Math.max(3, r * 0.04);
-          ctx.fillText(txt, x, y + r * 0.42);
+          ctx.shadowBlur = Math.max(2, r * 0.035);
+          if (priceTxt) ctx.fillText(priceTxt, x, yPrice);
+          if (valTxt)   ctx.fillText(valTxt,   x, yVal);
+          ctx.shadowBlur = 0;
+        } else {
+          // No Forge data — fall back to the canonical valuation label.
+          ctx.fillStyle = colors.valFg;
+          const valFontSize = Math.max(8, r * 0.20);
+          ctx.font = '700 ' + valFontSize + 'px -apple-system, "SF Pro Display", sans-serif';
+          ctx.shadowColor = colors.valShadow; ctx.shadowBlur = Math.max(2, r * 0.025);
+          ctx.fillText(p.d.valuation_str, x, y + r * 0.66);
           ctx.shadowBlur = 0;
         }
       }
