@@ -1,6 +1,344 @@
 {
-  "additions": [],
-  "modifications": [],
+  "additions": [
+    {
+      "id": "wiki-396",
+      "source": "wiki",
+      "company": "Corgi",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Financial technology",
+      "valuation_str": "$1.3B",
+      "valuation_m": 1300.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Nico Laqua, Emily Yuan",
+      "country": "United States",
+      "unicorn_as_of": "May 2026",
+      "year": "2026",
+      "industry": "Fintech",
+      "founders": "Nico Laqua, Emily Yuan"
+    }
+  ],
+  "modifications": [
+    {
+      "company": "Anthropic",
+      "changes": {
+        "valuation_m": {
+          "from": 900000.0,
+          "to": 380000.0
+        }
+      },
+      "current": {
+        "id": "wiki-2",
+        "source": "wiki",
+        "company": "Anthropic",
+        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
+        "wikiSlug": "Anthropic",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$900B",
+        "valuation_m": 900000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
+        "country": "United States",
+        "unicorn_as_of": "February 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+      },
+      "proposed": {
+        "id": "wiki-2",
+        "source": "wiki",
+        "company": "Anthropic",
+        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
+        "wikiSlug": "Anthropic",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$380B",
+        "valuation_m": 380000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
+        "country": "United States",
+        "unicorn_as_of": "February 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+      }
+    },
+    {
+      "company": "ByteDance",
+      "changes": {
+        "valuation_m": {
+          "from": 580000.0,
+          "to": 330000.0
+        }
+      },
+      "current": {
+        "id": "wiki-3",
+        "source": "wiki",
+        "company": "ByteDance",
+        "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
+        "wikiSlug": "ByteDance",
+        "description": "Internet",
+        "valuation_str": "$580B",
+        "valuation_m": 580000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Zhang Yiming, Liang Rubo",
+        "country": "China",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "Other",
+        "founders": "Zhang Yiming, Liang Rubo",
+        "companyZh": "字节跳动",
+        "pinyinInitial": "Z"
+      },
+      "proposed": {
+        "id": "wiki-3",
+        "source": "wiki",
+        "company": "ByteDance",
+        "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
+        "wikiSlug": "ByteDance",
+        "description": "Internet",
+        "valuation_str": "$330B",
+        "valuation_m": 330000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Zhang Yiming, Liang Rubo",
+        "country": "China",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "Other",
+        "founders": "Zhang Yiming, Liang Rubo",
+        "companyZh": "字节跳动",
+        "pinyinInitial": "Z"
+      }
+    },
+    {
+      "company": "Cursor",
+      "changes": {
+        "valuation_m": {
+          "from": 50000.0,
+          "to": 29300.0
+        }
+      },
+      "current": {
+        "id": "pb-616",
+        "source": "pb",
+        "tier": "A",
+        "company": "Cursor",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence-powered coding platform designed to enhance the productivity and capabilities of programmers and software engineers.",
+        "valuation_str": "$50B",
+        "valuation_m": 50000,
+        "vc_raised": "$3.4B",
+        "lead_investors": "Accel, Andreessen Horowitz, Coatue Management, OpenAI Startup Fund, Thrive Capital",
+        "country": "United States",
+        "unicorn_as_of": "January 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "pb-617",
+        "source": "pb",
+        "tier": "A",
+        "company": "Cursor",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence-powered coding platform designed to enhance the productivity and capabilities of programmers and software engineers.",
+        "valuation_str": "$29.3B",
+        "valuation_m": 29300.0,
+        "vc_raised": "$3.4B",
+        "lead_investors": "Accel, Andreessen Horowitz, Coatue Management, OpenAI Startup Fund, Thrive Capital",
+        "country": "United States",
+        "unicorn_as_of": "January 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": ""
+      }
+    },
+    {
+      "company": "DJI",
+      "changes": {
+        "valuation_m": {
+          "from": 23000.0,
+          "to": 15000.0
+        }
+      },
+      "current": {
+        "id": "wiki-30",
+        "source": "wiki",
+        "company": "DJI",
+        "wikiLink": "https://en.wikipedia.org/wiki/DJI",
+        "wikiSlug": "DJI",
+        "description": "Technology",
+        "valuation_str": "$23B",
+        "valuation_m": 23000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Frank Wang (Wang Tao)",
+        "country": "China",
+        "unicorn_as_of": "September 2016",
+        "year": "2016",
+        "industry": "Other",
+        "founders": "Frank Wang (Wang Tao)",
+        "companyZh": "大疆",
+        "pinyinInitial": "D"
+      },
+      "proposed": {
+        "id": "wiki-30",
+        "source": "wiki",
+        "company": "DJI",
+        "wikiLink": "https://en.wikipedia.org/wiki/DJI",
+        "wikiSlug": "DJI",
+        "description": "Technology",
+        "valuation_str": "$15B",
+        "valuation_m": 15000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Frank Wang (Wang Tao)",
+        "country": "China",
+        "unicorn_as_of": "September 2016",
+        "year": "2016",
+        "industry": "Other",
+        "founders": "Frank Wang (Wang Tao)",
+        "companyZh": "大疆",
+        "pinyinInitial": "D"
+      }
+    },
+    {
+      "company": "Tether",
+      "changes": {
+        "valuation_m": {
+          "from": 50000.0,
+          "to": 12000.0
+        }
+      },
+      "current": {
+        "id": "pb-620",
+        "source": "pb",
+        "tier": "A",
+        "company": "Tether",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
+        "valuation_str": "$50B",
+        "valuation_m": 50000,
+        "vc_raised": "$600.0M",
+        "lead_investors": "-",
+        "country": "El Salvador",
+        "unicorn_as_of": "November 2024",
+        "year": "2024",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "pb-621",
+        "source": "pb",
+        "tier": "A",
+        "company": "Tether",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
+        "valuation_str": "$12.0B",
+        "valuation_m": 12000.0,
+        "vc_raised": "$600.0M",
+        "lead_investors": "-",
+        "country": "El Salvador",
+        "unicorn_as_of": "November 2024",
+        "year": "2024",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      }
+    },
+    {
+      "company": "Moonshot",
+      "changes": {
+        "valuation_m": {
+          "from": 18000.0,
+          "to": 10000.0
+        }
+      },
+      "current": {
+        "id": "pb-623",
+        "source": "pb",
+        "tier": "A",
+        "company": "Moonshot",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence model designed to serve the AGI industry.",
+        "valuation_str": "$18B",
+        "valuation_m": 18000,
+        "vc_raised": "$2.9B",
+        "lead_investors": "5Y Capital, Alibaba Group, Andon Hong Kong, HSG (Hong Kong), IDG Capital, Tencent Holdings",
+        "country": "China",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "AI/ML",
+        "founders": "",
+        "companyZh": "月之暗面",
+        "pinyinInitial": "Y"
+      },
+      "proposed": {
+        "id": "pb-624",
+        "source": "pb",
+        "tier": "A",
+        "company": "Moonshot",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence model designed to serve the AGI industry.",
+        "valuation_str": "$10.0B",
+        "valuation_m": 10000.0,
+        "vc_raised": "$2.9B",
+        "lead_investors": "5Y Capital, Alibaba Group, Andon Hong Kong, HSG (Hong Kong), IDG Capital, Tencent Holdings",
+        "country": "China",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "AI/ML",
+        "founders": "",
+        "companyZh": "月之暗面",
+        "pinyinInitial": "Y"
+      }
+    },
+    {
+      "company": "Cohere",
+      "changes": {
+        "valuation_m": {
+          "from": 20000.0,
+          "to": 6800.0
+        }
+      },
+      "current": {
+        "id": "wiki-96",
+        "source": "wiki",
+        "company": "Cohere",
+        "wikiLink": "https://en.wikipedia.org/wiki/Cohere",
+        "wikiSlug": "Cohere",
+        "description": "Artificial intelligence",
+        "valuation_str": "$20B",
+        "valuation_m": 20000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Aidan Gomez, Ivan Zhang, Nick Frosst",
+        "country": "Canada",
+        "unicorn_as_of": "August 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
+      },
+      "proposed": {
+        "id": "wiki-96",
+        "source": "wiki",
+        "company": "Cohere",
+        "wikiLink": "https://en.wikipedia.org/wiki/Cohere",
+        "wikiSlug": "Cohere",
+        "description": "Artificial intelligence",
+        "valuation_str": "$6.8B",
+        "valuation_m": 6800.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Aidan Gomez, Ivan Zhang, Nick Frosst",
+        "country": "Canada",
+        "unicorn_as_of": "August 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
+      }
+    }
+  ],
   "removals": [],
-  "generated_at": "2026-05-05T09:54:26Z"
+  "generated_at": "2026-05-07T16:48:25Z"
 }

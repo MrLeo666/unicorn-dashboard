@@ -3960,6 +3960,16 @@
     "founders": ""
   },
   {
+    "company": "Corgi",
+    "wikiLink": "",
+    "valuation_b": 1.3,
+    "valuation_str": "$1.3B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Financial technology",
+    "country": "United States",
+    "founders": "Nico Laqua, Emily Yuan"
+  },
+  {
     "company": "DistroKid",
     "wikiLink": "https://en.wikipedia.org/wiki/DistroKid",
     "valuation_b": 1.3,
