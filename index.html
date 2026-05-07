@@ -48,6 +48,38 @@
   .pill:hover { background: rgba(255,255,255,0.08); color: #fff; }
   .pill.active { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
   button.pill { font-family: inherit; font-size: 13px; line-height: 1; }
+  /* ===== Table view ===== */
+  #tableView { position: fixed; inset: 0; padding: 24px 24px 80px; overflow: auto;
+               background: #0a0e27; z-index: 5; }
+  #tableWrap { max-width: 1400px; margin: 0 auto; }
+  #dataTable { width: 100%; border-collapse: collapse; font-size: 13px;
+               color: #c5cce0; font-variant-numeric: tabular-nums; }
+  #dataTable thead th { position: sticky; top: 0; z-index: 2;
+                        background: #15193b; text-align: left;
+                        padding: 10px 12px; font-weight: 600; color: #e8ecf4;
+                        border-bottom: 1px solid rgba(255,255,255,0.12);
+                        cursor: pointer; user-select: none; white-space: nowrap; }
+  #dataTable thead th.num { text-align: right; }
+  #dataTable thead th:hover { background: #1d2454; }
+  #dataTable thead th.sorted { color: #8db4ff; }
+  #dataTable thead th.sorted::after { content: attr(data-arrow); margin-left: 6px; opacity: 0.85; }
+  #dataTable tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04);
+                        cursor: pointer; transition: background 0.1s ease; }
+  #dataTable tbody tr:hover { background: rgba(91,141,239,0.08); }
+  #dataTable td { padding: 8px 12px; vertical-align: middle; }
+  #dataTable td.num { text-align: right; }
+  #dataTable .co-name { color: #fff; font-weight: 500; }
+  #dataTable .co-zh   { color: #fff; font-weight: 500; }
+  #dataTable .co-en   { color: #8892b0; font-size: 11px; margin-left: 6px; }
+  #dataTable .industry-tag { display: inline-block; padding: 2px 8px; border-radius: 6px;
+                             background: rgba(255,255,255,0.06); font-size: 11px;
+                             color: #c5cce0; white-space: nowrap; }
+  #dataTable .val-cell    { color: #fdc25c; font-weight: 600; }
+  #dataTable .forge-up    { color: #ff5a5a; }
+  #dataTable .forge-down  { color: #3edc81; }
+  #dataTable .forge-flat  { color: #c5cce0; }
+  #dataTable .forge-delta { font-size: 10px; opacity: 0.7; margin-left: 4px; }
+  #dataTable .empty-row td { text-align: center; padding: 40px; color: #8892b0; }
   select.pill { appearance: none; padding-right: 28px;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%23c5cce0" stroke-width="1.5" fill="none"/></svg>');
     background-repeat: no-repeat; background-position: right 10px center;
@@ -120,7 +152,7 @@
     <label>View</label>
     <button type="button" class="pill viewBtn active" data-view="bubbles">Bubbles</button>
     <button type="button" class="pill viewBtn" data-view="treemap">Treemap</button>
-    <button type="button" class="pill viewBtn" data-view="scatter">Scatter</button>
+    <button type="button" class="pill viewBtn" data-view="table">Table</button>
   </div>
 
   <div class="group" id="topGroup">
@@ -160,6 +192,26 @@
 </div>
 
 <div id="stage"><canvas id="canvas"></canvas></div>
+
+<div id="tableView" style="display:none;">
+  <div id="tableWrap">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th data-sort="rank">#</th>
+          <th data-sort="company">Company</th>
+          <th data-sort="industry">Industry</th>
+          <th data-sort="country">Country</th>
+          <th data-sort="valuation_m" class="num">Valuation</th>
+          <th data-sort="forge_price" class="num">Forge Price</th>
+          <th data-sort="forge_valuation_m" class="num">Forge Valuation</th>
+          <th data-sort="year" class="num">Year</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
 
 <div id="legend">
   <div class="lbl">Bubble color · valuation</div>
@@ -274,11 +326,15 @@ let WIDTH = 0, HEIGHT = 0, DPR = 1;
 let HOVER = null, LOCKED = null;
 const FILTER = { topX: 1011, country: 'all', industry: 'all', letter: 'all' };
 // View mode: 'bubbles' (default, animated) | 'treemap' (industry-grouped rectangles)
-// | 'scatter' (year × valuation log scale). All three share DATA + FILTER + tooltip.
+// | 'table' (sortable HTML table). All three share DATA + FILTER + Forge data.
 let VIEW = 'bubbles';
 let TREEMAP = { leaves: [], groups: [], dirty: true };
-let SCATTER = { points: [], axes: null, dirty: true };
-function markStaticDirty() { TREEMAP.dirty = true; SCATTER.dirty = true; }
+let TABLE = { sortKey: 'valuation_m', sortDir: 'desc', dirty: true };
+function markStaticDirty() {
+  TREEMAP.dirty = true;
+  TABLE.dirty = true;
+  if (VIEW === 'table') buildTable();
+}
 // Compute the "first letter" used for the Letter filter:
 // - Chinese companies: pinyin first letter (already stored in d.pinyinInitial)
 // - Other companies: first ASCII letter of the English name
@@ -938,118 +994,99 @@ function pickTreemap(x, y) {
   return null;
 }
 
-// ===== Scatter view (Year × Valuation log) =====
-function computeScatterLayout() {
-  const visible = DATA.filter((d, i) => matchFilterRecord(d, i + 1));
-  const padding = { l: 70, r: 30, t: 60, b: 60 };
-  const yearOf = d => {
-    const y = parseInt(d.year || (d.unicorn_as_of || ''), 10);
-    return Number.isFinite(y) && y >= 2000 && y <= 2030 ? y : null;
-  };
-  const years = visible.map(yearOf).filter(y => y != null);
-  const yearMin = years.length ? Math.max(2010, Math.min(...years)) : 2010;
-  const yearMax = years.length ? Math.min(2030, Math.max(...years)) : 2026;
-  const vMin = 1000, vMax = 1500000;     // $1B .. $1.5T
-  const xRange = WIDTH - padding.l - padding.r;
-  const yRange = HEIGHT - padding.t - padding.b;
-  const logMin = Math.log10(vMin), logMax = Math.log10(vMax);
-  const xScale = yr => padding.l + (yr - yearMin) / Math.max(1, yearMax - yearMin) * xRange;
-  const yScale = v => padding.t + (1 - (Math.log10(Math.max(vMin, Math.min(vMax, v))) - logMin) / (logMax - logMin)) * yRange;
-  // Sqrt-area sized dots, capped so SpaceX doesn't dominate.
-  const rOf = v => Math.max(3, Math.min(28, Math.sqrt(v / 1000) * 1.6));
-  const points = [];
-  for (const d of visible) {
-    const yr = yearOf(d);
-    if (yr == null) continue;
-    points.push({
-      d,
-      cx: xScale(yr),
-      cy: yScale(d.valuation_m),
-      r:  rOf(d.valuation_m),
-      color: colorFor(d.valuation_m),
-    });
+// ===== Table view (sortable HTML table) =====
+// All visible records rendered as <tr>; sort by clicking column headers.
+// Forge Price / Forge Valuation cells inherit red/green coloring from prev-week comparison.
+const TABLE_COLS = ['rank','company','industry','country','valuation_m','forge_price','forge_valuation_m','year'];
+
+function forgeClass(fg) {
+  if (!fg) return 'forge-flat';
+  if (fg.prev_forge_price != null && fg.forge_price != null) {
+    return fg.forge_price >= fg.prev_forge_price ? 'forge-up' : 'forge-down';
   }
-  SCATTER.points = points;
-  SCATTER.axes = { padding, yearMin, yearMax, vMin, vMax, xScale, yScale };
-  SCATTER.dirty = false;
+  if (fg.prev_forge_valuation_m != null && fg.forge_valuation_m != null) {
+    return fg.forge_valuation_m >= fg.prev_forge_valuation_m ? 'forge-up' : 'forge-down';
+  }
+  return 'forge-flat';
 }
 
-function drawScatter() {
-  if (SCATTER.dirty) computeScatterLayout();
-  ctx.clearRect(0, 0, WIDTH, HEIGHT);
-  if (!SCATTER.axes) return;
-  const { padding, yearMin, yearMax, xScale, yScale } = SCATTER.axes;
-  // Grid lines
-  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-  ctx.lineWidth = 1;
-  for (let yr = yearMin; yr <= yearMax; yr++) {
-    const x = xScale(yr);
-    ctx.beginPath(); ctx.moveTo(x, padding.t); ctx.lineTo(x, HEIGHT - padding.b); ctx.stroke();
-  }
-  const vTicks = [1000, 5000, 10000, 50000, 100000, 500000, 1000000];
-  for (const v of vTicks) {
-    const y = yScale(v);
-    ctx.beginPath(); ctx.moveTo(padding.l, y); ctx.lineTo(WIDTH - padding.r, y); ctx.stroke();
-  }
-  // Tick labels
-  ctx.fillStyle = '#8892b0';
-  ctx.font = '11px -apple-system, sans-serif';
-  ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-  for (let yr = yearMin; yr <= yearMax; yr++) {
-    if ((yearMax - yearMin) > 8 && yr % 2 !== 0 && yr !== yearMax) continue;
-    ctx.fillText(String(yr), xScale(yr), HEIGHT - padding.b + 6);
-  }
-  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
-  for (const v of vTicks) {
-    let lab;
-    if (v >= 1_000_000) lab = '$' + (v / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'T';
-    else if (v >= 1000)  lab = '$' + (v / 1000).toFixed(0) + 'B';
-    else lab = '$' + v + 'M';
-    ctx.fillText(lab, padding.l - 8, yScale(v));
-  }
-  // Axis titles
-  ctx.fillStyle = '#c5cce0';
-  ctx.font = '600 12px -apple-system, sans-serif';
-  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-  ctx.fillText('Year became unicorn', WIDTH / 2, HEIGHT - 18);
-  ctx.save();
-  ctx.translate(22, HEIGHT / 2);
-  ctx.rotate(-Math.PI / 2);
-  ctx.textAlign = 'center';
-  ctx.fillText('Valuation (log scale)', 0, 0);
-  ctx.restore();
-  // Points (smallest first so big ones sit on top)
-  const sorted = SCATTER.points.slice().sort((a, b) => a.r - b.r);
-  ctx.globalAlpha = 0.78;
-  for (const p of sorted) {
-    ctx.fillStyle = p.color;
-    ctx.beginPath(); ctx.arc(p.cx, p.cy, p.r, 0, Math.PI * 2); ctx.fill();
-  }
-  ctx.globalAlpha = 1;
-  // Hover / locked highlight + label
-  const target = LOCKED || HOVER;
-  if (target && target.d) {
-    const p = SCATTER.points.find(pt => pt.d === target.d);
-    if (p) {
-      ctx.strokeStyle = '#fff';
-      ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.arc(p.cx, p.cy, p.r + 2, 0, Math.PI * 2); ctx.stroke();
-      ctx.fillStyle = '#fff';
-      ctx.font = '700 12px -apple-system, sans-serif';
-      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-      ctx.fillText(p.d.companyZh || p.d.company, p.cx, p.cy - p.r - 4);
+function getSortVal(d, key) {
+  if (key === 'rank')               return DATA.indexOf(d);
+  if (key === 'forge_price')        return (FORGE[d.company] || {}).forge_price;
+  if (key === 'forge_valuation_m')  return (FORGE[d.company] || {}).forge_valuation_m;
+  if (key === 'year')               return parseInt(d.year, 10);
+  return d[key];
+}
+
+function buildTable() {
+  const tbody = document.querySelector('#dataTable tbody');
+  if (!tbody) return;
+  // Update sort header indicators
+  document.querySelectorAll('#dataTable thead th').forEach(th => {
+    const isSorted = th.dataset.sort === TABLE.sortKey;
+    th.classList.toggle('sorted', isSorted);
+    th.dataset.arrow = isSorted ? (TABLE.sortDir === 'asc' ? '↑' : '↓') : '';
+  });
+  // Filter
+  const visible = [];
+  DATA.forEach((d, i) => { if (matchFilterRecord(d, i + 1)) visible.push(d); });
+  // Sort
+  const k = TABLE.sortKey, dir = TABLE.sortDir === 'asc' ? 1 : -1;
+  visible.sort((a, b) => {
+    const va = getSortVal(a, k), vb = getSortVal(b, k);
+    // Nullable: missing values always sink to the bottom regardless of asc/desc.
+    const nullA = (va == null || (typeof va === 'number' && !isFinite(va)));
+    const nullB = (vb == null || (typeof vb === 'number' && !isFinite(vb)));
+    if (nullA && nullB) return 0;
+    if (nullA) return 1;
+    if (nullB) return -1;
+    if (typeof va === 'string' || typeof vb === 'string') {
+      return dir * String(va).localeCompare(String(vb));
     }
+    return dir * (va - vb);
+  });
+  if (!visible.length) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="8">No matching unicorns. Adjust the filters above.</td></tr>';
+    TABLE.dirty = false;
+    return;
   }
-}
-
-function pickScatter(x, y) {
-  // Iterate large-first so big dots win over small overlapping dots
-  const sorted = SCATTER.points.slice().sort((a, b) => b.r - a.r);
-  for (const p of sorted) {
-    const dx = x - p.cx, dy = y - p.cy;
-    if (dx * dx + dy * dy <= (p.r + 2) * (p.r + 2)) return { d: p.d, x: p.cx, y: p.cy };
-  }
-  return null;
+  // Render rows. Use canonical rank (index in DATA, sorted by valuation desc).
+  const rows = visible.map(d => {
+    const rank = DATA.indexOf(d) + 1;
+    const fg = FORGE[d.company];
+    const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
+    const fclass = hasForge ? forgeClass(fg) : '';
+    let priceCell = '<span style="opacity:.4">—</span>';
+    let valCell   = '<span style="opacity:.4">—</span>';
+    if (hasForge && fg.forge_price != null) {
+      let s = '<span class="' + fclass + '">' + fmtForgePrice(fg.forge_price) + '</span>';
+      if (fg.prev_forge_price != null) {
+        const dlt = fg.forge_price - fg.prev_forge_price;
+        const pct = (dlt / fg.prev_forge_price * 100).toFixed(1);
+        s += '<span class="forge-delta">' + (dlt >= 0 ? '+' : '') + pct + '%</span>';
+      }
+      priceCell = s;
+    }
+    if (hasForge && fg.forge_valuation_m != null) {
+      valCell = '<span class="' + fclass + '">' + fmtForgeVal(fg.forge_valuation_m) + '</span>';
+    }
+    const isCN = d.companyZh && d.companyZh !== d.company && !String(d.companyZh).startsWith('Unnamed');
+    const nameCell = isCN
+      ? '<span class="co-zh">' + esc(d.companyZh) + '</span><span class="co-en">' + esc(d.company) + '</span>'
+      : '<span class="co-name">' + esc(d.company) + '</span>';
+    return '<tr data-co="' + esc(d.company) + '">'
+         + '<td class="num">' + rank + '</td>'
+         + '<td>' + nameCell + '</td>'
+         + '<td><span class="industry-tag">' + esc(d.industry || 'Other') + '</span></td>'
+         + '<td>' + esc(d.country || '—') + '</td>'
+         + '<td class="num val-cell">' + esc(d.valuation_str || '') + '</td>'
+         + '<td class="num">' + priceCell + '</td>'
+         + '<td class="num">' + valCell + '</td>'
+         + '<td class="num">' + esc(d.year || '—') + '</td>'
+         + '</tr>';
+  });
+  tbody.innerHTML = rows.join('');
+  TABLE.dirty = false;
 }
 
 // ===== Render dispatch =====
@@ -1071,9 +1108,8 @@ function tick(now) {
     ctx.globalAlpha = 1;
   } else if (VIEW === 'treemap') {
     drawTreemap();
-  } else if (VIEW === 'scatter') {
-    drawScatter();
   }
+  // 'table' view is HTML-based — nothing to draw on canvas; canvas is hidden.
 }
 
 function animate() {
@@ -1091,7 +1127,7 @@ function pickAt(x, y) {
     return null;
   }
   if (VIEW === 'treemap') return pickTreemap(x, y);
-  if (VIEW === 'scatter') return pickScatter(x, y);
+  // 'table' view handles hover/click via DOM events on <tr>, not canvas pickAt.
   return null;
 }
 
@@ -1186,17 +1222,64 @@ window.addEventListener('resize', () => {
   markStaticDirty();
 });
 
-// View toggle (Bubbles / Treemap / Scatter)
-document.querySelectorAll('.viewBtn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const v = btn.dataset.view;
-    if (v === VIEW) return;
-    VIEW = v;
-    document.querySelectorAll('.viewBtn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
-    LOCKED = null; HOVER = null; hideTooltip();
+// View toggle (Bubbles / Treemap / Table)
+function setView(v) {
+  if (v === VIEW) return;
+  VIEW = v;
+  document.querySelectorAll('.viewBtn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
+  LOCKED = null; HOVER = null; hideTooltip();
+  // Toggle DOM panes: HTML table vs canvas-based views.
+  const tableView = document.getElementById('tableView');
+  const stage = document.getElementById('stage');
+  const legend = document.getElementById('legend');
+  if (v === 'table') {
+    tableView.style.display = 'block';
+    stage.style.display = 'none';
+    if (legend) legend.style.display = 'none';
+    if (TABLE.dirty) buildTable();
+  } else {
+    tableView.style.display = 'none';
+    stage.style.display = 'block';
+    if (legend) legend.style.display = 'block';
     markStaticDirty();
-    // Legend is meaningful for bubbles + treemap + scatter (all use color = valuation).
+  }
+}
+document.querySelectorAll('.viewBtn').forEach(btn => {
+  btn.addEventListener('click', () => setView(btn.dataset.view));
+});
+
+// Table column sort
+document.querySelectorAll('#dataTable thead th').forEach(th => {
+  th.addEventListener('click', () => {
+    const k = th.dataset.sort;
+    if (TABLE.sortKey === k) {
+      TABLE.sortDir = TABLE.sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      TABLE.sortKey = k;
+      // Default direction: descending for numerics, ascending for strings.
+      const stringCols = ['company','industry','country'];
+      TABLE.sortDir = stringCols.includes(k) ? 'asc' : 'desc';
+    }
+    TABLE.dirty = true;
+    if (VIEW === 'table') buildTable();
   });
+});
+
+// Table row click → external link (Wikipedia or Google fallback)
+document.querySelector('#dataTable tbody').addEventListener('click', e => {
+  const tr = e.target.closest('tr[data-co]');
+  if (!tr) return;
+  const co = tr.dataset.co;
+  const d = DATA.find(x => x.company === co);
+  if (!d) return;
+  let url;
+  if (d.wikiLink && /wikipedia\.org\/wiki\//.test(d.wikiLink)) {
+    url = d.wikiLink;
+  } else {
+    const q = (d.companyZh && d.companyZh !== d.company) ? d.companyZh + ' ' + d.company : d.company;
+    url = 'https://www.google.com/search?q=' + encodeURIComponent(q);
+  }
+  window.open(url, '_blank', 'noopener');
 });
 
 (async () => {
