@@ -10,21 +10,27 @@
   #stage { position: fixed; inset: 0; }
   canvas { display: block; cursor: default; }
   #topbar {
-    position: fixed; top: 24px; left: 24px; right: 24px;
+    position: fixed; top: 0; left: 24px; right: 24px;
     display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
-    padding: 18px 28px; border-radius: 16px;
-    background: rgba(15, 21, 50, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.07);
+    padding: 18px 28px;
+    /* Anchored to the very top edge, so only the bottom corners are rounded.
+       Acts like a slide-down sheet: peeks 8px when idle, fully visible on hover. */
+    border-radius: 0 0 16px 16px;
+    background: rgba(15, 21, 50, 0.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.08); border-top: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
     z-index: 10;
-    /* Default = idle: stays in place but mostly transparent so the bubble field is unobstructed */
-    opacity: 0.18;
-    pointer-events: none;
-    transition: opacity 0.22s ease;
+    /* Idle: slid up so only an 8px handle remains under the viewport top.
+       Active: slid fully into view. */
+    transform: translateY(calc(-100% + 8px));
+    transition: transform 0.28s cubic-bezier(.2, .9, .25, 1);
+    pointer-events: auto;
   }
-  #topbar.visible { opacity: 1; pointer-events: auto; }
-  /* Invisible hover-trigger strip across the top of the viewport */
+  #topbar.visible { transform: translateY(0); }
+  /* Invisible hover-trigger strip across the top of the viewport — wider than
+     the visible handle so the user doesn't need pixel-perfect aim. */
   #topbarHotzone {
-    position: fixed; top: 0; left: 0; right: 0; height: 60px;
+    position: fixed; top: 0; left: 0; right: 0; height: 28px;
     z-index: 9; pointer-events: auto;
   }
   /* Fullscreen toggle button */
@@ -1309,8 +1315,9 @@ document.querySelector('#dataTable tbody').addEventListener('click', e => {
 })();
 
 // ===== Auto-hide topbar =====
-// Hidden by default. Slides in when the cursor enters the top hot-zone or the
-// topbar itself; slides out 600ms after the cursor leaves the topbar+hot-zone area.
+// Idle: the topbar is slid up so only an ~8px handle peeks under the viewport top.
+// Hovering the top strip (28px hot-zone or the visible handle itself) slides it
+// fully in. Leaving the topbar+hot-zone area schedules a slide-out 500ms later.
 const topbarEl = document.getElementById('topbar');
 const hotzone  = document.getElementById('topbarHotzone');
 let topbarHideTimer = null;
@@ -1323,15 +1330,16 @@ function scheduleHide() {
   topbarHideTimer = setTimeout(() => {
     topbarEl.classList.remove('visible');
     topbarHideTimer = null;
-  }, 600);
+  }, 500);
 }
 hotzone.addEventListener('mouseenter', showTopbar);
 hotzone.addEventListener('mousemove', showTopbar);
 topbarEl.addEventListener('mouseenter', showTopbar);
 topbarEl.addEventListener('mouseleave', scheduleHide);
 hotzone.addEventListener('mouseleave', e => {
-  // Only schedule hide if leaving downward (not into the topbar itself)
-  if (e.clientY > 60) scheduleHide();
+  // Only schedule hide if leaving downward into the page body, not upward into
+  // the topbar itself (which now extends above the hot-zone when expanded).
+  if (e.clientY > 28) scheduleHide();
 });
 
 // ===== Fullscreen toggle =====
