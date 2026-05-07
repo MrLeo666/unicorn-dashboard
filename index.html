@@ -47,6 +47,7 @@
   }
   .pill:hover { background: rgba(255,255,255,0.08); color: #fff; }
   .pill.active { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+  button.pill { font-family: inherit; font-size: 13px; line-height: 1; }
   select.pill { appearance: none; padding-right: 28px;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%23c5cce0" stroke-width="1.5" fill="none"/></svg>');
     background-repeat: no-repeat; background-position: right 10px center;
@@ -114,6 +115,13 @@
 
 <div id="topbar" style="display:none;">
   <div id="title">Unicorn Bubble Dashboard <small>Loading… · PitchBook + Wikipedia · Click bubble for details · &lt;$5B shown as letter dots</small></div>
+
+  <div class="group">
+    <label>View</label>
+    <button type="button" class="pill viewBtn active" data-view="bubbles">Bubbles</button>
+    <button type="button" class="pill viewBtn" data-view="treemap">Treemap</button>
+    <button type="button" class="pill viewBtn" data-view="scatter">Scatter</button>
+  </div>
 
   <div class="group" id="topGroup">
     <label>Top</label>
@@ -265,6 +273,12 @@ let PARTICLES = [];
 let WIDTH = 0, HEIGHT = 0, DPR = 1;
 let HOVER = null, LOCKED = null;
 const FILTER = { topX: 1011, country: 'all', industry: 'all', letter: 'all' };
+// View mode: 'bubbles' (default, animated) | 'treemap' (industry-grouped rectangles)
+// | 'scatter' (year × valuation log scale). All three share DATA + FILTER + tooltip.
+let VIEW = 'bubbles';
+let TREEMAP = { leaves: [], groups: [], dirty: true };
+let SCATTER = { points: [], axes: null, dirty: true };
+function markStaticDirty() { TREEMAP.dirty = true; SCATTER.dirty = true; }
 // Compute the "first letter" used for the Letter filter:
 // - Chinese companies: pinyin first letter (already stored in d.pinyinInitial)
 // - Other companies: first ASCII letter of the English name
@@ -326,14 +340,16 @@ function buildFilters() {
   });
 }
 
-function matchFilter(p) {
-  if (p.rank > FILTER.topX) return false;
-  const d = p.d;
+function matchFilterRecord(d, rank) {
+  if (rank > FILTER.topX) return false;
   if (FILTER.country !== 'all' && d.country !== FILTER.country) return false;
   if (FILTER.industry !== 'all' && d.industry !== FILTER.industry) return false;
   if (FILTER.letter !== 'all' && firstLetter(d) !== FILTER.letter) return false;
   return true;
 }
+// Particle wrapper — bubbles use this. Treemap / scatter iterate DATA directly
+// using matchFilterRecord(d, index + 1) since DATA is pre-sorted by valuation desc.
+function matchFilter(p) { return matchFilterRecord(p.d, p.rank); }
 
 function applyFilter() {
   let visible = 0, total = 0;
@@ -343,6 +359,8 @@ function applyFilter() {
   });
   document.getElementById('visibleCount').textContent = visible;
   document.getElementById('totalValuation').textContent = '$' + (total/1000).toFixed(1) + 'B';
+  // Static views (treemap / scatter) cache layouts; invalidate on filter change.
+  markStaticDirty();
 }
 
 // ===== Sizing: area linear in valuation, $10B = unit step =====
@@ -805,23 +823,257 @@ function drawBubble(p) {
   ctx.stroke();
 }
 
+// ===== Treemap view (industry-grouped, area = valuation) =====
+// Two-level d3.treemap: outer cells = industry, inner cells = company.
+// Re-computed lazily when DATA / FILTER / window size changes.
+function computeTreemapLayout() {
+  const visible = DATA.filter((d, i) => matchFilterRecord(d, i + 1));
+  if (!visible.length) { TREEMAP.leaves = []; TREEMAP.groups = []; TREEMAP.dirty = false; return; }
+  const grouped = d3.group(visible, d => d.industry || 'Other');
+  // Sort industries by total valuation descending so the biggest sits top-left.
+  const children = [...grouped.entries()]
+    .map(([industry, items]) => ({
+      name: industry,
+      children: items.map(d => ({ name: d.company, value: d.valuation_m, d })),
+    }))
+    .sort((a, b) =>
+      b.children.reduce((s, c) => s + c.value, 0) -
+      a.children.reduce((s, c) => s + c.value, 0)
+    );
+  const root = d3.hierarchy({ name: 'root', children })
+    .sum(d => d.value || 0)
+    .sort((a, b) => b.value - a.value);
+  const tm = d3.treemap()
+    .size([WIDTH, HEIGHT])
+    .paddingOuter(10).paddingTop(26).paddingInner(2)
+    .round(true);
+  tm(root);
+  TREEMAP.groups = root.children || [];
+  TREEMAP.leaves = root.leaves();
+  TREEMAP.dirty = false;
+}
+
+function drawTreemap() {
+  if (TREEMAP.dirty) computeTreemapLayout();
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  // Industry group backgrounds + headers
+  for (const g of TREEMAP.groups) {
+    const w = g.x1 - g.x0, h = g.y1 - g.y0;
+    if (w < 4 || h < 4) continue;
+    ctx.fillStyle = 'rgba(255,255,255,0.025)';
+    ctx.fillRect(g.x0, g.y0, w, h);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(g.x0 + 0.5, g.y0 + 0.5, w - 1, h - 1);
+    if (h >= 24) {
+      ctx.fillStyle = '#c5cce0';
+      ctx.font = '600 12px -apple-system, "SF Pro Display", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      const total = g.value;
+      const totStr = total >= 1_000_000 ? '$' + (total/1_000_000).toFixed(1) + 'T'
+                   : '$' + (total/1000).toFixed(0) + 'B';
+      ctx.fillText(g.data.name + '  ' + totStr + '  · ' + g.children.length, g.x0 + 8, g.y0 + 8);
+    }
+  }
+  // Company leaves
+  for (const leaf of TREEMAP.leaves) {
+    const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
+    if (w < 1 || h < 1) continue;
+    const d = leaf.data.d;
+    const col = colorFor(d.valuation_m);
+    ctx.fillStyle = col;
+    ctx.fillRect(leaf.x0, leaf.y0, w, h);
+    if (w >= 36 && h >= 22) {
+      const cc = getContrastColors(col);
+      const display = d.companyZh || d.company;
+      // Name
+      ctx.fillStyle = cc.fg;
+      ctx.font = '700 11px -apple-system, "SF Pro Display", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      const maxChars = Math.max(2, Math.floor(w / 6.4));
+      const name = display.length > maxChars ? display.slice(0, maxChars - 1) + '…' : display;
+      ctx.fillText(name, leaf.x0 + 4, leaf.y0 + 4);
+      // Valuation (or Forge for Top 50)
+      if (h >= 38) {
+        const fg = FORGE[d.company];
+        const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
+        if (hasForge) {
+          const c = forgeColor(fg.forge_price, fg.prev_forge_price)
+                 || forgeColor(fg.forge_valuation_m, fg.prev_forge_valuation_m)
+                 || cc.valFg;
+          ctx.fillStyle = c;
+          ctx.font = '700 10px -apple-system, sans-serif';
+          const txt = fg.forge_valuation_m != null
+            ? fmtForgeVal(fg.forge_valuation_m) + ' · ' + fmtForgePrice(fg.forge_price)
+            : fmtForgePrice(fg.forge_price);
+          ctx.fillText(txt, leaf.x0 + 4, leaf.y0 + 18);
+        } else {
+          ctx.fillStyle = cc.valFg;
+          ctx.font = '500 10px -apple-system, sans-serif';
+          ctx.fillText(d.valuation_str, leaf.x0 + 4, leaf.y0 + 18);
+        }
+      }
+    }
+  }
+  // Hover / locked highlight
+  const target = LOCKED || HOVER;
+  if (target && target.d) {
+    const lf = TREEMAP.leaves.find(l => l.data.d === target.d);
+    if (lf) {
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(lf.x0 + 1, lf.y0 + 1, lf.x1 - lf.x0 - 2, lf.y1 - lf.y0 - 2);
+    }
+  }
+}
+
+function pickTreemap(x, y) {
+  for (const lf of TREEMAP.leaves) {
+    if (x >= lf.x0 && x <= lf.x1 && y >= lf.y0 && y <= lf.y1) {
+      return { d: lf.data.d, x: (lf.x0 + lf.x1) / 2, y: (lf.y0 + lf.y1) / 2 };
+    }
+  }
+  return null;
+}
+
+// ===== Scatter view (Year × Valuation log) =====
+function computeScatterLayout() {
+  const visible = DATA.filter((d, i) => matchFilterRecord(d, i + 1));
+  const padding = { l: 70, r: 30, t: 60, b: 60 };
+  const yearOf = d => {
+    const y = parseInt(d.year || (d.unicorn_as_of || ''), 10);
+    return Number.isFinite(y) && y >= 2000 && y <= 2030 ? y : null;
+  };
+  const years = visible.map(yearOf).filter(y => y != null);
+  const yearMin = years.length ? Math.max(2010, Math.min(...years)) : 2010;
+  const yearMax = years.length ? Math.min(2030, Math.max(...years)) : 2026;
+  const vMin = 1000, vMax = 1500000;     // $1B .. $1.5T
+  const xRange = WIDTH - padding.l - padding.r;
+  const yRange = HEIGHT - padding.t - padding.b;
+  const logMin = Math.log10(vMin), logMax = Math.log10(vMax);
+  const xScale = yr => padding.l + (yr - yearMin) / Math.max(1, yearMax - yearMin) * xRange;
+  const yScale = v => padding.t + (1 - (Math.log10(Math.max(vMin, Math.min(vMax, v))) - logMin) / (logMax - logMin)) * yRange;
+  // Sqrt-area sized dots, capped so SpaceX doesn't dominate.
+  const rOf = v => Math.max(3, Math.min(28, Math.sqrt(v / 1000) * 1.6));
+  const points = [];
+  for (const d of visible) {
+    const yr = yearOf(d);
+    if (yr == null) continue;
+    points.push({
+      d,
+      cx: xScale(yr),
+      cy: yScale(d.valuation_m),
+      r:  rOf(d.valuation_m),
+      color: colorFor(d.valuation_m),
+    });
+  }
+  SCATTER.points = points;
+  SCATTER.axes = { padding, yearMin, yearMax, vMin, vMax, xScale, yScale };
+  SCATTER.dirty = false;
+}
+
+function drawScatter() {
+  if (SCATTER.dirty) computeScatterLayout();
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  if (!SCATTER.axes) return;
+  const { padding, yearMin, yearMax, xScale, yScale } = SCATTER.axes;
+  // Grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  ctx.lineWidth = 1;
+  for (let yr = yearMin; yr <= yearMax; yr++) {
+    const x = xScale(yr);
+    ctx.beginPath(); ctx.moveTo(x, padding.t); ctx.lineTo(x, HEIGHT - padding.b); ctx.stroke();
+  }
+  const vTicks = [1000, 5000, 10000, 50000, 100000, 500000, 1000000];
+  for (const v of vTicks) {
+    const y = yScale(v);
+    ctx.beginPath(); ctx.moveTo(padding.l, y); ctx.lineTo(WIDTH - padding.r, y); ctx.stroke();
+  }
+  // Tick labels
+  ctx.fillStyle = '#8892b0';
+  ctx.font = '11px -apple-system, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  for (let yr = yearMin; yr <= yearMax; yr++) {
+    if ((yearMax - yearMin) > 8 && yr % 2 !== 0 && yr !== yearMax) continue;
+    ctx.fillText(String(yr), xScale(yr), HEIGHT - padding.b + 6);
+  }
+  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  for (const v of vTicks) {
+    let lab;
+    if (v >= 1_000_000) lab = '$' + (v / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'T';
+    else if (v >= 1000)  lab = '$' + (v / 1000).toFixed(0) + 'B';
+    else lab = '$' + v + 'M';
+    ctx.fillText(lab, padding.l - 8, yScale(v));
+  }
+  // Axis titles
+  ctx.fillStyle = '#c5cce0';
+  ctx.font = '600 12px -apple-system, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.fillText('Year became unicorn', WIDTH / 2, HEIGHT - 18);
+  ctx.save();
+  ctx.translate(22, HEIGHT / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = 'center';
+  ctx.fillText('Valuation (log scale)', 0, 0);
+  ctx.restore();
+  // Points (smallest first so big ones sit on top)
+  const sorted = SCATTER.points.slice().sort((a, b) => a.r - b.r);
+  ctx.globalAlpha = 0.78;
+  for (const p of sorted) {
+    ctx.fillStyle = p.color;
+    ctx.beginPath(); ctx.arc(p.cx, p.cy, p.r, 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  // Hover / locked highlight + label
+  const target = LOCKED || HOVER;
+  if (target && target.d) {
+    const p = SCATTER.points.find(pt => pt.d === target.d);
+    if (p) {
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(p.cx, p.cy, p.r + 2, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = '#fff';
+      ctx.font = '700 12px -apple-system, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      ctx.fillText(p.d.companyZh || p.d.company, p.cx, p.cy - p.r - 4);
+    }
+  }
+}
+
+function pickScatter(x, y) {
+  // Iterate large-first so big dots win over small overlapping dots
+  const sorted = SCATTER.points.slice().sort((a, b) => b.r - a.r);
+  for (const p of sorted) {
+    const dx = x - p.cx, dy = y - p.cy;
+    if (dx * dx + dy * dy <= (p.r + 2) * (p.r + 2)) return { d: p.d, x: p.cx, y: p.cy };
+  }
+  return null;
+}
+
+// ===== Render dispatch =====
 function tick(now) {
   const dt = Math.min(40, lastT ? now - lastT : 16);
   lastT = now;
 
-  physicsStep(now, dt);
-
-  ctx.clearRect(0, 0, WIDTH, HEIGHT);
-  // Draw smaller bubbles first so larger ones overlay them
-  const sorted = PARTICLES.slice().sort((a, b) => {
-    if (LOCKED && a.d === LOCKED.d) return 1;
-    if (LOCKED && b.d === LOCKED.d) return -1;
-    if (HOVER && a.d === HOVER.d) return 1;
-    if (HOVER && b.d === HOVER.d) return -1;
-    return a.r - b.r;
-  });
-  for (const p of sorted) drawBubble(p);
-  ctx.globalAlpha = 1;
+  if (VIEW === 'bubbles') {
+    physicsStep(now, dt);
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    const sorted = PARTICLES.slice().sort((a, b) => {
+      if (LOCKED && a.d === LOCKED.d) return 1;
+      if (LOCKED && b.d === LOCKED.d) return -1;
+      if (HOVER && a.d === HOVER.d) return 1;
+      if (HOVER && b.d === HOVER.d) return -1;
+      return a.r - b.r;
+    });
+    for (const p of sorted) drawBubble(p);
+    ctx.globalAlpha = 1;
+  } else if (VIEW === 'treemap') {
+    drawTreemap();
+  } else if (VIEW === 'scatter') {
+    drawScatter();
+  }
 }
 
 function animate() {
@@ -830,11 +1082,16 @@ function animate() {
 }
 
 function pickAt(x, y) {
-  const sorted = PARTICLES.filter(p => p.visible).sort((a, b) => b.r - a.r);
-  for (const p of sorted) {
-    const dx = x - p.x, dy = y - p.y;
-    if (dx*dx + dy*dy <= p.r * p.r) return p;
+  if (VIEW === 'bubbles') {
+    const sorted = PARTICLES.filter(p => p.visible).sort((a, b) => b.r - a.r);
+    for (const p of sorted) {
+      const dx = x - p.x, dy = y - p.y;
+      if (dx*dx + dy*dy <= p.r * p.r) return p;
+    }
+    return null;
   }
+  if (VIEW === 'treemap') return pickTreemap(x, y);
+  if (VIEW === 'scatter') return pickScatter(x, y);
   return null;
 }
 
@@ -926,6 +1183,20 @@ window.addEventListener('resize', () => {
   resize();
   initParticles();
   initialLayout();
+  markStaticDirty();
+});
+
+// View toggle (Bubbles / Treemap / Scatter)
+document.querySelectorAll('.viewBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const v = btn.dataset.view;
+    if (v === VIEW) return;
+    VIEW = v;
+    document.querySelectorAll('.viewBtn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
+    LOCKED = null; HOVER = null; hideTooltip();
+    markStaticDirty();
+    // Legend is meaningful for bubbles + treemap + scatter (all use color = valuation).
+  });
 });
 
 (async () => {
