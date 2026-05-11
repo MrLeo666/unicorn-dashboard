@@ -290,6 +290,13 @@ function forgeColor(curr, prev) {
   if (prev == null) return '#ffffff';
   return (curr >= prev) ? '#ff5a5a' : '#3edc81';
 }
+// "(+1.2%)" / "(-3.4%)" / "" when no prev or prev=0.
+function pctSuffix(curr, prev) {
+  if (curr == null || prev == null || prev === 0) return '';
+  const p = (curr - prev) / prev * 100;
+  const sign = p >= 0 ? '+' : '';
+  return ' (' + sign + p.toFixed(1) + '%)';
+}
 
 function applyOverridesClient(records, overrides) {
   const deletions = new Set(overrides.deletions || []);
@@ -836,11 +843,16 @@ function drawBubble(p) {
         ctx.textBaseline = 'middle';
 
         if (hasForge) {
-          const col = forgeColor(fg.forge_price, fg.prev_forge_price)
-                   || forgeColor(fg.forge_valuation_m, fg.prev_forge_valuation_m)
-                   || '#ffffff';
-          const priceTxt = fg.forge_price != null ? fmtForgePrice(fg.forge_price) : '';
-          const valTxt   = fg.forge_valuation_m != null ? fmtForgeVal(fg.forge_valuation_m) : '';
+          // Build "(±X.X%)" suffix when prev exists, blank otherwise.
+          const priceTxt = fg.forge_price != null
+            ? fmtForgePrice(fg.forge_price) + pctSuffix(fg.forge_price, fg.prev_forge_price)
+            : '';
+          const valTxt   = fg.forge_valuation_m != null
+            ? fmtForgeVal(fg.forge_valuation_m) + pctSuffix(fg.forge_valuation_m, fg.prev_forge_valuation_m)
+            : '';
+          // Color: only the PRICE line gets red/green vs prev. Valuation stays
+          // neutral (inherits the bubble's contrast-appropriate text color).
+          const priceColor = forgeColor(fg.forge_price, fg.prev_forge_price) || '#ffffff';
           // Two stacked lines, occupying roughly the same vertical band the
           // single canonical valuation used to live in.
           const yPrice = y + r * 0.42;
@@ -856,12 +868,17 @@ function drawBubble(p) {
           let forgeFont = Math.min(r * 0.20, (chord * 0.88) / (longest * charW));
           forgeFont = Math.max(8, forgeFont);
 
-          ctx.fillStyle = col;
           ctx.font = '800 ' + forgeFont + 'px -apple-system, "SF Pro Display", sans-serif';
           ctx.shadowColor = 'rgba(0,0,0,0.55)';
           ctx.shadowBlur = Math.max(2, r * 0.035);
-          if (priceTxt) ctx.fillText(priceTxt, x, yPrice);
-          if (valTxt)   ctx.fillText(valTxt,   x, yVal);
+          if (priceTxt) {
+            ctx.fillStyle = priceColor;
+            ctx.fillText(priceTxt, x, yPrice);
+          }
+          if (valTxt) {
+            ctx.fillStyle = colors.valFg;  // neutral — same color as canonical valuation
+            ctx.fillText(valTxt, x, yVal);
+          }
           ctx.shadowBlur = 0;
         } else {
           // No Forge data — fall back to the canonical valuation label.
@@ -962,15 +979,19 @@ function drawTreemap() {
         const fg = FORGE[d.company];
         const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
         if (hasForge) {
-          const c = forgeColor(fg.forge_price, fg.prev_forge_price)
-                 || forgeColor(fg.forge_valuation_m, fg.prev_forge_valuation_m)
-                 || cc.valFg;
-          ctx.fillStyle = c;
           ctx.font = '700 10px -apple-system, sans-serif';
-          const txt = fg.forge_valuation_m != null
-            ? fmtForgeVal(fg.forge_valuation_m) + ' · ' + fmtForgePrice(fg.forge_price)
-            : fmtForgePrice(fg.forge_price);
-          ctx.fillText(txt, leaf.x0 + 4, leaf.y0 + 18);
+          // Valuation (neutral) on this line; Forge price (colored) on the next if room.
+          const valTxt = fg.forge_valuation_m != null
+            ? fmtForgeVal(fg.forge_valuation_m) + pctSuffix(fg.forge_valuation_m, fg.prev_forge_valuation_m)
+            : '';
+          ctx.fillStyle = cc.valFg;
+          if (valTxt) ctx.fillText(valTxt, leaf.x0 + 4, leaf.y0 + 18);
+          if (h >= 56 && fg.forge_price != null) {
+            const priceColor = forgeColor(fg.forge_price, fg.prev_forge_price) || cc.valFg;
+            const priceTxt = fmtForgePrice(fg.forge_price) + pctSuffix(fg.forge_price, fg.prev_forge_price);
+            ctx.fillStyle = priceColor;
+            ctx.fillText(priceTxt, leaf.x0 + 4, leaf.y0 + 32);
+          }
         } else {
           ctx.fillStyle = cc.valFg;
           ctx.font = '500 10px -apple-system, sans-serif';
@@ -1074,7 +1095,14 @@ function buildTable() {
       priceCell = s;
     }
     if (hasForge && fg.forge_valuation_m != null) {
-      valCell = '<span class="' + fclass + '">' + fmtForgeVal(fg.forge_valuation_m) + '</span>';
+      // Neutral color (no red/green); show % delta as small adjacent text.
+      let s = '<span class="forge-flat">' + fmtForgeVal(fg.forge_valuation_m) + '</span>';
+      if (fg.prev_forge_valuation_m != null && fg.prev_forge_valuation_m !== 0) {
+        const dlt = fg.forge_valuation_m - fg.prev_forge_valuation_m;
+        const pct = (dlt / fg.prev_forge_valuation_m * 100).toFixed(1);
+        s += '<span class="forge-delta">' + (dlt >= 0 ? '+' : '') + pct + '%</span>';
+      }
+      valCell = s;
     }
     const isCN = d.companyZh && d.companyZh !== d.company && !String(d.companyZh).startsWith('Unnamed');
     const nameCell = isCN
@@ -1152,25 +1180,28 @@ function showTooltip(p) {
   parts.push('<h3>' + titleHTML + ' <span class="badge">' + esc(d.industry) + '</span><span class="badge">' + sourceTag + '</span></h3>');
   parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
   // Forge Global secondary-market overlay (Top 50 only).
+  // Price line: red/green vs prev. Valuation line: neutral color.
   const fgT = FORGE[d.company];
   if (fgT && (fgT.forge_price != null || fgT.forge_valuation_m != null)) {
-    const c = forgeColor(fgT.forge_price, fgT.prev_forge_price)
-           || forgeColor(fgT.forge_valuation_m, fgT.prev_forge_valuation_m)
-           || '#ffffff';
-    const bits = [];
+    const priceColor = forgeColor(fgT.forge_price, fgT.prev_forge_price) || '#ffffff';
     if (fgT.forge_price != null) {
       let s = '<b>Forge Price:</b> ' + fmtForgePrice(fgT.forge_price);
-      if (fgT.prev_forge_price != null) {
+      if (fgT.prev_forge_price != null && fgT.prev_forge_price !== 0) {
         const dlt = fgT.forge_price - fgT.prev_forge_price;
         const pct = (dlt / fgT.prev_forge_price * 100);
-        s += ' <span style="font-size:12px;opacity:.85;">' + (dlt >= 0 ? '+' : '') + fmtForgePrice(dlt) + ' (' + pct.toFixed(1) + '%)</span>';
+        s += ' <span style="font-size:12px;opacity:.85;">(' + (dlt >= 0 ? '+' : '') + pct.toFixed(1) + '%)</span>';
       }
-      bits.push(s);
+      parts.push('<div class="row" style="color:' + priceColor + ';margin-top:4px;">' + s + '</div>');
     }
     if (fgT.forge_valuation_m != null) {
-      bits.push('<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m));
+      let s = '<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m);
+      if (fgT.prev_forge_valuation_m != null && fgT.prev_forge_valuation_m !== 0) {
+        const dlt = fgT.forge_valuation_m - fgT.prev_forge_valuation_m;
+        const pct = (dlt / fgT.prev_forge_valuation_m * 100);
+        s += ' <span style="font-size:12px;opacity:.85;">(' + (dlt >= 0 ? '+' : '') + pct.toFixed(1) + '%)</span>';
+      }
+      parts.push('<div class="row">' + s + '</div>');
     }
-    parts.push('<div class="row" style="color:' + c + ';margin-top:4px;">' + bits.join(' · ') + '</div>');
   }
   if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
   parts.push('<div class="row"><b>Country:</b> ' + esc(d.country || '—') + ' · <b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
