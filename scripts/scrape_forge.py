@@ -29,7 +29,7 @@ import urllib.request
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / 'data'
-TOP_N = 50
+TOP_N = 100
 THROTTLE_SEC = 1.6
 
 UA = (

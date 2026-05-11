@@ -290,10 +290,14 @@ function forgeColor(curr, prev) {
   if (prev == null) return '#ffffff';
   return (curr >= prev) ? '#ff5a5a' : '#3edc81';
 }
-// "(+1.2%)" / "(-3.4%)" / "" when no prev or prev=0.
+// "(+1.2%)" / "(-3.4%)" — but empty string when:
+//   - no prev value to compare,
+//   - prev was 0 (avoid div by zero),
+//   - or the change rounds to 0.0% (hide noise).
 function pctSuffix(curr, prev) {
   if (curr == null || prev == null || prev === 0) return '';
   const p = (curr - prev) / prev * 100;
+  if (Math.abs(p) < 0.05) return '';      // rounds to "0.0%" → hide
   const sign = p >= 0 ? '+' : '';
   return ' (' + sign + p.toFixed(1) + '%)';
 }
@@ -1085,23 +1089,24 @@ function buildTable() {
     const fclass = hasForge ? forgeClass(fg) : '';
     let priceCell = '<span style="opacity:.4">—</span>';
     let valCell   = '<span style="opacity:.4">—</span>';
+    // Inline pct helper: hide when no prev / prev=0 / rounds to 0.0%.
+    const pctStr = (curr, prev) => {
+      if (curr == null || prev == null || prev === 0) return '';
+      const p = (curr - prev) / prev * 100;
+      if (Math.abs(p) < 0.05) return '';
+      return (p >= 0 ? '+' : '') + p.toFixed(1) + '%';
+    };
     if (hasForge && fg.forge_price != null) {
       let s = '<span class="' + fclass + '">' + fmtForgePrice(fg.forge_price) + '</span>';
-      if (fg.prev_forge_price != null) {
-        const dlt = fg.forge_price - fg.prev_forge_price;
-        const pct = (dlt / fg.prev_forge_price * 100).toFixed(1);
-        s += '<span class="forge-delta">' + (dlt >= 0 ? '+' : '') + pct + '%</span>';
-      }
+      const ps = pctStr(fg.forge_price, fg.prev_forge_price);
+      if (ps) s += '<span class="forge-delta">' + ps + '</span>';
       priceCell = s;
     }
     if (hasForge && fg.forge_valuation_m != null) {
       // Neutral color (no red/green); show % delta as small adjacent text.
       let s = '<span class="forge-flat">' + fmtForgeVal(fg.forge_valuation_m) + '</span>';
-      if (fg.prev_forge_valuation_m != null && fg.prev_forge_valuation_m !== 0) {
-        const dlt = fg.forge_valuation_m - fg.prev_forge_valuation_m;
-        const pct = (dlt / fg.prev_forge_valuation_m * 100).toFixed(1);
-        s += '<span class="forge-delta">' + (dlt >= 0 ? '+' : '') + pct + '%</span>';
-      }
+      const ps = pctStr(fg.forge_valuation_m, fg.prev_forge_valuation_m);
+      if (ps) s += '<span class="forge-delta">' + ps + '</span>';
       valCell = s;
     }
     const isCN = d.companyZh && d.companyZh !== d.company && !String(d.companyZh).startsWith('Unnamed');
@@ -1186,20 +1191,14 @@ function showTooltip(p) {
     const priceColor = forgeColor(fgT.forge_price, fgT.prev_forge_price) || '#ffffff';
     if (fgT.forge_price != null) {
       let s = '<b>Forge Price:</b> ' + fmtForgePrice(fgT.forge_price);
-      if (fgT.prev_forge_price != null && fgT.prev_forge_price !== 0) {
-        const dlt = fgT.forge_price - fgT.prev_forge_price;
-        const pct = (dlt / fgT.prev_forge_price * 100);
-        s += ' <span style="font-size:12px;opacity:.85;">(' + (dlt >= 0 ? '+' : '') + pct.toFixed(1) + '%)</span>';
-      }
+      const ps = pctSuffix(fgT.forge_price, fgT.prev_forge_price);
+      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
       parts.push('<div class="row" style="color:' + priceColor + ';margin-top:4px;">' + s + '</div>');
     }
     if (fgT.forge_valuation_m != null) {
       let s = '<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m);
-      if (fgT.prev_forge_valuation_m != null && fgT.prev_forge_valuation_m !== 0) {
-        const dlt = fgT.forge_valuation_m - fgT.prev_forge_valuation_m;
-        const pct = (dlt / fgT.prev_forge_valuation_m * 100);
-        s += ' <span style="font-size:12px;opacity:.85;">(' + (dlt >= 0 ? '+' : '') + pct.toFixed(1) + '%)</span>';
-      }
+      const ps = pctSuffix(fgT.forge_valuation_m, fgT.prev_forge_valuation_m);
+      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
       parts.push('<div class="row">' + s + '</div>');
     }
   }
