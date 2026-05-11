@@ -46,6 +46,24 @@
       "valuation_str": "$20B"
     }
   },
-  "additions": [],
+  "additions": [
+    {
+      "id": "wiki-396",
+      "source": "wiki",
+      "company": "Corgi",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Financial technology",
+      "valuation_str": "$1.3B",
+      "valuation_m": 1300,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Nico Laqua, Emily Yuan",
+      "country": "United States",
+      "unicorn_as_of": "May 2026",
+      "year": "2026",
+      "industry": "Fintech",
+      "founders": "Nico Laqua, Emily Yuan"
+    }
+  ],
   "deletions": []
 }
