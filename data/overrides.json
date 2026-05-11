@@ -44,6 +44,10 @@
     "Cohere": {
       "valuation_m": 20000,
       "valuation_str": "$20B"
+    },
+    "Xiaohongshu": {
+      "valuation_m": 70000,
+      "valuation_str": "$70B"
     }
   },
   "additions": [
