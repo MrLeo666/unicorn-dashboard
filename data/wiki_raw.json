@@ -490,6 +490,16 @@
     "founders": "Hayes Barnard, Jason Walker, Matt Dawson"
   },
   {
+    "company": "Kalshi",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
+    "valuation_b": 22.0,
+    "valuation_str": "$22B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Finance",
+    "country": "United States",
+    "founders": "Tarek Mansour and Luana Lopes Lara"
+  },
+  {
     "company": "Checkout.com",
     "wikiLink": "https://en.wikipedia.org/wiki/Checkout.com",
     "valuation_b": 12.0,
@@ -548,16 +558,6 @@
     "industry_raw": "Artificial intelligence",
     "country": "United States",
     "founders": "Winston Weinberg, Gabriel Pereyra"
-  },
-  {
-    "company": "Kalshi",
-    "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
-    "valuation_b": 11.0,
-    "valuation_str": "$11B",
-    "valuation_date": "November 2025",
-    "industry_raw": "Finance",
-    "country": "United States",
-    "founders": "Tarek Mansour and Luana Lopes Lara"
   },
   {
     "company": "ZongMu Technology",
@@ -4092,9 +4092,9 @@
   {
     "company": "Deel",
     "wikiLink": "https://en.wikipedia.org/wiki/Deel_(company)",
-    "valuation_b": 1.25,
-    "valuation_str": "$1.25B",
-    "valuation_date": "April 2021",
+    "valuation_b": 17.3,
+    "valuation_str": "$17.3B",
+    "valuation_date": "October 2025",
     "industry_raw": "",
     "country": "Israel / United States",
     "founders": ""
@@ -5111,7 +5111,7 @@
   },
   {
     "company": "Injective",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Injective_(blockchain)",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2021",

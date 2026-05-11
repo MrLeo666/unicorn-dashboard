@@ -1,23 +1,5 @@
 {
-  "additions": [
-    {
-      "id": "wiki-396",
-      "source": "wiki",
-      "company": "Corgi",
-      "wikiLink": "",
-      "wikiSlug": "",
-      "description": "Financial technology",
-      "valuation_str": "$1.3B",
-      "valuation_m": 1300.0,
-      "vc_raised": "—",
-      "lead_investors": "Founders: Nico Laqua, Emily Yuan",
-      "country": "United States",
-      "unicorn_as_of": "May 2026",
-      "year": "2026",
-      "industry": "Fintech",
-      "founders": "Nico Laqua, Emily Yuan"
-    }
-  ],
+  "additions": [],
   "modifications": [
     {
       "company": "Anthropic",
@@ -155,6 +137,92 @@
       }
     },
     {
+      "company": "Kalshi",
+      "changes": {
+        "valuation_m": {
+          "from": 11000.0,
+          "to": 22000.0
+        }
+      },
+      "current": {
+        "id": "wiki-55",
+        "source": "wiki",
+        "company": "Kalshi",
+        "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
+        "wikiSlug": "Kalshi",
+        "description": "Finance",
+        "valuation_str": "$11B",
+        "valuation_m": 11000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Tarek Mansour and Luana Lopes Lara",
+        "country": "United States",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "Fintech",
+        "founders": "Tarek Mansour and Luana Lopes Lara"
+      },
+      "proposed": {
+        "id": "wiki-49",
+        "source": "wiki",
+        "company": "Kalshi",
+        "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
+        "wikiSlug": "Kalshi",
+        "description": "Finance",
+        "valuation_str": "$22B",
+        "valuation_m": 22000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Tarek Mansour and Luana Lopes Lara",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Tarek Mansour and Luana Lopes Lara"
+      }
+    },
+    {
+      "company": "Deel",
+      "changes": {
+        "valuation_m": {
+          "from": 1250.0,
+          "to": 17300.0
+        }
+      },
+      "current": {
+        "id": "wiki-408",
+        "source": "wiki",
+        "company": "Deel",
+        "wikiLink": "https://en.wikipedia.org/wiki/Deel_(company)",
+        "wikiSlug": "Deel_(company)",
+        "description": "",
+        "valuation_str": "$1.25B",
+        "valuation_m": 1250.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Israel",
+        "unicorn_as_of": "April 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-409",
+        "source": "wiki",
+        "company": "Deel",
+        "wikiLink": "https://en.wikipedia.org/wiki/Deel_(company)",
+        "wikiSlug": "Deel_(company)",
+        "description": "",
+        "valuation_str": "$17.3B",
+        "valuation_m": 17300.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Israel",
+        "unicorn_as_of": "October 2025",
+        "year": "2025",
+        "industry": "Other",
+        "founders": ""
+      }
+    },
+    {
       "company": "DJI",
       "changes": {
         "valuation_m": {
@@ -199,6 +267,53 @@
         "founders": "Frank Wang (Wang Tao)",
         "companyZh": "大疆",
         "pinyinInitial": "D"
+      }
+    },
+    {
+      "company": "Xiaohongshu",
+      "changes": {
+        "valuation_m": {
+          "from": 70000.0,
+          "to": 14000.0
+        }
+      },
+      "current": {
+        "id": "wiki-34",
+        "source": "wiki",
+        "company": "Xiaohongshu",
+        "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
+        "wikiSlug": "Xiaohongshu",
+        "description": "E-commerce",
+        "valuation_str": "$70B",
+        "valuation_m": 70000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Miranda Qu Fang, Charlwin Mao Wenchao",
+        "country": "China",
+        "unicorn_as_of": "September 2023",
+        "year": "2023",
+        "industry": "Consumer",
+        "founders": "Miranda Qu Fang, Charlwin Mao Wenchao",
+        "companyZh": "小红书",
+        "pinyinInitial": "X"
+      },
+      "proposed": {
+        "id": "wiki-34",
+        "source": "wiki",
+        "company": "Xiaohongshu",
+        "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
+        "wikiSlug": "Xiaohongshu",
+        "description": "E-commerce",
+        "valuation_str": "$14B",
+        "valuation_m": 14000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Miranda Qu Fang, Charlwin Mao Wenchao",
+        "country": "China",
+        "unicorn_as_of": "September 2023",
+        "year": "2023",
+        "industry": "Consumer",
+        "founders": "Miranda Qu Fang, Charlwin Mao Wenchao",
+        "companyZh": "小红书",
+        "pinyinInitial": "X"
       }
     },
     {
@@ -337,8 +452,51 @@
         "industry": "AI/ML",
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
       }
+    },
+    {
+      "company": "Injective",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Injective_(blockchain)"
+        }
+      },
+      "current": {
+        "id": "wiki-510",
+        "source": "wiki",
+        "company": "Injective",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$1B",
+        "valuation_m": 1000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Eric Chen, Albert Chon",
+        "country": "United States",
+        "unicorn_as_of": "April 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": "Eric Chen, Albert Chon"
+      },
+      "proposed": {
+        "id": "wiki-511",
+        "source": "wiki",
+        "company": "Injective",
+        "wikiLink": "https://en.wikipedia.org/wiki/Injective_(blockchain)",
+        "wikiSlug": "Injective_(blockchain)",
+        "description": "Financial technology",
+        "valuation_str": "$1B",
+        "valuation_m": 1000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Eric Chen, Albert Chon",
+        "country": "United States",
+        "unicorn_as_of": "April 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": "Eric Chen, Albert Chon"
+      }
     }
   ],
   "removals": [],
-  "generated_at": "2026-05-07T16:48:25Z"
+  "generated_at": "2026-05-11T07:15:39Z"
 }

@@ -1,158 +1,158 @@
 {
-  "as_of": "2026-05-07T16:48:25Z",
+  "as_of": "2026-05-11T07:15:39Z",
   "top_n": 50,
   "records": {
     "SpaceX": {
       "slug": "spacex",
-      "forge_price": 632.33,
-      "forge_valuation_m": 1500000.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:25Z"
+      "forge_price": 634.05,
+      "forge_valuation_m": 1510000.0,
+      "prev_forge_price": 632.33,
+      "prev_forge_valuation_m": 1500000.0,
+      "fetched_at": "2026-05-11T07:15:39Z"
     },
     "OpenAI": {
       "slug": "openai",
       "forge_price": 715.37,
       "forge_valuation_m": 852000.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:28Z"
+      "prev_forge_price": 715.37,
+      "prev_forge_valuation_m": 852000.0,
+      "fetched_at": "2026-05-11T07:15:41Z"
     },
     "Anthropic": {
       "slug": "anthropic",
       "forge_price": 264.57,
       "forge_valuation_m": 387970.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:29Z"
+      "prev_forge_price": 264.57,
+      "prev_forge_valuation_m": 387970.0,
+      "fetched_at": "2026-05-11T07:15:43Z"
     },
     "Stripe": {
       "slug": "stripe",
       "forge_price": 72.45,
       "forge_valuation_m": 175620.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:33Z"
+      "prev_forge_price": 72.45,
+      "prev_forge_valuation_m": 175620.0,
+      "fetched_at": "2026-05-11T07:15:48Z"
     },
     "Databricks": {
       "slug": "databricks",
       "forge_price": 196.31,
       "forge_valuation_m": 135280.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:36Z"
+      "prev_forge_price": 196.31,
+      "prev_forge_valuation_m": 135280.0,
+      "fetched_at": "2026-05-11T07:15:50Z"
     },
     "Revolut": {
       "slug": "revolut",
       "forge_price": 1315.53,
       "forge_valuation_m": 71440.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:40Z"
+      "prev_forge_price": 1315.53,
+      "prev_forge_valuation_m": 71440.0,
+      "fetched_at": "2026-05-11T07:15:54Z"
     },
     "Figure AI": {
       "slug": "figure-ai",
       "forge_price": 174.0,
       "forge_valuation_m": 34220.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:47Z"
+      "prev_forge_price": 174.0,
+      "prev_forge_valuation_m": 34220.0,
+      "fetched_at": "2026-05-11T07:16:01Z"
     },
     "Ramp": {
       "slug": "ramp",
       "forge_price": 94.17,
       "forge_valuation_m": 33480.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:49Z"
+      "prev_forge_price": 94.17,
+      "prev_forge_valuation_m": 33480.0,
+      "fetched_at": "2026-05-11T07:16:03Z"
     },
     "Epic Games": {
       "slug": "epic-games",
-      "forge_price": 350.0,
-      "forge_valuation_m": 13130.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:53Z"
+      "forge_price": 418.87,
+      "forge_valuation_m": 15710.0,
+      "prev_forge_price": 350.0,
+      "prev_forge_valuation_m": 13130.0,
+      "fetched_at": "2026-05-11T07:16:07Z"
     },
     "Anduril Industries": {
       "slug": "anduril",
       "forge_price": 112.24,
-      "forge_valuation_m": 85030.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:48:55Z"
+      "forge_valuation_m": 85190.0,
+      "prev_forge_price": 112.24,
+      "prev_forge_valuation_m": 85030.0,
+      "fetched_at": "2026-05-11T07:16:10Z"
     },
     "Fanatics": {
       "slug": "fanatics",
       "forge_price": 42.0,
       "forge_valuation_m": 17090.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:08Z"
+      "prev_forge_price": 42.0,
+      "prev_forge_valuation_m": 17090.0,
+      "fetched_at": "2026-05-11T07:16:23Z"
     },
     "Cerebras": {
       "slug": "cerebras",
       "forge_price": 113.5,
-      "forge_valuation_m": 29330.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:10Z"
+      "forge_valuation_m": 29260.0,
+      "prev_forge_price": 113.5,
+      "prev_forge_valuation_m": 29330.0,
+      "fetched_at": "2026-05-11T07:16:25Z"
     },
     "Perplexity AI": {
       "slug": "perplexity",
       "forge_price": 69.54,
       "forge_valuation_m": 20390.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:12Z"
+      "prev_forge_price": 69.54,
+      "prev_forge_valuation_m": 20390.0,
+      "fetched_at": "2026-05-11T07:16:27Z"
     },
     "Groq": {
       "slug": "groq",
       "forge_price": 29.77,
       "forge_valuation_m": 6360.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:14Z"
+      "prev_forge_price": 29.77,
+      "prev_forge_valuation_m": 6360.0,
+      "fetched_at": "2026-05-11T07:16:30Z"
     },
     "Rippling": {
       "slug": "rippling",
       "forge_price": 43.76,
       "forge_valuation_m": 14140.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:19Z"
+      "prev_forge_price": 43.76,
+      "prev_forge_valuation_m": 14140.0,
+      "fetched_at": "2026-05-11T07:16:34Z"
     },
     "Discord": {
       "slug": "discord",
       "forge_price": 31.36,
       "forge_valuation_m": 8540.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:23Z"
+      "prev_forge_price": 31.36,
+      "prev_forge_valuation_m": 8540.0,
+      "fetched_at": "2026-05-11T07:16:38Z"
     },
     "Skild AI": {
       "slug": "skild-ai",
       "forge_price": 66.39,
       "forge_valuation_m": 14310.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:35Z"
+      "prev_forge_price": 66.39,
+      "prev_forge_valuation_m": 14310.0,
+      "fetched_at": "2026-05-11T07:16:51Z"
     },
     "Shield AI": {
       "slug": "shield-ai",
-      "forge_price": 153.23,
-      "forge_valuation_m": 10430.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:44Z"
+      "forge_price": 157.92,
+      "forge_valuation_m": 11850.0,
+      "prev_forge_price": 153.23,
+      "prev_forge_valuation_m": 10430.0,
+      "fetched_at": "2026-05-11T07:17:00Z"
     },
     "Thinking Machines Lab": {
       "slug": "thinking-machines-lab",
       "forge_price": 305.97,
       "forge_valuation_m": 12900.0,
-      "prev_forge_price": null,
-      "prev_forge_valuation_m": null,
-      "fetched_at": "2026-05-07T16:49:50Z"
+      "prev_forge_price": 305.97,
+      "prev_forge_valuation_m": 12900.0,
+      "fetched_at": "2026-05-11T07:17:06Z"
     }
   }
 }
