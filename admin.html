@@ -148,6 +148,7 @@
     <div class="desc" id="pendingSummary">—</div>
   </div>
   <div class="grow"></div>
+  <button class="btn" id="btnDismissAll" title="Mark every currently pending item as reviewed (rejected). They won't reappear on reload unless the upstream proposal changes.">Mark all reviewed</button>
   <button class="btn primary" id="btnReview">Review &amp; approve</button>
 </div>
 
@@ -259,8 +260,25 @@
 //  STATE
 // ============================================================================
 let RAW = [];                                     // unicorns.json (read-only baseline)
-let STATE = { edits: {}, additions: [], deletions: [] };
+let STATE = { edits: {}, additions: [], deletions: [], dismissedPending: { mods: {}, adds: [], rems: [] } };
 const STORAGE_KEY = 'unicornAdminOverrides_v1';
+
+// Build a stable fingerprint for a pending modification so re-runs of the same
+// proposal stay dismissed, but a NEW proposal (different "to" values) is shown.
+function modFingerprint(m) {
+  const fields = Object.keys(m.changes || {}).sort();
+  const sig = fields.map(f => f + '=' + JSON.stringify(m.changes[f].to)).join('|');
+  return sig;
+}
+
+// Make sure STATE always has the dismissed-pending sub-structure (handles old
+// localStorage saves and old overrides.json files that predate this field).
+function ensureDismissedShape() {
+  STATE.dismissedPending = STATE.dismissedPending || {};
+  STATE.dismissedPending.mods = STATE.dismissedPending.mods || {};
+  STATE.dismissedPending.adds = STATE.dismissedPending.adds || [];
+  STATE.dismissedPending.rems = STATE.dismissedPending.rems || [];
+}
 
 // ============================================================================
 //  LOAD
@@ -271,16 +289,78 @@ async function loadData() {
   const ts = Date.now();
   const r = await fetch('./data/unicorns.json?t=' + ts);
   RAW = await r.json();
-  // Bootstrap STATE from localStorage if present, else from data/overrides.json
+
+  // === STATE bootstrap ===
+  // disk overrides.json = the PUBLISHED source of truth (everyone sees this)
+  // localStorage STATE   = unpublished drafts on this browser only
+  // We MERGE them: disk forms the base, localStorage drafts layer on top.
+  // This guarantees published edits always re-appear in STATE on load, so
+  // reconcilePending() can correctly hide already-resolved pending items
+  // even if localStorage was created before those edits were published.
+  let diskOverrides = { edits: {}, additions: [], deletions: [] };
+  try {
+    const o = await (await fetch('./data/overrides.json?t=' + ts)).json();
+    diskOverrides = {
+      edits: o.edits || {},
+      additions: o.additions || [],
+      deletions: o.deletions || [],
+    };
+  } catch {}
+
+  let localState = null;
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
-    try { STATE = JSON.parse(saved); } catch {}
-  } else {
-    try {
-      const o = await (await fetch('./data/overrides.json?t=' + ts)).json();
-      STATE = { edits: o.edits || {}, additions: o.additions || [], deletions: o.deletions || [] };
-    } catch {}
+    try { localState = JSON.parse(saved); } catch {}
   }
+
+  // Merge edits per-company: localStorage wins on conflict (user's draft is newer).
+  // For an existing entry where localStorage has only SOME fields, we still want
+  // disk's other fields preserved → merge at the field level.
+  const mergedEdits = {};
+  const allCos = new Set([
+    ...Object.keys(diskOverrides.edits || {}),
+    ...Object.keys((localState && localState.edits) || {}),
+  ]);
+  for (const co of allCos) {
+    mergedEdits[co] = {
+      ...(diskOverrides.edits[co] || {}),
+      ...(((localState && localState.edits) || {})[co] || {}),
+    };
+  }
+
+  // Additions: dedupe by company name, local drafts first (so user's in-progress
+  // entry wins over a disk version that may be older).
+  const seenAdds = new Set();
+  const mergedAdds = [];
+  for (const src of [
+    (localState && localState.additions) || [],
+    diskOverrides.additions || [],
+  ]) {
+    for (const a of src) {
+      if (a && a.company && !seenAdds.has(a.company)) {
+        seenAdds.add(a.company);
+        mergedAdds.push(a);
+      }
+    }
+  }
+
+  // Deletions: union (anything deleted in either side stays deleted).
+  const mergedDels = [...new Set([
+    ...(diskOverrides.deletions || []),
+    ...((localState && localState.deletions) || []),
+  ])];
+
+  STATE = {
+    edits: mergedEdits,
+    additions: mergedAdds,
+    deletions: mergedDels,
+    // dismissedPending is browser-local UI state, no disk counterpart.
+    dismissedPending: (localState && localState.dismissedPending) || { mods: {}, adds: [], rems: [] },
+  };
+  // Normalize STATE shape so older saves still work
+  ensureDismissedShape();
+  // Persist the merged state immediately so disk values are now cached locally too.
+  persist();
   // Pending updates from latest data refresh (optional)
   try {
     const p = await fetch('./data/pending.json?t=' + ts);
@@ -300,24 +380,37 @@ async function loadData() {
 }
 
 function reconcilePending() {
-  // If something was already approved (in STATE), drop it from the visible pending list.
-  const approvedAdds = new Set((STATE.additions || []).map(a => a.company));
-  PENDING.additions = PENDING.additions.filter(a => !approvedAdds.has(a.company));
+  ensureDismissedShape();
+  const dismissedAdds = new Set(STATE.dismissedPending.adds);
+  const dismissedRems = new Set(STATE.dismissedPending.rems);
+  const dismissedMods = STATE.dismissedPending.mods;  // { company: [fingerprint, ...] }
 
+  // ADDITIONS: drop if already approved (in STATE.additions) OR explicitly rejected.
+  const approvedAdds = new Set((STATE.additions || []).map(a => a.company));
+  PENDING.additions = PENDING.additions.filter(a =>
+    !approvedAdds.has(a.company) && !dismissedAdds.has(a.company)
+  );
+
+  // MODIFICATIONS: drop if user has decided via edits OR explicitly rejected
+  // (with a matching fingerprint, so a *new* proposal still surfaces).
   PENDING.modifications = PENDING.modifications.filter(m => {
+    const fp = modFingerprint(m);
+    const rejectedFps = dismissedMods[m.company] || [];
+    if (rejectedFps.includes(fp)) return false;  // explicitly rejected this exact proposal
+
     const ed = (STATE.edits || {})[m.company];
     if (!ed) return true;
-    // If every changed field already in edits matches the proposed value, drop it.
-    return !Object.keys(m.changes).every(f => {
-      const propVal = m.changes[f].to;
-      const edVal = ed[f];
-      if (typeof propVal === 'number') return Math.abs((edVal || 0) - propVal) < 0.5;
-      return (edVal || '') === (propVal || '');
-    });
+    // A field is "decided" if the user has touched it in edits — whether by
+    // approving (value matches proposed.to) OR by editing to keep / change to
+    // any other value. If every proposed field has been touched, drop the mod.
+    return !Object.keys(m.changes).every(f => Object.prototype.hasOwnProperty.call(ed, f));
   });
 
+  // REMOVALS: drop if already approved (in STATE.deletions) OR explicitly rejected.
   const approvedDels = new Set(STATE.deletions || []);
-  PENDING.removals = PENDING.removals.filter(r => !approvedDels.has(r.company));
+  PENDING.removals = PENDING.removals.filter(r =>
+    !approvedDels.has(r.company) && !dismissedRems.has(r.company)
+  );
 }
 
 function persist() {
@@ -517,7 +610,21 @@ function approveMod(i) {
   persist(); render(); renderPending();
   toast(`Approved: ${m.company}`);
 }
-function rejectMod(i) { PENDING.modifications.splice(i, 1); renderPending(); toast('Rejected'); }
+function rejectMod(i) {
+  const m = PENDING.modifications[i];
+  if (m) {
+    ensureDismissedShape();
+    const fp = modFingerprint(m);
+    STATE.dismissedPending.mods[m.company] = STATE.dismissedPending.mods[m.company] || [];
+    if (!STATE.dismissedPending.mods[m.company].includes(fp)) {
+      STATE.dismissedPending.mods[m.company].push(fp);
+    }
+    persist();
+  }
+  PENDING.modifications.splice(i, 1);
+  renderPending();
+  toast('Rejected');
+}
 
 function approveAdd(i) {
   const a = PENDING.additions[i];
@@ -527,7 +634,19 @@ function approveAdd(i) {
   persist(); render(); renderPending();
   toast(`Added: ${a.company}`);
 }
-function rejectAdd(i) { PENDING.additions.splice(i, 1); renderPending(); toast('Rejected'); }
+function rejectAdd(i) {
+  const a = PENDING.additions[i];
+  if (a) {
+    ensureDismissedShape();
+    if (!STATE.dismissedPending.adds.includes(a.company)) {
+      STATE.dismissedPending.adds.push(a.company);
+    }
+    persist();
+  }
+  PENDING.additions.splice(i, 1);
+  renderPending();
+  toast('Rejected');
+}
 
 function approveRem(i) {
   const r = PENDING.removals[i];
@@ -537,7 +656,19 @@ function approveRem(i) {
   persist(); render(); renderPending();
   toast(`Removed: ${r.company}`);
 }
-function rejectRem(i) { PENDING.removals.splice(i, 1); renderPending(); toast('Rejected'); }
+function rejectRem(i) {
+  const r = PENDING.removals[i];
+  if (r) {
+    ensureDismissedShape();
+    if (!STATE.dismissedPending.rems.includes(r.company)) {
+      STATE.dismissedPending.rems.push(r.company);
+    }
+    persist();
+  }
+  PENDING.removals.splice(i, 1);
+  renderPending();
+  toast('Rejected');
+}
 
 function bulkApprove(kind) {
   if (kind === 'mod') for (let i = PENDING.modifications.length - 1; i >= 0; i--) approveMod(i);
@@ -674,8 +805,10 @@ function importOverrides(file) {
       STATE = {
         edits: o.edits || {},
         additions: o.additions || [],
-        deletions: o.deletions || []
+        deletions: o.deletions || [],
+        dismissedPending: o.dismissedPending || { mods: {}, adds: [], rems: [] }
       };
+      ensureDismissedShape();
       persist();
       render();
       toast('Imported ' + Object.keys(STATE.edits).length + ' edits, ' + STATE.additions.length + ' adds, ' + STATE.deletions.length + ' deletes');
@@ -688,7 +821,7 @@ function importOverrides(file) {
 
 function resetAll() {
   if (!confirm('Discard ALL local edits, additions, and deletions? This cannot be undone.')) return;
-  STATE = { edits: {}, additions: [], deletions: [] };
+  STATE = { edits: {}, additions: [], deletions: [], dismissedPending: { mods: {}, adds: [], rems: [] } };
   persist();
   render();
   toast('Reset done');
@@ -901,6 +1034,30 @@ document.getElementById('btnReview').addEventListener('click', () => {
 document.getElementById('bulkMods').addEventListener('click', () => bulkApprove('mod'));
 document.getElementById('bulkAdds').addEventListener('click', () => bulkApprove('add'));
 document.getElementById('bulkRems').addEventListener('click', () => bulkApprove('rem'));
+document.getElementById('btnDismissAll').addEventListener('click', () => {
+  const nA = PENDING.additions.length, nM = PENDING.modifications.length, nR = PENDING.removals.length;
+  const total = nA + nM + nR;
+  if (total === 0) return;
+  if (!confirm(`Mark all ${total} pending items as reviewed? They won't reappear on reload unless the upstream proposal changes.`)) return;
+  ensureDismissedShape();
+  PENDING.modifications.forEach(m => {
+    const fp = modFingerprint(m);
+    STATE.dismissedPending.mods[m.company] = STATE.dismissedPending.mods[m.company] || [];
+    if (!STATE.dismissedPending.mods[m.company].includes(fp)) {
+      STATE.dismissedPending.mods[m.company].push(fp);
+    }
+  });
+  PENDING.additions.forEach(a => {
+    if (!STATE.dismissedPending.adds.includes(a.company)) STATE.dismissedPending.adds.push(a.company);
+  });
+  PENDING.removals.forEach(r => {
+    if (!STATE.dismissedPending.rems.includes(r.company)) STATE.dismissedPending.rems.push(r.company);
+  });
+  PENDING = { additions: [], modifications: [], removals: [] };
+  persist();
+  renderPending();
+  toast(`${total} item(s) marked reviewed`);
+});
 
 loadData().catch(err => {
   document.body.innerHTML = '<h1>Failed to load data</h1><p style="color:#ff6b8a">' + esc(err.message) +
