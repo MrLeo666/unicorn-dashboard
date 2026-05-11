@@ -1,5 +1,23 @@
 {
-  "additions": [],
+  "additions": [
+    {
+      "id": "wiki-21",
+      "source": "wiki",
+      "company": "Chime",
+      "wikiLink": "https://en.wikipedia.org/wiki/Chime_(company)",
+      "wikiSlug": "Chime_(company)",
+      "description": "Financial technology",
+      "valuation_str": "$25B",
+      "valuation_m": 25000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Chris Britt, Ryan King",
+      "country": "United States",
+      "unicorn_as_of": "June 2025",
+      "year": "2025",
+      "industry": "Fintech",
+      "founders": "Chris Britt, Ryan King"
+    }
+  ],
   "modifications": [
     {
       "company": "Anthropic",
@@ -498,5 +516,5 @@
     }
   ],
   "removals": [],
-  "generated_at": "2026-05-11T07:15:39Z"
+  "generated_at": "2026-05-11T07:54:21Z"
 }
