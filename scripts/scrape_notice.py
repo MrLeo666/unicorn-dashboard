@@ -41,14 +41,23 @@ USER_AGENTS = [
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 '
     '(KHTML, like Gecko) Version/17.4 Safari/605.1.15',
 ]
+# Notice.co is stricter about bot fingerprinting than Forge — server-side runners
+# often get a stripped-down page. We send a comprehensive set of headers that
+# match a real Chrome navigation, including the Sec-CH-UA client hints.
 BASE_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.9',
     'Accept-Encoding': 'gzip, deflate, br',
-    'Sec-Fetch-Site': 'none',
-    'Sec-Fetch-Mode': 'navigate',
-    'Sec-Fetch-User': '?1',
+    'Cache-Control': 'no-cache',
+    'Pragma': 'no-cache',
+    'Referer': 'https://notice.co/',
+    'Sec-Ch-Ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'Sec-Ch-Ua-Mobile': '?0',
+    'Sec-Ch-Ua-Platform': '"macOS"',
     'Sec-Fetch-Dest': 'document',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-User': '?1',
     'Upgrade-Insecure-Requests': '1',
     'DNT': '1',
 }
@@ -209,7 +218,13 @@ def main():
         price, val_m = parse_page(html)
 
         if price is None and val_m is None:
-            print(f'  EMPTY {co!r:30}  page parsed, no price/cap')
+            # Diagnostic: dump page title + a couple body fingerprints so we can
+            # tell if Notice is serving a stripped/bot-walled version of the page.
+            tm = _TITLE_RE.search(html)
+            title = tm.group(1)[:80] if tm else '(no <title>)'
+            has_mc  = 'Market Cap' in html
+            has_stock = ' Stock $' in html
+            print(f'  EMPTY {co!r:30}  title="{title}"  mc={has_mc} stock$={has_stock}')
             n_no_data += 1
             out['no_data'].append(co)
             time.sleep(random.uniform(THROTTLE_MIN, THROTTLE_MAX))
