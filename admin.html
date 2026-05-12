@@ -122,6 +122,7 @@
 <div class="toolbar">
   <button class="btn primary" id="btnAdd">+ Add company</button>
   <button class="btn" id="btnPublish" title="Push overrides directly to GitHub">📤 Publish</button>
+  <button class="btn" id="btnRefreshNotice" title="Notice.co blocks GitHub Actions IPs — refresh locally">🔄 Refresh Notice <span id="noticeAge"></span></button>
   <button class="btn" id="btnImport">Import…</button>
   <input type="file" id="fileInput" accept="application/json" style="display:none">
   <button class="btn" id="btnExport">Export ↓</button>
@@ -224,6 +225,31 @@
       <button class="btn" id="settingsCancel">Cancel</button>
       <button class="btn danger" id="settingsForget" title="Erase token from this browser">Forget token</button>
       <button class="btn primary" id="settingsSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Refresh Notice Modal -->
+<div class="modal-bg" id="refreshNoticeBg">
+  <div class="modal" style="max-width:640px">
+    <h2>Refresh Notice.co data</h2>
+    <p style="color:#8892b0;font-size:13px;margin-bottom:14px;line-height:1.55">
+      Notice.co blocks datacenter IPs (returns an empty HTML shell to GitHub Actions),
+      so the Notice scrape <b>cannot run on the server</b>. Run these commands on
+      your local machine — your residential IP will get the real data. Then commit
+      &amp; push <code>data/notice_data.json</code> to update the dashboard.
+    </p>
+    <div id="noticeStatusLine" style="font-size:12px;color:#8892b0;margin-bottom:10px;"></div>
+    <div style="position:relative;">
+      <pre id="refreshNoticeCmds" style="background:#0a0e27;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px 16px;color:#c5cce0;font-family:'SF Mono',Menlo,monospace;font-size:12px;line-height:1.7;white-space:pre;overflow-x:auto;margin:0;"></pre>
+      <button class="btn" id="refreshNoticeCopy" style="position:absolute;top:8px;right:8px;font-size:11px;padding:4px 10px;">Copy</button>
+    </div>
+    <p style="color:#8892b0;font-size:12px;margin-top:14px;line-height:1.55">
+      Tip: paste line-by-line (some terminals collapse the lines into one bad command).
+      After <code>git push</code>, hard-refresh the dashboard (Cmd+Shift+R) to see new Notice prices on bubbles and in the table.
+    </p>
+    <div class="modal-buttons">
+      <button class="btn primary" id="refreshNoticeClose">Close</button>
     </div>
   </div>
 </div>
@@ -1054,6 +1080,95 @@ document.getElementById('fileInput').addEventListener('change', e => {
   e.target.value = '';
 });
 document.getElementById('btnReset').addEventListener('click', resetAll);
+
+// ----- Refresh Notice modal (popup of bash commands to run locally) -----
+// Since notice.co blocks datacenter IPs, the user runs scrape_notice.py from
+// their own machine and pushes data/notice_data.json themselves.
+const NOTICE_REPO_PATH = '/Users/leo/Documents/Claude/Projects/Unicorn Monitoring Console/deploy';
+const NOTICE_REFRESH_CMDS = [
+  'cd "' + NOTICE_REPO_PATH + '"',
+  'python3 scripts/scrape_notice.py',
+  'git add data/notice_data.json',
+  'git commit -m "data: weekly Notice.co refresh (local)"',
+  'git push',
+].join('\n');
+
+function fmtAgeShort(ms) {
+  if (ms == null) return '';
+  const days = ms / 86400_000;
+  if (days < 1)  return Math.round(ms / 3600_000) + 'h';
+  if (days < 30) return Math.round(days) + 'd';
+  return Math.round(days / 30) + 'mo';
+}
+
+function refreshNoticeIndicator() {
+  // Parse Notice's as_of timestamp (set by scrape_notice.py at start of run).
+  const btn = document.getElementById('btnRefreshNotice');
+  const ageSpan = document.getElementById('noticeAge');
+  let asOfStr = null;
+  try {
+    // We don't have the raw notice_data.json's `as_of` cached on this side, so
+    // fetch it once (cheap — it's a few KB). NOTICE variable holds only records.
+    fetch('./data/notice_data.json?t=' + Date.now())
+      .then(r => r.ok ? r.json() : null)
+      .then(obj => {
+        if (!obj || !obj.as_of) {
+          ageSpan.textContent = ' · never';
+          ageSpan.style.color = '#ff9a6a';
+          btn.title = 'Notice.co data has never been refreshed locally — click to see commands';
+          return;
+        }
+        const t = new Date(obj.as_of).getTime();
+        const ms = Date.now() - t;
+        const days = ms / 86400_000;
+        ageSpan.textContent = ' · ' + fmtAgeShort(ms);
+        if (days > 14)     ageSpan.style.color = '#ff5a5a';        // > 2 weeks → red
+        else if (days > 7) ageSpan.style.color = '#ffb84a';        // > 1 week  → amber
+        else                ageSpan.style.color = '#3edc81';       // fresh     → green
+        btn.title = 'Notice.co last refreshed ' + obj.as_of + ' (' + fmtAgeShort(ms) + ' ago)';
+        // Stash for the modal
+        btn.dataset.asOf = obj.as_of;
+        btn.dataset.totalRecords = String(Object.keys(obj.records || {}).length);
+      });
+  } catch {}
+}
+
+function openRefreshNoticeModal() {
+  document.getElementById('refreshNoticeCmds').textContent = NOTICE_REFRESH_CMDS;
+  // Populate status line
+  const btn = document.getElementById('btnRefreshNotice');
+  const asOf = btn.dataset.asOf;
+  const total = btn.dataset.totalRecords;
+  const status = document.getElementById('noticeStatusLine');
+  if (asOf) {
+    const ms = Date.now() - new Date(asOf).getTime();
+    status.textContent = 'Current notice_data.json: ' + asOf +
+      ' (' + fmtAgeShort(ms) + ' ago) · ' + (total || 0) + ' company records.';
+  } else {
+    status.textContent = 'Current notice_data.json: not yet generated.';
+  }
+  document.getElementById('refreshNoticeBg').style.display = 'flex';
+}
+function closeRefreshNoticeModal() {
+  document.getElementById('refreshNoticeBg').style.display = 'none';
+}
+async function copyRefreshNoticeCmds() {
+  try {
+    await navigator.clipboard.writeText(NOTICE_REFRESH_CMDS);
+    const btn = document.getElementById('refreshNoticeCopy');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  } catch (e) {
+    toast('Clipboard blocked — select the text manually');
+  }
+}
+document.getElementById('btnRefreshNotice').addEventListener('click', openRefreshNoticeModal);
+document.getElementById('refreshNoticeClose').addEventListener('click', closeRefreshNoticeModal);
+document.getElementById('refreshNoticeCopy').addEventListener('click', copyRefreshNoticeCmds);
+document.getElementById('refreshNoticeBg').addEventListener('click', e => {
+  if (e.target.id === 'refreshNoticeBg') closeRefreshNoticeModal();
+});
 document.getElementById('modalSave').addEventListener('click', saveModal);
 document.getElementById('modalCancel').addEventListener('click', closeModal);
 document.getElementById('modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
@@ -1105,7 +1220,9 @@ document.getElementById('btnDismissAll').addEventListener('click', () => {
   toast(`${total} item(s) marked reviewed`);
 });
 
-loadData().catch(err => {
+loadData().then(() => {
+  refreshNoticeIndicator();
+}).catch(err => {
   document.body.innerHTML = '<h1>Failed to load data</h1><p style="color:#ff6b8a">' + esc(err.message) +
     '</p><p>Make sure <code>data/unicorns.json</code> exists and the page is served via HTTP (not file://).</p>';
 });
