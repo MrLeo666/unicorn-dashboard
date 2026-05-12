@@ -136,7 +136,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-617",
+        "id": "pb-618",
         "source": "pb",
         "tier": "A",
         "company": "Cursor",
@@ -223,7 +223,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-409",
+        "id": "wiki-410",
         "source": "wiki",
         "company": "Deel",
         "wikiLink": "https://en.wikipedia.org/wiki/Deel_(company)",
@@ -285,6 +285,49 @@
         "founders": "Frank Wang (Wang Tao)",
         "companyZh": "大疆",
         "pinyinInitial": "D"
+      }
+    },
+    {
+      "company": "Nscale",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Nscale"
+        }
+      },
+      "current": {
+        "id": "wiki-32",
+        "source": "wiki",
+        "company": "Nscale",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$14.6B",
+        "valuation_m": 14600.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Josh Payne",
+        "country": "United Kingdom",
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Josh Payne"
+      },
+      "proposed": {
+        "id": "wiki-32",
+        "source": "wiki",
+        "company": "Nscale",
+        "wikiLink": "https://en.wikipedia.org/wiki/Nscale",
+        "wikiSlug": "Nscale",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$14.6B",
+        "valuation_m": 14600.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Josh Payne",
+        "country": "United Kingdom",
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Josh Payne"
       }
     },
     {
@@ -361,7 +404,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-621",
+        "id": "pb-622",
         "source": "pb",
         "tier": "A",
         "company": "Tether",
@@ -408,7 +451,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-624",
+        "id": "pb-625",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -472,6 +515,50 @@
       }
     },
     {
+      "company": "Slash",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Victor Cardenas, Kevin Bai"
+        }
+      },
+      "current": {
+        "id": "pb-804",
+        "source": "pb",
+        "tier": "B",
+        "company": "Slash",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Operator of an online banking platform intended to transfer funds between personal and business bank accounts.",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "$160.0M",
+        "lead_investors": "Goodwater Capital, Khosla Ventures, New Enterprise Associates, Ribbit Capital",
+        "country": "United States",
+        "unicorn_as_of": "April 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-389",
+        "source": "wiki",
+        "company": "Slash",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Victor Cardenas, Kevin Bai",
+        "country": "United States",
+        "unicorn_as_of": "April 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Victor Cardenas, Kevin Bai"
+      }
+    },
+    {
       "company": "Injective",
       "changes": {
         "wikiLink": {
@@ -497,7 +584,7 @@
         "founders": "Eric Chen, Albert Chon"
       },
       "proposed": {
-        "id": "wiki-511",
+        "id": "wiki-512",
         "source": "wiki",
         "company": "Injective",
         "wikiLink": "https://en.wikipedia.org/wiki/Injective_(blockchain)",
@@ -516,5 +603,5 @@
     }
   ],
   "removals": [],
-  "generated_at": "2026-05-11T11:17:18Z"
+  "generated_at": "2026-05-12T04:10:40Z"
 }

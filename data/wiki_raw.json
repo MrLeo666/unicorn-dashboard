@@ -321,7 +321,7 @@
   },
   {
     "company": "Nscale",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Nscale",
     "valuation_b": 14.6,
     "valuation_str": "$14.6B",
     "valuation_date": "March 2026",
@@ -3888,6 +3888,16 @@
     "industry_raw": "Ghost kitchen",
     "country": "India",
     "founders": ""
+  },
+  {
+    "company": "Slash",
+    "wikiLink": "",
+    "valuation_b": 1.4,
+    "valuation_str": "$1.4B",
+    "valuation_date": "April 2026",
+    "industry_raw": "Financial technology",
+    "country": "United States",
+    "founders": "Victor Cardenas, Kevin Bai"
   },
   {
     "company": "Stash",
