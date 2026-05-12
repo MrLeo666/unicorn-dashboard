@@ -48,6 +48,23 @@
     "Xiaohongshu": {
       "valuation_m": 70000,
       "valuation_str": "$70B"
+    },
+    "Kalshi": {
+      "valuation_m": 22000,
+      "valuation_str": "$22B"
+    },
+    "Deel": {
+      "valuation_m": 17300,
+      "valuation_str": "$17.3B"
+    },
+    "Injective": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Injective_(blockchain)"
+    },
+    "Nscale": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Nscale"
+    },
+    "Slash": {
+      "founders": "Victor Cardenas, Kevin Bai"
     }
   },
   "additions": [
