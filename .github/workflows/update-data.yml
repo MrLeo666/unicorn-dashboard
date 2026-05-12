@@ -32,11 +32,6 @@ jobs:
         continue-on-error: true
         run: python scripts/scrape_forge.py
 
-      # NOTE: Notice.co scraping is NOT run from GitHub Actions because Notice
-      # blocks datacenter IPs (returns an empty HTML shell to non-residential
-      # requests). The user runs scrape_notice.py locally instead — admin.html
-      # surfaces a "Refresh Notice" reminder when the data is stale.
-
       - name: Commit if changed
         run: |
           git config user.name 'github-actions[bot]'

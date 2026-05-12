@@ -122,7 +122,6 @@
 <div class="toolbar">
   <button class="btn primary" id="btnAdd">+ Add company</button>
   <button class="btn" id="btnPublish" title="Push overrides directly to GitHub">📤 Publish</button>
-  <button class="btn" id="btnRefreshNotice" title="Notice.co blocks GitHub Actions IPs — refresh locally">🔄 Refresh Notice <span id="noticeAge"></span></button>
   <button class="btn" id="btnImport">Import…</button>
   <input type="file" id="fileInput" accept="application/json" style="display:none">
   <button class="btn" id="btnExport">Export ↓</button>
@@ -181,8 +180,6 @@
       <th>Country</th>
       <th>Industry</th>
       <th>Source</th>
-      <th style="width:110px">Forge<div style="font-weight:400;font-size:10px;color:#8892b0;">price / cap</div></th>
-      <th style="width:110px">Notice<div style="font-weight:400;font-size:10px;color:#8892b0;">price / cap</div></th>
       <th style="width:140px">Status</th>
       <th style="width:160px">Actions</th>
     </tr>
@@ -229,44 +226,6 @@
   </div>
 </div>
 
-<!-- Refresh Notice Modal -->
-<div class="modal-bg" id="refreshNoticeBg">
-  <div class="modal" style="max-width:760px">
-    <h2>Refresh Notice.co data</h2>
-    <p style="color:#8892b0;font-size:13px;margin-bottom:14px;line-height:1.55">
-      Notice.co's Cloudflare blocks both <b>datacenter IPs</b> (GitHub Actions)
-      <i>and</i> <b>Python's TLS fingerprint</b> (local <code>urllib</code> / system <code>curl</code>
-      both return <code>403 Forbidden</code>). The only reliable path is to scrape from
-      <b>your own logged-in browser tab</b> — it's the same session that already loads notice.co pages
-      without trouble.
-    </p>
-    <div id="noticeStatusLine" style="font-size:12px;color:#8892b0;margin-bottom:14px;"></div>
-
-    <h3 style="font-size:14px;margin:6px 0 8px;color:#e8ecf4">3 steps — no terminal, no git commands</h3>
-    <ol style="color:#c5cce0;font-size:13px;line-height:1.8;padding-left:22px;margin:0 0 14px 0;">
-      <li>Open <a href="https://notice.co/" target="_blank" style="color:#5b8def;font-weight:600">notice.co</a> in a new tab → press <code style="background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:4px">⌘ + Option + J</code> to open DevTools console.
-          <span style="color:#8892b0;font-size:12px;">(Chrome's first time may show <i>"Don't paste code here…"</i> — type <code>allow pasting</code> + Return.)</span></li>
-      <li>Paste the snippet below → Enter. Wait ~1 minute (live progress in console).</li>
-      <li>Snippet auto-pushes <code>data/notice_data.json</code> to GitHub via your configured PAT.
-          Hard-refresh the dashboard (⌘+⇧+R) ~30s later to see new Notice prices.</li>
-    </ol>
-    <div id="noticePatWarning" style="display:none;background:rgba(255,184,74,0.1);border:1px solid rgba(255,184,74,0.3);border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:12px;color:#ffb84a;">
-      ⚠ No GitHub PAT configured. The snippet will fall back to <b>downloading</b> the JSON (you'll need to manually <code>mv</code> + commit + push).
-      Configure your PAT in <button class="btn" style="font-size:11px;padding:2px 8px;margin-left:4px;" onclick="document.getElementById('refreshNoticeBg').style.display='none';document.getElementById('btnSettings').click();">⚙ Settings</button> for the one-paste flow.
-    </div>
-
-    <h3 style="font-size:14px;margin:14px 0 6px;color:#e8ecf4">Snippet</h3>
-    <div style="position:relative;">
-      <pre id="refreshNoticeCmds" style="background:#0a0e27;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px 16px 14px 16px;color:#c5cce0;font-family:'SF Mono',Menlo,monospace;font-size:11px;line-height:1.55;white-space:pre;overflow:auto;max-height:280px;margin:0;"></pre>
-      <button class="btn" id="refreshNoticeCopy" style="position:absolute;top:8px;right:8px;font-size:11px;padding:4px 10px;">Copy</button>
-    </div>
-
-    <div class="modal-buttons">
-      <button class="btn primary" id="refreshNoticeClose">Close</button>
-    </div>
-  </div>
-</div>
-
 <!-- Edit / Add Modal -->
 <div class="modal-bg" id="modalBg">
   <div class="modal">
@@ -301,36 +260,8 @@
 //  STATE
 // ============================================================================
 let RAW = [];                                     // unicorns.json (read-only baseline)
-let FORGE  = {};                                  // forge_data.json records
-let NOTICE = {};                                  // notice_data.json records
 let STATE = { edits: {}, additions: [], deletions: [], dismissedPending: { mods: {}, adds: [], rems: [] } };
 const STORAGE_KEY = 'unicornAdminOverrides_v1';
-
-// ---- Forge / Notice display helpers (admin table) ----
-function fmtPrice(p) {
-  if (p == null) return '';
-  if (p >= 10000) return '$' + Math.round(p).toLocaleString();
-  if (p >= 100)   return '$' + p.toFixed(0);
-  return '$' + p.toFixed(2);
-}
-function fmtCap(m) {
-  if (m == null) return '';
-  if (m >= 1_000_000) {
-    const t = m / 1_000_000;
-    return '$' + (t >= 10 ? t.toFixed(0) : t.toFixed(1).replace(/\.0$/, '')) + 'T';
-  }
-  if (m >= 1000) {
-    const b = m / 1000;
-    return '$' + (b >= 100 ? b.toFixed(0) : b.toFixed(1).replace(/\.0$/, '')) + 'B';
-  }
-  return '$' + m.toFixed(0) + 'M';
-}
-function sourceCellHTML(price, cap) {
-  if (price == null && cap == null) return '<span class="small" style="opacity:.3">—</span>';
-  const pStr = price != null ? fmtPrice(price) : '<span class="small" style="opacity:.4">—</span>';
-  const cStr = cap   != null ? fmtCap(cap)     : '<span class="small" style="opacity:.4">—</span>';
-  return '<div>' + pStr + '</div><div class="small" style="color:#fdc25c">' + cStr + '</div>';
-}
 
 // Build a stable fingerprint for a pending modification so re-runs of the same
 // proposal stay dismissed, but a NEW proposal (different "to" values) is shown.
@@ -430,15 +361,6 @@ async function loadData() {
   ensureDismissedShape();
   // Persist the merged state immediately so disk values are now cached locally too.
   persist();
-  // Secondary-market overlays (optional)
-  try {
-    const f = await fetch('./data/forge_data.json?t=' + ts);
-    if (f.ok) { const fb = await f.json(); FORGE = (fb && fb.records) || {}; }
-  } catch {}
-  try {
-    const n = await fetch('./data/notice_data.json?t=' + ts);
-    if (n.ok) { const nb = await n.json(); NOTICE = (nb && nb.records) || {}; }
-  } catch {}
   // Pending updates from latest data refresh (optional)
   try {
     const p = await fetch('./data/pending.json?t=' + ts);
@@ -567,11 +489,6 @@ function renderRow(baseRec, rec, status) {
     ? '<span class="badge added">Added</span>'
     : status ? `<span class="badge ${status}">${status}</span>` : '';
 
-  const f = FORGE[rec.company] || {};
-  const n = NOTICE[rec.company] || {};
-  const forgeCell  = sourceCellHTML(f.forge_price, f.forge_valuation_m);
-  const noticeCell = sourceCellHTML(n.notice_price, n.notice_valuation_m);
-
   tr.innerHTML = `
     <td class="small">${esc(String(rec.id || ''))}</td>
     <td><div><b>${esc(rec.company)}</b></div><div class="small">${esc(rec.industry || '')}</div></td>
@@ -580,8 +497,6 @@ function renderRow(baseRec, rec, status) {
     <td>${esc(rec.country || '')}</td>
     <td>${esc(rec.industry || '')}</td>
     <td>${sourceBadge}</td>
-    <td>${forgeCell}</td>
-    <td>${noticeCell}</td>
     <td>${statusBadge}</td>
     <td class="row-actions">
       <button class="btn" data-act="edit">Edit</button>
@@ -1093,210 +1008,6 @@ document.getElementById('fileInput').addEventListener('change', e => {
   e.target.value = '';
 });
 document.getElementById('btnReset').addEventListener('click', resetAll);
-
-// ----- Refresh Notice modal (browser-side scraping via DevTools console) -----
-// Cloudflare blocks Python at the TLS-fingerprint level even from residential
-// IPs. Reliable path: paste a JS snippet into notice.co's own DevTools console,
-// which uses the user's logged-in session + real browser TLS.
-
-// Build the JS snippet at modal-open time so it always uses the latest slug map
-// + the user's currently-configured PAT. The snippet:
-//   1. Pulls existing notice_data.json from GitHub Pages (for prev_* values)
-//   2. Fetches each company's notice.co page (same-origin, real browser session)
-//   3. Parses price + market cap
-//   4. PUTs the new notice_data.json straight to GitHub via Contents API
-//      using the PAT already configured in admin's Settings modal.
-// Result: one paste, no download, no terminal, no git commands.
-async function buildNoticeSnippet() {
-  let slugs = {};
-  try {
-    const r = await fetch('./data/notice_slugs.json?t=' + Date.now());
-    if (r.ok) {
-      const obj = await r.json();
-      slugs = { ...(obj.matches || {}), ...(obj.manual_overrides || {}) };
-    }
-  } catch {}
-  const cfg = getCfg();
-  const ghRaw = location.host.endsWith('github.io')
-    ? location.origin + location.pathname.replace(/[^/]*$/, '') + 'data/notice_data.json'
-    : 'https://' + (cfg.repo || 'MrLeo666/unicorn-dashboard').split('/')[0].toLowerCase() + '.github.io/' +
-      (cfg.repo || 'MrLeo666/unicorn-dashboard').split('/')[1] + '/data/notice_data.json';
-  const cfgJson = {
-    repo:   cfg.repo   || 'MrLeo666/unicorn-dashboard',
-    branch: cfg.branch || 'main',
-    token:  cfg.token  || '',
-    ghRaw,
-  };
-
-  // The snippet itself. Use a template literal so we get readable indentation;
-  // dump the slug map and config via JSON.stringify for safety.
-  return `(async () => {
-  const SLUGS = ${JSON.stringify(slugs, null, 2)};
-  const CFG = ${JSON.stringify(cfgJson, null, 2)};
-
-  // 1) Inherit prev_* from the currently-published notice_data.json
-  let prev = {};
-  try {
-    const r = await fetch(CFG.ghRaw + '?t=' + Date.now());
-    if (r.ok) prev = (await r.json()).records || {};
-  } catch {}
-
-  // 2) Scrape each company from notice.co (same-origin, real session)
-  const records = {}, no_data = [], errors = [];
-  const cos = Object.keys(SLUGS); let n = 0;
-  for (const co of cos) {
-    n++; const slug = SLUGS[co];
-    try {
-      const r = await fetch('/c/' + slug, { credentials: 'omit', cache: 'no-store' });
-      if (!r.ok) { errors.push({company: co, slug, error: 'HTTP ' + r.status}); console.log(\`[\${n}/\${cos.length}] \${co}: HTTP \${r.status}\`); continue; }
-      const html = await r.text();
-      const tm = html.match(/<title>([^<]+)<\\/title>/i);
-      const flat = html.replace(/<[^>]+>/g, ' ').replace(/\\s+/g, ' ');
-      const pm = tm ? tm[1].match(/Stock\\s*\\$\\s*([0-9,]+(?:\\.[0-9]+)?)/i) : null;
-      const cm = flat.match(/Market Cap\\s*\\$\\s*([0-9.]+)\\s*([TBM])/i);
-      const price = pm ? parseFloat(pm[1].replace(/,/g, '')) : null;
-      let val_m = null;
-      if (cm) { const u = cm[2].toUpperCase(); const mult = u === 'T' ? 1e6 : u === 'B' ? 1e3 : 1; val_m = parseFloat(cm[1]) * mult; }
-      const p = prev[co] || {};
-      if (price == null && val_m == null) { no_data.push(co); console.log(\`[\${n}/\${cos.length}] \${co}: EMPTY\`); }
-      else {
-        records[co] = { slug, notice_price: price, notice_valuation_m: val_m, prev_notice_price: p.notice_price ?? null, prev_notice_valuation_m: p.notice_valuation_m ?? null, fetched_at: new Date().toISOString().split('.')[0] + 'Z' };
-        console.log(\`[\${n}/\${cos.length}] \${co}: $\${price} / \${val_m ? '$' + (val_m/1000).toFixed(1) + 'B' : '—'}\`);
-      }
-    } catch (e) {
-      errors.push({company: co, slug, error: e.message});
-      console.log(\`[\${n}/\${cos.length}] \${co}: ERR\`, e.message);
-    }
-    await new Promise(res => setTimeout(res, 600));
-  }
-  const out = { as_of: new Date().toISOString().split('.')[0] + 'Z', top_n: cos.length, records, no_data, no_slug: [], fetch_errors: errors };
-  console.log(\`✓ Scrape done. \${Object.keys(records).length} records, \${no_data.length} empty, \${errors.length} errors.\`);
-
-  // 3) Push to GitHub via Contents API (no terminal needed)
-  if (!CFG.token) {
-    console.error('No GitHub PAT configured in admin Settings — falling back to download.');
-    const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = 'notice_data.json';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-    return;
-  }
-  console.log('Pushing to GitHub…');
-  const apiBase = 'https://api.github.com/repos/' + CFG.repo + '/contents/data/notice_data.json';
-  let sha = null;
-  try {
-    const g = await fetch(apiBase + '?ref=' + CFG.branch, { headers: { Authorization: 'token ' + CFG.token, Accept: 'application/vnd.github+json' } });
-    if (g.ok) sha = (await g.json()).sha;
-  } catch {}
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(out, null, 2))));
-  const body = { message: 'data: Notice.co refresh (browser, ' + Object.keys(records).length + ' records)', content, branch: CFG.branch };
-  if (sha) body.sha = sha;
-  const put = await fetch(apiBase, {
-    method: 'PUT',
-    headers: { Authorization: 'token ' + CFG.token, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  if (put.ok) {
-    const r = await put.json();
-    console.log('✓ Published to GitHub. Commit:', r.commit && r.commit.sha && r.commit.sha.slice(0, 7));
-    console.log('Hard-refresh the dashboard (⌘+⇧+R) in ~30s to see new Notice data.');
-  } else {
-    const t = await put.text();
-    console.error('GitHub PUT failed:', put.status, t.slice(0, 400));
-    console.error('You can still save manually: copy `out` from console.');
-    window.__noticeOut = out;
-  }
-})();`;
-}
-
-function fmtAgeShort(ms) {
-  if (ms == null) return '';
-  const days = ms / 86400_000;
-  if (days < 1)  return Math.round(ms / 3600_000) + 'h';
-  if (days < 30) return Math.round(days) + 'd';
-  return Math.round(days / 30) + 'mo';
-}
-
-function refreshNoticeIndicator() {
-  // Parse Notice's as_of timestamp (set by scrape_notice.py at start of run).
-  const btn = document.getElementById('btnRefreshNotice');
-  const ageSpan = document.getElementById('noticeAge');
-  let asOfStr = null;
-  try {
-    // We don't have the raw notice_data.json's `as_of` cached on this side, so
-    // fetch it once (cheap — it's a few KB). NOTICE variable holds only records.
-    fetch('./data/notice_data.json?t=' + Date.now())
-      .then(r => r.ok ? r.json() : null)
-      .then(obj => {
-        if (!obj || !obj.as_of) {
-          ageSpan.textContent = ' · never';
-          ageSpan.style.color = '#ff9a6a';
-          btn.title = 'Notice.co data has never been refreshed locally — click to see commands';
-          return;
-        }
-        const t = new Date(obj.as_of).getTime();
-        const ms = Date.now() - t;
-        const days = ms / 86400_000;
-        ageSpan.textContent = ' · ' + fmtAgeShort(ms);
-        if (days > 14)     ageSpan.style.color = '#ff5a5a';        // > 2 weeks → red
-        else if (days > 7) ageSpan.style.color = '#ffb84a';        // > 1 week  → amber
-        else                ageSpan.style.color = '#3edc81';       // fresh     → green
-        btn.title = 'Notice.co last refreshed ' + obj.as_of + ' (' + fmtAgeShort(ms) + ' ago)';
-        // Stash for the modal
-        btn.dataset.asOf = obj.as_of;
-        btn.dataset.totalRecords = String(Object.keys(obj.records || {}).length);
-      });
-  } catch {}
-}
-
-async function openRefreshNoticeModal() {
-  // Always rebuild the snippet (cheap, and ensures latest PAT / slug map)
-  const pre = document.getElementById('refreshNoticeCmds');
-  pre.textContent = 'Building snippet…';
-  const snippet = await buildNoticeSnippet();
-  pre.textContent = snippet;
-  pre.dataset.value = snippet;
-
-  // PAT-missing warning
-  const cfg = getCfg();
-  document.getElementById('noticePatWarning').style.display =
-    cfg.token ? 'none' : 'block';
-
-  // Populate status line
-  const btn = document.getElementById('btnRefreshNotice');
-  const asOf = btn.dataset.asOf;
-  const total = btn.dataset.totalRecords;
-  const status = document.getElementById('noticeStatusLine');
-  if (asOf) {
-    const ms = Date.now() - new Date(asOf).getTime();
-    status.textContent = 'Current notice_data.json: ' + asOf +
-      ' (' + fmtAgeShort(ms) + ' ago) · ' + (total || 0) + ' company records.';
-  } else {
-    status.textContent = 'Current notice_data.json: not yet generated.';
-  }
-  document.getElementById('refreshNoticeBg').style.display = 'flex';
-}
-function closeRefreshNoticeModal() {
-  document.getElementById('refreshNoticeBg').style.display = 'none';
-}
-async function copyRefreshNoticeCmds() {
-  try {
-    const pre = document.getElementById('refreshNoticeCmds');
-    await navigator.clipboard.writeText(pre.dataset.value || pre.textContent);
-    const btn = document.getElementById('refreshNoticeCopy');
-    const orig = btn.textContent;
-    btn.textContent = 'Copied!';
-    setTimeout(() => { btn.textContent = orig; }, 1500);
-  } catch (e) {
-    toast('Clipboard blocked — select the text manually');
-  }
-}
-document.getElementById('btnRefreshNotice').addEventListener('click', openRefreshNoticeModal);
-document.getElementById('refreshNoticeClose').addEventListener('click', closeRefreshNoticeModal);
-document.getElementById('refreshNoticeCopy').addEventListener('click', copyRefreshNoticeCmds);
-document.getElementById('refreshNoticeBg').addEventListener('click', e => {
-  if (e.target.id === 'refreshNoticeBg') closeRefreshNoticeModal();
-});
 document.getElementById('modalSave').addEventListener('click', saveModal);
 document.getElementById('modalCancel').addEventListener('click', closeModal);
 document.getElementById('modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
@@ -1348,9 +1059,7 @@ document.getElementById('btnDismissAll').addEventListener('click', () => {
   toast(`${total} item(s) marked reviewed`);
 });
 
-loadData().then(() => {
-  refreshNoticeIndicator();
-}).catch(err => {
+loadData().catch(err => {
   document.body.innerHTML = '<h1>Failed to load data</h1><p style="color:#ff6b8a">' + esc(err.message) +
     '</p><p>Make sure <code>data/unicorns.json</code> exists and the page is served via HTTP (not file://).</p>';
 });
