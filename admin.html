@@ -231,23 +231,37 @@
 
 <!-- Refresh Notice Modal -->
 <div class="modal-bg" id="refreshNoticeBg">
-  <div class="modal" style="max-width:640px">
+  <div class="modal" style="max-width:760px">
     <h2>Refresh Notice.co data</h2>
     <p style="color:#8892b0;font-size:13px;margin-bottom:14px;line-height:1.55">
-      Notice.co blocks datacenter IPs (returns an empty HTML shell to GitHub Actions),
-      so the Notice scrape <b>cannot run on the server</b>. Run these commands on
-      your local machine — your residential IP will get the real data. Then commit
-      &amp; push <code>data/notice_data.json</code> to update the dashboard.
+      Notice.co's Cloudflare blocks both <b>datacenter IPs</b> (GitHub Actions)
+      <i>and</i> <b>Python's TLS fingerprint</b> (local <code>urllib</code> / system <code>curl</code>
+      both return <code>403 Forbidden</code>). The only reliable path is to scrape from
+      <b>your own logged-in browser tab</b> — it's the same session that already loads notice.co pages
+      without trouble.
     </p>
-    <div id="noticeStatusLine" style="font-size:12px;color:#8892b0;margin-bottom:10px;"></div>
+    <div id="noticeStatusLine" style="font-size:12px;color:#8892b0;margin-bottom:14px;"></div>
+
+    <h3 style="font-size:14px;margin:6px 0 8px;color:#e8ecf4">Steps</h3>
+    <ol style="color:#c5cce0;font-size:13px;line-height:1.7;padding-left:22px;margin:0 0 14px 0;">
+      <li>Open <a href="https://notice.co/" target="_blank" style="color:#5b8def">https://notice.co/</a> in a new tab.</li>
+      <li>Open DevTools console: <code style="background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:4px">⌘ + Option + J</code>
+          (Chrome may show <i>"Don't paste code here…"</i> — type <code>allow pasting</code> + Return first).</li>
+      <li>Paste the snippet below → Enter → wait ~1 minute (~80 fetches with 600ms throttle).</li>
+      <li>A <code>notice_data.json</code> downloads automatically. Move it to <code>deploy/data/</code> then push:
+        <pre style="background:#0a0e27;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:8px 12px;font-size:11px;margin:8px 0;">mv ~/Downloads/notice_data.json data/notice_data.json
+git add data/notice_data.json
+git commit -m "data: Notice.co refresh (browser snapshot)"
+git push</pre>
+      </li>
+    </ol>
+
+    <h3 style="font-size:14px;margin:14px 0 6px;color:#e8ecf4">Snippet</h3>
     <div style="position:relative;">
-      <pre id="refreshNoticeCmds" style="background:#0a0e27;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px 16px;color:#c5cce0;font-family:'SF Mono',Menlo,monospace;font-size:12px;line-height:1.7;white-space:pre;overflow-x:auto;margin:0;"></pre>
+      <pre id="refreshNoticeCmds" style="background:#0a0e27;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px 16px 14px 16px;color:#c5cce0;font-family:'SF Mono',Menlo,monospace;font-size:11px;line-height:1.55;white-space:pre;overflow:auto;max-height:280px;margin:0;"></pre>
       <button class="btn" id="refreshNoticeCopy" style="position:absolute;top:8px;right:8px;font-size:11px;padding:4px 10px;">Copy</button>
     </div>
-    <p style="color:#8892b0;font-size:12px;margin-top:14px;line-height:1.55">
-      Tip: paste line-by-line (some terminals collapse the lines into one bad command).
-      After <code>git push</code>, hard-refresh the dashboard (Cmd+Shift+R) to see new Notice prices on bubbles and in the table.
-    </p>
+
     <div class="modal-buttons">
       <button class="btn primary" id="refreshNoticeClose">Close</button>
     </div>
@@ -1081,17 +1095,65 @@ document.getElementById('fileInput').addEventListener('change', e => {
 });
 document.getElementById('btnReset').addEventListener('click', resetAll);
 
-// ----- Refresh Notice modal (popup of bash commands to run locally) -----
-// Since notice.co blocks datacenter IPs, the user runs scrape_notice.py from
-// their own machine and pushes data/notice_data.json themselves.
-const NOTICE_REPO_PATH = '/Users/leo/Documents/Claude/Projects/Unicorn Monitoring Console/deploy';
-const NOTICE_REFRESH_CMDS = [
-  'cd "' + NOTICE_REPO_PATH + '"',
-  'python3 scripts/scrape_notice.py',
-  'git add data/notice_data.json',
-  'git commit -m "data: weekly Notice.co refresh (local)"',
-  'git push',
-].join('\n');
+// ----- Refresh Notice modal (browser-side scraping via DevTools console) -----
+// Cloudflare blocks Python at the TLS-fingerprint level even from residential
+// IPs. Reliable path: paste a JS snippet into notice.co's own DevTools console,
+// which uses the user's logged-in session + real browser TLS.
+
+// Build the JS snippet at modal-open time so it always uses the latest slug map
+// from data/notice_slugs.json (no need to keep the snippet in sync manually).
+async function buildNoticeSnippet() {
+  let slugs = {};
+  try {
+    const r = await fetch('./data/notice_slugs.json?t=' + Date.now());
+    if (r.ok) {
+      const obj = await r.json();
+      slugs = { ...(obj.matches || {}), ...(obj.manual_overrides || {}) };
+    }
+  } catch {}
+  const ghRaw = location.host.endsWith('github.io')
+    ? location.origin + location.pathname.replace(/[^/]*$/, '') + 'data/notice_data.json'
+    : 'https://mrleo666.github.io/unicorn-dashboard/data/notice_data.json';
+
+  const lines = [];
+  lines.push('(async () => {');
+  lines.push('  const SLUGS = ' + JSON.stringify(slugs, null, 2).replace(/\n/g, '\n  ') + ';');
+  lines.push('  const GH_RAW = ' + JSON.stringify(ghRaw) + ';');
+  lines.push('  // Inherit prev_* from the currently-published notice_data.json');
+  lines.push('  let prev = {};');
+  lines.push('  try { const r = await fetch(GH_RAW + "?t=" + Date.now()); if (r.ok) prev = (await r.json()).records || {}; } catch {}');
+  lines.push('  const records = {}, no_data = [], errors = [];');
+  lines.push('  const cos = Object.keys(SLUGS); let n = 0;');
+  lines.push('  for (const co of cos) {');
+  lines.push('    n++; const slug = SLUGS[co];');
+  lines.push('    try {');
+  lines.push('      const r = await fetch("/c/" + slug, { credentials: "omit", cache: "no-store" });');
+  lines.push('      if (!r.ok) { errors.push({company: co, slug, error: "HTTP " + r.status}); console.log(`[${n}/${cos.length}] ${co}: HTTP ${r.status}`); continue; }');
+  lines.push('      const html = await r.text();');
+  lines.push('      const tm = html.match(/<title>([^<]+)<\\/title>/i);');
+  lines.push('      const flat = html.replace(/<[^>]+>/g," ").replace(/\\s+/g," ");');
+  lines.push('      const pm = tm ? tm[1].match(/Stock\\s*\\$\\s*([0-9,]+(?:\\.[0-9]+)?)/i) : null;');
+  lines.push('      const cm = flat.match(/Market Cap\\s*\\$\\s*([0-9.]+)\\s*([TBM])/i);');
+  lines.push('      const price = pm ? parseFloat(pm[1].replace(/,/g,"")) : null;');
+  lines.push('      let val_m = null;');
+  lines.push('      if (cm) { const u = cm[2].toUpperCase(); const mult = u === "T" ? 1e6 : u === "B" ? 1e3 : 1; val_m = parseFloat(cm[1]) * mult; }');
+  lines.push('      const p = prev[co] || {};');
+  lines.push('      if (price == null && val_m == null) { no_data.push(co); console.log(`[${n}/${cos.length}] ${co}: EMPTY`); }');
+  lines.push('      else {');
+  lines.push('        records[co] = { slug, notice_price: price, notice_valuation_m: val_m, prev_notice_price: p.notice_price ?? null, prev_notice_valuation_m: p.notice_valuation_m ?? null, fetched_at: new Date().toISOString().split(".")[0] + "Z" };');
+  lines.push('        console.log(`[${n}/${cos.length}] ${co}: $${price} / ${val_m ? "$"+(val_m/1000).toFixed(1)+"B" : "—"}`);');
+  lines.push('      }');
+  lines.push('    } catch (e) { errors.push({company: co, slug, error: e.message}); console.log(`[${n}/${cos.length}] ${co}: ERR`, e.message); }');
+  lines.push('    await new Promise(res => setTimeout(res, 600));');
+  lines.push('  }');
+  lines.push('  const out = { as_of: new Date().toISOString().split(".")[0] + "Z", top_n: cos.length, records, no_data, no_slug: [], fetch_errors: errors };');
+  lines.push('  const blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });');
+  lines.push('  const url = URL.createObjectURL(blob);');
+  lines.push('  const a = document.createElement("a"); a.href = url; a.download = "notice_data.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);');
+  lines.push('  console.log(`✓ Done. ${Object.keys(records).length} records, ${no_data.length} empty, ${errors.length} errors. Saved as notice_data.json.`);');
+  lines.push('})();');
+  return lines.join('\n');
+}
 
 function fmtAgeShort(ms) {
   if (ms == null) return '';
@@ -1133,8 +1195,14 @@ function refreshNoticeIndicator() {
   } catch {}
 }
 
-function openRefreshNoticeModal() {
-  document.getElementById('refreshNoticeCmds').textContent = NOTICE_REFRESH_CMDS;
+let _noticeSnippetCache = null;
+async function openRefreshNoticeModal() {
+  // Build the snippet (cached after first open)
+  const pre = document.getElementById('refreshNoticeCmds');
+  pre.textContent = 'Building snippet…';
+  if (!_noticeSnippetCache) _noticeSnippetCache = await buildNoticeSnippet();
+  pre.textContent = _noticeSnippetCache;
+
   // Populate status line
   const btn = document.getElementById('btnRefreshNotice');
   const asOf = btn.dataset.asOf;
@@ -1154,7 +1222,7 @@ function closeRefreshNoticeModal() {
 }
 async function copyRefreshNoticeCmds() {
   try {
-    await navigator.clipboard.writeText(NOTICE_REFRESH_CMDS);
+    await navigator.clipboard.writeText(_noticeSnippetCache || document.getElementById('refreshNoticeCmds').textContent);
     const btn = document.getElementById('refreshNoticeCopy');
     const orig = btn.textContent;
     btn.textContent = 'Copied!';

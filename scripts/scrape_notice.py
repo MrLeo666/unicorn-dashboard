@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
-"""Weekly Notice.co secondary-market scraper (companion to scrape_forge.py).
+"""Notice.co secondary-market scraper — CURRENTLY NON-FUNCTIONAL.
 
-For each of the Top-N unicorns, look up the notice.co URL slug from
-data/notice_slugs.json and fetch:
+❌ STATUS: Notice's Cloudflare layer rejects this script with 403 Forbidden,
+   both from GitHub Actions (datacenter IP) and from local macOS (Python TLS
+   fingerprint mismatch). Even subprocess `curl` with HTTP/2 + browser-like
+   headers gets blocked. The detection happens at JA3 / ALPN / HTTP/2 frame
+   ordering, which a regular Python script can't easily reproduce.
 
-    https://notice.co/c/<slug>
+✅ WORKAROUND: Use the in-browser scraping path. Open admin.html, click
+   "🔄 Refresh Notice", and copy the JavaScript snippet into the DevTools
+   console of a logged-in notice.co tab. Browser fetch with the user's real
+   session passes Cloudflare and produces the same data/notice_data.json file
+   structure this script would have written.
 
-Extract:
-  - Notice Price       (from the page <title>: "Anthropic Stock $439.86 | ...")
-  - Notice Valuation   (from body text: "Market Cap | $645.01 B")
+This file is kept for reference (slug map structure, URL pattern, parse regex)
+and in case Notice ever relaxes its bot policy. Don't bother running it.
 
-Persist to data/notice_data.json. Previous values carried into prev_* so the
-dashboard can compute red/green deltas without keeping its own history.
-
-Same retry / UA rotation / jitter behavior as scrape_forge.py.
+Original spec:
+  Input  : data/notice_slugs.json  (company → notice.co slug map)
+  URL    : https://notice.co/c/<slug>
+  Output : data/notice_data.json   (same schema as forge_data.json but with
+                                     notice_price / notice_valuation_m fields)
 """
 from __future__ import annotations
 
@@ -21,6 +28,7 @@ import datetime as dt
 import json
 import random
 import re
+import subprocess
 import time
 import urllib.error
 import urllib.request
@@ -96,19 +104,56 @@ def _decode(raw: bytes, encoding: str | None) -> str:
 
 
 def fetch(url: str) -> str:
+    """Fetch HTML via system `curl` rather than Python urllib.
+
+    Notice.co's Cloudflare layer fingerprints the TLS handshake + HTTP version;
+    urllib (HTTP/1.1, Python OpenSSL build) gets blocked with 403 even from a
+    residential IP. macOS system curl uses LibreSSL and supports HTTP/2, which
+    matches Safari's fingerprint closely enough to pass Cloudflare's check.
+    """
     last_err: Exception | None = None
     for attempt in range(MAX_RETRIES + 1):
-        headers = dict(BASE_HEADERS)
-        headers['User-Agent'] = random.choice(USER_AGENTS)
+        ua = random.choice(USER_AGENTS)
+        cmd = [
+            'curl', '-sSL', '--http2', '--compressed', '--max-time', '30',
+            '-A', ua,
+            '-H', 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+            '-H', 'Accept-Language: en-US,en;q=0.9',
+            '-H', 'Cache-Control: no-cache',
+            '-H', 'Pragma: no-cache',
+            '-H', 'Referer: https://notice.co/',
+            '-H', 'Sec-Ch-Ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+            '-H', 'Sec-Ch-Ua-Mobile: ?0',
+            '-H', 'Sec-Ch-Ua-Platform: "macOS"',
+            '-H', 'Sec-Fetch-Dest: document',
+            '-H', 'Sec-Fetch-Mode: navigate',
+            '-H', 'Sec-Fetch-Site: same-origin',
+            '-H', 'Sec-Fetch-User: ?1',
+            '-H', 'Upgrade-Insecure-Requests: 1',
+            '-w', '%{http_code}',                            # append HTTP code at end so we can detect 403
+            url,
+        ]
         try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=30) as r:
-                return _decode(r.read(), r.headers.get('Content-Encoding'))
-        except urllib.error.HTTPError as e:
-            if 400 <= e.code < 500:
-                raise
-            last_err = e
-        except (urllib.error.URLError, TimeoutError) as e:
+            res = subprocess.run(cmd, capture_output=True, text=True, timeout=35)
+            out = res.stdout
+            # curl with -w '%{http_code}' tacks the status code at the very end.
+            # Peel it off the tail; if it's 4xx we treat as a real failure.
+            if len(out) >= 3 and out[-3:].isdigit():
+                http = int(out[-3:])
+                out = out[:-3]
+            else:
+                http = 200 if res.returncode == 0 else 0
+            if http == 0 or res.returncode != 0:
+                raise RuntimeError(f'curl exit {res.returncode}: {(res.stderr or "")[:200]}')
+            if 400 <= http < 500:
+                raise urllib.error.HTTPError(url, http, f'HTTP {http}', {}, None)
+            if 500 <= http < 600:
+                last_err = urllib.error.HTTPError(url, http, f'HTTP {http}', {}, None)
+            else:
+                return out
+        except urllib.error.HTTPError:
+            raise
+        except (subprocess.TimeoutExpired, Exception) as e:
             last_err = e
         if attempt < MAX_RETRIES:
             time.sleep(RETRY_BACKOFF[attempt] + random.uniform(0, 1))
