@@ -180,6 +180,8 @@
       <th>Country</th>
       <th>Industry</th>
       <th>Source</th>
+      <th style="width:110px">Forge<div style="font-weight:400;font-size:10px;color:#8892b0;">price / cap</div></th>
+      <th style="width:110px">Notice<div style="font-weight:400;font-size:10px;color:#8892b0;">price / cap</div></th>
       <th style="width:140px">Status</th>
       <th style="width:160px">Actions</th>
     </tr>
@@ -260,8 +262,36 @@
 //  STATE
 // ============================================================================
 let RAW = [];                                     // unicorns.json (read-only baseline)
+let FORGE  = {};                                  // forge_data.json records
+let NOTICE = {};                                  // notice_data.json records
 let STATE = { edits: {}, additions: [], deletions: [], dismissedPending: { mods: {}, adds: [], rems: [] } };
 const STORAGE_KEY = 'unicornAdminOverrides_v1';
+
+// ---- Forge / Notice display helpers (admin table) ----
+function fmtPrice(p) {
+  if (p == null) return '';
+  if (p >= 10000) return '$' + Math.round(p).toLocaleString();
+  if (p >= 100)   return '$' + p.toFixed(0);
+  return '$' + p.toFixed(2);
+}
+function fmtCap(m) {
+  if (m == null) return '';
+  if (m >= 1_000_000) {
+    const t = m / 1_000_000;
+    return '$' + (t >= 10 ? t.toFixed(0) : t.toFixed(1).replace(/\.0$/, '')) + 'T';
+  }
+  if (m >= 1000) {
+    const b = m / 1000;
+    return '$' + (b >= 100 ? b.toFixed(0) : b.toFixed(1).replace(/\.0$/, '')) + 'B';
+  }
+  return '$' + m.toFixed(0) + 'M';
+}
+function sourceCellHTML(price, cap) {
+  if (price == null && cap == null) return '<span class="small" style="opacity:.3">—</span>';
+  const pStr = price != null ? fmtPrice(price) : '<span class="small" style="opacity:.4">—</span>';
+  const cStr = cap   != null ? fmtCap(cap)     : '<span class="small" style="opacity:.4">—</span>';
+  return '<div>' + pStr + '</div><div class="small" style="color:#fdc25c">' + cStr + '</div>';
+}
 
 // Build a stable fingerprint for a pending modification so re-runs of the same
 // proposal stay dismissed, but a NEW proposal (different "to" values) is shown.
@@ -361,6 +391,15 @@ async function loadData() {
   ensureDismissedShape();
   // Persist the merged state immediately so disk values are now cached locally too.
   persist();
+  // Secondary-market overlays (optional)
+  try {
+    const f = await fetch('./data/forge_data.json?t=' + ts);
+    if (f.ok) { const fb = await f.json(); FORGE = (fb && fb.records) || {}; }
+  } catch {}
+  try {
+    const n = await fetch('./data/notice_data.json?t=' + ts);
+    if (n.ok) { const nb = await n.json(); NOTICE = (nb && nb.records) || {}; }
+  } catch {}
   // Pending updates from latest data refresh (optional)
   try {
     const p = await fetch('./data/pending.json?t=' + ts);
@@ -489,6 +528,11 @@ function renderRow(baseRec, rec, status) {
     ? '<span class="badge added">Added</span>'
     : status ? `<span class="badge ${status}">${status}</span>` : '';
 
+  const f = FORGE[rec.company] || {};
+  const n = NOTICE[rec.company] || {};
+  const forgeCell  = sourceCellHTML(f.forge_price, f.forge_valuation_m);
+  const noticeCell = sourceCellHTML(n.notice_price, n.notice_valuation_m);
+
   tr.innerHTML = `
     <td class="small">${esc(String(rec.id || ''))}</td>
     <td><div><b>${esc(rec.company)}</b></div><div class="small">${esc(rec.industry || '')}</div></td>
@@ -497,6 +541,8 @@ function renderRow(baseRec, rec, status) {
     <td>${esc(rec.country || '')}</td>
     <td>${esc(rec.industry || '')}</td>
     <td>${sourceBadge}</td>
+    <td>${forgeCell}</td>
+    <td>${noticeCell}</td>
     <td>${statusBadge}</td>
     <td class="row-actions">
       <button class="btn" data-act="edit">Edit</button>

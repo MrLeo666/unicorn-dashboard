@@ -209,8 +209,9 @@
           <th data-sort="industry">Industry</th>
           <th data-sort="country">Country</th>
           <th data-sort="valuation_m" class="num">Valuation</th>
-          <th data-sort="forge_price" class="num">Forge Price</th>
-          <th data-sort="forge_valuation_m" class="num">Forge Valuation</th>
+          <th data-sort="best_price" class="num">Mkt Price</th>
+          <th data-sort="best_valuation_m" class="num">Mkt Valuation</th>
+          <th data-sort="best_source">Source</th>
           <th data-sort="year" class="num">Year</th>
         </tr>
       </thead>
@@ -234,11 +235,12 @@
 <script>
 // ====== TOP 100 + AREA-PROPORTIONAL + WANDER + COLLISION ======
 let DATA = [];
-// Forge Global secondary-market overlay. Map: company → { forge_price, forge_valuation_m,
-// prev_forge_price, prev_forge_valuation_m, slug, fetched_at }. Refreshed weekly by
-// scripts/scrape_forge.py for the Top 50 by valuation. The dashboard reads it directly;
-// admin overrides do not apply.
-let FORGE = {};
+// Secondary-market data feeds. Two sources tracked independently; merged at
+// render time. bestSource(co) picks the one with the LARGER valuation so the
+// bubble shows the most optimistic / actively-traded estimate; the tooltip
+// (and table) shows ALL sources side-by-side for transparency.
+let FORGE  = {};  // forge_data.json   — { forge_price, forge_valuation_m, prev_*, last_round_valuation_m }
+let NOTICE = {};  // notice_data.json  — { notice_price, notice_valuation_m, prev_* }
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -253,13 +255,14 @@ async function loadData() {
     const o = await fetch('./data/overrides.json?t=' + ts);
     if (o.ok) overrides = Object.assign(overrides, await o.json());
   } catch {}
-  // forge_data.json is optional; missing → bubbles render without the overlay
+  // Forge + Notice are both optional secondary-market overlays.
   try {
     const f = await fetch('./data/forge_data.json?t=' + ts);
-    if (f.ok) {
-      const fb = await f.json();
-      FORGE = (fb && fb.records) || {};
-    }
+    if (f.ok) { const fb = await f.json(); FORGE = (fb && fb.records) || {}; }
+  } catch {}
+  try {
+    const n = await fetch('./data/notice_data.json?t=' + ts);
+    if (n.ok) { const nb = await n.json(); NOTICE = (nb && nb.records) || {}; }
   } catch {}
   DATA = applyOverridesClient(base, overrides);
   DATA.sort((a, b) => b.valuation_m - a.valuation_m);
@@ -289,6 +292,40 @@ function forgeColor(curr, prev) {
   if (curr == null) return null;
   if (prev == null) return '#ffffff';
   return (curr >= prev) ? '#ff5a5a' : '#3edc81';
+}
+// ----- Secondary-market source unification -----
+// marketSources(co) → array of {source, price, valuation_m, prev_price, prev_valuation_m}
+// drawn from FORGE + NOTICE. bestSource(co) picks the entry with the largest valuation.
+function marketSources(co) {
+  const out = [];
+  const f = FORGE[co];
+  if (f && (f.forge_price != null || f.forge_valuation_m != null)) {
+    out.push({
+      source: 'Forge',
+      price: f.forge_price,
+      valuation_m: f.forge_valuation_m,
+      prev_price: f.prev_forge_price,
+      prev_valuation_m: f.prev_forge_valuation_m,
+    });
+  }
+  const n = NOTICE[co];
+  if (n && (n.notice_price != null || n.notice_valuation_m != null)) {
+    out.push({
+      source: 'Notice',
+      price: n.notice_price,
+      valuation_m: n.notice_valuation_m,
+      prev_price: n.prev_notice_price,
+      prev_valuation_m: n.prev_notice_valuation_m,
+    });
+  }
+  return out;
+}
+function bestSource(co) {
+  const all = marketSources(co);
+  if (!all.length) return null;
+  // Pick the source with the LARGER valuation. Tie → first (Forge before Notice).
+  all.sort((a, b) => (b.valuation_m || 0) - (a.valuation_m || 0));
+  return all[0];
 }
 // "(+1.2%)" / "(-3.4%)" — but empty string when:
 //   - no prev value to compare,
@@ -836,27 +873,27 @@ function drawBubble(p) {
       // Tier 2-5: full company name (Chinese if available) + valuation label
       drawArtName(ctx, displayName, x, y, r, colors);
       if (r >= TIER_R[2] * 0.85) {
-        // If Forge secondary-market data exists, it REPLACES the canonical
-        // valuation_str (price-per-share + Forge implied valuation rendered as
-        // two stacked lines). Otherwise render the canonical valuation as before.
-        const fg = FORGE[p.d.company];
-        const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
+        // If a secondary-market source has data (Forge or Notice), it REPLACES
+        // the canonical valuation_str. We pick the source with the LARGER
+        // valuation to display on the bubble; the tooltip shows ALL sources.
+        const best = bestSource(p.d.company);
+        const hasMarket = !!best;
 
         ctx.globalAlpha = alpha;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        if (hasForge) {
+        if (hasMarket) {
           // Build "(±X.X%)" suffix when prev exists, blank otherwise.
-          const priceTxt = fg.forge_price != null
-            ? fmtForgePrice(fg.forge_price) + pctSuffix(fg.forge_price, fg.prev_forge_price)
+          const priceTxt = best.price != null
+            ? fmtForgePrice(best.price) + pctSuffix(best.price, best.prev_price)
             : '';
-          const valTxt   = fg.forge_valuation_m != null
-            ? fmtForgeVal(fg.forge_valuation_m) + pctSuffix(fg.forge_valuation_m, fg.prev_forge_valuation_m)
+          const valTxt   = best.valuation_m != null
+            ? fmtForgeVal(best.valuation_m) + pctSuffix(best.valuation_m, best.prev_valuation_m)
             : '';
           // Color: only the PRICE line gets red/green vs prev. Valuation stays
           // neutral (inherits the bubble's contrast-appropriate text color).
-          const priceColor = forgeColor(fg.forge_price, fg.prev_forge_price) || '#ffffff';
+          const priceColor = forgeColor(best.price, best.prev_price) || '#ffffff';
           // Two stacked lines, occupying roughly the same vertical band the
           // single canonical valuation used to live in.
           const yPrice = y + r * 0.42;
@@ -980,19 +1017,17 @@ function drawTreemap() {
       ctx.fillText(name, leaf.x0 + 4, leaf.y0 + 4);
       // Valuation (or Forge for Top 50)
       if (h >= 38) {
-        const fg = FORGE[d.company];
-        const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
-        if (hasForge) {
+        const best = bestSource(d.company);
+        if (best) {
           ctx.font = '700 10px -apple-system, sans-serif';
-          // Valuation (neutral) on this line; Forge price (colored) on the next if room.
-          const valTxt = fg.forge_valuation_m != null
-            ? fmtForgeVal(fg.forge_valuation_m) + pctSuffix(fg.forge_valuation_m, fg.prev_forge_valuation_m)
+          const valTxt = best.valuation_m != null
+            ? fmtForgeVal(best.valuation_m) + pctSuffix(best.valuation_m, best.prev_valuation_m)
             : '';
           ctx.fillStyle = cc.valFg;
           if (valTxt) ctx.fillText(valTxt, leaf.x0 + 4, leaf.y0 + 18);
-          if (h >= 56 && fg.forge_price != null) {
-            const priceColor = forgeColor(fg.forge_price, fg.prev_forge_price) || cc.valFg;
-            const priceTxt = fmtForgePrice(fg.forge_price) + pctSuffix(fg.forge_price, fg.prev_forge_price);
+          if (h >= 56 && best.price != null) {
+            const priceColor = forgeColor(best.price, best.prev_price) || cc.valFg;
+            const priceTxt = fmtForgePrice(best.price) + pctSuffix(best.price, best.prev_price);
             ctx.fillStyle = priceColor;
             ctx.fillText(priceTxt, leaf.x0 + 4, leaf.y0 + 32);
           }
@@ -1027,25 +1062,20 @@ function pickTreemap(x, y) {
 
 // ===== Table view (sortable HTML table) =====
 // All visible records rendered as <tr>; sort by clicking column headers.
-// Forge Price / Forge Valuation cells inherit red/green coloring from prev-week comparison.
-const TABLE_COLS = ['rank','company','industry','country','valuation_m','forge_price','forge_valuation_m','year'];
+// "Mkt Price" / "Mkt Valuation" cells are pulled from bestSource() — i.e. the
+// secondary-market source (Forge or Notice) with the LARGER valuation.
 
-function forgeClass(fg) {
-  if (!fg) return 'forge-flat';
-  if (fg.prev_forge_price != null && fg.forge_price != null) {
-    return fg.forge_price >= fg.prev_forge_price ? 'forge-up' : 'forge-down';
-  }
-  if (fg.prev_forge_valuation_m != null && fg.forge_valuation_m != null) {
-    return fg.forge_valuation_m >= fg.prev_forge_valuation_m ? 'forge-up' : 'forge-down';
-  }
-  return 'forge-flat';
+function priceClass(curr, prev) {
+  if (curr == null || prev == null) return 'forge-flat';
+  return curr >= prev ? 'forge-up' : 'forge-down';
 }
 
 function getSortVal(d, key) {
-  if (key === 'rank')               return DATA.indexOf(d);
-  if (key === 'forge_price')        return (FORGE[d.company] || {}).forge_price;
-  if (key === 'forge_valuation_m')  return (FORGE[d.company] || {}).forge_valuation_m;
-  if (key === 'year')               return parseInt(d.year, 10);
+  if (key === 'rank')                return DATA.indexOf(d);
+  if (key === 'best_price')          return (bestSource(d.company) || {}).price;
+  if (key === 'best_valuation_m')    return (bestSource(d.company) || {}).valuation_m;
+  if (key === 'best_source')         return (bestSource(d.company) || {}).source;
+  if (key === 'year')                return parseInt(d.year, 10);
   return d[key];
 }
 
@@ -1077,18 +1107,18 @@ function buildTable() {
     return dir * (va - vb);
   });
   if (!visible.length) {
-    tbody.innerHTML = '<tr class="empty-row"><td colspan="8">No matching unicorns. Adjust the filters above.</td></tr>';
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="9">No matching unicorns. Adjust the filters above.</td></tr>';
     TABLE.dirty = false;
     return;
   }
   // Render rows. Use canonical rank (index in DATA, sorted by valuation desc).
   const rows = visible.map(d => {
     const rank = DATA.indexOf(d) + 1;
-    const fg = FORGE[d.company];
-    const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
-    const fclass = hasForge ? forgeClass(fg) : '';
+    const best = bestSource(d.company);
+    const all  = marketSources(d.company);
     let priceCell = '<span style="opacity:.4">—</span>';
     let valCell   = '<span style="opacity:.4">—</span>';
+    let srcCell   = '<span style="opacity:.4">—</span>';
     // Inline pct helper: hide when no prev / prev=0 / rounds to 0.0%.
     const pctStr = (curr, prev) => {
       if (curr == null || prev == null || prev === 0) return '';
@@ -1096,18 +1126,28 @@ function buildTable() {
       if (Math.abs(p) < 0.05) return '';
       return (p >= 0 ? '+' : '') + p.toFixed(1) + '%';
     };
-    if (hasForge && fg.forge_price != null) {
-      let s = '<span class="' + fclass + '">' + fmtForgePrice(fg.forge_price) + '</span>';
-      const ps = pctStr(fg.forge_price, fg.prev_forge_price);
+    if (best && best.price != null) {
+      const cls = priceClass(best.price, best.prev_price);
+      let s = '<span class="' + cls + '">' + fmtForgePrice(best.price) + '</span>';
+      const ps = pctStr(best.price, best.prev_price);
       if (ps) s += '<span class="forge-delta">' + ps + '</span>';
       priceCell = s;
     }
-    if (hasForge && fg.forge_valuation_m != null) {
-      // Neutral color (no red/green); show % delta as small adjacent text.
-      let s = '<span class="forge-flat">' + fmtForgeVal(fg.forge_valuation_m) + '</span>';
-      const ps = pctStr(fg.forge_valuation_m, fg.prev_forge_valuation_m);
+    if (best && best.valuation_m != null) {
+      let s = '<span class="forge-flat">' + fmtForgeVal(best.valuation_m) + '</span>';
+      const ps = pctStr(best.valuation_m, best.prev_valuation_m);
       if (ps) s += '<span class="forge-delta">' + ps + '</span>';
       valCell = s;
+    }
+    if (best) {
+      // Show the "shown" source plus dimmed list of OTHER available sources
+      // so the user knows there's more behind the value (hover bubble for breakdown).
+      srcCell = '<span class="industry-tag">' + esc(best.source) + '</span>';
+      const others = all.filter(m => m.source !== best.source);
+      if (others.length) {
+        srcCell += '<span style="font-size:10px;opacity:.5;margin-left:6px;">+' +
+                   others.map(o => esc(o.source)).join(',') + '</span>';
+      }
     }
     const isCN = d.companyZh && d.companyZh !== d.company && !String(d.companyZh).startsWith('Unnamed');
     const nameCell = isCN
@@ -1121,6 +1161,7 @@ function buildTable() {
          + '<td class="num val-cell">' + esc(d.valuation_str || '') + '</td>'
          + '<td class="num">' + priceCell + '</td>'
          + '<td class="num">' + valCell + '</td>'
+         + '<td>' + srcCell + '</td>'
          + '<td class="num">' + esc(d.year || '—') + '</td>'
          + '</tr>';
   });
@@ -1184,22 +1225,27 @@ function showTooltip(p) {
   }
   parts.push('<h3>' + titleHTML + ' <span class="badge">' + esc(d.industry) + '</span><span class="badge">' + sourceTag + '</span></h3>');
   parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
-  // Forge Global secondary-market overlay (Top 50 only).
-  // Price line: red/green vs prev. Valuation line: neutral color.
-  const fgT = FORGE[d.company];
-  if (fgT && (fgT.forge_price != null || fgT.forge_valuation_m != null)) {
-    const priceColor = forgeColor(fgT.forge_price, fgT.prev_forge_price) || '#ffffff';
-    if (fgT.forge_price != null) {
-      let s = '<b>Forge Price:</b> ' + fmtForgePrice(fgT.forge_price);
-      const ps = pctSuffix(fgT.forge_price, fgT.prev_forge_price);
-      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
-      parts.push('<div class="row" style="color:' + priceColor + ';margin-top:4px;">' + s + '</div>');
+  // Secondary-market overlay: render EVERY source we have for this company,
+  // so the user can compare Forge vs Notice side-by-side. Best source is
+  // highlighted with a subtle "← shown" tag.
+  const allMs = marketSources(d.company);
+  const bestM = bestSource(d.company);
+  for (const ms of allMs) {
+    const isBest = bestM && ms.source === bestM.source;
+    const tag = isBest && allMs.length > 1
+      ? ' <span style="font-size:10px;opacity:.55;padding:1px 6px;border-radius:4px;background:rgba(255,255,255,0.08);">shown on bubble</span>'
+      : '';
+    parts.push('<div class="row" style="margin-top:6px;color:#a3b1d4;"><b>' + ms.source + '</b>' + tag + '</div>');
+    if (ms.price != null) {
+      const priceColor = forgeColor(ms.price, ms.prev_price) || '#ffffff';
+      const ps = pctSuffix(ms.price, ms.prev_price);
+      const pctHtml = ps ? ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>' : '';
+      parts.push('<div class="row" style="color:' + priceColor + ';margin-left:8px;"><b>Price:</b> ' + fmtForgePrice(ms.price) + pctHtml + '</div>');
     }
-    if (fgT.forge_valuation_m != null) {
-      let s = '<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m);
-      const ps = pctSuffix(fgT.forge_valuation_m, fgT.prev_forge_valuation_m);
-      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
-      parts.push('<div class="row">' + s + '</div>');
+    if (ms.valuation_m != null) {
+      const ps = pctSuffix(ms.valuation_m, ms.prev_valuation_m);
+      const pctHtml = ps ? ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>' : '';
+      parts.push('<div class="row" style="margin-left:8px;"><b>Valuation:</b> ' + fmtForgeVal(ms.valuation_m) + pctHtml + '</div>');
     }
   }
   if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
