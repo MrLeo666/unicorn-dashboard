@@ -20,6 +20,53 @@
   ],
   "modifications": [
     {
+      "company": "ByteDance",
+      "changes": {
+        "valuation_m": {
+          "from": 580000.0,
+          "to": 600000.0
+        }
+      },
+      "current": {
+        "id": "wiki-3",
+        "source": "wiki",
+        "company": "ByteDance",
+        "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
+        "wikiSlug": "ByteDance",
+        "description": "Internet",
+        "valuation_str": "$580B",
+        "valuation_m": 580000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Zhang Yiming, Liang Rubo",
+        "country": "China",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "Other",
+        "founders": "Zhang Yiming, Liang Rubo",
+        "companyZh": "字节跳动",
+        "pinyinInitial": "Z"
+      },
+      "proposed": {
+        "id": "wiki-3",
+        "source": "wiki",
+        "company": "ByteDance",
+        "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
+        "wikiSlug": "ByteDance",
+        "description": "Internet",
+        "valuation_str": "$600B",
+        "valuation_m": 600000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Zhang Yiming, Liang Rubo",
+        "country": "China",
+        "unicorn_as_of": "April 2026",
+        "year": "2026",
+        "industry": "Other",
+        "founders": "Zhang Yiming, Liang Rubo",
+        "companyZh": "字节跳动",
+        "pinyinInitial": "Z"
+      }
+    },
+    {
       "company": "Anthropic",
       "changes": {
         "valuation_m": {
@@ -63,50 +110,46 @@
       }
     },
     {
-      "company": "ByteDance",
+      "company": "Anduril Industries",
       "changes": {
         "valuation_m": {
-          "from": 580000.0,
-          "to": 330000.0
+          "from": 30500.0,
+          "to": 61000.0
         }
       },
       "current": {
-        "id": "wiki-3",
+        "id": "wiki-14",
         "source": "wiki",
-        "company": "ByteDance",
-        "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
-        "wikiSlug": "ByteDance",
-        "description": "Internet",
-        "valuation_str": "$580B",
-        "valuation_m": 580000,
+        "company": "Anduril Industries",
+        "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
+        "wikiSlug": "Anduril_Industries",
+        "description": "Defense technology",
+        "valuation_str": "$30.5B",
+        "valuation_m": 30500.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Zhang Yiming, Liang Rubo",
-        "country": "China",
-        "unicorn_as_of": "September 2025",
+        "lead_investors": "Founders: Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf",
+        "country": "United States",
+        "unicorn_as_of": "June 2025",
         "year": "2025",
-        "industry": "Other",
-        "founders": "Zhang Yiming, Liang Rubo",
-        "companyZh": "字节跳动",
-        "pinyinInitial": "Z"
+        "industry": "Aerospace/Defense",
+        "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
       },
       "proposed": {
-        "id": "wiki-3",
+        "id": "wiki-9",
         "source": "wiki",
-        "company": "ByteDance",
-        "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
-        "wikiSlug": "ByteDance",
-        "description": "Internet",
-        "valuation_str": "$330B",
-        "valuation_m": 330000.0,
+        "company": "Anduril Industries",
+        "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
+        "wikiSlug": "Anduril_Industries",
+        "description": "Defense technology",
+        "valuation_str": "$61B",
+        "valuation_m": 61000.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Zhang Yiming, Liang Rubo",
-        "country": "China",
-        "unicorn_as_of": "September 2025",
-        "year": "2025",
-        "industry": "Other",
-        "founders": "Zhang Yiming, Liang Rubo",
-        "companyZh": "字节跳动",
-        "pinyinInitial": "Z"
+        "lead_investors": "Founders: Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "Aerospace/Defense",
+        "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
       }
     },
     {
@@ -114,7 +157,15 @@
       "changes": {
         "valuation_m": {
           "from": 50000.0,
-          "to": 29300.0
+          "to": 29000.0
+        },
+        "founders": {
+          "from": "",
+          "to": "Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger"
+        },
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Cursor_(company)"
         }
       },
       "current": {
@@ -136,22 +187,21 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-618",
-        "source": "pb",
-        "tier": "A",
+        "id": "wiki-18",
+        "source": "wiki",
         "company": "Cursor",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Developer of an artificial intelligence-powered coding platform designed to enhance the productivity and capabilities of programmers and software engineers.",
-        "valuation_str": "$29.3B",
-        "valuation_m": 29300.0,
-        "vc_raised": "$3.4B",
-        "lead_investors": "Accel, Andreessen Horowitz, Coatue Management, OpenAI Startup Fund, Thrive Capital",
+        "wikiLink": "https://en.wikipedia.org/wiki/Cursor_(company)",
+        "wikiSlug": "Cursor_(company)",
+        "description": "Artificial intelligence",
+        "valuation_str": "$29B",
+        "valuation_m": 29000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger",
         "country": "United States",
-        "unicorn_as_of": "January 2025",
+        "unicorn_as_of": "November 2025",
         "year": "2025",
         "industry": "AI/ML",
-        "founders": ""
+        "founders": "Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger"
       }
     },
     {
@@ -275,7 +325,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-622",
+        "id": "pb-621",
         "source": "pb",
         "tier": "A",
         "company": "Tether",
@@ -322,7 +372,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-625",
+        "id": "pb-624",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -386,6 +436,24 @@
       }
     }
   ],
-  "removals": [],
-  "generated_at": "2026-05-12T11:18:33Z"
+  "removals": [
+    {
+      "id": "wiki-18",
+      "source": "wiki",
+      "company": "Anysphere",
+      "wikiLink": "https://en.wikipedia.org/wiki/Anysphere",
+      "wikiSlug": "Anysphere",
+      "description": "Artificial intelligence",
+      "valuation_str": "$29B",
+      "valuation_m": 29000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger",
+      "country": "United States",
+      "unicorn_as_of": "November 2025",
+      "year": "2025",
+      "industry": "AI/ML",
+      "founders": "Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger"
+    }
+  ],
+  "generated_at": "2026-05-18T11:42:59Z"
 }

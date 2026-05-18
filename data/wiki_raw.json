@@ -32,9 +32,9 @@
   {
     "company": "ByteDance",
     "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
-    "valuation_b": 330.0,
-    "valuation_str": "$330B",
-    "valuation_date": "September 2025",
+    "valuation_b": 600.0,
+    "valuation_str": "$600B",
+    "valuation_date": "April 2026",
     "industry_raw": "Internet",
     "country": "China",
     "founders": "Zhang Yiming, Liang Rubo"
@@ -90,6 +90,16 @@
     "founders": "Chris Xu"
   },
   {
+    "company": "Anduril Industries",
+    "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
+    "valuation_b": 61.0,
+    "valuation_str": "$61B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Defense technology",
+    "country": "United States",
+    "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
+  },
+  {
     "company": "Canva",
     "wikiLink": "https://en.wikipedia.org/wiki/Canva",
     "valuation_b": 42.0,
@@ -140,16 +150,6 @@
     "founders": "Tim Sweeney"
   },
   {
-    "company": "Anduril Industries",
-    "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
-    "valuation_b": 30.5,
-    "valuation_str": "$30.5B",
-    "valuation_date": "June 2025",
-    "industry_raw": "Defense technology",
-    "country": "United States",
-    "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
-  },
-  {
     "company": "VAST Data",
     "wikiLink": "https://en.wikipedia.org/wiki/VAST_Data",
     "valuation_b": 30.0,
@@ -180,8 +180,8 @@
     "founders": "Nikolai and Pavel Durov"
   },
   {
-    "company": "Anysphere",
-    "wikiLink": "https://en.wikipedia.org/wiki/Anysphere",
+    "company": "Cursor",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cursor_(company)",
     "valuation_b": 29.0,
     "valuation_str": "$29B",
     "valuation_date": "November 2025",
