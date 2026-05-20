@@ -814,6 +814,22 @@ function drawBubble(p) {
   const dim = LOCKED ? (p.d === LOCKED.d ? false : true) : false;
   const alpha = !p.visible ? 0.06 : (dim ? 0.18 : 1.0);
   const x = p.x, y = p.y, r = p.r;
+  const isAdmin = p.d.source === 'admin';
+
+  // —— Admin 手动添加：在所有图层最底下先打一层金色光环 ——
+  // 即使小气泡也会有光晕，让它在大盘中一眼可辨。
+  if (isAdmin && alpha > 0.25) {
+    const goldR = Math.max(r * 1.4, r + 14);
+    const goldGlow = ctx.createRadialGradient(x, y, r * 0.92, x, y, goldR);
+    goldGlow.addColorStop(0,    'rgba(245,200,66,0.55)');
+    goldGlow.addColorStop(0.55, 'rgba(245,200,66,0.18)');
+    goldGlow.addColorStop(1,    'rgba(245,200,66,0)');
+    ctx.fillStyle = goldGlow;
+    ctx.globalAlpha = alpha * 0.85;
+    ctx.beginPath();
+    ctx.arc(x, y, goldR, 0, Math.PI * 2);
+    ctx.fill();
+  }
 
   if (alpha > 0.5 && r > 60) {
     const grdGlow = ctx.createRadialGradient(x, y, r * 0.85, x, y, r * 1.45);
@@ -933,10 +949,36 @@ function drawBubble(p) {
   ctx.globalAlpha = alpha;
   if (LOCKED && p.d === LOCKED.d) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; }
   else if (HOVER && p.d === HOVER.d) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; }
+  else if (isAdmin) {
+    // 金色双层描边（外亮内暗，让边缘有"被点亮"的层次感）
+    ctx.strokeStyle = 'rgba(245,200,66,0.55)';
+    ctx.lineWidth = Math.max(2.5, r * 0.05);
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = '#ffe16b';
+    ctx.lineWidth = Math.max(1, r * 0.02);
+  }
   else { ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 1; }
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI * 2);
   ctx.stroke();
+
+  // —— Admin 公司：12 点钟方向画 ✨ 角标，仅在气泡足够大时显示 ——
+  // 半径 < 28 时角标会和气泡名字打架，宁可只靠光环+描边表达
+  if (isAdmin && alpha > 0.4 && r >= 28) {
+    const sx = x;
+    const sy = y - r - Math.max(8, r * 0.18);
+    const sparkSize = Math.max(11, Math.min(r * 0.28, 22));
+    ctx.font = '700 ' + sparkSize + 'px -apple-system, "Apple Color Emoji", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.globalAlpha = alpha;
+    // 阴影圈底，避免与浅色背景气泡叠在一起时看不清
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = 6;
+    ctx.fillStyle = '#f5c842';
+    ctx.fillText('✨', sx, sy);
+    ctx.shadowBlur = 0;
+  }
 }
 
 // ===== Treemap view (industry-grouped, area = valuation) =====
