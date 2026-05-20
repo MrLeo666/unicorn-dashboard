@@ -51,6 +51,25 @@
   .badge.deleted { background: rgba(239,68,68,0.2); color: #fda4af; }
   .badge.archived { background: rgba(168,85,247,0.22); color: #d8b4fe;
                     font-family: ui-monospace, Menlo, monospace; text-transform: none; letter-spacing: 0.2px; }
+
+  /* 处理公司弹窗的三个选项 */
+  .manage-opt { display: flex; gap: 12px; padding: 12px 14px; margin-bottom: 8px;
+                background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+                border-radius: 8px; cursor: pointer; transition: all 0.12s ease; align-items: flex-start; }
+  .manage-opt:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+  .manage-opt input[type="radio"] { margin-top: 3px; flex-shrink: 0; cursor: pointer; }
+  .manage-opt input[type="radio"]:checked ~ div .opt-title { color: #93c5fd; }
+  .manage-opt:has(input:checked) { background: rgba(91,141,239,0.08); border-color: rgba(91,141,239,0.35); }
+  .opt-title { font-size: 13px; font-weight: 500; color: #e8ecf4; margin-bottom: 3px; }
+  .opt-desc { font-size: 11px; color: #8892b0; line-height: 1.55; }
+  .opt-desc code { background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 3px;
+                   font-size: 10px; }
+  .opt-input { display: none; }
+  .manage-opt:has(input:checked) .opt-input { display: block; }
+  /* 隐藏不适用的提示文案 */
+  .opt-when-archived, .opt-when-deleted { display: none; }
+  .modal[data-current="archived"] .opt-when-archived { display: inline; }
+  .modal[data-current="deleted"] .opt-when-deleted { display: inline; }
   .badge.src-wiki { background: rgba(168,85,247,0.15); color: #d8b4fe; }
   .badge.src-pb { background: rgba(245,158,11,0.15); color: #fcd34d; }
   .badge.src-admin { background: rgba(74,222,128,0.15); color: #86efac; }
@@ -276,21 +295,49 @@
   </div>
 </div>
 
-<!-- Archive (mark as IPO'd) Modal -->
-<div class="modal-bg" id="archiveModalBg">
-  <div class="modal" style="max-width:480px">
-    <h2 id="archiveModalTitle">📂 归档为已上市</h2>
-    <div style="font-size:13px;color:#8892b0;margin-bottom:14px;line-height:1.55">
-      标记公司已 IPO / 直接上市 / SPAC，从主视图与 LQP 雷达隐藏。仅在「Archived」过滤器下可见，<b>不会删除底层数据</b>，随时可解除归档恢复。
+<!-- Manage company modal (合并 归档 / 删除 / 恢复) -->
+<div class="modal-bg" id="manageModalBg">
+  <div class="modal" style="max-width:500px">
+    <h2 id="manageModalTitle">处理这家公司</h2>
+    <div id="manageCurrentState" style="font-size:12px;color:#8892b0;margin-bottom:14px;
+         padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;line-height:1.55">
+      当前状态：<b id="manageStateLabel" style="color:#fff">活跃</b>
     </div>
-    <div class="field"><label>Stock ticker (交易所:代码)</label>
-      <input id="f_archive_ticker" type="text" placeholder="例如：NASDAQ:DBRX · NYSE:PLTR · HKEX:9999" style="font-family:ui-monospace,monospace">
-      <div style="font-size:11px;color:#8892b0;margin-top:6px">建议格式 <code>EXCHANGE:SYMBOL</code>，便于后续接行情。</div>
-    </div>
+
+    <div style="font-size:11px;color:#8892b0;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">选择操作</div>
+
+    <label class="manage-opt" data-opt="active">
+      <input type="radio" name="manageOpt" value="active">
+      <div>
+        <div class="opt-title">✓ 保持活跃</div>
+        <div class="opt-desc">仍然作为独角兽追踪，正常显示。<span class="opt-when-archived">恢复其在主视图的显示。</span><span class="opt-when-deleted">撤销删除，恢复显示。</span></div>
+      </div>
+    </label>
+
+    <label class="manage-opt" data-opt="archive">
+      <input type="radio" name="manageOpt" value="archive">
+      <div>
+        <div class="opt-title">📂 归档为已上市</div>
+        <div class="opt-desc">公司已 IPO / 直接上市 / SPAC，从主视图与 LQP 雷达隐藏。底层数据保留，随时可恢复。</div>
+        <div class="opt-input">
+          <input id="f_manage_ticker" type="text" placeholder="例：NASDAQ:DBRX · NYSE:PLTR · HKEX:9999"
+                 style="font-family:ui-monospace,monospace;width:100%;margin-top:8px">
+          <div style="font-size:10px;color:#8892b0;margin-top:4px">建议格式 <code>EXCHANGE:SYMBOL</code>。可留空。</div>
+        </div>
+      </div>
+    </label>
+
+    <label class="manage-opt" data-opt="delete">
+      <input type="radio" name="manageOpt" value="delete">
+      <div>
+        <div class="opt-title" style="color:#fda4af">🗑 从看板删除</div>
+        <div class="opt-desc">从所有视图永久剔除（仍可在「Deleted」过滤器查看 / 撤销）。用于错条目、不再追踪等。<b>不是归档</b>——已上市公司请选「归档」。</div>
+      </div>
+    </label>
+
     <div class="modal-buttons">
-      <button class="btn" id="archiveModalCancel">Cancel</button>
-      <button class="btn danger" id="archiveModalUnarchive" style="margin-right:auto;display:none">解除归档</button>
-      <button class="btn primary" id="archiveModalSave">归档</button>
+      <button class="btn" id="manageModalCancel">Cancel</button>
+      <button class="btn primary" id="manageModalSave">应用</button>
     </div>
   </div>
 </div>
@@ -557,9 +604,13 @@ function renderRow(baseRec, rec, status) {
   } else if (status) {
     statusBadge = `<span class="badge ${status}">${status}</span>`;
   }
-  const archBtn = archived
-    ? `<button class="btn" data-act="arch" title="编辑归档信息 / 解除归档" style="background:rgba(168,85,247,0.16);border-color:rgba(168,85,247,0.35);color:#d8b4fe">📂 已归档</button>`
-    : `<button class="btn" data-act="arch" title="标记为已 IPO / 上市">📂 归档</button>`;
+  // 单一「Delete」按钮：addition 行直接删；其他情况弹「处理这家公司」窗口
+  const delBtnLabel = baseRec._isAddition ? '✕'
+    : status === 'deleted' ? '撤销删除'
+    : archived ? '📂 已归档'
+    : 'Delete';
+  const delBtnClass = archived ? 'btn' : (status === 'deleted' ? 'btn' : 'btn danger');
+  const delBtnStyle = archived ? 'background:rgba(168,85,247,0.16);border-color:rgba(168,85,247,0.35);color:#d8b4fe' : '';
 
   tr.innerHTML = `
     <td class="small">${esc(String(rec.id || ''))}</td>
@@ -572,12 +623,14 @@ function renderRow(baseRec, rec, status) {
     <td>${statusBadge}</td>
     <td class="row-actions">
       <button class="btn" data-act="edit">Edit</button>
-      ${archBtn}
-      <button class="btn danger" data-act="del">${status === 'deleted' || baseRec._isAddition ? '✕' : 'Delete'}</button>
+      <button class="${delBtnClass}" data-act="del" style="${delBtnStyle}">${delBtnLabel}</button>
     </td>`;
   tr.querySelector('[data-act="edit"]').addEventListener('click', () => openEditModal(baseRec));
-  tr.querySelector('[data-act="arch"]').addEventListener('click', () => openArchiveModal(baseRec));
-  tr.querySelector('[data-act="del"]').addEventListener('click', () => toggleDelete(baseRec));
+  tr.querySelector('[data-act="del"]').addEventListener('click', () => {
+    // addition 行依然走原逻辑（直接删 STATE.additions 条目）
+    if (baseRec._isAddition) { toggleDelete(baseRec); return; }
+    openManageModal(baseRec);
+  });
   return tr;
 }
 
@@ -835,50 +888,80 @@ function closeModal() {
 }
 
 // ============================================================================
-//  ARCHIVE MODAL — 标记公司已上市（IPO/直接上市/SPAC）
+//  MANAGE MODAL — 处理这家公司（活跃 / 归档 / 删除 三态切换）
+//  点 Delete 按钮入口。合并了归档与删除两种"从看板移出"的语义。
 // ============================================================================
-let archiveContext = null;  // { company: string }
+let manageContext = null;  // { company: string, currentState: 'active'|'archived'|'deleted' }
 
-function openArchiveModal(baseRec) {
-  if (baseRec._isAddition) {
-    toast('用户手动添加的公司请直接 Delete，无需归档');
-    return;
+function currentStateOf(company) {
+  if (STATE.deletions.includes(company)) return 'deleted';
+  if (isArchived(company)) return 'archived';
+  return 'active';
+}
+
+function openManageModal(baseRec) {
+  const co = baseRec.company;
+  const cur = currentStateOf(co);
+  manageContext = { company: co, currentState: cur };
+
+  const modal = document.querySelector('#manageModalBg .modal');
+  modal.setAttribute('data-current', cur);
+
+  document.getElementById('manageModalTitle').textContent = `处理：${co}`;
+  const stateLabel = cur === 'archived'
+      ? `<span style="color:#d8b4fe">📂 已归档（${esc(STATE.archived[co]||'未填 ticker')}）</span>`
+    : cur === 'deleted' ? `<span style="color:#fda4af">🗑 已删除</span>`
+    : `<span style="color:#86efac">✓ 活跃</span>`;
+  document.getElementById('manageStateLabel').innerHTML = stateLabel;
+
+  // 默认选项：当前是 active 则默认归档；当前是 archived/deleted 则默认"保持活跃"恢复
+  const defaultOpt = cur === 'active' ? 'archive' : 'active';
+  document.querySelectorAll('input[name="manageOpt"]').forEach(r => {
+    r.checked = (r.value === defaultOpt);
+  });
+  // ticker 输入框预填
+  document.getElementById('f_manage_ticker').value = STATE.archived[co] || '';
+
+  document.getElementById('manageModalBg').classList.add('open');
+  // 自动聚焦：默认选"归档"时聚焦 ticker 输入，否则聚焦"应用"按钮
+  setTimeout(() => {
+    if (defaultOpt === 'archive') document.getElementById('f_manage_ticker').focus();
+    else document.getElementById('manageModalSave').focus();
+  }, 60);
+}
+
+function closeManageModal() {
+  document.getElementById('manageModalBg').classList.remove('open');
+  manageContext = null;
+}
+
+function saveManage() {
+  if (!manageContext) return;
+  const co = manageContext.company;
+  const cur = manageContext.currentState;
+  const opt = document.querySelector('input[name="manageOpt"]:checked')?.value || 'active';
+
+  // 先清除现有的归档 / 删除状态，再根据选择应用新的
+  delete STATE.archived[co];
+  STATE.deletions = STATE.deletions.filter(n => n !== co);
+
+  let msg = '';
+  if (opt === 'archive') {
+    const ticker = document.getElementById('f_manage_ticker').value.trim();
+    STATE.archived[co] = ticker;
+    msg = ticker ? `已归档 ${co} (${ticker})` : `已归档 ${co}（未填 ticker）`;
+  } else if (opt === 'delete') {
+    STATE.deletions.push(co);
+    msg = `已删除 ${co}`;
+  } else {
+    // active：若之前是 archived/deleted，则恢复
+    msg = (cur === 'archived') ? `已解除归档：${co}`
+        : (cur === 'deleted')  ? `已撤销删除：${co}`
+        : `${co} 状态未变`;
   }
-  archiveContext = { company: baseRec.company };
-  const currentTicker = STATE.archived[baseRec.company];
-  const alreadyArchived = currentTicker !== undefined;
-
-  document.getElementById('archiveModalTitle').textContent =
-    alreadyArchived ? `📂 已归档：${baseRec.company}` : `📂 归档为已上市：${baseRec.company}`;
-  document.getElementById('f_archive_ticker').value = currentTicker || '';
-  document.getElementById('archiveModalUnarchive').style.display = alreadyArchived ? 'inline-block' : 'none';
-  document.getElementById('archiveModalSave').textContent = alreadyArchived ? '更新 ticker' : '归档';
-  document.getElementById('archiveModalBg').classList.add('open');
-  setTimeout(() => document.getElementById('f_archive_ticker').focus(), 50);
-}
-
-function closeArchiveModal() {
-  document.getElementById('archiveModalBg').classList.remove('open');
-  archiveContext = null;
-}
-
-function saveArchive() {
-  if (!archiveContext) return;
-  const ticker = document.getElementById('f_archive_ticker').value.trim();
-  STATE.archived[archiveContext.company] = ticker;
   persist(); render();
-  toast(ticker
-    ? `已归档 ${archiveContext.company} (${ticker})`
-    : `已归档 ${archiveContext.company}（未填 ticker）`);
-  closeArchiveModal();
-}
-
-function unarchive() {
-  if (!archiveContext) return;
-  delete STATE.archived[archiveContext.company];
-  persist(); render();
-  toast(`已解除归档：${archiveContext.company}`);
-  closeArchiveModal();
+  toast(msg);
+  closeManageModal();
 }
 
 function toggleDelete(baseRec) {
@@ -1135,12 +1218,15 @@ document.getElementById('btnReset').addEventListener('click', resetAll);
 document.getElementById('modalSave').addEventListener('click', saveModal);
 document.getElementById('modalCancel').addEventListener('click', closeModal);
 document.getElementById('modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
-// 归档弹窗
-document.getElementById('archiveModalSave').addEventListener('click', saveArchive);
-document.getElementById('archiveModalCancel').addEventListener('click', closeArchiveModal);
-document.getElementById('archiveModalUnarchive').addEventListener('click', unarchive);
-document.getElementById('archiveModalBg').addEventListener('click', e => { if (e.target.id === 'archiveModalBg') closeArchiveModal(); });
-document.getElementById('f_archive_ticker').addEventListener('keydown', e => { if (e.key === 'Enter') saveArchive(); });
+// 处理公司弹窗
+document.getElementById('manageModalSave').addEventListener('click', saveManage);
+document.getElementById('manageModalCancel').addEventListener('click', closeManageModal);
+document.getElementById('manageModalBg').addEventListener('click', e => { if (e.target.id === 'manageModalBg') closeManageModal(); });
+document.getElementById('f_manage_ticker').addEventListener('keydown', e => { if (e.key === 'Enter') saveManage(); });
+// 在 ticker 输入框获得焦点时自动选中「归档」radio（不用先手点 radio 再填字）
+document.getElementById('f_manage_ticker').addEventListener('focus', () => {
+  document.querySelector('input[name="manageOpt"][value="archive"]').checked = true;
+});
 document.getElementById('search').addEventListener('input', () => render());
 document.querySelectorAll('.filter-pill').forEach(el => {
   el.addEventListener('click', () => {
@@ -1153,7 +1239,7 @@ document.querySelectorAll('.filter-pill').forEach(el => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     if (document.getElementById('modalBg').classList.contains('open')) closeModal();
-    if (document.getElementById('archiveModalBg').classList.contains('open')) closeArchiveModal();
+    if (document.getElementById('manageModalBg').classList.contains('open')) closeManageModal();
     if (document.getElementById('settingsBg').classList.contains('open')) closeSettings();
   }
 });
