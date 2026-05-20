@@ -143,18 +143,22 @@ export function parseUnicornDate(s) {
 /* ------------------------------------------------------------------ *
  *  Overlay 合并 (复刻 admin.html / index.html 的逻辑)
  *  raw + overrides → 基础公司表
+ *  归档（已 IPO）公司在 mergeOverrides 阶段就被剔除 —— LQP 工具链
+ *  关注的是"独角兽"（一级市场未上市），已上市的不再属于雷达 / 尽调范围。
  * ------------------------------------------------------------------ */
 function mergeOverrides(raw, overrides) {
   const edits = overrides.edits || {};
   const adds = overrides.additions || [];
   const dels = new Set(overrides.deletions || []);
+  const archived = overrides.archived || {};
+  const isArch = (n) => Object.prototype.hasOwnProperty.call(archived, n);
 
   const out = [];
   for (const r of raw) {
     if (dels.has(r.company)) continue;
+    if (isArch(r.company)) continue;  // 归档公司不进入 LQP 工具链
     if (edits[r.company]) {
       const merged = Object.assign({}, r, edits[r.company]);
-      // valuation_str 重算（与 index.html 一致）
       if (edits[r.company].valuation_m != null && !edits[r.company].valuation_str) {
         merged.valuation_str = "$" + (merged.valuation_m / 1000) + "B";
       }
@@ -163,13 +167,12 @@ function mergeOverrides(raw, overrides) {
       out.push(r);
     }
   }
-  // additions: 去重
   const seen = new Set(out.map(c => c.company));
   for (const a of adds) {
-    if (a.company && !seen.has(a.company)) {
-      seen.add(a.company);
-      out.push(a);
-    }
+    if (!a.company || seen.has(a.company)) continue;
+    if (isArch(a.company)) continue;
+    seen.add(a.company);
+    out.push(a);
   }
   return out;
 }

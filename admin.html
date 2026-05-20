@@ -42,11 +42,15 @@
   tr.edited td { background: rgba(91,141,239,0.06); }
   tr.deleted td { opacity: 0.4; text-decoration: line-through; }
   tr.added td { background: rgba(74,222,128,0.06); }
+  tr.archived td { background: rgba(168,85,247,0.06); opacity: 0.78; }
+  tr.archived td:first-child { box-shadow: inset 3px 0 0 #a855f7; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 10px;
            letter-spacing: 0.4px; text-transform: uppercase; font-weight: 500; }
   .badge.edited { background: rgba(91,141,239,0.2); color: #93c5fd; }
   .badge.added { background: rgba(74,222,128,0.2); color: #86efac; }
   .badge.deleted { background: rgba(239,68,68,0.2); color: #fda4af; }
+  .badge.archived { background: rgba(168,85,247,0.22); color: #d8b4fe;
+                    font-family: ui-monospace, Menlo, monospace; text-transform: none; letter-spacing: 0.2px; }
   .badge.src-wiki { background: rgba(168,85,247,0.15); color: #d8b4fe; }
   .badge.src-pb { background: rgba(245,158,11,0.15); color: #fcd34d; }
   .badge.src-admin { background: rgba(74,222,128,0.15); color: #86efac; }
@@ -149,12 +153,14 @@
   <span class="filter-pill" data-filter="edited">Edited</span>
   <span class="filter-pill" data-filter="added">Added</span>
   <span class="filter-pill" data-filter="deleted">Deleted</span>
+  <span class="filter-pill" data-filter="archived">📂 Archived (IPO'd)</span>
   <span class="filter-pill" data-filter="cn">Chinese only</span>
   <div class="stats">
     <span><b id="totalCount">—</b> total</span>
     <span><b id="editCount">0</b> edits</span>
     <span><b id="addCount">0</b> adds</span>
     <span><b id="delCount">0</b> deletes</span>
+    <span><b id="archCount">0</b> archived</span>
   </div>
 </div>
 
@@ -270,6 +276,25 @@
   </div>
 </div>
 
+<!-- Archive (mark as IPO'd) Modal -->
+<div class="modal-bg" id="archiveModalBg">
+  <div class="modal" style="max-width:480px">
+    <h2 id="archiveModalTitle">📂 归档为已上市</h2>
+    <div style="font-size:13px;color:#8892b0;margin-bottom:14px;line-height:1.55">
+      标记公司已 IPO / 直接上市 / SPAC，从主视图与 LQP 雷达隐藏。仅在「Archived」过滤器下可见，<b>不会删除底层数据</b>，随时可解除归档恢复。
+    </div>
+    <div class="field"><label>Stock ticker (交易所:代码)</label>
+      <input id="f_archive_ticker" type="text" placeholder="例如：NASDAQ:DBRX · NYSE:PLTR · HKEX:9999" style="font-family:ui-monospace,monospace">
+      <div style="font-size:11px;color:#8892b0;margin-top:6px">建议格式 <code>EXCHANGE:SYMBOL</code>，便于后续接行情。</div>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn" id="archiveModalCancel">Cancel</button>
+      <button class="btn danger" id="archiveModalUnarchive" style="margin-right:auto;display:none">解除归档</button>
+      <button class="btn primary" id="archiveModalSave">归档</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -277,7 +302,7 @@
 //  STATE
 // ============================================================================
 let RAW = [];                                     // unicorns.json (read-only baseline)
-let STATE = { edits: {}, additions: [], deletions: [], dismissedPending: { mods: {}, adds: [], rems: [] } };
+let STATE = { edits: {}, additions: [], deletions: [], archived: {}, dismissedPending: { mods: {}, adds: [], rems: [] } };
 const STORAGE_KEY = 'unicornAdminOverrides_v1';
 
 // Build a stable fingerprint for a pending modification so re-runs of the same
@@ -295,6 +320,7 @@ function ensureDismissedShape() {
   STATE.dismissedPending.mods = STATE.dismissedPending.mods || {};
   STATE.dismissedPending.adds = STATE.dismissedPending.adds || [];
   STATE.dismissedPending.rems = STATE.dismissedPending.rems || [];
+  STATE.archived = STATE.archived || {};
 }
 
 // ============================================================================
@@ -314,13 +340,14 @@ async function loadData() {
   // This guarantees published edits always re-appear in STATE on load, so
   // reconcilePending() can correctly hide already-resolved pending items
   // even if localStorage was created before those edits were published.
-  let diskOverrides = { edits: {}, additions: [], deletions: [] };
+  let diskOverrides = { edits: {}, additions: [], deletions: [], archived: {} };
   try {
     const o = await (await fetch('./data/overrides.json?t=' + ts)).json();
     diskOverrides = {
       edits: o.edits || {},
       additions: o.additions || [],
       deletions: o.deletions || [],
+      archived: o.archived || {},
     };
   } catch {}
 
@@ -367,10 +394,18 @@ async function loadData() {
     ...((localState && localState.deletions) || []),
   ])];
 
+  // Archived: merge disk + localStorage. localStorage 优先（最新草稿）。
+  // 空字符串 ticker / null 都允许；用 hasOwnProperty 判定归档与否。
+  const mergedArchived = {
+    ...(diskOverrides.archived || {}),
+    ...((localState && localState.archived) || {}),
+  };
+
   STATE = {
     edits: mergedEdits,
     additions: mergedAdds,
     deletions: mergedDels,
+    archived: mergedArchived,
     // dismissedPending is browser-local UI state, no disk counterpart.
     dismissedPending: (localState && localState.dismissedPending) || { mods: {}, adds: [], rems: [] },
   };
@@ -446,8 +481,12 @@ function effective(rec) {
   return Object.assign({}, rec, e);
 }
 
+function isArchived(name) {
+  return Object.prototype.hasOwnProperty.call(STATE.archived || {}, name);
+}
 function statusOf(rec) {
   if (STATE.deletions.includes(rec.company)) return 'deleted';
+  if (isArchived(rec.company)) return 'archived';
   if (STATE.edits[rec.company]) return 'edited';
   return null;
 }
@@ -469,6 +508,10 @@ function render() {
     const status = baseRec._isAddition ? 'added' : statusOf(baseRec);
 
     // Filter
+    // 默认隐藏归档行；只有显式选 'archived' 过滤器才显示
+    const archived = !baseRec._isAddition && isArchived(baseRec.company);
+    if (archived && currentFilter !== 'archived') continue;
+    if (currentFilter === 'archived' && !archived) continue;
     if (currentFilter === 'edited' && status !== 'edited') continue;
     if (currentFilter === 'added' && !baseRec._isAddition) continue;
     if (currentFilter === 'deleted' && status !== 'deleted') continue;
@@ -490,6 +533,7 @@ function render() {
   document.getElementById('editCount').textContent = Object.keys(STATE.edits).length;
   document.getElementById('addCount').textContent = STATE.additions.length;
   document.getElementById('delCount').textContent = STATE.deletions.length;
+  document.getElementById('archCount').textContent = Object.keys(STATE.archived || {}).length;
   document.getElementById('overridesPreview').textContent = JSON.stringify(STATE, null, 2);
 }
 
@@ -502,9 +546,20 @@ function renderRow(baseRec, rec, status) {
     ? `<div>${esc(rec.companyZh)}</div><div class="small">${esc(rec.pinyinInitial || '')}</div>`
     : `<div class="small">—</div>`;
   const sourceBadge = `<span class="badge src-${rec.source||'pb'}">${esc(rec.source||'pb')}</span>`;
-  const statusBadge = baseRec._isAddition
-    ? '<span class="badge added">Added</span>'
-    : status ? `<span class="badge ${status}">${status}</span>` : '';
+  const archived = !baseRec._isAddition && isArchived(baseRec.company);
+  const ticker = archived ? (STATE.archived[baseRec.company] || '') : '';
+  // 状态徽章：归档优先显示（带 ticker），否则按原逻辑
+  let statusBadge = '';
+  if (archived) {
+    statusBadge = `<span class="badge archived" title="已归档为上市">📂 ${esc(ticker || 'IPO')}</span>`;
+  } else if (baseRec._isAddition) {
+    statusBadge = '<span class="badge added">Added</span>';
+  } else if (status) {
+    statusBadge = `<span class="badge ${status}">${status}</span>`;
+  }
+  const archBtn = archived
+    ? `<button class="btn" data-act="arch" title="编辑归档信息 / 解除归档" style="background:rgba(168,85,247,0.16);border-color:rgba(168,85,247,0.35);color:#d8b4fe">📂 已归档</button>`
+    : `<button class="btn" data-act="arch" title="标记为已 IPO / 上市">📂 归档</button>`;
 
   tr.innerHTML = `
     <td class="small">${esc(String(rec.id || ''))}</td>
@@ -517,9 +572,11 @@ function renderRow(baseRec, rec, status) {
     <td>${statusBadge}</td>
     <td class="row-actions">
       <button class="btn" data-act="edit">Edit</button>
+      ${archBtn}
       <button class="btn danger" data-act="del">${status === 'deleted' || baseRec._isAddition ? '✕' : 'Delete'}</button>
     </td>`;
   tr.querySelector('[data-act="edit"]').addEventListener('click', () => openEditModal(baseRec));
+  tr.querySelector('[data-act="arch"]').addEventListener('click', () => openArchiveModal(baseRec));
   tr.querySelector('[data-act="del"]').addEventListener('click', () => toggleDelete(baseRec));
   return tr;
 }
@@ -777,6 +834,53 @@ function closeModal() {
   modalContext = null;
 }
 
+// ============================================================================
+//  ARCHIVE MODAL — 标记公司已上市（IPO/直接上市/SPAC）
+// ============================================================================
+let archiveContext = null;  // { company: string }
+
+function openArchiveModal(baseRec) {
+  if (baseRec._isAddition) {
+    toast('用户手动添加的公司请直接 Delete，无需归档');
+    return;
+  }
+  archiveContext = { company: baseRec.company };
+  const currentTicker = STATE.archived[baseRec.company];
+  const alreadyArchived = currentTicker !== undefined;
+
+  document.getElementById('archiveModalTitle').textContent =
+    alreadyArchived ? `📂 已归档：${baseRec.company}` : `📂 归档为已上市：${baseRec.company}`;
+  document.getElementById('f_archive_ticker').value = currentTicker || '';
+  document.getElementById('archiveModalUnarchive').style.display = alreadyArchived ? 'inline-block' : 'none';
+  document.getElementById('archiveModalSave').textContent = alreadyArchived ? '更新 ticker' : '归档';
+  document.getElementById('archiveModalBg').classList.add('open');
+  setTimeout(() => document.getElementById('f_archive_ticker').focus(), 50);
+}
+
+function closeArchiveModal() {
+  document.getElementById('archiveModalBg').classList.remove('open');
+  archiveContext = null;
+}
+
+function saveArchive() {
+  if (!archiveContext) return;
+  const ticker = document.getElementById('f_archive_ticker').value.trim();
+  STATE.archived[archiveContext.company] = ticker;
+  persist(); render();
+  toast(ticker
+    ? `已归档 ${archiveContext.company} (${ticker})`
+    : `已归档 ${archiveContext.company}（未填 ticker）`);
+  closeArchiveModal();
+}
+
+function unarchive() {
+  if (!archiveContext) return;
+  delete STATE.archived[archiveContext.company];
+  persist(); render();
+  toast(`已解除归档：${archiveContext.company}`);
+  closeArchiveModal();
+}
+
 function toggleDelete(baseRec) {
   if (baseRec._isAddition) {
     STATE.additions.splice(baseRec._addIdx, 1);
@@ -802,7 +906,8 @@ function exportOverrides() {
   const out = {
     edits,
     additions: STATE.additions.filter(a => a.company),
-    deletions: STATE.deletions.slice()
+    deletions: STATE.deletions.slice(),
+    archived: { ...(STATE.archived || {}) }
   };
   const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
@@ -823,6 +928,7 @@ function importOverrides(file) {
         edits: o.edits || {},
         additions: o.additions || [],
         deletions: o.deletions || [],
+        archived: o.archived || {},
         dismissedPending: o.dismissedPending || { mods: {}, adds: [], rems: [] }
       };
       ensureDismissedShape();
@@ -838,7 +944,7 @@ function importOverrides(file) {
 
 function resetAll() {
   if (!confirm('Discard ALL local edits, additions, and deletions? This cannot be undone.')) return;
-  STATE = { edits: {}, additions: [], deletions: [], dismissedPending: { mods: {}, adds: [], rems: [] } };
+  STATE = { edits: {}, additions: [], deletions: [], archived: {}, dismissedPending: { mods: {}, adds: [], rems: [] } };
   persist();
   render();
   toast('Reset done');
@@ -877,7 +983,8 @@ function buildOverridesPayload() {
   return {
     edits,
     additions: STATE.additions.filter(a => a.company),
-    deletions: STATE.deletions.slice()
+    deletions: STATE.deletions.slice(),
+    archived: { ...(STATE.archived || {}) }
   };
 }
 
@@ -1028,6 +1135,12 @@ document.getElementById('btnReset').addEventListener('click', resetAll);
 document.getElementById('modalSave').addEventListener('click', saveModal);
 document.getElementById('modalCancel').addEventListener('click', closeModal);
 document.getElementById('modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
+// 归档弹窗
+document.getElementById('archiveModalSave').addEventListener('click', saveArchive);
+document.getElementById('archiveModalCancel').addEventListener('click', closeArchiveModal);
+document.getElementById('archiveModalUnarchive').addEventListener('click', unarchive);
+document.getElementById('archiveModalBg').addEventListener('click', e => { if (e.target.id === 'archiveModalBg') closeArchiveModal(); });
+document.getElementById('f_archive_ticker').addEventListener('keydown', e => { if (e.key === 'Enter') saveArchive(); });
 document.getElementById('search').addEventListener('input', () => render());
 document.querySelectorAll('.filter-pill').forEach(el => {
   el.addEventListener('click', () => {
@@ -1040,6 +1153,7 @@ document.querySelectorAll('.filter-pill').forEach(el => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     if (document.getElementById('modalBg').classList.contains('open')) closeModal();
+    if (document.getElementById('archiveModalBg').classList.contains('open')) closeArchiveModal();
     if (document.getElementById('settingsBg').classList.contains('open')) closeSettings();
   }
 });

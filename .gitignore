@@ -7,3 +7,4 @@ __pycache__/
 
 # 临时测试脚本（端到端验证 lqp_core）
 lqp_e2e.mjs
+lqp_archive_test.mjs

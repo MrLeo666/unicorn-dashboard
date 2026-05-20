@@ -162,6 +162,11 @@
   </div>
 
   <div class="group">
+    <label>📂 IPO'd</label>
+    <button type="button" class="pill" id="showArchivedBtn" title="切换：是否在看板上显示已上市公司（默认隐藏，因它们不再是独角兽）">隐藏</button>
+  </div>
+
+  <div class="group">
     <label>View</label>
     <button type="button" class="pill viewBtn active" data-view="bubbles">Bubbles</button>
     <button type="button" class="pill viewBtn" data-view="treemap">Treemap</button>
@@ -240,7 +245,9 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 // ====== TOP 100 + AREA-PROPORTIONAL + WANDER + COLLISION ======
-let DATA = [];
+let DATA = [];          // 当前渲染所用 (过滤了归档公司，除非 SHOW_ARCHIVED 开启)
+let DATA_FULL = [];     // 含归档的完整数据，过滤前的源
+let SHOW_ARCHIVED = false;
 // Forge Global secondary-market overlay. Map: company → { forge_price, forge_valuation_m,
 // prev_forge_price, prev_forge_valuation_m, slug, fetched_at }. Refreshed weekly by
 // scripts/scrape_forge.py for the Top 100 by valuation. The dashboard reads it directly;
@@ -268,8 +275,17 @@ async function loadData() {
       FORGE = (fb && fb.records) || {};
     }
   } catch {}
-  DATA = applyOverridesClient(base, overrides);
-  DATA.sort((a, b) => b.valuation_m - a.valuation_m);
+  DATA_FULL = applyOverridesClient(base, overrides);
+  DATA_FULL.sort((a, b) => b.valuation_m - a.valuation_m);
+  applyArchivedFilter();
+}
+
+// 在 DATA_FULL 上做归档过滤，把结果写回 DATA。
+// 视图层（气泡 / treemap / 表格）都从 DATA 读，不需要改。
+function applyArchivedFilter() {
+  DATA = SHOW_ARCHIVED
+    ? DATA_FULL.slice()
+    : DATA_FULL.filter(d => !d._archived);
 }
 
 // ----- Forge formatting helpers -----
@@ -312,23 +328,28 @@ function pctSuffix(curr, prev) {
 function applyOverridesClient(records, overrides) {
   const deletions = new Set(overrides.deletions || []);
   const edits = overrides.edits || {};
+  const archived = overrides.archived || {};
+  const isArch = (n) => Object.prototype.hasOwnProperty.call(archived, n);
   const out = [];
   for (const r of records) {
     if (deletions.has(r.company)) continue;
+    let row;
     if (edits[r.company]) {
-      const merged = Object.assign({}, r, edits[r.company]);
-      // recompute valuation_str if only the number was overridden
+      row = Object.assign({}, r, edits[r.company]);
       if ('valuation_m' in edits[r.company] && !('valuation_str' in edits[r.company])) {
-        merged.valuation_str = '$' + (merged.valuation_m / 1000) + 'B';
+        row.valuation_str = '$' + (row.valuation_m / 1000) + 'B';
       }
-      out.push(merged);
     } else {
-      out.push(r);
+      row = r;
     }
+    if (isArch(row.company)) {
+      row = Object.assign({}, row, { _archived: true, _ticker: archived[row.company] || '' });
+    }
+    out.push(row);
   }
   for (const a of (overrides.additions || [])) {
     if (!a.company) continue;
-    out.push(Object.assign({
+    const row = Object.assign({
       id: 'admin-' + out.length,
       source: 'admin',
       description: '',
@@ -340,7 +361,12 @@ function applyOverridesClient(records, overrides) {
       industry: 'Other',
       founders: '',
       wikiLink: '',
-    }, a));
+    }, a);
+    if (isArch(row.company)) {
+      row._archived = true;
+      row._ticker = archived[row.company] || '';
+    }
+    out.push(row);
   }
   return out;
 }
@@ -1288,6 +1314,29 @@ function setView(v) {
 }
 document.querySelectorAll('.viewBtn').forEach(btn => {
   btn.addEventListener('click', () => setView(btn.dataset.view));
+});
+
+// 已上市公司显示切换
+document.getElementById('showArchivedBtn').addEventListener('click', () => {
+  SHOW_ARCHIVED = !SHOW_ARCHIVED;
+  const btn = document.getElementById('showArchivedBtn');
+  btn.textContent = SHOW_ARCHIVED ? '显示' : '隐藏';
+  btn.classList.toggle('active', SHOW_ARCHIVED);
+  applyArchivedFilter();
+  // 重建依赖 DATA 的视图
+  const total = DATA.length;
+  FILTER.topX = total;
+  const slider = document.getElementById('topSlider');
+  if (slider) { slider.max = total; slider.value = total; }
+  const tv = document.getElementById('topValue');
+  if (tv) tv.textContent = total.toLocaleString();
+  const titleSmall = document.querySelector('#title small');
+  if (titleSmall) titleSmall.textContent =
+    total.toLocaleString() + ' unicorns' + (SHOW_ARCHIVED ? ' (含已上市)' : '') + ' · auto-updated weekly';
+  buildFilters();
+  initParticles();
+  initialLayout();
+  applyFilter();
 });
 
 // Table column sort
