@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-19",
+  "notesGlobal": "LQP 专属 overlay。与 overrides.json 同层级——admin.html 编辑后导出 → git commit → Pages 加载。所有 LQP 工具（雷达 / 尽调台 / 客户门户）从此读 ratings/pipeline/区块字段。底层公司主数据仍以 unicorns.json + overrides.json 为准。",
+
+  "exclusions": [
+    "Ant Group", "蚂蚁", "Ant Financial",
+    "Lufax", "陆金所",
+    "WeBank", "微众"
+  ],
+
+  "aliases": {
+    "Anysphere": "Cursor",
+    "Anthropic AI": "Anthropic"
+  },
+
+  "sector_map": {
+    "SpaceX": "航天科技",
+    "OpenAI": "AI·基础模型",
+    "Anthropic": "AI·基础模型",
+    "ByteDance": "互联网平台",
+    "xAI": "AI·基础模型",
+    "Stripe": "金融科技",
+    "Databricks": "AI·基建与数据",
+    "Shein": "电商与消费",
+    "Figure AI": "机器人",
+    "Ramp": "金融科技",
+    "Safe Superintelligence": "AI·基础模型",
+    "Epic Games": "互联网平台",
+    "Anduril Industries": "国防科技",
+    "VAST Data": "AI·基建与数据",
+    "Project Prometheus": "AI·基础模型",
+    "Cursor": "AI·应用与垂直",
+    "Scale AI": "AI·基建与数据",
+    "Motional": "自动驾驶",
+    "Fanatics": "电商与消费",
+    "Chime": "金融科技",
+    "Cerebras": "半导体",
+    "Yangtze": "半导体",
+    "Perplexity AI": "AI·应用与垂直",
+    "Chobani": "电商与消费",
+    "Groq": "半导体",
+    "Miro": "互联网平台",
+    "Rippling": "互联网平台",
+    "Yuanfudao": "互联网平台",
+    "Discord": "互联网平台",
+    "DJI": "机器人",
+    "GoPuff": "电商与消费",
+    "Xiaohongshu": "互联网平台",
+    "Skild AI": "机器人",
+    "Plaid": "金融科技",
+    "OpenSea": "加密资产",
+    "Grammarly": "AI·应用与垂直",
+    "Shield AI": "国防科技",
+    "Devoted Health": "医疗科技",
+    "Faire": "电商与消费",
+    "Labs": "AI·基础模型",
+    "OpenEvidence": "医疗科技",
+    "Thinking Machines Lab": "AI·基础模型",
+    "Biosplice Therapeutics": "医疗科技",
+    "Bitmain": "半导体",
+    "GoodLeap": "金融科技",
+    "Clear": "金融科技",
+    "Whatnot": "电商与消费",
+    "Airtable": "互联网平台",
+    "Harvey": "AI·应用与垂直",
+    "Kalshi": "金融科技",
+    "Moonshot": "AI·基础模型",
+    "Cohere": "AI·基础模型"
+  },
+
+  "ratings": {
+    "SpaceX":               { "sector": 5, "quality": 5, "liquidity": 4, "ipo": 2, "entry": 3 },
+    "OpenAI":               { "sector": 5, "quality": 5, "liquidity": 4, "ipo": 4, "entry": 3 },
+    "Anthropic":            { "sector": 5, "quality": 5, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "ByteDance":            { "sector": 5, "quality": 5, "liquidity": 4, "ipo": 2, "entry": 4 },
+    "Stripe":               { "sector": 4, "quality": 5, "liquidity": 4, "ipo": 3, "entry": 4 },
+    "Databricks":           { "sector": 4, "quality": 5, "liquidity": 4, "ipo": 5, "entry": 4 },
+    "xAI":                  { "sector": 5, "quality": 4, "liquidity": 3, "ipo": 2, "entry": 2 },
+    "Anduril Industries":   { "sector": 5, "quality": 4, "liquidity": 4, "ipo": 4, "entry": 3 },
+    "VAST Data":            { "sector": 4, "quality": 4, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "Scale AI":             { "sector": 3, "quality": 3, "liquidity": 2, "ipo": 2, "entry": 3 },
+    "Ramp":                 { "sector": 4, "quality": 4, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "Skild AI":             { "sector": 4, "quality": 3, "liquidity": 2, "ipo": 1, "entry": 3 },
+    "Shield AI":            { "sector": 5, "quality": 4, "liquidity": 3, "ipo": 3, "entry": 4 },
+    "OpenEvidence":         { "sector": 4, "quality": 3, "liquidity": 2, "ipo": 2, "entry": 3 },
+    "Moonshot":             { "sector": 4, "quality": 4, "liquidity": 3, "ipo": 4, "entry": 3 },
+    "Shein":                { "sector": 3, "quality": 3, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "Safe Superintelligence":{"sector": 5, "quality": 4, "liquidity": 2, "ipo": 2, "entry": 2 },
+    "Project Prometheus":   { "sector": 5, "quality": 3, "liquidity": 2, "ipo": 1, "entry": 2 },
+    "Cursor":               { "sector": 5, "quality": 4, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "Cerebras":             { "sector": 4, "quality": 4, "liquidity": 3, "ipo": 4, "entry": 4 },
+    "Perplexity AI":        { "sector": 4, "quality": 3, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "Groq":                 { "sector": 4, "quality": 4, "liquidity": 3, "ipo": 3, "entry": 3 },
+    "Harvey":               { "sector": 4, "quality": 4, "liquidity": 2, "ipo": 2, "entry": 3 },
+    "Thinking Machines Lab":{ "sector": 5, "quality": 3, "liquidity": 2, "ipo": 1, "entry": 2 },
+    "DJI":                  { "sector": 4, "quality": 5, "liquidity": 3, "ipo": 2, "entry": 3 },
+    "Xiaohongshu":          { "sector": 4, "quality": 4, "liquidity": 3, "ipo": 4, "entry": 3 },
+    "Kalshi":               { "sector": 4, "quality": 3, "liquidity": 3, "ipo": 3, "entry": 3 }
+  },
+
+  "pipeline": {
+    "SpaceX": "monitoring",
+    "OpenAI": "screening",
+    "Anthropic": "screening",
+    "Databricks": "diligence",
+    "Anduril Industries": "screening",
+    "ByteDance": "monitoring",
+    "Stripe": "monitoring",
+    "Shield AI": "screening",
+    "Moonshot": "sourced",
+    "Cursor": "screening",
+    "Cerebras": "screening",
+    "Harvey": "sourced"
+  },
+
+  "watchlist": [
+    "SpaceX", "OpenAI", "Anthropic", "Databricks",
+    "Anduril Industries", "ByteDance", "Shield AI",
+    "Moonshot", "Cursor"
+  ],
+
+  "diligence": {
+    "Databricks": {
+      "icMemoUrl": "",
+      "analyst": "",
+      "decision": "",
+      "valuationScenarios": null,
+      "keyRisks": [],
+      "updatedAt": ""
+    }
+  },
+
+  "client": {},
+
+  "notes": {
+    "SpaceX": "据多家报道已合并 xAI，整体估值约 $1.25T；Starlink 现金流为核心，无明确 IPO 时间。",
+    "OpenAI": "Q1'26 一级轮 $852B；传 Q4'26 启动上市筹备。",
+    "Anthropic": "Wikipedia 列 $380B；admin overrides 更新至 $900B（用户最新二级报价）。",
+    "ByteDance": "Wikipedia 列 $330B；admin overrides 更新至 $580B（二级市场报价）。TikTok 美国监管为关键变量。",
+    "Databricks": "营收运行率 ~$5.4B，55%+ 增速。普遍视为 2026 头号 IPO 候选。",
+    "Anduril Industries": "$5B H 轮，估值较 2025/6 翻倍。2026E 营收 ~$4.3B。创始人称『一定会』上市。",
+    "Shield AI": "自主防务系统，$1.5B G 轮。其软件获空军选用于 Anduril Fury 机型。",
+    "Cursor": "admin overrides 更新至 $50B（最新二级）。",
+    "Moonshot": "中国 LLM 单轮融资纪录 $2B D 轮。已启动港股 IPO 早期筹备（CICC / 高盛）。",
+    "Scale AI": "票面 $29B，但二级定价分散（部分报价低至 $7–20/股）。Google 等大客户因中立性流失。",
+    "Shein": "估值为约数（参考全球独角兽第 8 位），需以最新一手资料核实。",
+    "xAI": "Wikipedia 仍单列 $250B；但 SpaceX 条目记录已合并。需 admin 决断保留或删除。"
+  },
+
+  "_schema_hint": {
+    "exclusions": "字符串数组。名称包含其中任一子串（忽略大小写）即剔除。",
+    "sector_map": "{ company → LQP sector }。覆盖 Wikipedia industry 的兜底映射。",
+    "ratings": "{ company → { sector, quality, liquidity, ipo, entry } }，每项 1-5。",
+    "pipeline": "{ company → sourced|screening|diligence|ic|approved|invested|passed|monitoring }",
+    "watchlist": "string[]，公司英文名。",
+    "diligence": "{ company → { icMemoUrl, analyst, decision, valuationScenarios:{bull,base,bear}, keyRisks:string[], updatedAt } }",
+    "client": "{ company → { spvName, heldByClients:string[], teaserUrl, tradable, updatedAt } }",
+    "notes": "{ company → string }"
+  }
+}

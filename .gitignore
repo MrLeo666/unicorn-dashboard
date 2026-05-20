@@ -4,3 +4,6 @@ __pycache__/
 .DS_Store
 .idea/
 .vscode/
+
+# 临时测试脚本（端到端验证 lqp_core）
+lqp_e2e.mjs

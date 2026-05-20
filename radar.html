@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>LQP · 独角兽筛选雷达</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+               background: #0a0e27; color: #e8ecf4; min-height: 100vh; }
+  body { padding: 18px 24px 60px; max-width: 100%; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
+  .sub { font-size: 12px; color: #8892b0; margin-bottom: 18px; }
+  .sub a { color: #93c5fd; text-decoration: none; margin-right: 16px; }
+  .sub a:hover { text-decoration: underline; }
+  .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px;
+             padding: 12px 16px; background: rgba(15, 21, 50, 0.6); border-radius: 12px;
+             border: 1px solid rgba(255,255,255,0.07); position: sticky; top: 8px; z-index: 5;
+             backdrop-filter: blur(14px); }
+  .btn { padding: 7px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 500;
+         background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+         color: #c5cce0; transition: all 0.12s ease; }
+  .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .btn.primary { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+  .stats { color: #8892b0; font-size: 12px; margin-left: auto; display: flex; gap: 16px; }
+  .stats b { color: #fff; font-weight: 600; font-size: 13px; }
+  input[type="text"], input[type="number"], select {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); color: #fff;
+    padding: 6px 10px; border-radius: 6px; font: inherit; font-size: 12px; outline: none;
+  }
+  input:focus, select:focus { border-color: #5b8def; }
+  #search { width: 240px; }
+  .filter-pill { padding: 5px 10px; border-radius: 999px; font-size: 11px; cursor: pointer;
+                 background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+                 color: #c5cce0; user-select: none; }
+  .filter-pill.active { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+
+  .panel { background: rgba(15,21,50,0.55); border: 1px solid rgba(255,255,255,0.07);
+           border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+  .panel h2 { font-size: 13px; font-weight: 500; color: #c5cce0; margin-bottom: 10px;
+              letter-spacing: 0.5px; text-transform: uppercase; }
+
+  /* Scatter */
+  #scatter { width: 100%; height: 560px; display: block; }
+
+  /* —— 权重弹窗 —— */
+  .modal-bg { position: fixed; inset: 0; background: rgba(5,8,24,0.72);
+              display: none; align-items: center; justify-content: center;
+              z-index: 500; backdrop-filter: blur(6px); }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: #161b3d; border: 1px solid rgba(91,141,239,0.35);
+    border-radius: 14px; padding: 22px 26px;
+    width: 92%; max-width: 540px;
+    box-shadow: 0 24px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05) inset;
+    animation: modalIn 0.14s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px;
+              letter-spacing: 0.5px; color: #fff; }
+  .modal .modal-sub { font-size: 11px; color: #8892b0; margin-bottom: 18px; line-height: 1.55; }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px;
+                   padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .weights { display: grid; grid-template-columns: 110px 1fr 60px; gap: 10px 12px; align-items: center; }
+  .weights label { font-size: 13px; color: #c5cce0; }
+  .weights label small { display: block; font-size: 10px; color: #6c7494; margin-top: 2px; line-height: 1.4; }
+  .weights input[type="range"] { width: 100%; }
+  .weights .wval { font-size: 13px; color: #fff; font-weight: 600; text-align: right;
+                    padding: 4px 8px; background: rgba(91,141,239,0.12); border-radius: 6px; }
+  .weights-total { display: flex; justify-content: space-between; align-items: center;
+                   margin-top: 14px; padding: 10px 12px; border-radius: 8px;
+                   background: rgba(255,255,255,0.04); font-size: 12px; color: #8892b0; }
+  .weights-total b { color: #fff; font-size: 14px; font-weight: 600; margin-left: 6px; }
+  .weights-total.off b { color: #fcd34d; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead { position: sticky; top: 64px; background: #0a0e27; z-index: 2; }
+  th { text-align: left; padding: 8px 10px; font-weight: 500; color: #8892b0; font-size: 10px;
+       text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  td { padding: 7px 10px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  tr.shortlist td { background: rgba(255,215,100,0.06); }
+  tr.shortlist td:first-child { box-shadow: inset 3px 0 0 #f5c842; }
+  .score-pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-weight: 600; font-size: 11px;
+                background: rgba(91,141,239,0.18); color: #93c5fd; }
+  .score-pill.high { background: rgba(245,200,66,0.18); color: #f5c842; }
+  .score-pill.low  { background: rgba(120,120,140,0.15); color: #9aa0ab; }
+
+  /* —— 评分芯片：点击打开竖排星星选择器 —— */
+  .rating-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 8px; border-radius: 6px; cursor: pointer; user-select: none;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    color: #c5cce0; font-size: 12px; font: inherit;
+    transition: background 0.12s, border-color 0.12s;
+    min-width: 54px; justify-content: center;
+  }
+  .rating-chip:hover { background: rgba(91,141,239,0.14); border-color: rgba(91,141,239,0.35); }
+  .rating-chip.open { background: rgba(91,141,239,0.22); border-color: #5b8def; color: #fff; }
+  .rating-chip .num { font-weight: 700; font-size: 12px; min-width: 9px; text-align: right; }
+  .rating-chip .mini-stars { color: #f5c842; font-size: 10px; letter-spacing: -1px; }
+  .rating-chip .mini-stars .off { color: rgba(255,255,255,0.18); }
+
+  /* —— 弹出层：竖排 5 档 —— */
+  .rating-popup {
+    position: fixed; z-index: 1000;
+    background: #161b3d; border: 1px solid rgba(91,141,239,0.45);
+    border-radius: 10px; padding: 6px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06) inset;
+    display: flex; flex-direction: column; gap: 2px; min-width: 96px;
+    animation: rpopIn 0.12s ease;
+  }
+  @keyframes rpopIn {
+    from { opacity: 0; transform: translateY(-4px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+  }
+  .rating-popup .opt {
+    display: flex; align-items: center; gap: 8px; padding: 7px 10px;
+    border-radius: 6px; cursor: pointer; font-size: 13px;
+    color: #c5cce0; transition: background 0.08s;
+  }
+  .rating-popup .opt:hover { background: rgba(91,141,239,0.20); color: #fff; }
+  .rating-popup .opt.current { background: rgba(245,200,66,0.14); color: #f5c842; }
+  .rating-popup .opt .stars { letter-spacing: 0; font-size: 13px; color: #f5c842; }
+  .rating-popup .opt .stars .off { color: rgba(255,255,255,0.18); }
+  .rating-popup .opt .lvl { margin-left: auto; font-size: 11px; color: #8892b0; font-weight: 600; }
+  .rating-popup .opt.current .lvl { color: #f5c842; }
+  .rating-popup .title { padding: 4px 10px 2px; font-size: 10px;
+                         color: #8892b0; text-transform: uppercase; letter-spacing: 0.6px; }
+  .pipeline-pill { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 10px;
+                   background: rgba(255,255,255,0.06); color: #c5cce0; }
+  .geo-pill { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600;
+              background: rgba(91,141,239,0.18); color: #93c5fd; margin-right: 4px; }
+  .geo-pill.cn { background: rgba(239,91,91,0.18); color: #ff9b9b; }
+  .star { cursor: pointer; color: #4a516b; font-size: 14px; }
+  .star.on { color: #f5c842; }
+  .rating-cell { display: flex; gap: 2px; }
+  .rating-cell input { width: 28px; padding: 2px 4px; font-size: 11px; text-align: center; }
+  .fresh-badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 9px;
+                 letter-spacing: 0.3px; text-transform: uppercase; font-weight: 600; margin-left: 6px; }
+  .fresh-badge.ok    { background: rgba(74,222,128,0.15); color: #86efac; }
+  .fresh-badge.warn  { background: rgba(245,158,11,0.15); color: #fcd34d; }
+  .fresh-badge.stale { background: rgba(239,68,68,0.15); color: #fda4af; }
+  .src-tag { display: inline-block; font-size: 9px; padding: 1px 5px; border-radius: 3px;
+             background: rgba(168,85,247,0.13); color: #d8b4fe; margin-left: 4px; }
+  .src-tag.admin { background: rgba(74,222,128,0.13); color: #86efac; }
+  .src-tag.pb { background: rgba(245,158,11,0.13); color: #fcd34d; }
+  .forge-up { color: #ff7a7a; }
+  .forge-down { color: #6ee7b7; }
+  .forge-cell { font-size: 11px; }
+
+  .empty { padding: 40px; text-align: center; color: #6c7494; font-size: 13px; }
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+           background: rgba(15,21,50,0.95); border: 1px solid rgba(255,255,255,0.15); padding: 10px 18px;
+           border-radius: 10px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+           backdrop-filter: blur(8px); z-index: 200; font-size: 12px; }
+  .toast.show { opacity: 1; }
+
+  details { margin-top: 12px; padding: 10px 14px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+  details summary { cursor: pointer; color: #8892b0; font-size: 11px; }
+  details pre { font-family: ui-monospace, monospace; font-size: 10px; color: #c5cce0;
+                margin-top: 8px; max-height: 220px; overflow: auto; }
+
+  .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; font-size: 10px; color: #8892b0; }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+
+  .threshold-hint { font-size: 10px; color: #8892b0; padding: 4px 8px;
+                    background: rgba(255,255,255,0.03); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>LQP · 独角兽筛选雷达</h1>
+<div class="sub">
+  <a href="./index.html">← 气球看板</a>
+  <a href="./admin.html">→ 管理后台</a>
+  <a href="./diligence.html">→ 尽调工作台</a>
+  <span style="color:#6c7494">·</span>
+  <span>聚焦美/中、估值 ≥ $5B；底层数据与气球看板共用 <code>deploy/data/*</code></span>
+</div>
+
+<div class="toolbar">
+  <input id="search" type="text" placeholder="搜索公司 / 中文名 / 行业">
+  <span class="filter-pill active" data-geo="all">全部</span>
+  <span class="filter-pill" data-geo="US">美国</span>
+  <span class="filter-pill" data-geo="CN">中国</span>
+  <span class="filter-pill" data-shortlist="1">仅入围</span>
+  <span class="filter-pill" data-watch="1">仅 ★ 关注</span>
+  <span class="threshold-hint">入围门槛：估值 ≥ $5B · 综合 ≥ 65 · 美/中</span>
+  <button class="btn" id="weightsBtn">⚖ 评分权重</button>
+  <button class="btn primary" id="exportBtn">导出 lqp_overlay.json ↓</button>
+  <button class="btn" id="resetBtn">重置本地修改</button>
+  <div class="stats">
+    <span>共 <b id="totalCount">0</b></span>
+    <span>入围 <b id="shortCount">0</b></span>
+    <span>★ <b id="watchCount">0</b></span>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>估值 × 综合评分（气泡 = 排名前 50 美/中标的）</h2>
+  <canvas id="scatter"></canvas>
+  <div class="legend" id="legend"></div>
+</div>
+
+<!-- 权重设置弹窗 -->
+<div class="modal-bg" id="weightsModal">
+  <div class="modal" id="weightsModalInner">
+    <h3>评分权重设置</h3>
+    <div class="modal-sub">五维加权得到 0-100 综合评分。权重本地保存（不进底座），调整即时生效于本机的雷达视图。</div>
+    <div class="weights" id="weights"></div>
+    <div class="weights-total" id="weightsTotal">权重合计 <b id="weightsSum">100</b></div>
+    <details>
+      <summary style="cursor:pointer;color:#8892b0;font-size:11px;margin-top:10px">导出预览 lqp_overlay 差异</summary>
+      <pre id="diffPreview" style="font-family:ui-monospace,monospace;font-size:10px;color:#c5cce0;margin-top:8px;max-height:160px;overflow:auto">点导出按钮即可下载完整 lqp_overlay.json</pre>
+    </details>
+    <div class="modal-actions">
+      <button class="btn" id="weightsResetBtn">还原默认 20/25/15/20/20</button>
+      <button class="btn primary" id="weightsCloseBtn">完成</button>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>Top 50 排名表</h2>
+  <div id="tableWrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>排名</th>
+          <th>公司</th>
+          <th>地区</th>
+          <th>赛道</th>
+          <th>估值</th>
+          <th>Forge 二级</th>
+          <th>赛道 信心</th>
+          <th>质地</th>
+          <th>流动性</th>
+          <th>IPO</th>
+          <th>进场</th>
+          <th>综合</th>
+          <th>Pipeline</th>
+          <th>数据时效</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="emptyMsg" style="display:none">无匹配公司</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import {
+  RADAR_DIMS, SECTOR_COLOR, PIPELINE,
+  radarScore, isShortlisted, freshness, fmtVal,
+  DEFAULT_WEIGHTS, SHORTLIST_RULES,
+  loadLqp, fetchSources, buildCompanies,
+} from "./lqp_core.js";
+
+const WEIGHT_KEY = "lqp_radar_weights_v1";
+const OVERLAY_DRAFT_KEY = "lqp_overlay_draft_v1";
+
+let SOURCES = null;          // 原始三件套 + overlay
+let COMPANIES = [];          // buildCompanies 输出
+let WEIGHTS = { ...DEFAULT_WEIGHTS };
+let DRAFT = { ratings: {}, watchlist: null, pipeline: {} }; // 本地未导出的草稿
+
+const ui = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+
+function toast(msg, ms = 1600) {
+  const t = ui("toast"); t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), ms);
+}
+
+/* ----- 加载本地草稿与权重 ----- */
+function loadLocal() {
+  try {
+    const w = JSON.parse(localStorage.getItem(WEIGHT_KEY) || "null");
+    if (w) WEIGHTS = w;
+  } catch {}
+  try {
+    const d = JSON.parse(localStorage.getItem(OVERLAY_DRAFT_KEY) || "null");
+    if (d) DRAFT = { ratings: {}, watchlist: null, pipeline: {}, ...d };
+  } catch {}
+}
+function persistWeights() {
+  localStorage.setItem(WEIGHT_KEY, JSON.stringify(WEIGHTS));
+}
+function persistDraft() {
+  localStorage.setItem(OVERLAY_DRAFT_KEY, JSON.stringify(DRAFT));
+}
+
+/* ----- 把 DRAFT 叠加到 COMPANIES 上 ----- */
+function applyDraft() {
+  COMPANIES.forEach(c => {
+    const dr = DRAFT.ratings[c.name];
+    if (dr) c.radar.ratings = { ...c.radar.ratings, ...dr };
+    const dp = DRAFT.pipeline[c.name];
+    if (dp) c.pipeline = dp;
+    if (DRAFT.watchlist) {
+      c.radar.watch = DRAFT.watchlist.includes(c.name);
+    }
+  });
+}
+
+/* ----- 渲染权重控件（弹窗内） ----- */
+function refreshWeightsSum() {
+  const sum = RADAR_DIMS.reduce((s, d) => s + (WEIGHTS[d.k] || 0), 0);
+  const sumEl = ui("weightsSum");
+  const wrapEl = ui("weightsTotal");
+  if (sumEl) sumEl.textContent = sum;
+  if (wrapEl) wrapEl.classList.toggle("off", sum !== 100);
+}
+function renderWeights() {
+  const wrap = ui("weights"); if (!wrap) return;
+  wrap.innerHTML = "";
+  RADAR_DIMS.forEach(d => {
+    const v = WEIGHTS[d.k] ?? 20;
+    wrap.insertAdjacentHTML("beforeend", `
+      <label>${d.label}<small>${d.hint}</small></label>
+      <input type="range" min="0" max="50" value="${v}" data-w="${d.k}">
+      <span class="wval" data-wv="${d.k}">${v}</span>
+    `);
+  });
+  wrap.querySelectorAll('input[type="range"]').forEach(inp => {
+    inp.addEventListener("input", e => {
+      WEIGHTS[e.target.dataset.w] = +e.target.value;
+      wrap.querySelector(`[data-wv="${e.target.dataset.w}"]`).textContent = e.target.value;
+      persistWeights();
+      refreshWeightsSum();
+      renderAll();
+    });
+  });
+  refreshWeightsSum();
+}
+
+function openWeightsModal() {
+  ui("weightsModal").classList.add("open");
+}
+function closeWeightsModal() {
+  ui("weightsModal").classList.remove("open");
+}
+function resetWeightsToDefault() {
+  WEIGHTS = { ...DEFAULT_WEIGHTS };
+  persistWeights();
+  renderWeights();
+  renderAll();
+}
+
+/* ----- 散点图 ----- */
+function renderScatter() {
+  const cvs = ui("scatter");
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = cvs.parentElement.clientWidth - 4;
+  const cssH = 540;
+  cvs.width = cssW * dpr; cvs.height = cssH * dpr;
+  cvs.style.width = cssW + "px"; cvs.style.height = cssH + "px";
+  const ctx = cvs.getContext("2d"); ctx.scale(dpr, dpr);
+
+  const W = cssW, H = cssH;
+  const pad = { l: 60, r: 20, t: 16, b: 36 };
+  ctx.clearRect(0, 0, W, H);
+
+  const top50 = filterTable().slice(0, 50);
+  if (!top50.length) return;
+
+  // x = log10(valuation), y = score
+  const xMin = Math.log10(5), xMax = Math.log10(Math.max(...top50.map(c => c.valuation)));
+  const yMin = 0, yMax = 100;
+  const X = v => pad.l + (Math.log10(v) - xMin) / (xMax - xMin || 1) * (W - pad.l - pad.r);
+  const Y = v => H - pad.b - (v - yMin) / (yMax - yMin) * (H - pad.t - pad.b);
+
+  // grid
+  ctx.strokeStyle = "rgba(255,255,255,0.05)"; ctx.lineWidth = 1;
+  ctx.font = "11px -apple-system, sans-serif"; ctx.fillStyle = "#8892b0";
+  // y-axis: 0, 25, 50, 65 (threshold), 75, 100
+  [0, 25, 50, 75, 100].forEach(v => {
+    ctx.beginPath(); ctx.moveTo(pad.l, Y(v)); ctx.lineTo(W - pad.r, Y(v)); ctx.stroke();
+    ctx.fillText(v, 8, Y(v) + 4);
+  });
+  // x-axis ticks
+  const xTicks = [5, 10, 30, 100, 300, 1000];
+  xTicks.forEach(v => {
+    if (v < 5 || v > Math.pow(10, xMax)) return;
+    const x = X(v);
+    ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, H - pad.b); ctx.stroke();
+    ctx.fillText("$" + (v >= 1000 ? (v/1000)+"T" : v+"B"), x - 12, H - pad.b + 18);
+  });
+
+  // threshold lines: score 65 (horizontal), valuation 5 (vertical, but that's our minimum)
+  ctx.strokeStyle = "rgba(245,200,66,0.45)";
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath(); ctx.moveTo(pad.l, Y(SHORTLIST_RULES.minScore));
+  ctx.lineTo(W - pad.r, Y(SHORTLIST_RULES.minScore)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "#f5c842"; ctx.font = "10px sans-serif";
+  ctx.fillText("入围线 65", W - pad.r - 60, Y(SHORTLIST_RULES.minScore) - 4);
+
+  // bubbles
+  top50.forEach(c => {
+    const score = radarScore(c, WEIGHTS);
+    const x = X(c.valuation), y = Y(score);
+    const shortlisted = isShortlisted(c, WEIGHTS);
+    const color = SECTOR_COLOR[c.sector] || "#8a8f99";
+    // size
+    const r = 6 + Math.sqrt(c.valuation) * 0.5;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = color + "cc";
+    ctx.fill();
+    if (shortlisted) {
+      ctx.strokeStyle = "#f5c842"; ctx.lineWidth = 2;
+    } else {
+      ctx.strokeStyle = "rgba(255,255,255,0.18)"; ctx.lineWidth = 1;
+    }
+    ctx.stroke();
+    // label for top 12 by score or watchlisted
+    if (c.radar.watch || c.valuation >= 50 || score >= 75) {
+      ctx.fillStyle = "#fff"; ctx.font = "600 11px sans-serif";
+      ctx.fillText(c.name, x + r + 4, y + 3);
+    }
+  });
+
+  // legend (sectors present)
+  const legend = ui("legend"); legend.innerHTML = "";
+  const usedSectors = [...new Set(top50.map(c => c.sector))];
+  usedSectors.forEach(s => {
+    legend.insertAdjacentHTML("beforeend",
+      `<span class="legend-item"><span class="legend-dot" style="background:${SECTOR_COLOR[s]||'#888'}"></span>${esc(s)}</span>`);
+  });
+}
+
+/* ----- 过滤 ----- */
+let FILTERS = { geo: "all", shortlist: false, watch: false, q: "" };
+function filterTable() {
+  return COMPANIES.filter(c => {
+    if (FILTERS.geo !== "all" && c.geo !== FILTERS.geo) return false;
+    if (FILTERS.shortlist && !isShortlisted(c, WEIGHTS)) return false;
+    if (FILTERS.watch && !c.radar.watch) return false;
+    if (FILTERS.q) {
+      const hay = (c.name + " " + (c.nameZh||"") + " " + c.sector + " " + (c.country||"")).toLowerCase();
+      if (!hay.includes(FILTERS.q)) return false;
+    }
+    return true;
+  });
+}
+
+/* ----- 表格 ----- */
+function renderTable() {
+  const list = filterTable().slice(0, 50);
+  const tbody = ui("tbody"); tbody.innerHTML = "";
+  list.forEach((c, i) => {
+    const score = radarScore(c, WEIGHTS);
+    const shortlisted = isShortlisted(c, WEIGHTS);
+    const fr = freshness(c);
+    const forgeCell = c.forge && c.forge.valuation != null
+      ? `<span class="${c.forge.valuation > (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-up' : c.forge.valuation < (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-down' : ''}">${fmtVal(Math.round(c.forge.valuation*10)/10)}</span>`
+      : '<span style="color:#5a627c">—</span>';
+    const tr = document.createElement("tr");
+    if (shortlisted) tr.classList.add("shortlist");
+    tr.innerHTML = `
+      <td><span class="star ${c.radar.watch?'on':''}" data-w="${esc(c.name)}">★</span></td>
+      <td style="color:#8892b0;font-size:11px">${i+1}</td>
+      <td>
+        <div style="font-weight:600">${esc(c.name)}${c.nameZh?` <span style="color:#8892b0;font-weight:400">${esc(c.nameZh)}</span>`:''}</div>
+        <div style="font-size:10px;color:#8892b0">${esc(c.industryRaw)}<span class="src-tag ${c.valuationSource==='Admin 手动'?'admin':c.valuationSource==='PitchBook'?'pb':''}">${esc(c.valuationSource||'—')}</span></div>
+      </td>
+      <td><span class="geo-pill ${c.geo==='CN'?'cn':''}">${c.geo}</span></td>
+      <td><span style="color:${SECTOR_COLOR[c.sector]||'#888'}">●</span> ${esc(c.sector)}</td>
+      <td style="font-weight:600">${esc(c.valuationStr)}</td>
+      <td class="forge-cell">${forgeCell}</td>
+      ${RADAR_DIMS.map(d => {
+        const v = c.radar.ratings[d.k] || 3;
+        const mini = '<span class="mini-stars">' + '★'.repeat(v) + '<span class="off">' + '★'.repeat(5-v) + '</span></span>';
+        return `<td><button type="button" class="rating-chip" data-r="${esc(c.name)}|${d.k}" data-v="${v}" title="${esc(d.label)} · 当前 ${v}/5">${mini}<span class="num">${v}</span></button></td>`;
+      }).join('')}
+      <td><span class="score-pill ${score>=75?'high':score>=50?'':'low'}">${score}</span></td>
+      <td><span class="pipeline-pill">${PIPELINE[c.pipeline]||c.pipeline}</span></td>
+      <td>
+        <span style="font-size:10px;color:#8892b0">${esc(c.lastRound||'—')}</span>
+        <span class="fresh-badge ${fr.tone}">${fr.label}</span>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+  ui("emptyMsg").style.display = list.length === 0 ? "block" : "none";
+
+  // ratings: 芯片点击 → 弹出竖排选择器
+  tbody.querySelectorAll('.rating-chip[data-r]').forEach(chip => {
+    chip.addEventListener("click", e => {
+      e.stopPropagation();
+      openRatingPopup(chip);
+    });
+  });
+  // star toggle
+  tbody.querySelectorAll('.star[data-w]').forEach(el => {
+    el.addEventListener("click", e => {
+      const name = e.target.dataset.w;
+      const c = COMPANIES.find(x => x.name === name);
+      if (!c) return;
+      c.radar.watch = !c.radar.watch;
+      // sync to DRAFT.watchlist
+      const current = new Set(DRAFT.watchlist
+        || COMPANIES.filter(x => x.radar.watch).map(x => x.name));
+      if (c.radar.watch) current.add(name); else current.delete(name);
+      DRAFT.watchlist = [...current];
+      persistDraft();
+      e.target.classList.toggle("on", c.radar.watch);
+      renderStats();
+    });
+  });
+}
+
+/* ----- 评分弹出选择器（竖排 5 档） ----- */
+let openPopupEl = null;
+let openPopupChip = null;
+
+function closeRatingPopup() {
+  if (openPopupEl) { openPopupEl.remove(); openPopupEl = null; }
+  if (openPopupChip) { openPopupChip.classList.remove("open"); openPopupChip = null; }
+}
+
+function openRatingPopup(chip) {
+  // 切换：再次点同一芯片 → 关闭
+  if (openPopupChip === chip) { closeRatingPopup(); return; }
+  closeRatingPopup();
+
+  const [name, dim] = chip.dataset.r.split("|");
+  const dimMeta = RADAR_DIMS.find(d => d.k === dim);
+  const cur = +chip.dataset.v || 3;
+
+  const pop = document.createElement("div");
+  pop.className = "rating-popup";
+  // 5 → 1，高分在上更直观
+  const labels = { 5: "强", 4: "较强", 3: "中等", 2: "较弱", 1: "弱" };
+  pop.innerHTML = `
+    <div class="title">${esc(dimMeta?.label || dim)}</div>
+    ${[5,4,3,2,1].map(v => {
+      const stars = '<span class="stars">' + '★'.repeat(v) + '<span class="off">' + '★'.repeat(5-v) + '</span></span>';
+      return `<div class="opt ${v===cur?'current':''}" data-v="${v}">${stars}<span class="lvl">${v} · ${labels[v]}</span></div>`;
+    }).join('')}
+  `;
+  document.body.appendChild(pop);
+
+  // 定位：芯片下方；若超出底部则改到上方
+  const r = chip.getBoundingClientRect();
+  pop.style.left = Math.round(r.left) + "px";
+  pop.style.top  = Math.round(r.bottom + 4) + "px";
+  // 校正：popup 宽度可能比 chip 宽，避免溢出右边
+  const pr = pop.getBoundingClientRect();
+  if (pr.right > window.innerWidth - 8) {
+    pop.style.left = Math.round(window.innerWidth - pr.width - 8) + "px";
+  }
+  if (pr.bottom > window.innerHeight - 8) {
+    pop.style.top = Math.round(r.top - pr.height - 4) + "px";
+  }
+
+  chip.classList.add("open");
+  openPopupEl = pop;
+  openPopupChip = chip;
+
+  // 选项点击
+  pop.querySelectorAll(".opt").forEach(opt => {
+    opt.addEventListener("click", e => {
+      e.stopPropagation();
+      const v = +opt.dataset.v;
+      applyRating(name, dim, v, chip);
+      closeRatingPopup();
+    });
+  });
+}
+
+function applyRating(name, dim, v, chipEl) {
+  v = Math.max(1, Math.min(5, v));
+  DRAFT.ratings[name] = { ...(DRAFT.ratings[name]||{}), [dim]: v };
+  const c = COMPANIES.find(x => x.name === name);
+  if (c) c.radar.ratings[dim] = v;
+  persistDraft();
+
+  // 就地刷新芯片显示
+  if (chipEl) {
+    chipEl.dataset.v = v;
+    chipEl.title = `${RADAR_DIMS.find(d=>d.k===dim)?.label || dim} · 当前 ${v}/5`;
+    chipEl.innerHTML = '<span class="mini-stars">' + '★'.repeat(v) +
+      '<span class="off">' + '★'.repeat(5-v) + '</span></span>' +
+      '<span class="num">' + v + '</span>';
+    // 刷新同行的综合分 + 入围高亮
+    const tr = chipEl.closest("tr");
+    if (tr && c) {
+      const sc = radarScore(c, WEIGHTS);
+      tr.cells[12].innerHTML =
+        `<span class="score-pill ${sc>=75?'high':sc>=50?'':'low'}">${sc}</span>`;
+      tr.classList.toggle("shortlist", isShortlisted(c, WEIGHTS));
+    }
+  }
+  renderStats(); renderScatter();
+}
+
+// 点页面其他位置 / Esc → 关闭弹出
+document.addEventListener("click", (e) => {
+  if (!openPopupEl) return;
+  if (!openPopupEl.contains(e.target) && !openPopupChip?.contains(e.target)) {
+    closeRatingPopup();
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeRatingPopup();
+});
+window.addEventListener("scroll", closeRatingPopup, true);
+window.addEventListener("resize", closeRatingPopup);
+
+function renderStats() {
+  const list = filterTable();
+  ui("totalCount").textContent = list.length;
+  ui("shortCount").textContent = list.filter(c => isShortlisted(c, WEIGHTS)).length;
+  ui("watchCount").textContent = COMPANIES.filter(c => c.radar.watch).length;
+}
+
+function renderAll() { renderScatter(); renderTable(); renderStats(); }
+
+/* ----- 导出 lqp_overlay.json ----- */
+function exportOverlay() {
+  // 基线：当前磁盘上的 overlay
+  const base = SOURCES.overlay;
+  // 把 DRAFT 合并进去
+  const next = JSON.parse(JSON.stringify(base));
+  next.updatedAt = new Date().toISOString().slice(0, 10);
+
+  // ratings
+  Object.entries(DRAFT.ratings).forEach(([name, dims]) => {
+    next.ratings[name] = { ...(next.ratings[name] || {}), ...dims };
+  });
+  // pipeline
+  Object.entries(DRAFT.pipeline).forEach(([name, p]) => {
+    next.pipeline[name] = p;
+  });
+  // watchlist
+  if (DRAFT.watchlist) next.watchlist = DRAFT.watchlist;
+
+  const blob = new Blob([JSON.stringify(next, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "lqp_overlay.json";
+  a.click();
+  ui("diffPreview").textContent = JSON.stringify({
+    ratings_changed: Object.keys(DRAFT.ratings).length,
+    pipeline_changed: Object.keys(DRAFT.pipeline).length,
+    watchlist_changed: DRAFT.watchlist ? "yes ("+DRAFT.watchlist.length+" 项)" : "no",
+  }, null, 2);
+  toast("已下载 lqp_overlay.json — 替换 deploy/data/lqp_overlay.json 后 commit & push");
+}
+
+/* ----- 重置本地修改 ----- */
+function resetDraft() {
+  if (!confirm("将清除本地未导出的修改（评分、watchlist、pipeline）。继续？")) return;
+  DRAFT = { ratings: {}, watchlist: null, pipeline: {} };
+  localStorage.removeItem(OVERLAY_DRAFT_KEY);
+  COMPANIES = buildCompanies(SOURCES);
+  applyDraft();
+  renderAll();
+  toast("已重置");
+}
+
+/* ----- 初始化 ----- */
+async function init() {
+  loadLocal();
+  SOURCES = await fetchSources("./data");
+  COMPANIES = buildCompanies(SOURCES);
+  applyDraft();
+
+  renderWeights();
+  renderAll();
+
+  // events
+  ui("search").addEventListener("input", e => {
+    FILTERS.q = e.target.value.trim().toLowerCase();
+    renderAll();
+  });
+  document.querySelectorAll('.filter-pill').forEach(el => {
+    el.addEventListener("click", () => {
+      if (el.dataset.geo) {
+        document.querySelectorAll('.filter-pill[data-geo]').forEach(x => x.classList.remove("active"));
+        el.classList.add("active");
+        FILTERS.geo = el.dataset.geo;
+      } else if (el.dataset.shortlist) {
+        FILTERS.shortlist = !FILTERS.shortlist;
+        el.classList.toggle("active", FILTERS.shortlist);
+      } else if (el.dataset.watch) {
+        FILTERS.watch = !FILTERS.watch;
+        el.classList.toggle("active", FILTERS.watch);
+      }
+      renderAll();
+    });
+  });
+  ui("exportBtn").addEventListener("click", exportOverlay);
+  ui("resetBtn").addEventListener("click", resetDraft);
+
+  // 权重弹窗事件
+  ui("weightsBtn").addEventListener("click", openWeightsModal);
+  ui("weightsCloseBtn").addEventListener("click", closeWeightsModal);
+  ui("weightsResetBtn").addEventListener("click", resetWeightsToDefault);
+  // 点遮罩（modal 外）关闭
+  ui("weightsModal").addEventListener("click", e => {
+    if (e.target.id === "weightsModal") closeWeightsModal();
+  });
+  // Esc 关闭弹窗（评分 popup 已有自己的 Esc 处理，弹窗优先级更高）
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && ui("weightsModal").classList.contains("open")) {
+      closeWeightsModal();
+    }
+  });
+
+  window.addEventListener("resize", renderScatter);
+}
+
+init().catch(e => {
+  console.error(e);
+  toast("加载失败：" + e.message, 4000);
+});
+</script>
+
+</body>
+</html>

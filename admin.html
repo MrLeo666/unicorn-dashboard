@@ -119,6 +119,23 @@
 <h1>Unicorn Dashboard — Admin</h1>
 <div class="sub">Edit data manually here, export <code>overrides.json</code>, commit it to the repo. The merge script will apply your overrides on top of the next Wikipedia scrape.</div>
 
+<!-- LQP 工具链导航：所有页面共用 deploy/data —— admin = 基础数据；radar/diligence = LQP 专属层 -->
+<div style="display:flex;gap:14px;align-items:center;padding:10px 16px;margin-bottom:14px;
+            background:rgba(91,141,239,0.08);border:1px solid rgba(91,141,239,0.20);
+            border-radius:10px;font-size:12px;color:#c5cce0">
+  <b style="color:#93c5fd;letter-spacing:0.5px">LQP 工具链</b>
+  <a href="./index.html"     style="color:#c5cce0;text-decoration:none">气球看板</a>
+  <span style="color:#5a627c">·</span>
+  <span style="color:#fff;font-weight:600">管理后台（你在此页）</span>
+  <span style="color:#5a627c">·</span>
+  <a href="./radar.html"     style="color:#c5cce0;text-decoration:none">独角兽筛选雷达</a>
+  <span style="color:#5a627c">·</span>
+  <a href="./diligence.html" style="color:#c5cce0;text-decoration:none">尽调与投决工作台</a>
+  <span style="margin-left:auto;font-size:11px;color:#8892b0">
+    本页编辑 <code style="color:#93c5fd">overrides.json</code> · LQP 评分/Pipeline/尽调编辑请去对应 LQP 页面，导出 <code style="color:#93c5fd">lqp_overlay.json</code>
+  </span>
+</div>
+
 <div class="toolbar">
   <button class="btn primary" id="btnAdd">+ Add company</button>
   <button class="btn" id="btnPublish" title="Push overrides directly to GitHub">📤 Publish</button>

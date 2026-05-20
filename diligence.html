@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>LQP · 尽调与投决工作台</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+               background: #0a0e27; color: #e8ecf4; min-height: 100vh; }
+  body { padding: 18px 24px 60px; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
+  .sub { font-size: 12px; color: #8892b0; margin-bottom: 18px; }
+  .sub a { color: #93c5fd; text-decoration: none; margin-right: 16px; }
+  .sub a:hover { text-decoration: underline; }
+
+  .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px;
+             padding: 12px 16px; background: rgba(15, 21, 50, 0.6); border-radius: 12px;
+             border: 1px solid rgba(255,255,255,0.07); position: sticky; top: 8px; z-index: 5;
+             backdrop-filter: blur(14px); }
+  .btn { padding: 7px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 500;
+         background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+         color: #c5cce0; transition: all 0.12s ease; }
+  .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .btn.primary { background: linear-gradient(135deg, #5b8def, #7a5cff); color: #fff; border-color: transparent; }
+
+  select, input, textarea {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); color: #fff;
+    padding: 6px 10px; border-radius: 6px; font: inherit; font-size: 12px; outline: none;
+  }
+  textarea { width: 100%; resize: vertical; }
+
+  .panel { background: rgba(15,21,50,0.55); border: 1px solid rgba(255,255,255,0.07);
+           border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; }
+  .panel h2 { font-size: 13px; font-weight: 500; color: #c5cce0; margin-bottom: 12px;
+              letter-spacing: 0.5px; text-transform: uppercase;
+              display: flex; align-items: center; justify-content: space-between; }
+  .panel h2 .sub-hint { font-size: 10px; color: #6c7494; font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+  /* 一页纸 */
+  .onepager {
+    background: linear-gradient(135deg, rgba(91,141,239,0.06), rgba(122,92,255,0.03));
+    border: 1px solid rgba(91,141,239,0.18);
+    border-radius: 14px; padding: 20px 24px;
+  }
+  .onepager .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; margin-bottom: 16px; }
+  .onepager .name { font-size: 26px; font-weight: 700; margin-bottom: 2px; }
+  .onepager .name .zh { color: #8892b0; font-weight: 400; font-size: 18px; margin-left: 8px; }
+  .onepager .meta { font-size: 12px; color: #8892b0; line-height: 1.7; }
+  .onepager .meta b { color: #e8ecf4; font-weight: 500; }
+  .onepager .val { font-size: 30px; font-weight: 700; color: #f5c842; }
+  .onepager .val-sub { font-size: 11px; color: #8892b0; }
+  .onepager .pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .pill { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px;
+          background: rgba(255,255,255,0.06); color: #c5cce0; }
+  .pill.geo { background: rgba(91,141,239,0.18); color: #93c5fd; }
+  .pill.geo.cn { background: rgba(239,91,91,0.18); color: #ff9b9b; }
+  .pill.shortlist { background: rgba(245,200,66,0.18); color: #f5c842; font-weight: 600; }
+  .pill.watch { background: rgba(74,222,128,0.18); color: #86efac; }
+  .pill.sector { background: rgba(168,85,247,0.13); color: #d8b4fe; }
+
+  /* 三档估值情景 */
+  table.scenarios { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.scenarios th, table.scenarios td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  table.scenarios th { text-align: left; font-weight: 500; color: #8892b0; font-size: 10px;
+                       text-transform: uppercase; letter-spacing: 0.5px; }
+  table.scenarios td.bull { background: rgba(74,222,128,0.04); }
+  table.scenarios td.base { background: rgba(255,255,255,0.02); }
+  table.scenarios td.bear { background: rgba(239,68,68,0.04); }
+  table.scenarios input { width: 100%; }
+  .scenario-out { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+  .scenario-box { padding: 12px 14px; border-radius: 10px; text-align: center; }
+  .scenario-box.bull { background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.25); }
+  .scenario-box.base { background: rgba(91,141,239,0.10); border: 1px solid rgba(91,141,239,0.25); }
+  .scenario-box.bear { background: rgba(239,68,68,0.10); border: 1px solid rgba(239,68,68,0.25); }
+  .scenario-label { font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase;
+                    color: #8892b0; margin-bottom: 4px; }
+  .scenario-val { font-size: 22px; font-weight: 700; color: #fff; }
+  .scenario-mult { font-size: 11px; color: #8892b0; margin-top: 2px; }
+  .scenario-box.bull .scenario-val { color: #86efac; }
+  .scenario-box.bear .scenario-val { color: #fda4af; }
+
+  /* 风险 / 备忘录 */
+  .risks-list { display: flex; flex-direction: column; gap: 6px; }
+  .risks-list input { width: 100%; }
+  .risks-list .row { display: flex; gap: 6px; }
+  .risks-list .row button { padding: 4px 8px; }
+
+  .memo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .memo-grid .field label { font-size: 10px; color: #8892b0; letter-spacing: 0.4px;
+                            text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .memo-grid .field { margin-bottom: 12px; }
+  .full { grid-column: 1 / -1; }
+
+  .empty { padding: 40px; text-align: center; color: #6c7494; font-size: 13px; }
+
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+           background: rgba(15,21,50,0.95); border: 1px solid rgba(255,255,255,0.15); padding: 10px 18px;
+           border-radius: 10px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+           backdrop-filter: blur(8px); z-index: 200; font-size: 12px; }
+  .toast.show { opacity: 1; }
+
+  .src-info { font-size: 10px; color: #8892b0; }
+  .fresh-badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 9px;
+                 font-weight: 600; margin-left: 6px; }
+  .fresh-badge.ok    { background: rgba(74,222,128,0.15); color: #86efac; }
+  .fresh-badge.warn  { background: rgba(245,158,11,0.15); color: #fcd34d; }
+  .fresh-badge.stale { background: rgba(239,68,68,0.15); color: #fda4af; }
+
+  details { padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+  details summary { cursor: pointer; color: #8892b0; font-size: 11px; }
+  details pre { font-family: ui-monospace, monospace; font-size: 10px; color: #c5cce0;
+                margin-top: 8px; max-height: 180px; overflow: auto; }
+</style>
+</head>
+<body>
+
+<h1>LQP · 尽调与投决工作台</h1>
+<div class="sub">
+  <a href="./index.html">← 气球看板</a>
+  <a href="./radar.html">← 筛选雷达</a>
+  <a href="./admin.html">→ 管理后台</a>
+  <span style="color:#6c7494">·</span>
+  <span>模板层 v1：公司一页纸 + 三档估值情景 + IC 备忘录骨架。数据写入 lqp_overlay.diligence 区块</span>
+</div>
+
+<div class="toolbar">
+  <label style="font-size:12px;color:#8892b0">选择标的：</label>
+  <select id="picker" style="min-width:280px"></select>
+  <span class="src-info" id="srcInfo"></span>
+  <div style="margin-left:auto;display:flex;gap:8px">
+    <button class="btn" id="exportMemoBtn">导出 IC 备忘录 (Markdown) ↓</button>
+    <button class="btn primary" id="saveBtn">保存到本地草稿</button>
+    <button class="btn primary" id="exportOverlayBtn">导出 lqp_overlay.json ↓</button>
+  </div>
+</div>
+
+<div id="content">
+  <div class="empty">从上方选择一家公司开始尽调...</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import {
+  RADAR_DIMS, SECTOR_COLOR, PIPELINE,
+  radarScore, isShortlisted, freshness, fmtVal, DEFAULT_WEIGHTS,
+  fetchSources, buildCompanies,
+} from "./lqp_core.js";
+
+const DRAFT_KEY = "lqp_diligence_draft_v1";
+let SOURCES = null;
+let COMPANIES = [];
+let DRAFT = { diligence: {} }; // overlay 草稿
+let CURRENT = null;
+
+const ui = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+
+function toast(msg, ms = 1800) {
+  const t = ui("toast"); t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), ms);
+}
+
+function loadDraft() {
+  try {
+    const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null");
+    if (d) DRAFT = { diligence: {}, ...d };
+  } catch {}
+}
+function persistDraft() {
+  localStorage.setItem(DRAFT_KEY, JSON.stringify(DRAFT));
+}
+
+function getDiligence(name) {
+  // 优先用本地草稿，其次磁盘 overlay
+  if (DRAFT.diligence[name]) return DRAFT.diligence[name];
+  const c = COMPANIES.find(x => x.name === name);
+  return c?.diligence || {
+    icMemoUrl: "", analyst: "", decision: "",
+    valuationScenarios: null, keyRisks: [], updatedAt: ""
+  };
+}
+function setDiligence(name, partial) {
+  const cur = getDiligence(name);
+  DRAFT.diligence[name] = { ...cur, ...partial, updatedAt: new Date().toISOString() };
+  persistDraft();
+}
+
+function renderPicker() {
+  const sel = ui("picker"); sel.innerHTML = "";
+  sel.insertAdjacentHTML("beforeend", `<option value="">— 选择标的 —</option>`);
+  COMPANIES.slice(0, 50).forEach(c => {
+    const tags = [];
+    if (isShortlisted(c, DEFAULT_WEIGHTS)) tags.push("入围");
+    if (c.radar.watch) tags.push("★");
+    sel.insertAdjacentHTML("beforeend",
+      `<option value="${esc(c.name)}">${esc(c.name)}${c.nameZh?` · ${esc(c.nameZh)}`:''} · ${c.valuationStr}${tags.length?` · ${tags.join(' ')}`:''}</option>`);
+  });
+}
+
+function render() {
+  const root = ui("content");
+  if (!CURRENT) {
+    root.innerHTML = `<div class="empty">从上方选择一家公司开始尽调...</div>`;
+    ui("srcInfo").innerHTML = "";
+    return;
+  }
+  const c = CURRENT;
+  const d = getDiligence(c.name);
+  const fr = freshness(c);
+  const score = radarScore(c, DEFAULT_WEIGHTS);
+  const shortlisted = isShortlisted(c, DEFAULT_WEIGHTS);
+
+  ui("srcInfo").innerHTML = `数据时效：<span class="fresh-badge ${fr.tone}">${fr.label}</span> · 估值来源：<b>${esc(c.valuationSource||'—')}</b> · 日期：<b>${esc(c.lastRound||'—')}</b>`;
+
+  // 三档情景默认值（基准 = 当前估值）
+  const sc = d.valuationScenarios || {
+    bull: { revenue: 0, multiple: 0, valuation: c.valuation * 2 },
+    base: { revenue: 0, multiple: 0, valuation: c.valuation },
+    bear: { revenue: 0, multiple: 0, valuation: c.valuation * 0.5 },
+  };
+
+  root.innerHTML = `
+
+    <!-- 公司一页纸 -->
+    <div class="panel">
+      <h2>公司一页纸 <span class="sub-hint">脱敏后可直接复用为对客 teaser 底稿</span></h2>
+      <div class="onepager">
+        <div class="row">
+          <div>
+            <div class="name">${esc(c.name)}${c.nameZh?`<span class="zh">${esc(c.nameZh)}</span>`:''}</div>
+            <div class="meta">${esc(c.description || c.industryRaw || '')}</div>
+            <div class="pills">
+              <span class="pill geo ${c.geo==='CN'?'cn':''}">${c.geo === 'US' ? '美国' : c.geo === 'CN' ? '中国' : c.geo}</span>
+              <span class="pill sector">${esc(c.sector)}</span>
+              <span class="pill">Pipeline: ${esc(PIPELINE[c.pipeline]||c.pipeline)}</span>
+              ${shortlisted ? '<span class="pill shortlist">★ 已入围</span>' : ''}
+              ${c.radar.watch ? '<span class="pill watch">关注</span>' : ''}
+            </div>
+          </div>
+          <div>
+            <div class="val">${esc(c.valuationStr)}</div>
+            <div class="val-sub">最近一轮 / 估值来源：${esc(c.valuationSource||'—')}</div>
+            <div class="val-sub">${esc(c.lastRound||'—')}</div>
+            ${c.forge && c.forge.valuation ? `
+              <div class="val-sub" style="margin-top:6px">Forge 二级估值：<b style="color:#fff">${esc(fmtVal(Math.round(c.forge.valuation*10)/10))}</b></div>
+              <div class="val-sub">$/股：$${c.forge.price?.toFixed(2)||'—'} · 取数 ${c.forge.fetchedAt?.slice(0,10)||'—'}</div>
+            ` : ''}
+          </div>
+          <div>
+            <div class="meta">
+              <b>综合评分</b>：<span style="font-size:18px;color:${score>=75?'#f5c842':score>=50?'#93c5fd':'#9aa0ab'};font-weight:700">${score}</span> / 100
+              <br><br>
+              <b>五维评分</b>：
+              ${RADAR_DIMS.map(dim => `${dim.label} <b>${c.radar.ratings[dim.k]||3}</b>`).join('　')}
+            </div>
+          </div>
+        </div>
+        <div class="meta" style="border-top:1px solid rgba(255,255,255,0.06);padding-top:12px;line-height:1.7">
+          <b>领投/股东</b>：${esc(c.leads || '—')}　|
+          <b>创始人</b>：${esc(c.founders || '—')}　|
+          <b>累计融资</b>：${esc(c.lastRoundSize || '—')}
+          ${c.notes ? `<br><b>LQP 备注</b>：${esc(c.notes)}` : ''}
+          ${c.wikiLink ? `<br><b>资料</b>：<a href="${esc(c.wikiLink)}" target="_blank" style="color:#93c5fd">${esc(c.wikiLink)}</a>` : ''}
+        </div>
+      </div>
+    </div>
+
+    <!-- 三档估值情景 -->
+    <div class="panel">
+      <h2>牛 / 基准 / 熊 三档估值情景
+        <span class="sub-hint">输入未来 3 年营收（$M）与目标倍数 → 自动算 exit 估值；或直接填 exit valuation</span>
+      </h2>
+      <table class="scenarios">
+        <thead>
+          <tr><th></th><th>3 年 ARR ($M)</th><th>EV/Sales 倍数</th><th>关键假设</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:#86efac">牛</b></td>
+            <td class="bull"><input type="number" step="0.1" data-sc="bull|revenue" value="${sc.bull.revenue||''}" placeholder="例：8000"></td>
+            <td class="bull"><input type="number" step="0.1" data-sc="bull|multiple" value="${sc.bull.multiple||''}" placeholder="例：18"></td>
+            <td class="bull"><input type="text" data-sc="bull|notes" value="${esc(sc.bull.notes||'')}" placeholder="高增长延续 + AGI/上市顺利"></td>
+          </tr>
+          <tr>
+            <td><b style="color:#93c5fd">基准</b></td>
+            <td class="base"><input type="number" step="0.1" data-sc="base|revenue" value="${sc.base.revenue||''}" placeholder="例：5000"></td>
+            <td class="base"><input type="number" step="0.1" data-sc="base|multiple" value="${sc.base.multiple||''}" placeholder="例：12"></td>
+            <td class="base"><input type="text" data-sc="base|notes" value="${esc(sc.base.notes||'')}" placeholder="行业中位增速、估值正常化"></td>
+          </tr>
+          <tr>
+            <td><b style="color:#fda4af">熊</b></td>
+            <td class="bear"><input type="number" step="0.1" data-sc="bear|revenue" value="${sc.bear.revenue||''}" placeholder="例：3000"></td>
+            <td class="bear"><input type="number" step="0.1" data-sc="bear|multiple" value="${sc.bear.multiple||''}" placeholder="例：6"></td>
+            <td class="bear"><input type="text" data-sc="bear|notes" value="${esc(sc.bear.notes||'')}" placeholder="竞争加剧、估值回归"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="scenario-out" id="scenarioOut"></div>
+    </div>
+
+    <!-- 关键风险 -->
+    <div class="panel">
+      <h2>关键风险（IC 必看）<span class="sub-hint">每条一行；按 Enter 新增</span></h2>
+      <div class="risks-list" id="risksList"></div>
+      <button class="btn" id="addRisk" style="margin-top:8px">+ 添加风险</button>
+    </div>
+
+    <!-- IC 备忘录骨架 -->
+    <div class="panel">
+      <h2>IC 备忘录骨架 <span class="sub-hint">六段式；脱敏后可直接复用为对客 teaser 底稿</span></h2>
+      <div class="memo-grid">
+        <div class="field">
+          <label>负责分析师</label>
+          <input type="text" id="memo_analyst" value="${esc(d.analyst||'')}" placeholder="姓名">
+        </div>
+        <div class="field">
+          <label>投决结论</label>
+          <select id="memo_decision">
+            <option value="">— 待决 —</option>
+            <option value="proceed" ${d.decision==='proceed'?'selected':''}>建议进场</option>
+            <option value="hold" ${d.decision==='hold'?'selected':''}>暂缓 · 观察</option>
+            <option value="pass" ${d.decision==='pass'?'selected':''}>放弃</option>
+          </select>
+        </div>
+        <div class="field"><label>IC 备忘录链接 (公司知识库 / Notion / Drive)</label>
+          <input type="text" id="memo_url" value="${esc(d.icMemoUrl||'')}" placeholder="https://..."></div>
+        <div class="field full">
+          <label>① 公司与业务（What） — 1 段</label>
+          <textarea id="memo_what" rows="3" placeholder="一句话定位 + 产品 / 客户 / 商业模式">${esc(d.memo_what||'')}</textarea>
+        </div>
+        <div class="field full">
+          <label>② 赛道与时点（Why now）— 1 段</label>
+          <textarea id="memo_why" rows="3" placeholder="行业拐点 + LQP 配置契合度 + 关键催化">${esc(d.memo_why||'')}</textarea>
+        </div>
+        <div class="field full">
+          <label>③ 竞争壁垒（Moat）— 2-3 点</label>
+          <textarea id="memo_moat" rows="3" placeholder="产品壁垒 / 数据壁垒 / 网络效应 / 监管牌照">${esc(d.memo_moat||'')}</textarea>
+        </div>
+        <div class="field full">
+          <label>④ 估值逻辑（与上方三档情景呼应）</label>
+          <textarea id="memo_val" rows="3" placeholder="可对标公司 / EV-Sales 区间 / 进场价格区间">${esc(d.memo_val||'')}</textarea>
+        </div>
+        <div class="field full">
+          <label>⑤ 退出路径与流动性</label>
+          <textarea id="memo_exit" rows="3" placeholder="IPO 时间窗 / 二级市场（Forge / EquityZen）现状 / 锁定期">${esc(d.memo_exit||'')}</textarea>
+        </div>
+        <div class="field full">
+          <label>⑥ 反方观点（Bear case argued strongly）</label>
+          <textarea id="memo_bear" rows="3" placeholder="主动论证为何这单可能踩雷">${esc(d.memo_bear||'')}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <details>
+      <summary>查看本地草稿 JSON（保存后会上交 lqp_overlay.diligence.${esc(c.name)})</summary>
+      <pre id="draftPreview"></pre>
+    </details>
+  `;
+
+  bindEditors();
+  recalcScenarios();
+  renderRisks(d.keyRisks || []);
+  refreshDraftPreview();
+}
+
+function recalcScenarios() {
+  if (!CURRENT) return;
+  const d = getDiligence(CURRENT.name);
+  const sc = d.valuationScenarios || { bull:{}, base:{}, bear:{} };
+  const out = ui("scenarioOut");
+  if (!out) return;
+  const compute = (s) => {
+    const rev = +s.revenue || 0, mult = +s.multiple || 0;
+    return rev > 0 && mult > 0 ? rev * mult / 1000 : null; // $M * x → $B
+  };
+  const cur = CURRENT.valuation;
+  out.innerHTML = ["bull","base","bear"].map(k => {
+    const v = compute(sc[k]);
+    const label = k === "bull" ? "牛" : k === "base" ? "基准" : "熊";
+    const upside = v != null ? (((v - cur) / cur) * 100).toFixed(0) + "%" : "—";
+    return `
+      <div class="scenario-box ${k}">
+        <div class="scenario-label">${label}</div>
+        <div class="scenario-val">${v != null ? fmtVal(Math.round(v*10)/10) : '—'}</div>
+        <div class="scenario-mult">vs 当前 ${upside}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderRisks(risks) {
+  const wrap = ui("risksList"); wrap.innerHTML = "";
+  if (!risks.length) risks = [""];
+  risks.forEach((r, i) => {
+    const div = document.createElement("div"); div.className = "row";
+    div.innerHTML = `
+      <input type="text" data-risk="${i}" value="${esc(r)}" placeholder="例：客户集中度（Google + Meta = 营收 60%+），Meta 战投后或继续流失">
+      <button class="btn" data-rm-risk="${i}">×</button>
+    `;
+    wrap.appendChild(div);
+  });
+  wrap.querySelectorAll('input[data-risk]').forEach(inp => {
+    inp.addEventListener("input", saveRisks);
+    inp.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const cur = currentRisks(); cur.splice(+e.target.dataset.risk + 1, 0, "");
+        renderRisks(cur);
+        wrap.querySelector(`input[data-risk="${+e.target.dataset.risk+1}"]`)?.focus();
+      }
+    });
+  });
+  wrap.querySelectorAll('button[data-rm-risk]').forEach(b => {
+    b.addEventListener("click", () => {
+      const cur = currentRisks(); cur.splice(+b.dataset.rmRisk, 1);
+      renderRisks(cur); saveRisks();
+    });
+  });
+}
+function currentRisks() {
+  return [...document.querySelectorAll('input[data-risk]')].map(i => i.value);
+}
+function saveRisks() {
+  if (!CURRENT) return;
+  setDiligence(CURRENT.name, { keyRisks: currentRisks().filter(s => s.trim()) });
+  refreshDraftPreview();
+}
+
+function bindEditors() {
+  document.querySelectorAll('input[data-sc]').forEach(inp => {
+    inp.addEventListener("input", () => {
+      const [k, f] = inp.dataset.sc.split("|");
+      const d = getDiligence(CURRENT.name);
+      const sc = d.valuationScenarios || { bull:{}, base:{}, bear:{} };
+      sc[k] = { ...sc[k], [f]: f === "notes" ? inp.value : (inp.value === "" ? "" : +inp.value) };
+      // recompute valuation
+      const rev = +sc[k].revenue || 0, mult = +sc[k].multiple || 0;
+      if (rev > 0 && mult > 0) sc[k].valuation = rev * mult / 1000;
+      setDiligence(CURRENT.name, { valuationScenarios: sc });
+      recalcScenarios();
+      refreshDraftPreview();
+    });
+  });
+
+  ["analyst","decision","url","what","why","moat","val","exit","bear"].forEach(f => {
+    const el = ui("memo_" + f);
+    if (!el) return;
+    el.addEventListener("input", () => {
+      const patch = f === "url" ? { icMemoUrl: el.value }
+                  : f === "analyst" ? { analyst: el.value }
+                  : f === "decision" ? { decision: el.value }
+                  : { ["memo_" + f]: el.value };
+      setDiligence(CURRENT.name, patch);
+      refreshDraftPreview();
+    });
+  });
+
+  ui("addRisk").addEventListener("click", () => {
+    const cur = currentRisks(); cur.push("");
+    renderRisks(cur);
+  });
+}
+
+function refreshDraftPreview() {
+  const el = ui("draftPreview");
+  if (!el) return;
+  el.textContent = JSON.stringify(DRAFT.diligence[CURRENT?.name] || {}, null, 2);
+}
+
+/* 导出 IC 备忘录为 Markdown */
+function exportMemo() {
+  if (!CURRENT) { toast("请先选择标的"); return; }
+  const c = CURRENT, d = getDiligence(c.name);
+  const sc = d.valuationScenarios || { bull:{}, base:{}, bear:{} };
+  const compute = (s) => s.valuation ? fmtVal(Math.round(s.valuation*10)/10)
+                       : (s.revenue && s.multiple) ? fmtVal(Math.round(s.revenue*s.multiple/100)/10) : "—";
+  const decisionLabel = { proceed: '建议进场', hold: '暂缓 · 观察', pass: '放弃' }[d.decision] || '(待决)';
+  const md = `# IC 备忘录 · ${c.name}${c.nameZh?` (${c.nameZh})`:''}
+
+> 内部投资决策文件 · 仅限合伙人与分析师查阅 · 含 Material Non-Public Information
+> 生成于 ${new Date().toISOString().slice(0,10)} · 数据时效：${freshness(c).label}
+
+## 概要
+
+| 字段 | 内容 |
+|---|---|
+| 公司 | ${c.name}${c.nameZh?` · ${c.nameZh}`:''} |
+| 地区 | ${c.geo} (${c.country||'—'}) |
+| 赛道 | ${c.sector} (${c.industryRaw||'—'}) |
+| 当前估值 | **${c.valuationStr}** |
+| 估值来源 | ${c.valuationSource||'—'} · ${c.lastRound||'—'} |
+| Forge 二级 | ${c.forge?.valuation ? fmtVal(Math.round(c.forge.valuation*10)/10) + ' (' + c.forge.fetchedAt?.slice(0,10) + ')' : '—'} |
+| 领投/股东 | ${c.leads||'—'} |
+| 创始人 | ${c.founders||'—'} |
+| Pipeline | ${PIPELINE[c.pipeline]||c.pipeline} |
+| 综合评分 | **${radarScore(c, DEFAULT_WEIGHTS)} / 100** ${isShortlisted(c, DEFAULT_WEIGHTS)?'· 已入围':''} |
+| 五维评分 | ${RADAR_DIMS.map(dim => `${dim.label} ${c.radar.ratings[dim.k]||3}`).join(' · ')} |
+| 负责分析师 | ${d.analyst||'—'} |
+| 投决结论 | ${decisionLabel} |
+
+## ① 公司与业务（What）
+${d.memo_what || '_待补充_'}
+
+## ② 赛道与时点（Why now）
+${d.memo_why || '_待补充_'}
+
+## ③ 竞争壁垒（Moat）
+${d.memo_moat || '_待补充_'}
+
+## ④ 估值逻辑
+
+| 情景 | 3 年 ARR ($M) | EV/Sales | 退出估值 | 关键假设 |
+|---|---|---|---|---|
+| 🐂 牛 | ${sc.bull.revenue||'—'} | ${sc.bull.multiple||'—'}x | **${compute(sc.bull)}** | ${sc.bull.notes||'—'} |
+| 基准 | ${sc.base.revenue||'—'} | ${sc.base.multiple||'—'}x | **${compute(sc.base)}** | ${sc.base.notes||'—'} |
+| 🐻 熊 | ${sc.bear.revenue||'—'} | ${sc.bear.multiple||'—'}x | **${compute(sc.bear)}** | ${sc.bear.notes||'—'} |
+
+${d.memo_val || '_补充估值方法、可比公司、进场价格区间_'}
+
+## ⑤ 退出路径与流动性
+${d.memo_exit || '_待补充_'}
+
+## ⑥ 反方观点（Bear case argued strongly）
+${d.memo_bear || '_待补充_'}
+
+## 关键风险
+
+${(d.keyRisks||[]).filter(r=>r.trim()).map((r,i)=>`${i+1}. ${r}`).join('\n') || '_待补充_'}
+
+## LQP 备注
+${c.notes || '_—_'}
+
+---
+*本备忘录基于截至 ${new Date().toISOString().slice(0,10)} 的公开与内部资料，不构成投资建议。仅供合伙人决策。*
+`;
+  const blob = new Blob([md], { type: "text/markdown" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `IC_Memo_${c.name.replace(/\s+/g,'_')}_${new Date().toISOString().slice(0,10)}.md`;
+  a.click();
+  toast("IC 备忘录 (Markdown) 已下载");
+}
+
+/* 导出 overlay 文件 */
+function exportOverlay() {
+  const base = SOURCES.overlay;
+  const next = JSON.parse(JSON.stringify(base));
+  next.updatedAt = new Date().toISOString().slice(0, 10);
+  Object.entries(DRAFT.diligence).forEach(([name, d]) => {
+    next.diligence[name] = d;
+  });
+  const blob = new Blob([JSON.stringify(next, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "lqp_overlay.json";
+  a.click();
+  toast("lqp_overlay.json 已下载（含尽调区块）— 替换 deploy/data/lqp_overlay.json 后 commit");
+}
+
+async function init() {
+  loadDraft();
+  SOURCES = await fetchSources("./data");
+  COMPANIES = buildCompanies(SOURCES);
+  renderPicker();
+
+  ui("picker").addEventListener("change", e => {
+    const name = e.target.value;
+    CURRENT = COMPANIES.find(c => c.name === name) || null;
+    render();
+  });
+  ui("saveBtn").addEventListener("click", () => {
+    persistDraft();
+    toast("已保存到本地草稿（浏览器 localStorage）");
+  });
+  ui("exportMemoBtn").addEventListener("click", exportMemo);
+  ui("exportOverlayBtn").addEventListener("click", exportOverlay);
+}
+
+init().catch(e => { console.error(e); toast("加载失败：" + e.message, 4000); });
+</script>
+
+</body>
+</html>
