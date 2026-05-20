@@ -65,6 +65,10 @@
     },
     "Slash": {
       "founders": "Victor Cardenas, Kevin Bai"
+    },
+    "Anduril Industries": {
+      "valuation_m": 61000,
+      "valuation_str": "$61B"
     }
   },
   "additions": [
@@ -87,6 +91,10 @@
     }
   ],
   "deletions": [
-    "Chime"
-  ]
+    "Chime",
+    "Anysphere"
+  ],
+  "archived": {
+    "Cerebras": "CBRS"
+  }
 }
