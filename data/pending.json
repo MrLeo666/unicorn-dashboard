@@ -110,49 +110,6 @@
       }
     },
     {
-      "company": "Anduril Industries",
-      "changes": {
-        "valuation_m": {
-          "from": 30500.0,
-          "to": 61000.0
-        }
-      },
-      "current": {
-        "id": "wiki-14",
-        "source": "wiki",
-        "company": "Anduril Industries",
-        "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
-        "wikiSlug": "Anduril_Industries",
-        "description": "Defense technology",
-        "valuation_str": "$30.5B",
-        "valuation_m": 30500.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf",
-        "country": "United States",
-        "unicorn_as_of": "June 2025",
-        "year": "2025",
-        "industry": "Aerospace/Defense",
-        "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
-      },
-      "proposed": {
-        "id": "wiki-9",
-        "source": "wiki",
-        "company": "Anduril Industries",
-        "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
-        "wikiSlug": "Anduril_Industries",
-        "description": "Defense technology",
-        "valuation_str": "$61B",
-        "valuation_m": 61000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "Aerospace/Defense",
-        "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
-      }
-    },
-    {
       "company": "Cursor",
       "changes": {
         "valuation_m": {
@@ -434,26 +391,141 @@
         "industry": "AI/ML",
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
       }
-    }
-  ],
-  "removals": [
+    },
     {
-      "id": "wiki-18",
-      "source": "wiki",
-      "company": "Anysphere",
-      "wikiLink": "https://en.wikipedia.org/wiki/Anysphere",
-      "wikiSlug": "Anysphere",
-      "description": "Artificial intelligence",
-      "valuation_str": "$29B",
-      "valuation_m": 29000.0,
-      "vc_raised": "—",
-      "lead_investors": "Founders: Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger",
-      "country": "United States",
-      "unicorn_as_of": "November 2025",
-      "year": "2025",
-      "industry": "AI/ML",
-      "founders": "Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger"
+      "company": "Varda",
+      "changes": {
+        "valuation_m": {
+          "from": 7000.0,
+          "to": 1600.0
+        }
+      },
+      "current": {
+        "id": "pb-765",
+        "source": "pb",
+        "tier": "B",
+        "company": "Varda",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Manufacturer of spacecraft infrastructure intended to create products in space for terrestrial applications.",
+        "valuation_str": "$7B",
+        "valuation_m": 7000,
+        "vc_raised": "$578.3M",
+        "lead_investors": "Caffeinated Capital, Founders Fund, Khosla Ventures, Lux Capital, Natural Capital (US), Shrug Capital",
+        "country": "United States",
+        "unicorn_as_of": "January 2026",
+        "year": "2026",
+        "industry": "Aerospace/Defense",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "pb-766",
+        "source": "pb",
+        "tier": "B",
+        "company": "Varda",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Manufacturer of spacecraft infrastructure intended to create products in space for terrestrial applications.",
+        "valuation_str": "$1.6B",
+        "valuation_m": 1600.0,
+        "vc_raised": "$578.3M",
+        "lead_investors": "Caffeinated Capital, Founders Fund, Khosla Ventures, Lux Capital, Natural Capital (US), Shrug Capital",
+        "country": "United States",
+        "unicorn_as_of": "January 2026",
+        "year": "2026",
+        "industry": "Aerospace/Defense",
+        "founders": ""
+      }
+    },
+    {
+      "company": "Deliverect",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Deliverect"
+        }
+      },
+      "current": {
+        "id": "wiki-375",
+        "source": "wiki",
+        "company": "Deliverect",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Ordering software for POS",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Belgium",
+        "unicorn_as_of": "January 2022",
+        "year": "2022",
+        "industry": "SaaS/Enterprise",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-375",
+        "source": "wiki",
+        "company": "Deliverect",
+        "wikiLink": "https://en.wikipedia.org/wiki/Deliverect",
+        "wikiSlug": "Deliverect",
+        "description": "Ordering software for POS",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Belgium",
+        "unicorn_as_of": "January 2022",
+        "year": "2022",
+        "industry": "SaaS/Enterprise",
+        "founders": ""
+      }
+    },
+    {
+      "company": "Periodic",
+      "changes": {
+        "valuation_m": {
+          "from": 7000.0,
+          "to": 1300.0
+        }
+      },
+      "current": {
+        "id": "pb-849",
+        "source": "pb",
+        "tier": "B",
+        "company": "Periodic",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Operator of an AI-driven scientific research platform intended to create autonomous AI scientists and laboratories.",
+        "valuation_str": "$7B",
+        "valuation_m": 7000,
+        "vc_raised": "$300.0M",
+        "lead_investors": "Andreessen Horowitz, DST Global, Felicis",
+        "country": "United States",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "pb-849",
+        "source": "pb",
+        "tier": "B",
+        "company": "Periodic",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Operator of an AI-driven scientific research platform intended to create autonomous AI scientists and laboratories.",
+        "valuation_str": "$1.3B",
+        "valuation_m": 1300.0,
+        "vc_raised": "$300.0M",
+        "lead_investors": "Andreessen Horowitz, DST Global, Felicis",
+        "country": "United States",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": ""
+      }
     }
   ],
-  "generated_at": "2026-05-18T11:42:59Z"
+  "removals": [],
+  "generated_at": "2026-05-25T11:52:19Z"
 }

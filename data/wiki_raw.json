@@ -816,7 +816,7 @@
     "valuation_str": "$8.4B",
     "valuation_date": "January 2022",
     "industry_raw": "Transportation",
-    "country": "Estonia / France",
+    "country": "Estonia",
     "founders": "Markus Villig"
   },
   {
@@ -3751,7 +3751,7 @@
   },
   {
     "company": "Deliverect",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Deliverect",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "January 2022",
