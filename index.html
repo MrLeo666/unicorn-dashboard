@@ -328,15 +328,15 @@ function pickBestValuation(rec) {
       label: '$' + (fg.forge_valuation_m / 1000).toFixed(1).replace(/\.0$/, '') + 'B',
     });
   }
-  // Notice (latest event)
+  // Notice Weekly Update
   const nt = NOTICE[rec.company];
-  if (nt && nt.latest && nt.latest.valuation_b != null && nt.latest.valuation_b > 0) {
+  if (nt && nt.valuation_b != null && nt.valuation_b > 0) {
     candidates.push({
-      value_m: nt.latest.valuation_b * 1000,
+      value_m: nt.valuation_b * 1000,
       source: 'notice',
-      pps: nt.latest.pps ?? null,
-      date: nt.latest.date || null,
-      label: '$' + nt.latest.valuation_b + 'B',
+      pps: nt.pps ?? null,
+      date: nt.date || null,
+      label: '$' + (nt.valuation_b >= 1000 ? (nt.valuation_b/1000).toFixed(2)+'T' : nt.valuation_b+'B'),
     });
   }
   if (!candidates.length) return null;

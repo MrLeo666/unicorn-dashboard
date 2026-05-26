@@ -475,8 +475,8 @@ function renderTable() {
     const forgePps = c.forge && c.forge.price != null
       ? `<div title="Forge · ${c.forge.fetchedAt?.slice(0,10)||''}" class="${c.forge.valuation > (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-up' : c.forge.valuation < (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-down' : ''}"><span style="font-size:9px;opacity:0.6">F</span> $${c.forge.price.toFixed(2)}</div>`
       : '';
-    const noticePps = c.notice && c.notice.latest && c.notice.latest.pps != null
-      ? `<div title="Notice · ${c.notice.latest.type} · ${c.notice.latest.date}" style="color:#d8b4fe;font-size:11px"><span style="font-size:9px;opacity:0.6">N</span> $${c.notice.latest.pps}</div>`
+    const noticePps = c.notice && c.notice.pps != null
+      ? `<div title="Notice Weekly · ${c.notice.date}${c.notice.newIndications?` · ${c.notice.newIndications} new indications`:''}" style="color:#d8b4fe;font-size:11px"><span style="font-size:9px;opacity:0.6">N</span> $${c.notice.pps.toFixed(2)}${c.notice.ppsChange!=null?` <span style="font-size:9px;color:${c.notice.ppsChange>=0?'#86efac':'#fda4af'}">${c.notice.ppsChange>=0?'+':''}${c.notice.ppsChange.toFixed(2)}</span>`:''}</div>`
       : '';
     const forgeCell = (forgePps || noticePps) ? (forgePps + noticePps) : '<span style="color:#5a627c">—</span>';
     const tr = document.createElement("tr");

@@ -1,103 +1,87 @@
 {
-  "as_of": "2026-05-22",
-  "source": "notifications@notice.co (Notice.co secondary market platform)",
+  "as_of": "2026-05-25",
+  "period": "2026-05-18 to 2026-05-25",
+  "source": "Notice Weekly Update email (notifications@notice.co)",
   "extracted_at": "2026-05-26T00:00:00Z",
-  "extraction_method": "manual / Gmail MCP — pending GitHub Action automation",
-  "notes": "Notice 邮件三类：(A) Company Watchlist Update — 含 per-share pps 报价；(B) 公司单事件邮件（融资轮/Tender/IPO/Acquisition）— 含 raised/valuation/leads；(C) Weekly Update — 未抽取。公司名已规整到 unicorns.json 标准名（Notice 用 'OpenAI (ChatGPT)' 我们用 'OpenAI'；Notice 用 'Anduril' 我们用 'Anduril Industries'）。",
+  "extraction_method": "manual seed; will be replaced by scripts/scrape_notice_email.py via weekly GitHub Action",
+  "notes": "每周一封 Weekly Update 邮件覆盖整个 watchlist 的 pps + 估值 + 周变化 + new indications 数。比单事件邮件密度高得多。公司名规整到 unicorns.json 标准名：Notice 用 'Bytedance (TikTok)' 我们用 'ByteDance'；Notice 用 'OpenAI (ChatGPT)' 我们用 'OpenAI'；Notice 用 'Anduril' 我们用 'Anduril Industries'。",
   "records": {
-    "OpenAI": {
-      "latest": {
-        "type": "VC Round",
-        "round": "VC Round 02/26",
-        "raised_b": 110,
-        "valuation_b": 840,
-        "pps": 723.0,
-        "leads": "Amazon, SoftBank, Nvidia",
-        "date": "2026-02-28"
-      },
-      "events": [
-        { "type": "VC Round", "round": "VC Round 02/26", "raised_b": 110, "valuation_b": 840, "leads": "Amazon, SoftBank, Nvidia", "date": "2026-02-28" },
-        { "type": "Tender",   "raised_b": 6.5, "valuation_b": 500, "pps": 723.0, "date": "2025-12-20" }
-      ],
-      "series": []
-    },
     "SpaceX": {
-      "latest": {
-        "type": "IPO Filed",
-        "round": "IPO",
-        "raised_b": null,
-        "valuation_b": 800,
-        "pps": 420.69,
-        "leads": null,
-        "date": "2026-05-22"
-      },
-      "events": [
-        { "type": "IPO Filed", "date": "2026-05-22" },
-        { "type": "Tender",    "valuation_b": 800, "pps": 420.69, "date": "2025-12-20" }
-      ],
-      "series": []
+      "pps": 611.30,
+      "pps_change": 20.08,
+      "valuation_b": 1445.43,
+      "new_indications": 77,
+      "date": "2026-05-25",
+      "history": []
     },
     "Anthropic": {
-      "latest": {
-        "type": "Tender",
-        "round": "Tender",
-        "raised_b": 6,
-        "valuation_b": 35,
-        "pps": null,
-        "leads": null,
-        "date": "2026-04-14",
-        "_note": "二级 tender，估值低于一级 Series G 是正常的（不同卖方接受不同折扣）。Latest 取最近一笔。Series G ($380B) 是 lpx 估值的更可靠数。"
-      },
-      "events": [
-        { "type": "Tender",   "raised_b": 6,  "valuation_b": 35,  "date": "2026-04-14" },
-        { "type": "Series G", "raised_b": 30, "valuation_b": 380, "leads": "DE Shaw Group, Dragoneer, Founders Fund, ICONIQ, MGX | Accel, Addition, Alpha Wave, Altimeter, AMP, Appaloosa, Baillie Gifford", "date": "2026-02-13" }
-      ],
-      "series": [
-        { "name": "Series G-2", "pps": 259.1364, "date": "2026-02-26" },
-        { "name": "Series G-3", "pps": 20.928,   "date": "2026-02-26" },
-        { "name": "Series G-4", "pps": 233.2228, "date": "2026-02-26" },
-        { "name": "Series G-5", "pps": 50.4779,  "date": "2026-02-26" }
-      ]
+      "pps": 572.97,
+      "pps_change": 23.78,
+      "valuation_b": 840.21,
+      "new_indications": 36,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "OpenAI": {
+      "pps": 672.05,
+      "pps_change": 4.24,
+      "valuation_b": 825.18,
+      "new_indications": 7,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "ByteDance": {
+      "pps": 343.91,
+      "pps_change": -4.63,
+      "valuation_b": 564.96,
+      "new_indications": 1,
+      "date": "2026-05-25",
+      "history": []
     },
     "Anduril Industries": {
-      "latest": {
-        "type": "Series H",
-        "round": "Series H",
-        "raised_b": 5,
-        "valuation_b": 61,
-        "pps": null,
-        "leads": "Thrive Capital, Andreessen Horowitz",
-        "date": "2026-05-15"
-      },
-      "events": [
-        { "type": "Series H",       "raised_b": 5, "valuation_b": 61, "leads": "Thrive Capital, Andreessen Horowitz", "date": "2026-05-15" },
-        { "type": "VC Round",       "round": "VC Round 03/26", "raised_b": 4, "valuation_b": 60, "leads": "Thrive Capital, a16z", "date": "2026-03-10" }
-      ],
-      "series": []
+      "pps": 99.02,
+      "pps_change": 2.77,
+      "valuation_b": 87.60,
+      "new_indications": 12,
+      "date": "2026-05-25",
+      "history": []
     },
-    "xAI": {
-      "latest": {
-        "type": "Acquisition",
-        "round": "Acquisition",
-        "raised_b": null,
-        "valuation_b": 230,
-        "pps": null,
-        "leads": null,
-        "date": "2026-02-04"
-      },
-      "events": [
-        { "type": "Acquisition", "valuation_b": 230, "date": "2026-02-04" },
-        { "type": "Series F",    "raised_b": 20,    "leads": "Valor Equity Partners, StepStone Group, Fidelity, Qatar Investment Authority, MGX, Baron Capital, Nvidia, Cisco Investments", "date": "2026-01-08" }
-      ],
-      "series": []
+    "Kraken": {
+      "pps": 36.66,
+      "pps_change": -0.16,
+      "valuation_b": 11.93,
+      "new_indications": 2,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "Cognition AI": {
+      "pps": 43.32,
+      "pps_change": 0.68,
+      "valuation_b": 8.01,
+      "new_indications": 1,
+      "date": "2026-05-25",
+      "history": []
     }
   },
+  "most_active": [
+    { "company": "SpaceX", "indications": 77 },
+    { "company": "Anthropic", "indications": 36 },
+    { "company": "Anduril Industries", "indications": 12 },
+    { "company": "OpenAI", "indications": 7 },
+    { "company": "Neuralink", "indications": 5 },
+    { "company": "Databricks", "indications": 9 },
+    { "company": "Lambda", "indications": 1 },
+    { "company": "Polymarket", "indications": 1 },
+    { "company": "Stripe", "indications": 6 },
+    { "company": "Kraken", "indications": 2 }
+  ],
+  "notable_financings_note": "本周 $5.0B 跨 40 笔 later stage 融资",
   "_schema_hint": {
-    "records[company].latest.type": "事件类型: VC Round / Series X / Tender / Acquisition / IPO Filed / Direct Listing",
-    "records[company].latest.valuation_b": "$B; null = 无估值信息（如 IPO Filed 仅声明未定价）",
-    "records[company].latest.pps": "per-share price; null = 该笔事件未给 pps",
-    "records[company].latest.date": "事件日期 YYYY-MM-DD",
-    "records[company].events": "历史事件（含 latest），按日期降序",
-    "records[company].series": "Watchlist Update 邮件里的 share-class 报价，每个 series 一个 pps（注意：同公司不同 series pps 差异巨大，反映 conversion ratio）"
+    "records[company].pps": "Notice 平台周报当前每股价格 ($)",
+    "records[company].pps_change": "vs 上周变化 ($)，正数 = 涨",
+    "records[company].valuation_b": "implied valuation ($B)",
+    "records[company].new_indications": "周内新增 buy/sell indications 数",
+    "records[company].history": "历史周报，按日期降序，结构同 latest（不含 history 字段）",
+    "most_active": "全周活动最频繁的公司 Top 10（无价格信息）"
   }
 }

@@ -224,12 +224,12 @@ export function pickBestValuation({ wiki, forge, notice }) {
       label: "Forge Global",
     });
   }
-  if (notice && notice.latest && notice.latest.valuation_b != null && notice.latest.valuation_b > 0) {
+  if (notice && notice.valuation_b != null && notice.valuation_b > 0) {
     candidates.push({
-      value: notice.latest.valuation_b, source: "notice",
-      pps: notice.latest.pps ?? null,
-      date: notice.latest.date || null,
-      label: `Notice · ${notice.latest.type || "event"}`,
+      value: notice.valuation_b, source: "notice",
+      pps: notice.pps ?? null,
+      date: notice.date || null,
+      label: "Notice Weekly",
     });
   }
   if (!candidates.length) return null;
@@ -334,11 +334,14 @@ export function buildCompanies({ unicorns, overrides, forge, notice, overlay }) 
         fetchedAt: fg.fetched_at,
       } : null,
 
-      // —— Notice 邮件源 (含 valuation/pps/events/series) ——
+      // —— Notice 邮件源（Weekly Update，每周一封覆盖 watchlist 全集）——
       notice: (notice?.records?.[r.company]) ? {
-        latest: notice.records[r.company].latest || null,
-        events: notice.records[r.company].events || [],
-        series: notice.records[r.company].series || [],
+        pps:              notice.records[r.company].pps              ?? null,
+        ppsChange:        notice.records[r.company].pps_change       ?? null,
+        valuation_b:      notice.records[r.company].valuation_b      ?? null,
+        newIndications:   notice.records[r.company].new_indications  ?? null,
+        date:             notice.records[r.company].date             || null,
+        history:          notice.records[r.company].history          || [],
       } : null,
 
       // —— LQP 备注 ——

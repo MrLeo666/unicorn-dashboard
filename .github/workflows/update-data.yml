@@ -32,14 +32,26 @@ jobs:
         continue-on-error: true
         run: python scripts/scrape_forge.py
 
+      # Notice Weekly Update email — secondary-market quotes from notifications@notice.co
+      # 需要在 GitHub Secrets 配置:
+      #   GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_REFRESH_TOKEN
+      # 见 scripts/scrape_notice_email.py 顶部注释获取 refresh_token 的步骤。
+      - name: Scrape Notice Weekly Update (email)
+        continue-on-error: true
+        env:
+          GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+        run: python scripts/scrape_notice_email.py
+
       - name: Commit if changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/wiki_raw.json data/pending.json data/forge_data.json
+          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json
           if git diff --cached --quiet; then
             echo 'Nothing changed.'
           else
-            git commit -m "data: weekly Wikipedia + Forge refresh"
+            git commit -m "data: weekly Wikipedia + Forge + Notice refresh"
             git push
           fi

@@ -250,11 +250,8 @@ function render() {
             ${c.forge && c.forge.valuation ? `
               <div class="val-sub"><span style="color:#86efac">F</span> Forge：<b style="color:#fff">${esc(fmtVal(Math.round(c.forge.valuation*10)/10))}</b> · $${c.forge.price?.toFixed(2)||'—'}/股 · ${c.forge.fetchedAt?.slice(0,10)||'—'}</div>
             ` : '<div class="val-sub" style="opacity:0.5"><span>F</span> Forge：—</div>'}
-            ${c.notice && c.notice.latest ? `
-              <div class="val-sub"><span style="color:#d8b4fe">N</span> Notice：<b style="color:#fff">${c.notice.latest.valuation_b ? '$'+c.notice.latest.valuation_b+'B' : '—'}</b>${c.notice.latest.pps?` · $${c.notice.latest.pps}/股`:''} · <span style="color:#d8b4fe">${esc(c.notice.latest.type||'')}</span> · ${c.notice.latest.date}</div>
-              ${c.notice.series && c.notice.series.length ? `
-                <div class="val-sub" style="margin-top:4px;font-size:10px">  ${c.notice.series.length} 个 share class：${c.notice.series.map(s => `${s.name.replace(/^Series /,'')} $${s.pps}`).join(' · ')}</div>
-              ` : ''}
+            ${c.notice ? `
+              <div class="val-sub"><span style="color:#d8b4fe">N</span> Notice Weekly：<b style="color:#fff">${c.notice.valuation_b ? '$'+c.notice.valuation_b.toFixed(2)+'B' : '—'}</b>${c.notice.pps?` · $${c.notice.pps.toFixed(2)}/股${c.notice.ppsChange!=null?` <span style="color:${c.notice.ppsChange>=0?'#86efac':'#fda4af'}">${c.notice.ppsChange>=0?'+':''}${c.notice.ppsChange.toFixed(2)}</span>`:''}`:''} · ${c.notice.date}${c.notice.newIndications?` · ${c.notice.newIndications} new indications`:''}</div>
             ` : '<div class="val-sub" style="opacity:0.5"><span>N</span> Notice：—</div>'}
           </div>
           <div>
@@ -502,7 +499,7 @@ function exportMemo() {
 | Wikipedia/Admin | **${c.valuationStr}**${c.lastRound?' · '+c.lastRound:''} |
 | 估值来源 | ${c.valuationSource||'—'} · ${c.lastRound||'—'} |
 | Forge 二级 | ${c.forge?.valuation ? fmtVal(Math.round(c.forge.valuation*10)/10) + ' · $'+ c.forge.price?.toFixed(2) +'/sh · ' + (c.forge.fetchedAt?.slice(0,10)||'—') : '—'} |
-| Notice 报价 | ${c.notice?.latest ? (c.notice.latest.valuation_b?'$'+c.notice.latest.valuation_b+'B · ':'') + (c.notice.latest.pps?'$'+c.notice.latest.pps+'/sh · ':'') + (c.notice.latest.type||'') + ' · ' + c.notice.latest.date : '—'} |
+| Notice 报价 | ${c.notice ? (c.notice.valuation_b?'$'+c.notice.valuation_b.toFixed(2)+'B · ':'') + (c.notice.pps?'$'+c.notice.pps.toFixed(2)+'/sh':'') + (c.notice.ppsChange!=null?' ('+(c.notice.ppsChange>=0?'+':'')+c.notice.ppsChange.toFixed(2)+')':'') + ' · ' + c.notice.date + (c.notice.newIndications?' · '+c.notice.newIndications+' indications':'') : '—'} |
 | 领投/股东 | ${c.leads||'—'} |
 | 创始人 | ${c.founders||'—'} |
 | Pipeline | ${PIPELINE[c.pipeline]||c.pipeline} |
