@@ -77,6 +77,9 @@
     "Varda": {
       "valuation_m": 7000,
       "valuation_str": "$7B"
+    },
+    "Deliverect": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Deliverect"
     }
   },
   "additions": [
@@ -96,17 +99,6 @@
       "year": "2026",
       "industry": "Fintech",
       "founders": "Nico Laqua, Emily Yuan"
-    },
-    {
-      "company": "Ricursive Intelligence",
-      "companyZh": "",
-      "pinyinInitial": "",
-      "valuation_m": 4000,
-      "valuation_str": "$4B",
-      "country": "United States",
-      "industry": "AI/ML",
-      "description": "",
-      "wikiLink": "https://www.ricursive.com/"
     }
   ],
   "deletions": [
