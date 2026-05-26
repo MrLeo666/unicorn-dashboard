@@ -1,0 +1,103 @@
+{
+  "as_of": "2026-05-22",
+  "source": "notifications@notice.co (Notice.co secondary market platform)",
+  "extracted_at": "2026-05-26T00:00:00Z",
+  "extraction_method": "manual / Gmail MCP — pending GitHub Action automation",
+  "notes": "Notice 邮件三类：(A) Company Watchlist Update — 含 per-share pps 报价；(B) 公司单事件邮件（融资轮/Tender/IPO/Acquisition）— 含 raised/valuation/leads；(C) Weekly Update — 未抽取。公司名已规整到 unicorns.json 标准名（Notice 用 'OpenAI (ChatGPT)' 我们用 'OpenAI'；Notice 用 'Anduril' 我们用 'Anduril Industries'）。",
+  "records": {
+    "OpenAI": {
+      "latest": {
+        "type": "VC Round",
+        "round": "VC Round 02/26",
+        "raised_b": 110,
+        "valuation_b": 840,
+        "pps": 723.0,
+        "leads": "Amazon, SoftBank, Nvidia",
+        "date": "2026-02-28"
+      },
+      "events": [
+        { "type": "VC Round", "round": "VC Round 02/26", "raised_b": 110, "valuation_b": 840, "leads": "Amazon, SoftBank, Nvidia", "date": "2026-02-28" },
+        { "type": "Tender",   "raised_b": 6.5, "valuation_b": 500, "pps": 723.0, "date": "2025-12-20" }
+      ],
+      "series": []
+    },
+    "SpaceX": {
+      "latest": {
+        "type": "IPO Filed",
+        "round": "IPO",
+        "raised_b": null,
+        "valuation_b": 800,
+        "pps": 420.69,
+        "leads": null,
+        "date": "2026-05-22"
+      },
+      "events": [
+        { "type": "IPO Filed", "date": "2026-05-22" },
+        { "type": "Tender",    "valuation_b": 800, "pps": 420.69, "date": "2025-12-20" }
+      ],
+      "series": []
+    },
+    "Anthropic": {
+      "latest": {
+        "type": "Tender",
+        "round": "Tender",
+        "raised_b": 6,
+        "valuation_b": 35,
+        "pps": null,
+        "leads": null,
+        "date": "2026-04-14",
+        "_note": "二级 tender，估值低于一级 Series G 是正常的（不同卖方接受不同折扣）。Latest 取最近一笔。Series G ($380B) 是 lpx 估值的更可靠数。"
+      },
+      "events": [
+        { "type": "Tender",   "raised_b": 6,  "valuation_b": 35,  "date": "2026-04-14" },
+        { "type": "Series G", "raised_b": 30, "valuation_b": 380, "leads": "DE Shaw Group, Dragoneer, Founders Fund, ICONIQ, MGX | Accel, Addition, Alpha Wave, Altimeter, AMP, Appaloosa, Baillie Gifford", "date": "2026-02-13" }
+      ],
+      "series": [
+        { "name": "Series G-2", "pps": 259.1364, "date": "2026-02-26" },
+        { "name": "Series G-3", "pps": 20.928,   "date": "2026-02-26" },
+        { "name": "Series G-4", "pps": 233.2228, "date": "2026-02-26" },
+        { "name": "Series G-5", "pps": 50.4779,  "date": "2026-02-26" }
+      ]
+    },
+    "Anduril Industries": {
+      "latest": {
+        "type": "Series H",
+        "round": "Series H",
+        "raised_b": 5,
+        "valuation_b": 61,
+        "pps": null,
+        "leads": "Thrive Capital, Andreessen Horowitz",
+        "date": "2026-05-15"
+      },
+      "events": [
+        { "type": "Series H",       "raised_b": 5, "valuation_b": 61, "leads": "Thrive Capital, Andreessen Horowitz", "date": "2026-05-15" },
+        { "type": "VC Round",       "round": "VC Round 03/26", "raised_b": 4, "valuation_b": 60, "leads": "Thrive Capital, a16z", "date": "2026-03-10" }
+      ],
+      "series": []
+    },
+    "xAI": {
+      "latest": {
+        "type": "Acquisition",
+        "round": "Acquisition",
+        "raised_b": null,
+        "valuation_b": 230,
+        "pps": null,
+        "leads": null,
+        "date": "2026-02-04"
+      },
+      "events": [
+        { "type": "Acquisition", "valuation_b": 230, "date": "2026-02-04" },
+        { "type": "Series F",    "raised_b": 20,    "leads": "Valor Equity Partners, StepStone Group, Fidelity, Qatar Investment Authority, MGX, Baron Capital, Nvidia, Cisco Investments", "date": "2026-01-08" }
+      ],
+      "series": []
+    }
+  },
+  "_schema_hint": {
+    "records[company].latest.type": "事件类型: VC Round / Series X / Tender / Acquisition / IPO Filed / Direct Listing",
+    "records[company].latest.valuation_b": "$B; null = 无估值信息（如 IPO Filed 仅声明未定价）",
+    "records[company].latest.pps": "per-share price; null = 该笔事件未给 pps",
+    "records[company].latest.date": "事件日期 YYYY-MM-DD",
+    "records[company].events": "历史事件（含 latest），按日期降序",
+    "records[company].series": "Watchlist Update 邮件里的 share-class 报价，每个 series 一个 pps（注意：同公司不同 series pps 差异巨大，反映 conversion ratio）"
+  }
+}

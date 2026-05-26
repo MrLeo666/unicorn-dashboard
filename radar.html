@@ -236,8 +236,8 @@
           <th>公司</th>
           <th>地区</th>
           <th>赛道</th>
-          <th>估值</th>
-          <th>Forge 二级</th>
+          <th>估值<div style="font-size:9px;color:#6c7494;font-weight:400">最高源</div></th>
+          <th>二级 pps<div style="font-size:9px;color:#6c7494;font-weight:400">Forge / Notice</div></th>
           <th>赛道 信心</th>
           <th>质地</th>
           <th>流动性</th>
@@ -461,9 +461,24 @@ function renderTable() {
     const score = radarScore(c, WEIGHTS);
     const shortlisted = isShortlisted(c, WEIGHTS);
     const fr = freshness(c);
-    const forgeCell = c.forge && c.forge.valuation != null
-      ? `<span class="${c.forge.valuation > (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-up' : c.forge.valuation < (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-down' : ''}">${fmtVal(Math.round(c.forge.valuation*10)/10)}</span>`
-      : '<span style="color:#5a627c">—</span>';
+    // 估值列：用 bestValuation（三源最高），加 W/F/N 徽章 + 估值差距提示
+    const best = c.bestValuation;
+    const srcMap = { wiki: { tag: 'W', color: '#9aa0ab', name: 'Wikipedia/Admin' },
+                     forge: { tag: 'F', color: '#86efac', name: 'Forge Global' },
+                     notice: { tag: 'N', color: '#d8b4fe', name: 'Notice' } };
+    const bestSrc = best ? srcMap[best.source] : null;
+    const valuationCell = best
+      ? `<div style="font-weight:600">${esc(fmtVal(Math.round(best.value*10)/10))}<span style="margin-left:6px;font-size:9px;padding:1px 5px;border-radius:3px;background:${bestSrc.color}22;color:${bestSrc.color};font-weight:600" title="${bestSrc.name}${best.date?' · '+best.date:''}">${bestSrc.tag}</span></div>${best.value > c.valuation ? `<div style="font-size:9px;color:#86efac">↑ vs Wiki $${c.valuation}B</div>` : ''}`
+      : `<div style="font-weight:600">${esc(c.valuationStr)}</div>`;
+
+    // 二级 pps 列：Forge $/sh + Notice $/sh（如有），紫色区分 Notice
+    const forgePps = c.forge && c.forge.price != null
+      ? `<div title="Forge · ${c.forge.fetchedAt?.slice(0,10)||''}" class="${c.forge.valuation > (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-up' : c.forge.valuation < (c.forge.prevValuation ?? c.forge.valuation) ? 'forge-down' : ''}"><span style="font-size:9px;opacity:0.6">F</span> $${c.forge.price.toFixed(2)}</div>`
+      : '';
+    const noticePps = c.notice && c.notice.latest && c.notice.latest.pps != null
+      ? `<div title="Notice · ${c.notice.latest.type} · ${c.notice.latest.date}" style="color:#d8b4fe;font-size:11px"><span style="font-size:9px;opacity:0.6">N</span> $${c.notice.latest.pps}</div>`
+      : '';
+    const forgeCell = (forgePps || noticePps) ? (forgePps + noticePps) : '<span style="color:#5a627c">—</span>';
     const tr = document.createElement("tr");
     if (shortlisted) tr.classList.add("shortlist");
     tr.innerHTML = `
@@ -475,7 +490,7 @@ function renderTable() {
       </td>
       <td><span class="geo-pill ${c.geo==='CN'?'cn':''}">${c.geo}</span></td>
       <td><span style="color:${SECTOR_COLOR[c.sector]||'#888'}">●</span> ${esc(c.sector)}</td>
-      <td style="font-weight:600">${esc(c.valuationStr)}</td>
+      <td>${valuationCell}</td>
       <td class="forge-cell">${forgeCell}</td>
       ${RADAR_DIMS.map(d => {
         const v = c.radar.ratings[d.k] || 3;

@@ -240,13 +240,22 @@ function render() {
             </div>
           </div>
           <div>
-            <div class="val">${esc(c.valuationStr)}</div>
-            <div class="val-sub">最近一轮 / 估值来源：${esc(c.valuationSource||'—')}</div>
-            <div class="val-sub">${esc(c.lastRound||'—')}</div>
+            <div class="val">${esc(fmtVal(Math.round((c.bestValuation?.value || c.valuation) * 10) / 10))}</div>
+            <div class="val-sub">最高源：<b style="color:${c.bestValuation?.source==='wiki'?'#9aa0ab':c.bestValuation?.source==='forge'?'#86efac':'#d8b4fe'}">${esc(c.bestValuation?.label || c.valuationSource || '—')}</b>${c.bestValuation?.date?` · ${c.bestValuation.date}`:''}</div>
+            <div class="val-sub" style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.08)">三源对比：</div>
+            <div class="val-sub">
+              <span style="color:#9aa0ab">W</span> Wikipedia/Admin：<b style="color:#fff">${esc(fmtVal(Math.round(c.valuation*10)/10))}</b>
+              ${c.lastRound ? ` <span style="opacity:0.6">· ${esc(c.lastRound)}</span>` : ''}
+            </div>
             ${c.forge && c.forge.valuation ? `
-              <div class="val-sub" style="margin-top:6px">Forge 二级估值：<b style="color:#fff">${esc(fmtVal(Math.round(c.forge.valuation*10)/10))}</b></div>
-              <div class="val-sub">$/股：$${c.forge.price?.toFixed(2)||'—'} · 取数 ${c.forge.fetchedAt?.slice(0,10)||'—'}</div>
-            ` : ''}
+              <div class="val-sub"><span style="color:#86efac">F</span> Forge：<b style="color:#fff">${esc(fmtVal(Math.round(c.forge.valuation*10)/10))}</b> · $${c.forge.price?.toFixed(2)||'—'}/股 · ${c.forge.fetchedAt?.slice(0,10)||'—'}</div>
+            ` : '<div class="val-sub" style="opacity:0.5"><span>F</span> Forge：—</div>'}
+            ${c.notice && c.notice.latest ? `
+              <div class="val-sub"><span style="color:#d8b4fe">N</span> Notice：<b style="color:#fff">${c.notice.latest.valuation_b ? '$'+c.notice.latest.valuation_b+'B' : '—'}</b>${c.notice.latest.pps?` · $${c.notice.latest.pps}/股`:''} · <span style="color:#d8b4fe">${esc(c.notice.latest.type||'')}</span> · ${c.notice.latest.date}</div>
+              ${c.notice.series && c.notice.series.length ? `
+                <div class="val-sub" style="margin-top:4px;font-size:10px">  ${c.notice.series.length} 个 share class：${c.notice.series.map(s => `${s.name.replace(/^Series /,'')} $${s.pps}`).join(' · ')}</div>
+              ` : ''}
+            ` : '<div class="val-sub" style="opacity:0.5"><span>N</span> Notice：—</div>'}
           </div>
           <div>
             <div class="meta">
@@ -489,9 +498,11 @@ function exportMemo() {
 | 公司 | ${c.name}${c.nameZh?` · ${c.nameZh}`:''} |
 | 地区 | ${c.geo} (${c.country||'—'}) |
 | 赛道 | ${c.sector} (${c.industryRaw||'—'}) |
-| 当前估值 | **${c.valuationStr}** |
+| 当前估值（最高源） | **${c.bestValuation ? fmtVal(Math.round(c.bestValuation.value*10)/10) : c.valuationStr}** · ${c.bestValuation?.label || '—'}${c.bestValuation?.date?' · '+c.bestValuation.date:''} |
+| Wikipedia/Admin | **${c.valuationStr}**${c.lastRound?' · '+c.lastRound:''} |
 | 估值来源 | ${c.valuationSource||'—'} · ${c.lastRound||'—'} |
-| Forge 二级 | ${c.forge?.valuation ? fmtVal(Math.round(c.forge.valuation*10)/10) + ' (' + c.forge.fetchedAt?.slice(0,10) + ')' : '—'} |
+| Forge 二级 | ${c.forge?.valuation ? fmtVal(Math.round(c.forge.valuation*10)/10) + ' · $'+ c.forge.price?.toFixed(2) +'/sh · ' + (c.forge.fetchedAt?.slice(0,10)||'—') : '—'} |
+| Notice 报价 | ${c.notice?.latest ? (c.notice.latest.valuation_b?'$'+c.notice.latest.valuation_b+'B · ':'') + (c.notice.latest.pps?'$'+c.notice.latest.pps+'/sh · ':'') + (c.notice.latest.type||'') + ' · ' + c.notice.latest.date : '—'} |
 | 领投/股东 | ${c.leads||'—'} |
 | 创始人 | ${c.founders||'—'} |
 | Pipeline | ${PIPELINE[c.pipeline]||c.pipeline} |

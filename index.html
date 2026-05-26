@@ -253,6 +253,7 @@ let SHOW_ARCHIVED = false;
 // scripts/scrape_forge.py for the Top 100 by valuation. The dashboard reads it directly;
 // admin overrides do not apply.
 let FORGE = {};
+let NOTICE = {};
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -275,9 +276,72 @@ async function loadData() {
       FORGE = (fb && fb.records) || {};
     }
   } catch {}
+  // notice_secondary.json is optional; missing → bubbles render without Notice overlay
+  try {
+    const n = await fetch('./data/notice_secondary.json?t=' + ts);
+    if (n.ok) {
+      const nb = await n.json();
+      NOTICE = (nb && nb.records) || {};
+    }
+  } catch {}
   DATA_FULL = applyOverridesClient(base, overrides);
+  // 跨源最高估值选择（Wiki / Forge / Notice），结果写回 valuation_m + valuation_str + _bestSource
+  // 这样后续所有渲染（气泡、treemap、表格）都自动用最高估值，不需要改下游代码
+  for (const r of DATA_FULL) {
+    const best = pickBestValuation(r);
+    if (best && best.value_m > (r.valuation_m || 0)) {
+      r._origValuationM = r.valuation_m;
+      r._origValuationStr = r.valuation_str;
+      r.valuation_m = best.value_m;
+      r.valuation_str = best.label;
+    }
+    r._bestSource = best ? best.source : 'wiki';
+    r._bestPps = best ? best.pps : null;
+    r._bestDate = best ? best.date : null;
+  }
   DATA_FULL.sort((a, b) => b.valuation_m - a.valuation_m);
   applyArchivedFilter();
+}
+
+/* 跨源最高估值 —— 与 lqp_core.js 的 pickBestValuation 等价，但作用于气球看板的扁平记录
+   返回 { value_m, label ($XXXB), source, pps, date } 或 null */
+function pickBestValuation(rec) {
+  const candidates = [];
+  // Wikipedia / admin override
+  if (rec.valuation_m != null && rec.valuation_m > 0) {
+    candidates.push({
+      value_m: rec.valuation_m,
+      source: 'wiki',
+      pps: null,
+      date: rec.unicorn_as_of || null,
+      label: '$' + (rec.valuation_m / 1000).toFixed(1).replace(/\.0$/, '') + 'B',
+    });
+  }
+  // Forge
+  const fg = FORGE[rec.company];
+  if (fg && fg.forge_valuation_m != null && fg.forge_valuation_m > 0) {
+    candidates.push({
+      value_m: fg.forge_valuation_m,
+      source: 'forge',
+      pps: fg.forge_price ?? null,
+      date: fg.fetched_at?.slice(0, 10) || null,
+      label: '$' + (fg.forge_valuation_m / 1000).toFixed(1).replace(/\.0$/, '') + 'B',
+    });
+  }
+  // Notice (latest event)
+  const nt = NOTICE[rec.company];
+  if (nt && nt.latest && nt.latest.valuation_b != null && nt.latest.valuation_b > 0) {
+    candidates.push({
+      value_m: nt.latest.valuation_b * 1000,
+      source: 'notice',
+      pps: nt.latest.pps ?? null,
+      date: nt.latest.date || null,
+      label: '$' + nt.latest.valuation_b + 'B',
+    });
+  }
+  if (!candidates.length) return null;
+  candidates.sort((a, b) => b.value_m - a.value_m);
+  return candidates[0];
 }
 
 // 在 DATA_FULL 上做归档过滤，把结果写回 DATA。
@@ -885,61 +949,54 @@ function drawBubble(p) {
       // Tier 2-5: full company name (Chinese if available) + valuation label
       drawArtName(ctx, displayName, x, y, r, colors);
       if (r >= TIER_R[2] * 0.85) {
-        // If Forge secondary-market data exists, it REPLACES the canonical
-        // valuation_str (price-per-share + Forge implied valuation rendered as
-        // two stacked lines). Otherwise render the canonical valuation as before.
+        // 最高估值来自三源（Wiki / Forge / Notice）之一；valuation_m 已被替换为最高值
+        // - 若最高源是 Forge → 显示 pps + 估值 + (Forge 涨跌色)
+        // - 若最高源是 Notice 且有 pps → 显示 pps + 估值 (紫色 pps)
+        // - 否则（Wiki 或 Notice 无 pps）→ 单行估值
+        const bs = p.d._bestSource || 'wiki';
+        const bp = p.d._bestPps;
         const fg = FORGE[p.d.company];
-        const hasForge = fg && (fg.forge_price != null || fg.forge_valuation_m != null);
+        const valTxt = p.d.valuation_str || '';
+        let priceTxt = '', priceColor = '#fff';
+        if (bs === 'forge' && fg) {
+          priceTxt = fg.forge_price != null
+            ? fmtForgePrice(fg.forge_price) + pctSuffix(fg.forge_price, fg.prev_forge_price)
+            : '';
+          priceColor = forgeColor(fg.forge_price, fg.prev_forge_price) || '#ffffff';
+        } else if (bs === 'notice' && bp != null) {
+          priceTxt = '$' + (bp >= 100 ? bp.toFixed(0) : bp.toFixed(2));
+          priceColor = '#d8b4fe';  // 紫色 = Notice
+        }
 
         ctx.globalAlpha = alpha;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        if (hasForge) {
-          // Build "(±X.X%)" suffix when prev exists, blank otherwise.
-          const priceTxt = fg.forge_price != null
-            ? fmtForgePrice(fg.forge_price) + pctSuffix(fg.forge_price, fg.prev_forge_price)
-            : '';
-          const valTxt   = fg.forge_valuation_m != null
-            ? fmtForgeVal(fg.forge_valuation_m) + pctSuffix(fg.forge_valuation_m, fg.prev_forge_valuation_m)
-            : '';
-          // Color: only the PRICE line gets red/green vs prev. Valuation stays
-          // neutral (inherits the bubble's contrast-appropriate text color).
-          const priceColor = forgeColor(fg.forge_price, fg.prev_forge_price) || '#ffffff';
-          // Two stacked lines, occupying roughly the same vertical band the
-          // single canonical valuation used to live in.
+        if (priceTxt) {
+          // 双行：pps 上 / 估值 下
           const yPrice = y + r * 0.42;
           const yVal   = y + r * 0.66;
-          // Font size constraints:
-          //   1. r * 0.20  — global cap (slightly smaller than canonical so two
-          //                  lines fit inside the sphere comfortably).
-          //   2. chord-at-lowest-line — guarantees text never escapes the circle.
-          const dyMax  = (yVal - y) / r;                          // 0.66
+          const dyMax  = (yVal - y) / r;
           const chord  = 2 * r * Math.sqrt(Math.max(0.05, 1 - dyMax * dyMax));
           const longest = Math.max(priceTxt.length, valTxt.length, 1);
           const charW  = 0.55;
-          let forgeFont = Math.min(r * 0.20, (chord * 0.88) / (longest * charW));
-          forgeFont = Math.max(8, forgeFont);
-
-          ctx.font = '800 ' + forgeFont + 'px -apple-system, "SF Pro Display", sans-serif';
+          let fSize = Math.min(r * 0.20, (chord * 0.88) / (longest * charW));
+          fSize = Math.max(8, fSize);
+          ctx.font = '800 ' + fSize + 'px -apple-system, "SF Pro Display", sans-serif';
           ctx.shadowColor = 'rgba(0,0,0,0.55)';
           ctx.shadowBlur = Math.max(2, r * 0.035);
-          if (priceTxt) {
-            ctx.fillStyle = priceColor;
-            ctx.fillText(priceTxt, x, yPrice);
-          }
-          if (valTxt) {
-            ctx.fillStyle = colors.valFg;  // neutral — same color as canonical valuation
-            ctx.fillText(valTxt, x, yVal);
-          }
+          ctx.fillStyle = priceColor;
+          ctx.fillText(priceTxt, x, yPrice);
+          ctx.fillStyle = colors.valFg;
+          ctx.fillText(valTxt, x, yVal);
           ctx.shadowBlur = 0;
         } else {
-          // No Forge data — fall back to the canonical valuation label.
+          // 单行：仅显示估值
           ctx.fillStyle = colors.valFg;
           const valFontSize = Math.max(8, r * 0.20);
           ctx.font = '700 ' + valFontSize + 'px -apple-system, "SF Pro Display", sans-serif';
           ctx.shadowColor = colors.valShadow; ctx.shadowBlur = Math.max(2, r * 0.025);
-          ctx.fillText(p.d.valuation_str, x, y + r * 0.66);
+          ctx.fillText(valTxt, x, y + r * 0.66);
           ctx.shadowBlur = 0;
         }
       }

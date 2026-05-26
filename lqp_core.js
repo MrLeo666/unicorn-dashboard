@@ -190,22 +190,55 @@ export async function fetchSources(basePath = "./data") {
       return await r.json();
     } catch { return fallback; }
   };
-  const [unicorns, overrides, forge, overlay] = await Promise.all([
+  const [unicorns, overrides, forge, notice, overlay] = await Promise.all([
     safe(`${basePath}/unicorns.json`, []),
     safe(`${basePath}/overrides.json`, { edits: {}, additions: [], deletions: [] }),
     safe(`${basePath}/forge_data.json`, { records: {} }),
+    safe(`${basePath}/notice_secondary.json`, { records: {} }),
     safe(`${basePath}/lqp_overlay.json`, {
       version: 1, exclusions: [], aliases: {}, sector_map: {}, ratings: {},
       pipeline: {}, watchlist: [], diligence: {}, client: {}, notes: {}
     }),
   ]);
-  return { unicorns, overrides, forge, overlay };
+  return { unicorns, overrides, forge, notice, overlay };
 }
 
 /* ------------------------------------------------------------------ *
  *  主聚合函数 —— 输出统一 LQP 公司记录
  * ------------------------------------------------------------------ */
-export function buildCompanies({ unicorns, overrides, forge, overlay }) {
+/* ------------------------------------------------------------------ *
+ *  跨源最高估值选择 —— Wikipedia / Forge / Notice 三源比较
+ *  返回 { value, source, pps, date, label } —— value 是 $B；
+ *  若所有源都无估值返回 null。
+ * ------------------------------------------------------------------ */
+export function pickBestValuation({ wiki, forge, notice }) {
+  const candidates = [];
+  if (wiki && wiki.value != null && wiki.value > 0) {
+    candidates.push({ value: wiki.value, source: "wiki", pps: null, date: wiki.date || null, label: "Wikipedia / Admin" });
+  }
+  if (forge && forge.valuation != null && forge.valuation > 0) {
+    candidates.push({
+      value: forge.valuation, source: "forge",
+      pps: forge.price ?? null,
+      date: forge.fetchedAt?.slice(0,10) || null,
+      label: "Forge Global",
+    });
+  }
+  if (notice && notice.latest && notice.latest.valuation_b != null && notice.latest.valuation_b > 0) {
+    candidates.push({
+      value: notice.latest.valuation_b, source: "notice",
+      pps: notice.latest.pps ?? null,
+      date: notice.latest.date || null,
+      label: `Notice · ${notice.latest.type || "event"}`,
+    });
+  }
+  if (!candidates.length) return null;
+  // 取估值最大那条
+  candidates.sort((a, b) => b.value - a.value);
+  return candidates[0];
+}
+
+export function buildCompanies({ unicorns, overrides, forge, notice, overlay }) {
   // 1. 基线合并
   const merged = mergeOverrides(unicorns, overrides);
 
@@ -301,8 +334,26 @@ export function buildCompanies({ unicorns, overrides, forge, overlay }) {
         fetchedAt: fg.fetched_at,
       } : null,
 
+      // —— Notice 邮件源 (含 valuation/pps/events/series) ——
+      notice: (notice?.records?.[r.company]) ? {
+        latest: notice.records[r.company].latest || null,
+        events: notice.records[r.company].events || [],
+        series: notice.records[r.company].series || [],
+      } : null,
+
       // —— LQP 备注 ——
       notes: overlay.notes?.[r.company] || "",
+    });
+  }
+
+  // —— 第二轮：给每条记录计算跨源最高估值 ——
+  // 三源比较：Wikipedia/Admin override (records[i].valuation) · Forge · Notice
+  // 显示规则：dashboard / 气球看板 / 雷达表 / 一页纸都以 bestValuation 为准
+  for (const c of records) {
+    c.bestValuation = pickBestValuation({
+      wiki: { value: c.valuation, date: c.lastRoundDate },
+      forge: c.forge,
+      notice: c.notice,
     });
   }
 
