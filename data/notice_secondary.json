@@ -2,31 +2,15 @@
   "as_of": "2026-05-25",
   "period": "2026-05-18 to 2026-05-25",
   "source": "Notice Weekly Update email (notifications@notice.co)",
-  "extracted_at": "2026-05-26T00:00:00Z",
-  "extraction_method": "manual seed; will be replaced by scripts/scrape_notice_email.py via weekly GitHub Action",
-  "notes": "每周一封 Weekly Update 邮件覆盖整个 watchlist 的 pps + 估值 + 周变化 + new indications 数。比单事件邮件密度高得多。公司名规整到 unicorns.json 标准名：Notice 用 'Bytedance (TikTok)' 我们用 'ByteDance'；Notice 用 'OpenAI (ChatGPT)' 我们用 'OpenAI'；Notice 用 'Anduril' 我们用 'Anduril Industries'。",
+  "extracted_at": "2026-05-27T10:30:32.705265Z",
+  "extraction_method": "scripts/scrape_notice_email.py via GitHub Action",
+  "notes": "每周一封 Weekly Update 邮件覆盖 watchlist 全集。公司名已规整。",
   "records": {
     "SpaceX": {
-      "pps": 611.30,
+      "pps": 611.3,
       "pps_change": 20.08,
       "valuation_b": 1445.43,
       "new_indications": 77,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "Anthropic": {
-      "pps": 572.97,
-      "pps_change": 23.78,
-      "valuation_b": 840.21,
-      "new_indications": 36,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "OpenAI": {
-      "pps": 672.05,
-      "pps_change": 4.24,
-      "valuation_b": 825.18,
-      "new_indications": 7,
       "date": "2026-05-25",
       "history": []
     },
@@ -38,11 +22,27 @@
       "date": "2026-05-25",
       "history": []
     },
+    "OpenAI": {
+      "pps": 672.05,
+      "pps_change": 4.24,
+      "valuation_b": 825.18,
+      "new_indications": 7,
+      "date": "2026-05-25",
+      "history": []
+    },
     "Anduril Industries": {
       "pps": 99.02,
       "pps_change": 2.77,
-      "valuation_b": 87.60,
+      "valuation_b": 87.6,
       "new_indications": 12,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "Anthropic": {
+      "pps": 572.97,
+      "pps_change": 23.78,
+      "valuation_b": 840.21,
+      "new_indications": 36,
       "date": "2026-05-25",
       "history": []
     },
@@ -64,18 +64,47 @@
     }
   },
   "most_active": [
-    { "company": "SpaceX", "indications": 77 },
-    { "company": "Anthropic", "indications": 36 },
-    { "company": "Anduril Industries", "indications": 12 },
-    { "company": "OpenAI", "indications": 7 },
-    { "company": "Neuralink", "indications": 5 },
-    { "company": "Databricks", "indications": 9 },
-    { "company": "Lambda", "indications": 1 },
-    { "company": "Polymarket", "indications": 1 },
-    { "company": "Stripe", "indications": 6 },
-    { "company": "Kraken", "indications": 2 }
+    {
+      "company": "SpaceX",
+      "indications": 77
+    },
+    {
+      "company": "Anthropic",
+      "indications": 36
+    },
+    {
+      "company": "Anduril Industries",
+      "indications": 12
+    },
+    {
+      "company": "OpenAI",
+      "indications": 7
+    },
+    {
+      "company": "Neuralink",
+      "indications": 5
+    },
+    {
+      "company": "Databricks",
+      "indications": 9
+    },
+    {
+      "company": "Lambda",
+      "indications": 1
+    },
+    {
+      "company": "Polymarket",
+      "indications": 1
+    },
+    {
+      "company": "Stripe",
+      "indications": 6
+    },
+    {
+      "company": "Kraken",
+      "indications": 2
+    }
   ],
-  "notable_financings_note": "本周 $5.0B 跨 40 笔 later stage 融资",
   "_schema_hint": {
     "records[company].pps": "Notice 平台周报当前每股价格 ($)",
     "records[company].pps_change": "vs 上周变化 ($)，正数 = 涨",
