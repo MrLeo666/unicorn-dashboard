@@ -99,6 +99,17 @@
       "year": "2026",
       "industry": "Fintech",
       "founders": "Nico Laqua, Emily Yuan"
+    },
+    {
+      "company": "Kraken",
+      "companyZh": "",
+      "pinyinInitial": "",
+      "valuation_m": 11930,
+      "valuation_str": "$11.93B",
+      "country": "United States",
+      "industry": "Crypto/Web3",
+      "description": "",
+      "wikiLink": "https://en.wikipedia.org/wiki/Kraken"
     }
   ],
   "deletions": [
