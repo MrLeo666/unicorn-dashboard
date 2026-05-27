@@ -667,7 +667,8 @@ function physicsStep(now, dt) {
   // user can read its tooltip without it sliding away.
   for (const p of PARTICLES) {
     if (!p.visible) continue;
-    if (HOVER && HOVER === p) {
+    // Hover OR locked → 冻结。LOCKED 用 data 比较以避免 resize 后旧 particle 引用失效
+    if ((HOVER && HOVER === p) || (LOCKED && LOCKED.d === p.d)) {
       p.vx = 0; p.vy = 0;
       continue;
     }
@@ -727,8 +728,9 @@ function physicsStep(now, dt) {
     const nx = dx / dist, ny = dy / dist;
     // Hovered bubbles are treated as immovable (infinite mass). Other bubbles take
     // the full displacement and are bounced back.
-    const aFrozen = (HOVER === a);
-    const bFrozen = (HOVER === b);
+    // Hovered OR locked bubbles 都视作不可移动；除碰撞推开外不参与漂移
+    const aFrozen = (HOVER === a) || (LOCKED && LOCKED.d === a.d);
+    const bFrozen = (HOVER === b) || (LOCKED && LOCKED.d === b.d);
     const ma = a.r * a.r;
     const mb = b.r * b.r;
     let pushA = 0, pushB = 0;
@@ -1302,17 +1304,32 @@ function pickAt(x, y) {
 }
 
 const tooltip = document.getElementById('tooltip');
+// 给公司名计算外链：优先 Wikipedia 页，否则 Google 搜索（含中文名）
+function getCompanyLink(d) {
+  if (d.wikiLink && /wikipedia\.org\/wiki\//.test(d.wikiLink)) return d.wikiLink;
+  const q = (d.companyZh && d.companyZh !== d.company)
+    ? d.companyZh + ' ' + d.company
+    : d.company;
+  return 'https://www.google.com/search?q=' + encodeURIComponent(q);
+}
+
 function showTooltip(p) {
   const d = p.d;
   const sourceTag = d.source.includes('wiki') ? 'wikipedia' : 'pitchbook';
   const parts = [];
   // For Chinese companies, show Chinese name as primary + English as secondary line.
-  let titleHTML;
+  let titleInner;
   if (d.companyZh && d.companyZh !== d.company && !d.companyZh.startsWith('Unnamed')) {
-    titleHTML = esc(d.companyZh) + ' <small style="color:#8892b0;font-weight:400;font-size:13px;">' + esc(d.company) + '</small>';
+    titleInner = esc(d.companyZh) + ' <small style="color:#8892b0;font-weight:400;font-size:13px;">' + esc(d.company) + '</small>';
   } else {
-    titleHTML = esc(d.company);
+    titleInner = esc(d.company);
   }
+  // 公司名包成链接，点击新窗口打开
+  const link = getCompanyLink(d);
+  const titleHTML = '<a href="' + esc(link) + '" target="_blank" rel="noopener" '
+    + 'style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.3);" '
+    + 'title="点击在新窗口打开 ' + esc(/wikipedia\.org/.test(link) ? 'Wikipedia' : 'Google 搜索') + '">'
+    + titleInner + '</a>';
   parts.push('<h3>' + titleHTML + ' <span class="badge">' + esc(d.industry) + '</span><span class="badge">' + sourceTag + '</span></h3>');
   parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
   // Forge Global secondary-market overlay (Top 100 only).
@@ -1333,6 +1350,29 @@ function showTooltip(p) {
       parts.push('<div class="row">' + s + '</div>');
     }
   }
+  // Notice Weekly Update — 紫色区块，与 Forge 并列
+  const nt = NOTICE[d.company];
+  if (nt && (nt.pps != null || nt.valuation_b != null)) {
+    if (nt.pps != null) {
+      let s = '<b>Notice Price:</b> $' + nt.pps.toFixed(2);
+      if (nt.pps_change != null) {
+        const sign = nt.pps_change >= 0 ? '+' : '';
+        const col = nt.pps_change >= 0 ? '#86efac' : '#fda4af';
+        s += ' <span style="font-size:12px;color:' + col + ';">(' + sign + nt.pps_change.toFixed(2) + ')</span>';
+      }
+      parts.push('<div class="row" style="color:#d8b4fe;margin-top:4px;">' + s + '</div>');
+    }
+    if (nt.valuation_b != null) {
+      let s = '<b>Notice Valuation:</b> $' + nt.valuation_b.toFixed(2) + 'B';
+      if (nt.new_indications) {
+        s += ' <span style="font-size:12px;opacity:.85;">(' + nt.new_indications + ' new indications)</span>';
+      }
+      parts.push('<div class="row" style="color:#d8b4fe;">' + s + '</div>');
+    }
+    if (nt.date) {
+      parts.push('<div class="row" style="font-size:11px;color:#8892b0;">Notice as of ' + esc(nt.date) + '</div>');
+    }
+  }
   if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
   parts.push('<div class="row"><b>Country:</b> ' + esc(d.country || '—') + ' · <b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
   if (d.description) parts.push('<div class="desc">' + esc(d.description) + '</div>');
@@ -1340,8 +1380,9 @@ function showTooltip(p) {
   if (d.founders && (!d.lead_investors || !d.lead_investors.includes('Founders'))) parts.push('<div class="investors"><b>Founders:</b> ' + esc(d.founders) + '</div>');
   tooltip.innerHTML = parts.join('');
   tooltip.style.opacity = '1';
+  tooltip.style.pointerEvents = 'auto';   // 允许点击 tooltip 里的链接
 }
-function hideTooltip() { tooltip.style.opacity = '0'; }
+function hideTooltip() { tooltip.style.opacity = '0'; tooltip.style.pointerEvents = 'none'; }
 function moveTooltip(x, y) {
   const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
   let tx = x + 18, ty = y + 18;
@@ -1352,32 +1393,32 @@ function moveTooltip(x, y) {
 }
 function esc(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
+// 新交互：
+//   悬停 → 仅冻结气泡（设 HOVER），不弹层；
+//   点击气泡 → 切换 LOCKED + 弹层（公司名链接，点击新窗口打开）；
+//   点击空白 → 取消 LOCKED + 收回层。
 canvas.addEventListener('mousemove', e => {
   const p = pickAt(e.clientX, e.clientY);
   HOVER = p;
   canvas.style.cursor = p ? 'pointer' : 'default';
-  if (p) { showTooltip(p); moveTooltip(e.clientX, e.clientY); }
-  else hideTooltip();
 });
 canvas.addEventListener('click', e => {
   const p = pickAt(e.clientX, e.clientY);
   if (!p) {
+    // 点空白 → 取消 LOCKED
     LOCKED = null;
+    hideTooltip();
     return;
   }
-  // Click → open external link in a new tab.
-  // Wiki source: open the Wikipedia page directly. Otherwise fall back to a Google search.
-  const d = p.d;
-  let url;
-  if (d.wikiLink && /wikipedia\.org\/wiki\//.test(d.wikiLink)) {
-    url = d.wikiLink;
+  // 点 LOCKED 中的气泡 → 取消 LOCKED；否则 → 切换 LOCKED 到新气泡
+  if (LOCKED && LOCKED.d === p.d) {
+    LOCKED = null;
+    hideTooltip();
   } else {
-    const q = (d.companyZh && d.companyZh !== d.company)
-      ? d.companyZh + ' ' + d.company
-      : d.company;
-    url = 'https://www.google.com/search?q=' + encodeURIComponent(q);
+    LOCKED = p;
+    showTooltip(p);
+    moveTooltip(e.clientX, e.clientY);
   }
-  window.open(url, '_blank', 'noopener');
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { LOCKED = null; HOVER = null; hideTooltip(); }

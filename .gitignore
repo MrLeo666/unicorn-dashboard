@@ -9,3 +9,4 @@ __pycache__/
 lqp_e2e.mjs
 lqp_archive_test.mjs
 test_best.mjs
+credentials.json
