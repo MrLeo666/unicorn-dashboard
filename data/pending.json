@@ -438,49 +438,6 @@
       }
     },
     {
-      "company": "Deliverect",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Deliverect"
-        }
-      },
-      "current": {
-        "id": "wiki-375",
-        "source": "wiki",
-        "company": "Deliverect",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Ordering software for POS",
-        "valuation_str": "$1.4B",
-        "valuation_m": 1400.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "Belgium",
-        "unicorn_as_of": "January 2022",
-        "year": "2022",
-        "industry": "SaaS/Enterprise",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-375",
-        "source": "wiki",
-        "company": "Deliverect",
-        "wikiLink": "https://en.wikipedia.org/wiki/Deliverect",
-        "wikiSlug": "Deliverect",
-        "description": "Ordering software for POS",
-        "valuation_str": "$1.4B",
-        "valuation_m": 1400.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "Belgium",
-        "unicorn_as_of": "January 2022",
-        "year": "2022",
-        "industry": "SaaS/Enterprise",
-        "founders": ""
-      }
-    },
-    {
       "company": "Periodic",
       "changes": {
         "valuation_m": {
@@ -527,5 +484,5 @@
     }
   ],
   "removals": [],
-  "generated_at": "2026-05-25T11:52:19Z"
+  "generated_at": "2026-05-27T10:21:13Z"
 }
