@@ -2,47 +2,15 @@
   "as_of": "2026-05-25",
   "period": "2026-05-18 to 2026-05-25",
   "source": "Notice Weekly Update email (notifications@notice.co)",
-  "extracted_at": "2026-05-27T10:30:32.705265Z",
+  "extracted_at": "2026-06-01T13:38:38.616020Z",
   "extraction_method": "scripts/scrape_notice_email.py via GitHub Action",
   "notes": "每周一封 Weekly Update 邮件覆盖 watchlist 全集。公司名已规整。",
   "records": {
-    "SpaceX": {
-      "pps": 611.3,
-      "pps_change": 20.08,
-      "valuation_b": 1445.43,
-      "new_indications": 77,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "ByteDance": {
-      "pps": 343.91,
-      "pps_change": -4.63,
-      "valuation_b": 564.96,
-      "new_indications": 1,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "OpenAI": {
-      "pps": 672.05,
-      "pps_change": 4.24,
-      "valuation_b": 825.18,
-      "new_indications": 7,
-      "date": "2026-05-25",
-      "history": []
-    },
     "Anduril Industries": {
       "pps": 99.02,
       "pps_change": 2.77,
       "valuation_b": 87.6,
       "new_indications": 12,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "Anthropic": {
-      "pps": 572.97,
-      "pps_change": 23.78,
-      "valuation_b": 840.21,
-      "new_indications": 36,
       "date": "2026-05-25",
       "history": []
     },
@@ -54,11 +22,43 @@
       "date": "2026-05-25",
       "history": []
     },
+    "OpenAI": {
+      "pps": 672.05,
+      "pps_change": 4.24,
+      "valuation_b": 825.18,
+      "new_indications": 7,
+      "date": "2026-05-25",
+      "history": []
+    },
     "Cognition AI": {
       "pps": 43.32,
       "pps_change": 0.68,
       "valuation_b": 8.01,
       "new_indications": 1,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "ByteDance": {
+      "pps": 343.91,
+      "pps_change": -4.63,
+      "valuation_b": 564.96,
+      "new_indications": 1,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "Anthropic": {
+      "pps": 572.97,
+      "pps_change": 23.78,
+      "valuation_b": 840.21,
+      "new_indications": 36,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "SpaceX": {
+      "pps": 611.3,
+      "pps_change": 20.08,
+      "valuation_b": 1445.43,
+      "new_indications": 77,
       "date": "2026-05-25",
       "history": []
     }

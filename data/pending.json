@@ -1,7 +1,7 @@
 {
   "additions": [
     {
-      "id": "wiki-21",
+      "id": "wiki-22",
       "source": "wiki",
       "company": "Chime",
       "wikiLink": "https://en.wikipedia.org/wiki/Chime_(company)",
@@ -19,6 +19,49 @@
     }
   ],
   "modifications": [
+    {
+      "company": "Anthropic",
+      "changes": {
+        "valuation_m": {
+          "from": 900000.0,
+          "to": 965000.0
+        }
+      },
+      "current": {
+        "id": "wiki-2",
+        "source": "wiki",
+        "company": "Anthropic",
+        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
+        "wikiSlug": "Anthropic",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$900B",
+        "valuation_m": 900000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
+        "country": "United States",
+        "unicorn_as_of": "February 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+      },
+      "proposed": {
+        "id": "wiki-1",
+        "source": "wiki",
+        "company": "Anthropic",
+        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
+        "wikiSlug": "Anthropic",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$965B",
+        "valuation_m": 965000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+      }
+    },
     {
       "company": "ByteDance",
       "changes": {
@@ -64,49 +107,6 @@
         "founders": "Zhang Yiming, Liang Rubo",
         "companyZh": "字节跳动",
         "pinyinInitial": "Z"
-      }
-    },
-    {
-      "company": "Anthropic",
-      "changes": {
-        "valuation_m": {
-          "from": 900000.0,
-          "to": 380000.0
-        }
-      },
-      "current": {
-        "id": "wiki-2",
-        "source": "wiki",
-        "company": "Anthropic",
-        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
-        "wikiSlug": "Anthropic",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$900B",
-        "valuation_m": 900000,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
-        "country": "United States",
-        "unicorn_as_of": "February 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
-      },
-      "proposed": {
-        "id": "wiki-2",
-        "source": "wiki",
-        "company": "Anthropic",
-        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
-        "wikiSlug": "Anthropic",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$380B",
-        "valuation_m": 380000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
-        "country": "United States",
-        "unicorn_as_of": "February 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
       }
     },
     {
@@ -162,6 +162,49 @@
       }
     },
     {
+      "company": "Cognition AI",
+      "changes": {
+        "valuation_m": {
+          "from": 10200.0,
+          "to": 26000.0
+        }
+      },
+      "current": {
+        "id": "wiki-58",
+        "source": "wiki",
+        "company": "Cognition AI",
+        "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
+        "wikiSlug": "Cognition_AI",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$10.2B",
+        "valuation_m": 10200.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Scott Wu, Steven Hao, Walden Yan",
+        "country": "United States",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Scott Wu, Steven Hao, Walden Yan"
+      },
+      "proposed": {
+        "id": "wiki-21",
+        "source": "wiki",
+        "company": "Cognition AI",
+        "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
+        "wikiSlug": "Cognition_AI",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$26B",
+        "valuation_m": 26000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Scott Wu, Steven Hao, Walden Yan",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Scott Wu, Steven Hao, Walden Yan"
+      }
+    },
+    {
       "company": "DJI",
       "changes": {
         "valuation_m": {
@@ -189,7 +232,7 @@
         "pinyinInitial": "D"
       },
       "proposed": {
-        "id": "wiki-30",
+        "id": "wiki-31",
         "source": "wiki",
         "company": "DJI",
         "wikiLink": "https://en.wikipedia.org/wiki/DJI",
@@ -236,7 +279,7 @@
         "pinyinInitial": "X"
       },
       "proposed": {
-        "id": "wiki-34",
+        "id": "wiki-35",
         "source": "wiki",
         "company": "Xiaohongshu",
         "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
@@ -484,5 +527,5 @@
     }
   ],
   "removals": [],
-  "generated_at": "2026-05-27T10:27:40Z"
+  "generated_at": "2026-06-01T13:35:43Z"
 }

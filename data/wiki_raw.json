@@ -10,6 +10,16 @@
     "founders": "Elon Musk"
   },
   {
+    "company": "Anthropic",
+    "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
+    "valuation_b": 965.0,
+    "valuation_str": "$965B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+  },
+  {
     "company": "OpenAI",
     "wikiLink": "https://en.wikipedia.org/wiki/OpenAI",
     "valuation_b": 852.0,
@@ -18,16 +28,6 @@
     "industry_raw": "Artificial intelligence",
     "country": "United States",
     "founders": "Sam Altman, Elon Musk, Greg Brockman, Ilya Sutskever"
-  },
-  {
-    "company": "Anthropic",
-    "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
-    "valuation_b": 380.0,
-    "valuation_str": "$380B",
-    "valuation_date": "February 2026",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
   },
   {
     "company": "ByteDance",
@@ -208,6 +208,16 @@
     "industry_raw": "E-commerce",
     "country": "United States",
     "founders": "Alan Trager, Mitch Trager, Michael Rubin"
+  },
+  {
+    "company": "Cognition AI",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
+    "valuation_b": 26.0,
+    "valuation_str": "$26B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Scott Wu, Steven Hao, Walden Yan"
   },
   {
     "company": "Chime",
@@ -578,16 +588,6 @@
     "industry_raw": "Financial Technology",
     "country": "United States",
     "founders": "Ankur Jain"
-  },
-  {
-    "company": "Cognition AI",
-    "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
-    "valuation_b": 10.2,
-    "valuation_str": "$10.2B",
-    "valuation_date": "September 2025",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Scott Wu, Steven Hao, Walden Yan"
   },
   {
     "company": "Colossal Biosciences",
