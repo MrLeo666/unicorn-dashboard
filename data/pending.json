@@ -25,6 +25,10 @@
         "valuation_m": {
           "from": 900000.0,
           "to": 965000.0
+        },
+        "founders": {
+          "from": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
+          "to": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
         }
       },
       "current": {
@@ -54,12 +58,12 @@
         "valuation_str": "$965B",
         "valuation_m": 965000.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
+        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah",
         "country": "United States",
         "unicorn_as_of": "May 2026",
         "year": "2026",
         "industry": "AI/ML",
-        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
       }
     },
     {
@@ -107,6 +111,92 @@
         "founders": "Zhang Yiming, Liang Rubo",
         "companyZh": "字节跳动",
         "pinyinInitial": "Z"
+      }
+    },
+    {
+      "company": "Databricks",
+      "changes": {
+        "founders": {
+          "from": "Ali Ghodsi",
+          "to": "Ali Ghodsi, Andy Konwinski, Ion Stoica"
+        }
+      },
+      "current": {
+        "id": "wiki-5",
+        "source": "wiki",
+        "company": "Databricks",
+        "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
+        "wikiSlug": "Databricks",
+        "description": "Software",
+        "valuation_str": "$134B",
+        "valuation_m": 134000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ali Ghodsi",
+        "country": "United States",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "SaaS/Enterprise",
+        "founders": "Ali Ghodsi"
+      },
+      "proposed": {
+        "id": "wiki-5",
+        "source": "wiki",
+        "company": "Databricks",
+        "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
+        "wikiSlug": "Databricks",
+        "description": "Software",
+        "valuation_str": "$134B",
+        "valuation_m": 134000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ali Ghodsi, Andy Konwinski, Ion Stoica",
+        "country": "United States",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "SaaS/Enterprise",
+        "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica"
+      }
+    },
+    {
+      "company": "Ramp",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Eric Glyman, Karim Atiyeh, Gene Lee"
+        }
+      },
+      "current": {
+        "id": "wiki-11",
+        "source": "wiki",
+        "company": "Ramp",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
+        "wikiSlug": "Ramp_(company)",
+        "description": "Financial technology",
+        "valuation_str": "$32B",
+        "valuation_m": 32000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-12",
+        "source": "wiki",
+        "company": "Ramp",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
+        "wikiSlug": "Ramp_(company)",
+        "description": "Financial technology",
+        "valuation_str": "$32B",
+        "valuation_m": 32000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Eric Glyman, Karim Atiyeh, Gene Lee",
+        "country": "United States",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "Fintech",
+        "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
       }
     },
     {
@@ -232,7 +322,7 @@
         "pinyinInitial": "D"
       },
       "proposed": {
-        "id": "wiki-31",
+        "id": "wiki-30",
         "source": "wiki",
         "company": "DJI",
         "wikiLink": "https://en.wikipedia.org/wiki/DJI",
@@ -279,7 +369,7 @@
         "pinyinInitial": "X"
       },
       "proposed": {
-        "id": "wiki-35",
+        "id": "wiki-34",
         "source": "wiki",
         "company": "Xiaohongshu",
         "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
@@ -393,6 +483,53 @@
       }
     },
     {
+      "company": "AlphaSense",
+      "changes": {
+        "valuation_m": {
+          "from": 4000.0,
+          "to": 7500.0
+        },
+        "country": {
+          "from": "Finland, United States",
+          "to": "United States (formerly Finland)"
+        }
+      },
+      "current": {
+        "id": "wiki-150",
+        "source": "wiki",
+        "company": "AlphaSense",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Software",
+        "valuation_str": "$4B",
+        "valuation_m": 4000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jaakko Kokko, Raj Neervannan",
+        "country": "Finland, United States",
+        "unicorn_as_of": "June 2024",
+        "year": "2024",
+        "industry": "SaaS/Enterprise",
+        "founders": "Jaakko Kokko, Raj Neervannan"
+      },
+      "proposed": {
+        "id": "wiki-87",
+        "source": "wiki",
+        "company": "AlphaSense",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Software",
+        "valuation_str": "$7.5B",
+        "valuation_m": 7500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jaakko Kokko, Raj Neervannan",
+        "country": "United States (formerly Finland)",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "SaaS/Enterprise",
+        "founders": "Jaakko Kokko, Raj Neervannan"
+      }
+    },
+    {
       "company": "Cohere",
       "changes": {
         "valuation_m": {
@@ -436,6 +573,54 @@
       }
     },
     {
+      "company": "Suno",
+      "changes": {
+        "valuation_m": {
+          "from": 2500.0,
+          "to": 2450.0
+        },
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Suno_(platform)"
+        }
+      },
+      "current": {
+        "id": "pb-704",
+        "source": "pb",
+        "tier": "B",
+        "company": "Suno",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Operator of an emerging generative AI music company designed to create songs.",
+        "valuation_str": "$2.5B",
+        "valuation_m": 2500.0,
+        "vc_raised": "$375.0M",
+        "lead_investors": "Daniel Gross, Founder Collective, Lightspeed Venture Partners, Matrix, Menlo Ventures, Nat Friedman",
+        "country": "United States",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-237",
+        "source": "wiki",
+        "company": "Suno",
+        "wikiLink": "https://en.wikipedia.org/wiki/Suno_(platform)",
+        "wikiSlug": "Suno_(platform)",
+        "description": "Artificial intelligence",
+        "valuation_str": "$2.45B",
+        "valuation_m": 2450.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": ""
+      }
+    },
+    {
       "company": "Varda",
       "changes": {
         "valuation_m": {
@@ -462,7 +647,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-766",
+        "id": "pb-765",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -477,6 +662,49 @@
         "unicorn_as_of": "January 2026",
         "year": "2026",
         "industry": "Aerospace/Defense",
+        "founders": ""
+      }
+    },
+    {
+      "company": "Deliverect",
+      "changes": {
+        "wikiLink": {
+          "from": "https://en.wikipedia.org/wiki/Deliverect",
+          "to": ""
+        }
+      },
+      "current": {
+        "id": "wiki-375",
+        "source": "wiki",
+        "company": "Deliverect",
+        "wikiLink": "https://en.wikipedia.org/wiki/Deliverect",
+        "wikiSlug": "",
+        "description": "Ordering software for POS",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Belgium",
+        "unicorn_as_of": "January 2022",
+        "year": "2022",
+        "industry": "SaaS/Enterprise",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-375",
+        "source": "wiki",
+        "company": "Deliverect",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Ordering software for POS",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Belgium",
+        "unicorn_as_of": "January 2022",
+        "year": "2022",
+        "industry": "SaaS/Enterprise",
         "founders": ""
       }
     },
@@ -507,7 +735,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-849",
+        "id": "pb-848",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -526,6 +754,24 @@
       }
     }
   ],
-  "removals": [],
-  "generated_at": "2026-06-01T13:35:43Z"
+  "removals": [
+    {
+      "id": "wiki-22",
+      "source": "wiki",
+      "company": "Cerebras",
+      "wikiLink": "https://en.wikipedia.org/wiki/Cerebras",
+      "wikiSlug": "Cerebras",
+      "description": "SemiconductorsArtificial intelligence",
+      "valuation_str": "$23B",
+      "valuation_m": 23000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Andrew Feldman, Sean Lie",
+      "country": "United States",
+      "unicorn_as_of": "February 2026",
+      "year": "2026",
+      "industry": "Semiconductors",
+      "founders": "Andrew Feldman, Sean Lie"
+    }
+  ],
+  "generated_at": "2026-06-08T12:27:09Z"
 }

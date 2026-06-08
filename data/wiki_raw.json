@@ -17,7 +17,7 @@
     "valuation_date": "May 2026",
     "industry_raw": "Artificial Intelligence",
     "country": "United States",
-    "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
+    "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
   },
   {
     "company": "OpenAI",
@@ -57,7 +57,7 @@
     "valuation_date": "December 2025",
     "industry_raw": "Software",
     "country": "United States",
-    "founders": "Ali Ghodsi"
+    "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica"
   },
   {
     "company": "Binance",
@@ -127,7 +127,7 @@
     "valuation_date": "November 2025",
     "industry_raw": "Financial technology",
     "country": "United States",
-    "founders": ""
+    "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
   },
   {
     "company": "Safe Superintelligence",
@@ -228,16 +228,6 @@
     "industry_raw": "Financial technology",
     "country": "United States",
     "founders": "Chris Britt, Ryan King"
-  },
-  {
-    "company": "Cerebras",
-    "wikiLink": "https://en.wikipedia.org/wiki/Cerebras",
-    "valuation_b": 23.0,
-    "valuation_str": "$23B",
-    "valuation_date": "February 2026",
-    "industry_raw": "SemiconductorsArtificial intelligence",
-    "country": "United States",
-    "founders": "Andrew Feldman, Sean Lie"
   },
   {
     "company": "Perplexity AI",
@@ -880,6 +870,16 @@
     "founders": ""
   },
   {
+    "company": "AlphaSense",
+    "wikiLink": "",
+    "valuation_b": 7.5,
+    "valuation_str": "$7.5B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Software",
+    "country": "United States (formerly Finland)",
+    "founders": "Jaakko Kokko, Raj Neervannan"
+  },
+  {
     "company": "Razorpay",
     "wikiLink": "",
     "valuation_b": 7.5,
@@ -1498,16 +1498,6 @@
     "industry_raw": "Cybersecurity",
     "country": "United States",
     "founders": "Evan Reiser, Sanjay Jeyakumar"
-  },
-  {
-    "company": "AlphaSense",
-    "wikiLink": "",
-    "valuation_b": 4.0,
-    "valuation_str": "$4B",
-    "valuation_date": "June 2024",
-    "industry_raw": "Software",
-    "country": "Finland, United States",
-    "founders": "Jaakko Kokko, Raj Neervannan"
   },
   {
     "company": "Branch Metrics",
@@ -2377,6 +2367,16 @@
     "valuation_date": "June 2019",
     "industry_raw": "Financial services",
     "country": "United Kingdom",
+    "founders": ""
+  },
+  {
+    "company": "Suno",
+    "wikiLink": "https://en.wikipedia.org/wiki/Suno_(platform)",
+    "valuation_b": 2.45,
+    "valuation_str": "$2.45B",
+    "valuation_date": "November 2025",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
     "founders": ""
   },
   {
@@ -3751,7 +3751,7 @@
   },
   {
     "company": "Deliverect",
-    "wikiLink": "https://en.wikipedia.org/wiki/Deliverect",
+    "wikiLink": "",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "January 2022",

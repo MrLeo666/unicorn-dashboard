@@ -1,33 +1,33 @@
 {
-  "as_of": "2026-05-25",
+  "as_of": "2026-06-01",
   "period": "2026-05-18 to 2026-05-25",
   "source": "Notice Weekly Update email (notifications@notice.co)",
-  "extracted_at": "2026-06-01T13:38:38.616020Z",
+  "extracted_at": "2026-06-08T12:30:15.833748Z",
   "extraction_method": "scripts/scrape_notice_email.py via GitHub Action",
   "notes": "每周一封 Weekly Update 邮件覆盖 watchlist 全集。公司名已规整。",
   "records": {
-    "Anduril Industries": {
-      "pps": 99.02,
-      "pps_change": 2.77,
-      "valuation_b": 87.6,
-      "new_indications": 12,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "Kraken": {
-      "pps": 36.66,
-      "pps_change": -0.16,
-      "valuation_b": 11.93,
-      "new_indications": 2,
-      "date": "2026-05-25",
-      "history": []
-    },
     "OpenAI": {
-      "pps": 672.05,
-      "pps_change": 4.24,
-      "valuation_b": 825.18,
-      "new_indications": 7,
-      "date": "2026-05-25",
+      "pps": 762.36,
+      "pps_change": 89.01,
+      "valuation_b": 936.1,
+      "new_indications": 2,
+      "date": "2026-06-01",
+      "history": [
+        {
+          "pps": 672.05,
+          "pps_change": 4.24,
+          "valuation_b": 825.18,
+          "new_indications": 7,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "Neuralink": {
+      "pps": 176.68,
+      "pps_change": -6.03,
+      "valuation_b": 33.55,
+      "new_indications": 6,
+      "date": "2026-06-01",
       "history": []
     },
     "Cognition AI": {
@@ -39,70 +39,138 @@
       "history": []
     },
     "ByteDance": {
-      "pps": 343.91,
-      "pps_change": -4.63,
-      "valuation_b": 564.96,
-      "new_indications": 1,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "Anthropic": {
-      "pps": 572.97,
-      "pps_change": 23.78,
-      "valuation_b": 840.21,
-      "new_indications": 36,
-      "date": "2026-05-25",
-      "history": []
+      "pps": 360.8,
+      "pps_change": 16.89,
+      "valuation_b": 591.97,
+      "new_indications": 2,
+      "date": "2026-06-01",
+      "history": [
+        {
+          "pps": 343.91,
+          "pps_change": -4.63,
+          "valuation_b": 564.96,
+          "new_indications": 1,
+          "date": "2026-05-25"
+        }
+      ]
     },
     "SpaceX": {
-      "pps": 611.3,
-      "pps_change": 20.08,
-      "valuation_b": 1445.43,
-      "new_indications": 77,
+      "pps": 120.12,
+      "pps_change": -2.14,
+      "valuation_b": 1419.15,
+      "new_indications": 44,
+      "date": "2026-06-01",
+      "history": [
+        {
+          "pps": 611.3,
+          "pps_change": 20.08,
+          "valuation_b": 1445.43,
+          "new_indications": 77,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "Databricks": {
+      "pps": 236.04,
+      "pps_change": 28.65,
+      "valuation_b": 166.47,
+      "new_indications": 8,
+      "date": "2026-06-01",
+      "history": []
+    },
+    "Revolut": {
+      "pps": 1214.8,
+      "pps_change": 17.56,
+      "valuation_b": 65.62,
+      "new_indications": 1,
+      "date": "2026-06-01",
+      "history": []
+    },
+    "Kraken": {
+      "pps": 36.66,
+      "pps_change": -0.16,
+      "valuation_b": 11.93,
+      "new_indications": 2,
       "date": "2026-05-25",
+      "history": []
+    },
+    "Anduril Industries": {
+      "pps": 100.93,
+      "pps_change": 1.91,
+      "valuation_b": 89.22,
+      "new_indications": 5,
+      "date": "2026-06-01",
+      "history": [
+        {
+          "pps": 99.02,
+          "pps_change": 2.77,
+          "valuation_b": 87.6,
+          "new_indications": 12,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "Anthropic": {
+      "pps": 667.55,
+      "pps_change": 94.58,
+      "valuation_b": 1093.67,
+      "new_indications": 40,
+      "date": "2026-06-01",
+      "history": [
+        {
+          "pps": 572.97,
+          "pps_change": 23.78,
+          "valuation_b": 840.21,
+          "new_indications": 36,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "Stripe": {
+      "pps": 67.36,
+      "pps_change": 2.76,
+      "valuation_b": 170.0,
+      "new_indications": 3,
+      "date": "2026-06-01",
       "history": []
     }
   },
   "most_active": [
     {
       "company": "SpaceX",
-      "indications": 77
+      "indications": 44
     },
     {
       "company": "Anthropic",
-      "indications": 36
+      "indications": 40
     },
     {
       "company": "Anduril Industries",
-      "indications": 12
-    },
-    {
-      "company": "OpenAI",
-      "indications": 7
-    },
-    {
-      "company": "Neuralink",
       "indications": 5
     },
     {
-      "company": "Databricks",
-      "indications": 9
+      "company": "OpenAI",
+      "indications": 2
     },
     {
-      "company": "Lambda",
-      "indications": 1
-    },
-    {
-      "company": "Polymarket",
-      "indications": 1
-    },
-    {
-      "company": "Stripe",
+      "company": "Neuralink",
       "indications": 6
     },
     {
-      "company": "Kraken",
+      "company": "Databricks",
+      "indications": 8
+    },
+    {
+      "company": "Polymarket",
+      "indications": 3
+    },
+    {
+      "company": "Lambda",
       "indications": 2
+    },
+    {
+      "company": "Stripe",
+      "indications": 3
     }
   ],
   "_schema_hint": {
