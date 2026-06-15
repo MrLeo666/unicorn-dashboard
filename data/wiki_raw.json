@@ -1,15 +1,5 @@
 [
   {
-    "company": "SpaceX",
-    "wikiLink": "https://en.wikipedia.org/wiki/SpaceX",
-    "valuation_b": 1250.0,
-    "valuation_str": "$1250B",
-    "valuation_date": "February 2026",
-    "industry_raw": "Aerospace, Artificial Intelligence",
-    "country": "United States",
-    "founders": "Elon Musk"
-  },
-  {
     "company": "Anthropic",
     "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
     "valuation_b": 965.0,
@@ -57,7 +47,7 @@
     "valuation_date": "December 2025",
     "industry_raw": "Software",
     "country": "United States",
-    "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica"
+    "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
   },
   {
     "company": "Binance",
@@ -110,6 +100,16 @@
     "founders": "Melanie Perkins, Cliff Obrecht, Cameron Adams"
   },
   {
+    "company": "Project Prometheus",
+    "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
+    "valuation_b": 41.0,
+    "valuation_str": "$41B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Jeff Bezos, Vik Bajaj"
+  },
+  {
     "company": "Figure AI",
     "wikiLink": "https://en.wikipedia.org/wiki/Figure_AI",
     "valuation_b": 39.0,
@@ -158,16 +158,6 @@
     "industry_raw": "Artificial Intelligence",
     "country": "United States",
     "founders": "Renen Hallak, Shachar Fienblit, Jeff Denworth, Alon Horev"
-  },
-  {
-    "company": "Project Prometheus",
-    "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
-    "valuation_b": 30.0,
-    "valuation_str": "$30B",
-    "valuation_date": "December 2025",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Jeff Bezos, Vik Bajaj"
   },
   {
     "company": "Telegram",
@@ -440,14 +430,14 @@
     "founders": "Duránd F. Davis Jr., and Maya Elz Davis"
   },
   {
-    "company": "OpenEvidence",
-    "wikiLink": "https://en.wikipedia.org/wiki/OpenEvidence",
-    "valuation_b": 12.0,
-    "valuation_str": "$12B",
-    "valuation_date": "January 2026",
-    "industry_raw": "Health Technology",
+    "company": "NinjaOne",
+    "wikiLink": "",
+    "valuation_b": 12.3,
+    "valuation_str": "$12.3B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Software",
     "country": "United States",
-    "founders": "Daniel Nadler"
+    "founders": "Sal Sferlazza and Chris Matarese"
   },
   {
     "company": "Thinking Machines Lab",
@@ -458,6 +448,16 @@
     "industry_raw": "Artificial intelligence",
     "country": "United States",
     "founders": "Mira Murati"
+  },
+  {
+    "company": "OpenEvidence",
+    "wikiLink": "https://en.wikipedia.org/wiki/OpenEvidence",
+    "valuation_b": 12.0,
+    "valuation_str": "$12B",
+    "valuation_date": "January 2026",
+    "industry_raw": "Health Technology",
+    "country": "United States",
+    "founders": "Daniel Nadler"
   },
   {
     "company": "Biosplice Therapeutics",
@@ -587,7 +587,7 @@
     "valuation_date": "January 2025",
     "industry_raw": "Biotechnology",
     "country": "United States",
-    "founders": "George Churchm, Ben Lamm"
+    "founders": "George Church, Ben Lamm"
   },
   {
     "company": "Alchemy",
@@ -637,7 +637,7 @@
     "valuation_date": "August 2021",
     "industry_raw": "Software",
     "country": "United States",
-    "founders": "Joshua Reeves and Edward Kim"
+    "founders": "Joshua Reeves, Edward Kim, Tomer London"
   },
   {
     "company": "KuCoin",
@@ -748,6 +748,16 @@
     "industry_raw": "Neurotechnology",
     "country": "United States",
     "founders": "Elon Musk"
+  },
+  {
+    "company": "Replit",
+    "wikiLink": "https://en.wikipedia.org/wiki/Replit",
+    "valuation_b": 9.0,
+    "valuation_str": "$9B",
+    "valuation_date": "March 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Amjad Masad, Faris Masad, Haya Odeh"
   },
   {
     "company": "Tanium",
@@ -1910,16 +1920,6 @@
     "founders": ""
   },
   {
-    "company": "Replit",
-    "wikiLink": "https://en.wikipedia.org/wiki/Replit",
-    "valuation_b": 3.0,
-    "valuation_str": "$3B",
-    "valuation_date": "September 2025",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Amjad Masad, Faris Masad, Haya Odeh"
-  },
-  {
     "company": "CMR Surgical",
     "wikiLink": "https://en.wikipedia.org/wiki/CMR_Surgical",
     "valuation_b": 3.0,
@@ -2470,6 +2470,16 @@
     "founders": ""
   },
   {
+    "company": "Uzum",
+    "wikiLink": "https://en.wikipedia.org/wiki/Uzum",
+    "valuation_b": 2.3,
+    "valuation_str": "$2.3B",
+    "valuation_date": "March 2026",
+    "industry_raw": "E-commerce, Financial technology",
+    "country": "Uzbekistan",
+    "founders": "Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev"
+  },
+  {
     "company": "Uptake",
     "wikiLink": "https://en.wikipedia.org/wiki/Uptake_(business)",
     "valuation_b": 2.3,
@@ -2657,16 +2667,6 @@
     "valuation_date": "October 2020",
     "industry_raw": "Financial technology",
     "country": "United States / Israel",
-    "founders": ""
-  },
-  {
-    "company": "Figure AI",
-    "wikiLink": "https://en.wikipedia.org/wiki/Figure_AI",
-    "valuation_b": 2.0,
-    "valuation_str": "$2B",
-    "valuation_date": "February 2024",
-    "industry_raw": "Humanoid robotics",
-    "country": "United States",
     "founders": ""
   },
   {
@@ -3461,7 +3461,7 @@
   },
   {
     "company": "Airbyte",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Airbyte",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "December 2021",

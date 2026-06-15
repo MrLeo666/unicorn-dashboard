@@ -1,7 +1,7 @@
 {
   "additions": [
     {
-      "id": "wiki-22",
+      "id": "wiki-21",
       "source": "wiki",
       "company": "Chime",
       "wikiLink": "https://en.wikipedia.org/wiki/Chime_(company)",
@@ -49,7 +49,7 @@
         "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
       },
       "proposed": {
-        "id": "wiki-1",
+        "id": "wiki-0",
         "source": "wiki",
         "company": "Anthropic",
         "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
@@ -94,7 +94,7 @@
         "pinyinInitial": "Z"
       },
       "proposed": {
-        "id": "wiki-3",
+        "id": "wiki-2",
         "source": "wiki",
         "company": "ByteDance",
         "wikiLink": "https://en.wikipedia.org/wiki/ByteDance",
@@ -118,7 +118,7 @@
       "changes": {
         "founders": {
           "from": "Ali Ghodsi",
-          "to": "Ali Ghodsi, Andy Konwinski, Ion Stoica"
+          "to": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
         }
       },
       "current": {
@@ -139,7 +139,7 @@
         "founders": "Ali Ghodsi"
       },
       "proposed": {
-        "id": "wiki-5",
+        "id": "wiki-4",
         "source": "wiki",
         "company": "Databricks",
         "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
@@ -148,12 +148,55 @@
         "valuation_str": "$134B",
         "valuation_m": 134000.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Ali Ghodsi, Andy Konwinski, Ion Stoica",
+        "lead_investors": "Founders: Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia",
         "country": "United States",
         "unicorn_as_of": "December 2025",
         "year": "2025",
         "industry": "SaaS/Enterprise",
-        "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica"
+        "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+      }
+    },
+    {
+      "company": "Project Prometheus",
+      "changes": {
+        "valuation_m": {
+          "from": 30000.0,
+          "to": 41000.0
+        }
+      },
+      "current": {
+        "id": "wiki-16",
+        "source": "wiki",
+        "company": "Project Prometheus",
+        "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
+        "wikiSlug": "Project_Prometheus_(company)",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$30B",
+        "valuation_m": 30000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jeff Bezos, Vik Bajaj",
+        "country": "United States",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Jeff Bezos, Vik Bajaj"
+      },
+      "proposed": {
+        "id": "wiki-10",
+        "source": "wiki",
+        "company": "Project Prometheus",
+        "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
+        "wikiSlug": "Project_Prometheus_(company)",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$41B",
+        "valuation_m": 41000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jeff Bezos, Vik Bajaj",
+        "country": "United States",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Jeff Bezos, Vik Bajaj"
       }
     },
     {
@@ -234,7 +277,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-18",
+        "id": "wiki-17",
         "source": "wiki",
         "company": "Cursor",
         "wikiLink": "https://en.wikipedia.org/wiki/Cursor_(company)",
@@ -277,7 +320,7 @@
         "founders": "Scott Wu, Steven Hao, Walden Yan"
       },
       "proposed": {
-        "id": "wiki-21",
+        "id": "wiki-20",
         "source": "wiki",
         "company": "Cognition AI",
         "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
@@ -322,7 +365,7 @@
         "pinyinInitial": "D"
       },
       "proposed": {
-        "id": "wiki-30",
+        "id": "wiki-29",
         "source": "wiki",
         "company": "DJI",
         "wikiLink": "https://en.wikipedia.org/wiki/DJI",
@@ -369,7 +412,7 @@
         "pinyinInitial": "X"
       },
       "proposed": {
-        "id": "wiki-34",
+        "id": "wiki-33",
         "source": "wiki",
         "company": "Xiaohongshu",
         "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
@@ -386,6 +429,54 @@
         "founders": "Miranda Qu Fang, Charlwin Mao Wenchao",
         "companyZh": "小红书",
         "pinyinInitial": "X"
+      }
+    },
+    {
+      "company": "NinjaOne",
+      "changes": {
+        "valuation_m": {
+          "from": 5000.0,
+          "to": 12300.0
+        },
+        "founders": {
+          "from": "",
+          "to": "Sal Sferlazza and Chris Matarese"
+        }
+      },
+      "current": {
+        "id": "pb-648",
+        "source": "pb",
+        "tier": "A",
+        "company": "NinjaOne",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a unified IT operations and endpoint management platform designed to centralize device control, automate maintenance, and strengthen security across organizations.",
+        "valuation_str": "$5.0B",
+        "valuation_m": 5000.0,
+        "vc_raised": "$765.0M",
+        "lead_investors": "CapitalG, ICONIQ Growth, Summit Partners",
+        "country": "United States",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "Cybersecurity",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-43",
+        "source": "wiki",
+        "company": "NinjaOne",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Software",
+        "valuation_str": "$12.3B",
+        "valuation_m": 12300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Sal Sferlazza and Chris Matarese",
+        "country": "United States",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "SaaS/Enterprise",
+        "founders": "Sal Sferlazza and Chris Matarese"
       }
     },
     {
@@ -431,6 +522,92 @@
         "year": "2024",
         "industry": "Crypto/Web3",
         "founders": ""
+      }
+    },
+    {
+      "company": "Colossal Biosciences",
+      "changes": {
+        "founders": {
+          "from": "George Churchm, Ben Lamm",
+          "to": "George Church, Ben Lamm"
+        }
+      },
+      "current": {
+        "id": "wiki-59",
+        "source": "wiki",
+        "company": "Colossal Biosciences",
+        "wikiLink": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
+        "wikiSlug": "Colossal_Biosciences",
+        "description": "Biotechnology",
+        "valuation_str": "$10.2B",
+        "valuation_m": 10200.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: George Churchm, Ben Lamm",
+        "country": "United States",
+        "unicorn_as_of": "January 2025",
+        "year": "2025",
+        "industry": "Biotech/Health",
+        "founders": "George Churchm, Ben Lamm"
+      },
+      "proposed": {
+        "id": "wiki-58",
+        "source": "wiki",
+        "company": "Colossal Biosciences",
+        "wikiLink": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
+        "wikiSlug": "Colossal_Biosciences",
+        "description": "Biotechnology",
+        "valuation_str": "$10.2B",
+        "valuation_m": 10200.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: George Church, Ben Lamm",
+        "country": "United States",
+        "unicorn_as_of": "January 2025",
+        "year": "2025",
+        "industry": "Biotech/Health",
+        "founders": "George Church, Ben Lamm"
+      }
+    },
+    {
+      "company": "Gusto",
+      "changes": {
+        "founders": {
+          "from": "Joshua Reeves and Edward Kim",
+          "to": "Joshua Reeves, Edward Kim, Tomer London"
+        }
+      },
+      "current": {
+        "id": "wiki-64",
+        "source": "wiki",
+        "company": "Gusto",
+        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
+        "wikiSlug": "Gusto_(software)",
+        "description": "Software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Joshua Reeves and Edward Kim",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Joshua Reeves and Edward Kim"
+      },
+      "proposed": {
+        "id": "wiki-63",
+        "source": "wiki",
+        "company": "Gusto",
+        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
+        "wikiSlug": "Gusto_(software)",
+        "description": "Software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Joshua Reeves, Edward Kim, Tomer London",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Joshua Reeves, Edward Kim, Tomer London"
       }
     },
     {
@@ -483,6 +660,49 @@
       }
     },
     {
+      "company": "Replit",
+      "changes": {
+        "valuation_m": {
+          "from": 3000.0,
+          "to": 9000.0
+        }
+      },
+      "current": {
+        "id": "wiki-192",
+        "source": "wiki",
+        "company": "Replit",
+        "wikiLink": "https://en.wikipedia.org/wiki/Replit",
+        "wikiSlug": "Replit",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$3B",
+        "valuation_m": 3000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Amjad Masad, Faris Masad, Haya Odeh",
+        "country": "United States",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Amjad Masad, Faris Masad, Haya Odeh"
+      },
+      "proposed": {
+        "id": "wiki-75",
+        "source": "wiki",
+        "company": "Replit",
+        "wikiLink": "https://en.wikipedia.org/wiki/Replit",
+        "wikiSlug": "Replit",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$9B",
+        "valuation_m": 9000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Amjad Masad, Faris Masad, Haya Odeh",
+        "country": "United States",
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Amjad Masad, Faris Masad, Haya Odeh"
+      }
+    },
+    {
       "company": "AlphaSense",
       "changes": {
         "valuation_m": {
@@ -512,7 +732,7 @@
         "founders": "Jaakko Kokko, Raj Neervannan"
       },
       "proposed": {
-        "id": "wiki-87",
+        "id": "wiki-88",
         "source": "wiki",
         "company": "AlphaSense",
         "wikiLink": "",
@@ -555,7 +775,7 @@
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
       },
       "proposed": {
-        "id": "wiki-96",
+        "id": "wiki-97",
         "source": "wiki",
         "company": "Cohere",
         "wikiLink": "https://en.wikipedia.org/wiki/Cohere",
@@ -621,6 +841,58 @@
       }
     },
     {
+      "company": "Uzum",
+      "changes": {
+        "valuation_m": {
+          "from": 1500.0,
+          "to": 2300.0
+        },
+        "founders": {
+          "from": "",
+          "to": "Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev"
+        },
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Uzum"
+        }
+      },
+      "current": {
+        "id": "pb-802",
+        "source": "pb",
+        "tier": "B",
+        "company": "Uzum",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Operator of an integrated digital services platform intended for commerce, financial access, and mobility across urban and rural Uzbekistan.",
+        "valuation_str": "$1.5B",
+        "valuation_m": 1500.0,
+        "vc_raised": "$359.0M",
+        "lead_investors": "FinSight Ventures",
+        "country": "Uzbekistan",
+        "unicorn_as_of": "March 2024",
+        "year": "2024",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-247",
+        "source": "wiki",
+        "company": "Uzum",
+        "wikiLink": "https://en.wikipedia.org/wiki/Uzum",
+        "wikiSlug": "Uzum",
+        "description": "E-commerce, Financial technology",
+        "valuation_str": "$2.3B",
+        "valuation_m": 2300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev",
+        "country": "Uzbekistan",
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev"
+      }
+    },
+    {
       "company": "Varda",
       "changes": {
         "valuation_m": {
@@ -647,7 +919,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-765",
+        "id": "pb-764",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -663,6 +935,49 @@
         "year": "2026",
         "industry": "Aerospace/Defense",
         "founders": ""
+      }
+    },
+    {
+      "company": "Airbyte",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Airbyte"
+        }
+      },
+      "current": {
+        "id": "wiki-346",
+        "source": "wiki",
+        "company": "Airbyte",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Software",
+        "valuation_str": "$1.5B",
+        "valuation_m": 1500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Michel Tricot, John Lafleur",
+        "country": "United States",
+        "unicorn_as_of": "December 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Michel Tricot, John Lafleur"
+      },
+      "proposed": {
+        "id": "wiki-346",
+        "source": "wiki",
+        "company": "Airbyte",
+        "wikiLink": "https://en.wikipedia.org/wiki/Airbyte",
+        "wikiSlug": "Airbyte",
+        "description": "Software",
+        "valuation_str": "$1.5B",
+        "valuation_m": 1500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Michel Tricot, John Lafleur",
+        "country": "United States",
+        "unicorn_as_of": "December 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Michel Tricot, John Lafleur"
       }
     },
     {
@@ -735,7 +1050,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-848",
+        "id": "pb-846",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -756,6 +1071,23 @@
   ],
   "removals": [
     {
+      "id": "wiki-0",
+      "source": "wiki",
+      "company": "SpaceX",
+      "wikiLink": "https://en.wikipedia.org/wiki/SpaceX",
+      "wikiSlug": "SpaceX",
+      "description": "Aerospace, Artificial Intelligence",
+      "valuation_str": "$1250B",
+      "valuation_m": 1250000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Elon Musk",
+      "country": "United States",
+      "unicorn_as_of": "February 2026",
+      "year": "2026",
+      "industry": "Aerospace/Defense",
+      "founders": "Elon Musk"
+    },
+    {
       "id": "wiki-22",
       "source": "wiki",
       "company": "Cerebras",
@@ -773,5 +1105,5 @@
       "founders": "Andrew Feldman, Sean Lie"
     }
   ],
-  "generated_at": "2026-06-08T12:27:09Z"
+  "generated_at": "2026-06-15T13:53:42Z"
 }
