@@ -16,6 +16,23 @@
       "year": "2025",
       "industry": "Fintech",
       "founders": "Chris Britt, Ryan King"
+    },
+    {
+      "id": "wiki-215",
+      "source": "wiki",
+      "company": "Astranis",
+      "wikiLink": "https://en.wikipedia.org/wiki/Astranis",
+      "wikiSlug": "Astranis",
+      "description": "Space technology",
+      "valuation_str": "$2.8B",
+      "valuation_m": 2800.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: John Gedmark, Ryan McLinko",
+      "country": "United States",
+      "unicorn_as_of": "May 2026",
+      "year": "2026",
+      "industry": "Aerospace/Defense",
+      "founders": "John Gedmark, Ryan McLinko"
     }
   ],
   "modifications": [
@@ -338,6 +355,53 @@
       }
     },
     {
+      "company": "Helion Energy",
+      "changes": {
+        "valuation_m": {
+          "from": 5420.0,
+          "to": 15500.0
+        },
+        "founders": {
+          "from": "David Kirtley, John Slough, Chris Pihl, George Votroubek",
+          "to": "David Kirtley, Chris Pihl, George Votroubek"
+        }
+      },
+      "current": {
+        "id": "wiki-116",
+        "source": "wiki",
+        "company": "Helion Energy",
+        "wikiLink": "https://en.wikipedia.org/wiki/Helion_Energy",
+        "wikiSlug": "Helion_Energy",
+        "description": "Fusion power",
+        "valuation_str": "$5.42B",
+        "valuation_m": 5420.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: David Kirtley, John Slough, Chris Pihl, George Votroubek",
+        "country": "United States",
+        "unicorn_as_of": "January 2025[AI-retrieved source]",
+        "year": "2025",
+        "industry": "Climate/Energy",
+        "founders": "David Kirtley, John Slough, Chris Pihl, George Votroubek"
+      },
+      "proposed": {
+        "id": "wiki-26",
+        "source": "wiki",
+        "company": "Helion Energy",
+        "wikiLink": "https://en.wikipedia.org/wiki/Helion_Energy",
+        "wikiSlug": "Helion_Energy",
+        "description": "Fusion power",
+        "valuation_str": "$15.5B",
+        "valuation_m": 15500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: David Kirtley, Chris Pihl, George Votroubek",
+        "country": "United States",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "Climate/Energy",
+        "founders": "David Kirtley, Chris Pihl, George Votroubek"
+      }
+    },
+    {
       "company": "DJI",
       "changes": {
         "valuation_m": {
@@ -506,7 +570,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-621",
+        "id": "pb-620",
         "source": "pb",
         "tier": "A",
         "company": "Tether",
@@ -568,46 +632,46 @@
       }
     },
     {
-      "company": "Gusto",
+      "company": "WHOOP",
       "changes": {
-        "founders": {
-          "from": "Joshua Reeves and Edward Kim",
-          "to": "Joshua Reeves, Edward Kim, Tomer London"
+        "valuation_m": {
+          "from": 3600.0,
+          "to": 10100.0
         }
       },
       "current": {
-        "id": "wiki-64",
+        "id": "wiki-167",
         "source": "wiki",
-        "company": "Gusto",
-        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
-        "wikiSlug": "Gusto_(software)",
-        "description": "Software",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
+        "company": "WHOOP",
+        "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
+        "wikiSlug": "WHOOP_(company)",
+        "description": "Wearable technology",
+        "valuation_str": "$3.6B",
+        "valuation_m": 3600.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Joshua Reeves and Edward Kim",
+        "lead_investors": "—",
         "country": "United States",
         "unicorn_as_of": "August 2021",
         "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Joshua Reeves and Edward Kim"
+        "industry": "Biotech/Health",
+        "founders": ""
       },
       "proposed": {
-        "id": "wiki-63",
+        "id": "wiki-60",
         "source": "wiki",
-        "company": "Gusto",
-        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
-        "wikiSlug": "Gusto_(software)",
-        "description": "Software",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
+        "company": "WHOOP",
+        "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
+        "wikiSlug": "WHOOP_(company)",
+        "description": "Wearable technology",
+        "valuation_str": "$10.1B",
+        "valuation_m": 10100.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Joshua Reeves, Edward Kim, Tomer London",
+        "lead_investors": "—",
         "country": "United States",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Joshua Reeves, Edward Kim, Tomer London"
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "Biotech/Health",
+        "founders": ""
       }
     },
     {
@@ -639,7 +703,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-624",
+        "id": "pb-623",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -657,6 +721,49 @@
         "founders": "",
         "companyZh": "月之暗面",
         "pinyinInitial": "Y"
+      }
+    },
+    {
+      "company": "Gusto",
+      "changes": {
+        "founders": {
+          "from": "Joshua Reeves and Edward Kim",
+          "to": "Joshua Reeves, Edward Kim, Tomer London"
+        }
+      },
+      "current": {
+        "id": "wiki-64",
+        "source": "wiki",
+        "company": "Gusto",
+        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
+        "wikiSlug": "Gusto_(software)",
+        "description": "Software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Joshua Reeves and Edward Kim",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Joshua Reeves and Edward Kim"
+      },
+      "proposed": {
+        "id": "wiki-64",
+        "source": "wiki",
+        "company": "Gusto",
+        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
+        "wikiSlug": "Gusto_(software)",
+        "description": "Software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Joshua Reeves, Edward Kim, Tomer London",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Joshua Reeves, Edward Kim, Tomer London"
       }
     },
     {
@@ -685,7 +792,7 @@
         "founders": "Amjad Masad, Faris Masad, Haya Odeh"
       },
       "proposed": {
-        "id": "wiki-75",
+        "id": "wiki-76",
         "source": "wiki",
         "company": "Replit",
         "wikiLink": "https://en.wikipedia.org/wiki/Replit",
@@ -732,7 +839,7 @@
         "founders": "Jaakko Kokko, Raj Neervannan"
       },
       "proposed": {
-        "id": "wiki-88",
+        "id": "wiki-89",
         "source": "wiki",
         "company": "AlphaSense",
         "wikiLink": "",
@@ -775,7 +882,7 @@
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
       },
       "proposed": {
-        "id": "wiki-97",
+        "id": "wiki-98",
         "source": "wiki",
         "company": "Cohere",
         "wikiLink": "https://en.wikipedia.org/wiki/Cohere",
@@ -823,7 +930,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-237",
+        "id": "wiki-236",
         "source": "wiki",
         "company": "Suno",
         "wikiLink": "https://en.wikipedia.org/wiki/Suno_(platform)",
@@ -875,7 +982,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-247",
+        "id": "wiki-246",
         "source": "wiki",
         "company": "Uzum",
         "wikiLink": "https://en.wikipedia.org/wiki/Uzum",
@@ -919,7 +1026,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-764",
+        "id": "pb-763",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -963,7 +1070,7 @@
         "founders": "Michel Tricot, John Lafleur"
       },
       "proposed": {
-        "id": "wiki-346",
+        "id": "wiki-345",
         "source": "wiki",
         "company": "Airbyte",
         "wikiLink": "https://en.wikipedia.org/wiki/Airbyte",
@@ -1006,7 +1113,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-375",
+        "id": "wiki-374",
         "source": "wiki",
         "company": "Deliverect",
         "wikiLink": "",
@@ -1021,6 +1128,50 @@
         "year": "2022",
         "industry": "SaaS/Enterprise",
         "founders": ""
+      }
+    },
+    {
+      "company": "Slash",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Slash_(company)"
+        }
+      },
+      "current": {
+        "id": "pb-804",
+        "source": "pb",
+        "tier": "B",
+        "company": "Slash",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Operator of an online banking platform intended to transfer funds between personal and business bank accounts.",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "$160.0M",
+        "lead_investors": "Goodwater Capital, Khosla Ventures, New Enterprise Associates, Ribbit Capital",
+        "country": "United States",
+        "unicorn_as_of": "April 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Victor Cardenas, Kevin Bai"
+      },
+      "proposed": {
+        "id": "wiki-388",
+        "source": "wiki",
+        "company": "Slash",
+        "wikiLink": "https://en.wikipedia.org/wiki/Slash_(company)",
+        "wikiSlug": "Slash_(company)",
+        "description": "Financial technology",
+        "valuation_str": "$1.4B",
+        "valuation_m": 1400.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Victor Cardenas, Kevin Bai",
+        "country": "United States",
+        "unicorn_as_of": "April 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Victor Cardenas, Kevin Bai"
       }
     },
     {
@@ -1050,7 +1201,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-846",
+        "id": "pb-845",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -1103,7 +1254,24 @@
       "year": "2026",
       "industry": "Semiconductors",
       "founders": "Andrew Feldman, Sean Lie"
+    },
+    {
+      "id": "wiki-27",
+      "source": "wiki",
+      "company": "Rippling",
+      "wikiLink": "https://en.wikipedia.org/wiki/Rippling_(company)",
+      "wikiSlug": "Rippling_(company)",
+      "description": "Workforce management",
+      "valuation_str": "$16.8B",
+      "valuation_m": 16800.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Parker Conrad",
+      "country": "United States",
+      "unicorn_as_of": "May 2025",
+      "year": "2025",
+      "industry": "Other",
+      "founders": "Parker Conrad"
     }
   ],
-  "generated_at": "2026-06-15T13:53:42Z"
+  "generated_at": "2026-06-22T13:33:36Z"
 }

@@ -260,14 +260,14 @@
     "founders": "Andrey Khusid"
   },
   {
-    "company": "Rippling",
-    "wikiLink": "https://en.wikipedia.org/wiki/Rippling_(company)",
-    "valuation_b": 16.8,
-    "valuation_str": "$16.8B",
-    "valuation_date": "May 2025",
-    "industry_raw": "Workforce management",
+    "company": "Helion Energy",
+    "wikiLink": "https://en.wikipedia.org/wiki/Helion_Energy",
+    "valuation_b": 15.5,
+    "valuation_str": "$15.5B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Fusion power",
     "country": "United States",
-    "founders": "Parker Conrad"
+    "founders": "David Kirtley, Chris Pihl, George Votroubek"
   },
   {
     "company": "Yuanfudao",
@@ -598,6 +598,16 @@
     "industry_raw": "Blockchain",
     "country": "United States",
     "founders": "Joe Lau and Nikil Viswanathan"
+  },
+  {
+    "company": "WHOOP",
+    "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
+    "valuation_b": 10.1,
+    "valuation_str": "$10.1B",
+    "valuation_date": "March 2026",
+    "industry_raw": "Wearable technology",
+    "country": "United States",
+    "founders": ""
   },
   {
     "company": "Chehaoduo",
@@ -1170,16 +1180,6 @@
     "founders": ""
   },
   {
-    "company": "Helion Energy",
-    "wikiLink": "https://en.wikipedia.org/wiki/Helion_Energy",
-    "valuation_b": 5.42,
-    "valuation_str": "$5.42B",
-    "valuation_date": "January 2025[AI-retrieved source]",
-    "industry_raw": "Fusion power",
-    "country": "United States",
-    "founders": "David Kirtley, John Slough, Chris Pihl, George Votroubek"
-  },
-  {
     "company": "Trade Republic",
     "wikiLink": "https://en.wikipedia.org/wiki/Trade_Republic",
     "valuation_b": 5.3,
@@ -1670,16 +1670,6 @@
     "founders": "Ankush Sachdeva, Bhanu Pratap Singh, Farid Ahsan"
   },
   {
-    "company": "WHOOP",
-    "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
-    "valuation_b": 3.6,
-    "valuation_str": "$3.6B",
-    "valuation_date": "August 2021",
-    "industry_raw": "Wearable technology",
-    "country": "United States",
-    "founders": ""
-  },
-  {
     "company": "Shouqi",
     "wikiLink": "https://en.wikipedia.org/wiki/Shouqi",
     "valuation_b": 3.55,
@@ -1687,16 +1677,6 @@
     "valuation_date": "December 2016",
     "industry_raw": "Transportation",
     "country": "China",
-    "founders": ""
-  },
-  {
-    "company": "Alchemy",
-    "wikiLink": "https://en.wikipedia.org/wiki/Alchemy_(company)",
-    "valuation_b": 3.5,
-    "valuation_str": "$3.5B",
-    "valuation_date": "October 2021",
-    "industry_raw": "Blockchain",
-    "country": "United States",
     "founders": ""
   },
   {
@@ -2168,6 +2148,16 @@
     "industry_raw": "Finance",
     "country": "United Kingdom",
     "founders": ""
+  },
+  {
+    "company": "Astranis",
+    "wikiLink": "https://en.wikipedia.org/wiki/Astranis",
+    "valuation_b": 2.8,
+    "valuation_str": "$2.8B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Space technology",
+    "country": "United States",
+    "founders": "John Gedmark, Ryan McLinko"
   },
   {
     "company": "Abridge",
@@ -3891,7 +3881,7 @@
   },
   {
     "company": "Slash",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Slash_(company)",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "April 2026",
