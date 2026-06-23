@@ -1,8 +1,9 @@
 {
   "edits": {
     "Anthropic": {
-      "valuation_m": 900000,
-      "valuation_str": "$900B"
+      "valuation_m": 965000,
+      "valuation_str": "$965B",
+      "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
     },
     "Talent": {
       "companyZh": "太蓝新能源"
@@ -64,7 +65,8 @@
       "wikiLink": "https://en.wikipedia.org/wiki/Nscale"
     },
     "Slash": {
-      "founders": "Victor Cardenas, Kevin Bai"
+      "founders": "Victor Cardenas, Kevin Bai",
+      "wikiLink": "https://en.wikipedia.org/wiki/Slash_(company)"
     },
     "Anduril Industries": {
       "valuation_m": 61000,
@@ -80,6 +82,63 @@
     },
     "Deliverect": {
       "wikiLink": "https://en.wikipedia.org/wiki/Deliverect"
+    },
+    "Databricks": {
+      "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+    },
+    "Project Prometheus": {
+      "valuation_m": 41000,
+      "valuation_str": "$41B"
+    },
+    "Ramp": {
+      "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
+    },
+    "Cognition AI": {
+      "valuation_m": 26000,
+      "valuation_str": "$26B"
+    },
+    "Helion Energy": {
+      "valuation_m": 15500,
+      "valuation_str": "$15.5B",
+      "founders": "David Kirtley, Chris Pihl, George Votroubek"
+    },
+    "NinjaOne": {
+      "valuation_m": 12300,
+      "valuation_str": "$12.3B",
+      "founders": "Sal Sferlazza and Chris Matarese"
+    },
+    "Colossal Biosciences": {
+      "founders": "George Church, Ben Lamm"
+    },
+    "WHOOP": {
+      "valuation_m": 10100,
+      "valuation_str": "$10.1B"
+    },
+    "Gusto": {
+      "founders": "Joshua Reeves, Edward Kim, Tomer London"
+    },
+    "Replit": {
+      "valuation_m": 9000,
+      "valuation_str": "$9B"
+    },
+    "AlphaSense": {
+      "valuation_m": 7500,
+      "valuation_str": "$7.5B",
+      "country": "United States (formerly Finland)"
+    },
+    "Suno": {
+      "valuation_m": 2450,
+      "valuation_str": "$2.45B",
+      "wikiLink": "https://en.wikipedia.org/wiki/Suno_(platform)"
+    },
+    "Uzum": {
+      "valuation_m": 2300,
+      "valuation_str": "$2.3B",
+      "founders": "Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev",
+      "wikiLink": "https://en.wikipedia.org/wiki/Uzum"
+    },
+    "Airbyte": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Airbyte"
     }
   },
   "additions": [
@@ -110,11 +169,30 @@
       "industry": "Crypto/Web3",
       "description": "",
       "wikiLink": "https://en.wikipedia.org/wiki/Kraken"
+    },
+    {
+      "id": "wiki-215",
+      "source": "wiki",
+      "company": "Astranis",
+      "wikiLink": "https://en.wikipedia.org/wiki/Astranis",
+      "wikiSlug": "Astranis",
+      "description": "Space technology",
+      "valuation_str": "$2.8B",
+      "valuation_m": 2800,
+      "vc_raised": "—",
+      "lead_investors": "Founders: John Gedmark, Ryan McLinko",
+      "country": "United States",
+      "unicorn_as_of": "May 2026",
+      "year": "2026",
+      "industry": "Aerospace/Defense",
+      "founders": "John Gedmark, Ryan McLinko"
     }
   ],
   "deletions": [
     "Chime",
-    "Anysphere"
+    "Anysphere",
+    "SpaceX",
+    "Cerebras"
   ],
   "archived": {
     "Cerebras": "CBRS"
