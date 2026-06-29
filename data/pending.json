@@ -18,71 +18,24 @@
       "founders": "Chris Britt, Ryan King"
     },
     {
-      "id": "wiki-215",
+      "id": "wiki-122",
       "source": "wiki",
-      "company": "Astranis",
-      "wikiLink": "https://en.wikipedia.org/wiki/Astranis",
-      "wikiSlug": "Astranis",
-      "description": "Space technology",
-      "valuation_str": "$2.8B",
-      "valuation_m": 2800.0,
+      "company": "Ineffable Intelligence",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$5.1B",
+      "valuation_m": 5100.0,
       "vc_raised": "—",
-      "lead_investors": "Founders: John Gedmark, Ryan McLinko",
-      "country": "United States",
-      "unicorn_as_of": "May 2026",
+      "lead_investors": "Founders: David Silver",
+      "country": "United Kingdom",
+      "unicorn_as_of": "April 2026",
       "year": "2026",
-      "industry": "Aerospace/Defense",
-      "founders": "John Gedmark, Ryan McLinko"
+      "industry": "AI/ML",
+      "founders": "David Silver"
     }
   ],
   "modifications": [
-    {
-      "company": "Anthropic",
-      "changes": {
-        "valuation_m": {
-          "from": 900000.0,
-          "to": 965000.0
-        },
-        "founders": {
-          "from": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
-          "to": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
-        }
-      },
-      "current": {
-        "id": "wiki-2",
-        "source": "wiki",
-        "company": "Anthropic",
-        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
-        "wikiSlug": "Anthropic",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$900B",
-        "valuation_m": 900000,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann",
-        "country": "United States",
-        "unicorn_as_of": "February 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann"
-      },
-      "proposed": {
-        "id": "wiki-0",
-        "source": "wiki",
-        "company": "Anthropic",
-        "wikiLink": "https://en.wikipedia.org/wiki/Anthropic",
-        "wikiSlug": "Anthropic",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$965B",
-        "valuation_m": 965000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
-      }
-    },
     {
       "company": "ByteDance",
       "changes": {
@@ -128,135 +81,6 @@
         "founders": "Zhang Yiming, Liang Rubo",
         "companyZh": "字节跳动",
         "pinyinInitial": "Z"
-      }
-    },
-    {
-      "company": "Databricks",
-      "changes": {
-        "founders": {
-          "from": "Ali Ghodsi",
-          "to": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
-        }
-      },
-      "current": {
-        "id": "wiki-5",
-        "source": "wiki",
-        "company": "Databricks",
-        "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
-        "wikiSlug": "Databricks",
-        "description": "Software",
-        "valuation_str": "$134B",
-        "valuation_m": 134000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Ali Ghodsi",
-        "country": "United States",
-        "unicorn_as_of": "December 2025",
-        "year": "2025",
-        "industry": "SaaS/Enterprise",
-        "founders": "Ali Ghodsi"
-      },
-      "proposed": {
-        "id": "wiki-4",
-        "source": "wiki",
-        "company": "Databricks",
-        "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
-        "wikiSlug": "Databricks",
-        "description": "Software",
-        "valuation_str": "$134B",
-        "valuation_m": 134000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia",
-        "country": "United States",
-        "unicorn_as_of": "December 2025",
-        "year": "2025",
-        "industry": "SaaS/Enterprise",
-        "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
-      }
-    },
-    {
-      "company": "Project Prometheus",
-      "changes": {
-        "valuation_m": {
-          "from": 30000.0,
-          "to": 41000.0
-        }
-      },
-      "current": {
-        "id": "wiki-16",
-        "source": "wiki",
-        "company": "Project Prometheus",
-        "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
-        "wikiSlug": "Project_Prometheus_(company)",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$30B",
-        "valuation_m": 30000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Jeff Bezos, Vik Bajaj",
-        "country": "United States",
-        "unicorn_as_of": "December 2025",
-        "year": "2025",
-        "industry": "AI/ML",
-        "founders": "Jeff Bezos, Vik Bajaj"
-      },
-      "proposed": {
-        "id": "wiki-10",
-        "source": "wiki",
-        "company": "Project Prometheus",
-        "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
-        "wikiSlug": "Project_Prometheus_(company)",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$41B",
-        "valuation_m": 41000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Jeff Bezos, Vik Bajaj",
-        "country": "United States",
-        "unicorn_as_of": "June 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Jeff Bezos, Vik Bajaj"
-      }
-    },
-    {
-      "company": "Ramp",
-      "changes": {
-        "founders": {
-          "from": "",
-          "to": "Eric Glyman, Karim Atiyeh, Gene Lee"
-        }
-      },
-      "current": {
-        "id": "wiki-11",
-        "source": "wiki",
-        "company": "Ramp",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
-        "wikiSlug": "Ramp_(company)",
-        "description": "Financial technology",
-        "valuation_str": "$32B",
-        "valuation_m": 32000.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
-        "industry": "Fintech",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-12",
-        "source": "wiki",
-        "company": "Ramp",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
-        "wikiSlug": "Ramp_(company)",
-        "description": "Financial technology",
-        "valuation_str": "$32B",
-        "valuation_m": 32000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Eric Glyman, Karim Atiyeh, Gene Lee",
-        "country": "United States",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
-        "industry": "Fintech",
-        "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
       }
     },
     {
@@ -309,96 +133,6 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": "Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger"
-      }
-    },
-    {
-      "company": "Cognition AI",
-      "changes": {
-        "valuation_m": {
-          "from": 10200.0,
-          "to": 26000.0
-        }
-      },
-      "current": {
-        "id": "wiki-58",
-        "source": "wiki",
-        "company": "Cognition AI",
-        "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
-        "wikiSlug": "Cognition_AI",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$10.2B",
-        "valuation_m": 10200.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Scott Wu, Steven Hao, Walden Yan",
-        "country": "United States",
-        "unicorn_as_of": "September 2025",
-        "year": "2025",
-        "industry": "AI/ML",
-        "founders": "Scott Wu, Steven Hao, Walden Yan"
-      },
-      "proposed": {
-        "id": "wiki-20",
-        "source": "wiki",
-        "company": "Cognition AI",
-        "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
-        "wikiSlug": "Cognition_AI",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$26B",
-        "valuation_m": 26000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Scott Wu, Steven Hao, Walden Yan",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Scott Wu, Steven Hao, Walden Yan"
-      }
-    },
-    {
-      "company": "Helion Energy",
-      "changes": {
-        "valuation_m": {
-          "from": 5420.0,
-          "to": 15500.0
-        },
-        "founders": {
-          "from": "David Kirtley, John Slough, Chris Pihl, George Votroubek",
-          "to": "David Kirtley, Chris Pihl, George Votroubek"
-        }
-      },
-      "current": {
-        "id": "wiki-116",
-        "source": "wiki",
-        "company": "Helion Energy",
-        "wikiLink": "https://en.wikipedia.org/wiki/Helion_Energy",
-        "wikiSlug": "Helion_Energy",
-        "description": "Fusion power",
-        "valuation_str": "$5.42B",
-        "valuation_m": 5420.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: David Kirtley, John Slough, Chris Pihl, George Votroubek",
-        "country": "United States",
-        "unicorn_as_of": "January 2025[AI-retrieved source]",
-        "year": "2025",
-        "industry": "Climate/Energy",
-        "founders": "David Kirtley, John Slough, Chris Pihl, George Votroubek"
-      },
-      "proposed": {
-        "id": "wiki-26",
-        "source": "wiki",
-        "company": "Helion Energy",
-        "wikiLink": "https://en.wikipedia.org/wiki/Helion_Energy",
-        "wikiSlug": "Helion_Energy",
-        "description": "Fusion power",
-        "valuation_str": "$15.5B",
-        "valuation_m": 15500.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: David Kirtley, Chris Pihl, George Votroubek",
-        "country": "United States",
-        "unicorn_as_of": "June 2026",
-        "year": "2026",
-        "industry": "Climate/Energy",
-        "founders": "David Kirtley, Chris Pihl, George Votroubek"
       }
     },
     {
@@ -496,54 +230,6 @@
       }
     },
     {
-      "company": "NinjaOne",
-      "changes": {
-        "valuation_m": {
-          "from": 5000.0,
-          "to": 12300.0
-        },
-        "founders": {
-          "from": "",
-          "to": "Sal Sferlazza and Chris Matarese"
-        }
-      },
-      "current": {
-        "id": "pb-648",
-        "source": "pb",
-        "tier": "A",
-        "company": "NinjaOne",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Developer of a unified IT operations and endpoint management platform designed to centralize device control, automate maintenance, and strengthen security across organizations.",
-        "valuation_str": "$5.0B",
-        "valuation_m": 5000.0,
-        "vc_raised": "$765.0M",
-        "lead_investors": "CapitalG, ICONIQ Growth, Summit Partners",
-        "country": "United States",
-        "unicorn_as_of": "February 2024",
-        "year": "2024",
-        "industry": "Cybersecurity",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-43",
-        "source": "wiki",
-        "company": "NinjaOne",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Software",
-        "valuation_str": "$12.3B",
-        "valuation_m": 12300.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Sal Sferlazza and Chris Matarese",
-        "country": "United States",
-        "unicorn_as_of": "June 2026",
-        "year": "2026",
-        "industry": "SaaS/Enterprise",
-        "founders": "Sal Sferlazza and Chris Matarese"
-      }
-    },
-    {
       "company": "Tether",
       "changes": {
         "valuation_m": {
@@ -570,7 +256,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-620",
+        "id": "pb-621",
         "source": "pb",
         "tier": "A",
         "company": "Tether",
@@ -585,92 +271,6 @@
         "unicorn_as_of": "November 2024",
         "year": "2024",
         "industry": "Crypto/Web3",
-        "founders": ""
-      }
-    },
-    {
-      "company": "Colossal Biosciences",
-      "changes": {
-        "founders": {
-          "from": "George Churchm, Ben Lamm",
-          "to": "George Church, Ben Lamm"
-        }
-      },
-      "current": {
-        "id": "wiki-59",
-        "source": "wiki",
-        "company": "Colossal Biosciences",
-        "wikiLink": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
-        "wikiSlug": "Colossal_Biosciences",
-        "description": "Biotechnology",
-        "valuation_str": "$10.2B",
-        "valuation_m": 10200.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: George Churchm, Ben Lamm",
-        "country": "United States",
-        "unicorn_as_of": "January 2025",
-        "year": "2025",
-        "industry": "Biotech/Health",
-        "founders": "George Churchm, Ben Lamm"
-      },
-      "proposed": {
-        "id": "wiki-58",
-        "source": "wiki",
-        "company": "Colossal Biosciences",
-        "wikiLink": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
-        "wikiSlug": "Colossal_Biosciences",
-        "description": "Biotechnology",
-        "valuation_str": "$10.2B",
-        "valuation_m": 10200.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: George Church, Ben Lamm",
-        "country": "United States",
-        "unicorn_as_of": "January 2025",
-        "year": "2025",
-        "industry": "Biotech/Health",
-        "founders": "George Church, Ben Lamm"
-      }
-    },
-    {
-      "company": "WHOOP",
-      "changes": {
-        "valuation_m": {
-          "from": 3600.0,
-          "to": 10100.0
-        }
-      },
-      "current": {
-        "id": "wiki-167",
-        "source": "wiki",
-        "company": "WHOOP",
-        "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
-        "wikiSlug": "WHOOP_(company)",
-        "description": "Wearable technology",
-        "valuation_str": "$3.6B",
-        "valuation_m": 3600.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Biotech/Health",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-60",
-        "source": "wiki",
-        "company": "WHOOP",
-        "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
-        "wikiSlug": "WHOOP_(company)",
-        "description": "Wearable technology",
-        "valuation_str": "$10.1B",
-        "valuation_m": 10100.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "March 2026",
-        "year": "2026",
-        "industry": "Biotech/Health",
         "founders": ""
       }
     },
@@ -703,7 +303,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-623",
+        "id": "pb-624",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -721,139 +321,6 @@
         "founders": "",
         "companyZh": "月之暗面",
         "pinyinInitial": "Y"
-      }
-    },
-    {
-      "company": "Gusto",
-      "changes": {
-        "founders": {
-          "from": "Joshua Reeves and Edward Kim",
-          "to": "Joshua Reeves, Edward Kim, Tomer London"
-        }
-      },
-      "current": {
-        "id": "wiki-64",
-        "source": "wiki",
-        "company": "Gusto",
-        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
-        "wikiSlug": "Gusto_(software)",
-        "description": "Software",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Joshua Reeves and Edward Kim",
-        "country": "United States",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Joshua Reeves and Edward Kim"
-      },
-      "proposed": {
-        "id": "wiki-64",
-        "source": "wiki",
-        "company": "Gusto",
-        "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
-        "wikiSlug": "Gusto_(software)",
-        "description": "Software",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Joshua Reeves, Edward Kim, Tomer London",
-        "country": "United States",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Joshua Reeves, Edward Kim, Tomer London"
-      }
-    },
-    {
-      "company": "Replit",
-      "changes": {
-        "valuation_m": {
-          "from": 3000.0,
-          "to": 9000.0
-        }
-      },
-      "current": {
-        "id": "wiki-192",
-        "source": "wiki",
-        "company": "Replit",
-        "wikiLink": "https://en.wikipedia.org/wiki/Replit",
-        "wikiSlug": "Replit",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$3B",
-        "valuation_m": 3000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Amjad Masad, Faris Masad, Haya Odeh",
-        "country": "United States",
-        "unicorn_as_of": "September 2025",
-        "year": "2025",
-        "industry": "AI/ML",
-        "founders": "Amjad Masad, Faris Masad, Haya Odeh"
-      },
-      "proposed": {
-        "id": "wiki-76",
-        "source": "wiki",
-        "company": "Replit",
-        "wikiLink": "https://en.wikipedia.org/wiki/Replit",
-        "wikiSlug": "Replit",
-        "description": "Artificial Intelligence",
-        "valuation_str": "$9B",
-        "valuation_m": 9000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Amjad Masad, Faris Masad, Haya Odeh",
-        "country": "United States",
-        "unicorn_as_of": "March 2026",
-        "year": "2026",
-        "industry": "AI/ML",
-        "founders": "Amjad Masad, Faris Masad, Haya Odeh"
-      }
-    },
-    {
-      "company": "AlphaSense",
-      "changes": {
-        "valuation_m": {
-          "from": 4000.0,
-          "to": 7500.0
-        },
-        "country": {
-          "from": "Finland, United States",
-          "to": "United States (formerly Finland)"
-        }
-      },
-      "current": {
-        "id": "wiki-150",
-        "source": "wiki",
-        "company": "AlphaSense",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Software",
-        "valuation_str": "$4B",
-        "valuation_m": 4000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Jaakko Kokko, Raj Neervannan",
-        "country": "Finland, United States",
-        "unicorn_as_of": "June 2024",
-        "year": "2024",
-        "industry": "SaaS/Enterprise",
-        "founders": "Jaakko Kokko, Raj Neervannan"
-      },
-      "proposed": {
-        "id": "wiki-89",
-        "source": "wiki",
-        "company": "AlphaSense",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Software",
-        "valuation_str": "$7.5B",
-        "valuation_m": 7500.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Jaakko Kokko, Raj Neervannan",
-        "country": "United States (formerly Finland)",
-        "unicorn_as_of": "June 2026",
-        "year": "2026",
-        "industry": "SaaS/Enterprise",
-        "founders": "Jaakko Kokko, Raj Neervannan"
       }
     },
     {
@@ -900,106 +367,6 @@
       }
     },
     {
-      "company": "Suno",
-      "changes": {
-        "valuation_m": {
-          "from": 2500.0,
-          "to": 2450.0
-        },
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Suno_(platform)"
-        }
-      },
-      "current": {
-        "id": "pb-704",
-        "source": "pb",
-        "tier": "B",
-        "company": "Suno",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Operator of an emerging generative AI music company designed to create songs.",
-        "valuation_str": "$2.5B",
-        "valuation_m": 2500.0,
-        "vc_raised": "$375.0M",
-        "lead_investors": "Daniel Gross, Founder Collective, Lightspeed Venture Partners, Matrix, Menlo Ventures, Nat Friedman",
-        "country": "United States",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
-        "industry": "AI/ML",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-236",
-        "source": "wiki",
-        "company": "Suno",
-        "wikiLink": "https://en.wikipedia.org/wiki/Suno_(platform)",
-        "wikiSlug": "Suno_(platform)",
-        "description": "Artificial intelligence",
-        "valuation_str": "$2.45B",
-        "valuation_m": 2450.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
-        "industry": "AI/ML",
-        "founders": ""
-      }
-    },
-    {
-      "company": "Uzum",
-      "changes": {
-        "valuation_m": {
-          "from": 1500.0,
-          "to": 2300.0
-        },
-        "founders": {
-          "from": "",
-          "to": "Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev"
-        },
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Uzum"
-        }
-      },
-      "current": {
-        "id": "pb-802",
-        "source": "pb",
-        "tier": "B",
-        "company": "Uzum",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Operator of an integrated digital services platform intended for commerce, financial access, and mobility across urban and rural Uzbekistan.",
-        "valuation_str": "$1.5B",
-        "valuation_m": 1500.0,
-        "vc_raised": "$359.0M",
-        "lead_investors": "FinSight Ventures",
-        "country": "Uzbekistan",
-        "unicorn_as_of": "March 2024",
-        "year": "2024",
-        "industry": "Fintech",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-246",
-        "source": "wiki",
-        "company": "Uzum",
-        "wikiLink": "https://en.wikipedia.org/wiki/Uzum",
-        "wikiSlug": "Uzum",
-        "description": "E-commerce, Financial technology",
-        "valuation_str": "$2.3B",
-        "valuation_m": 2300.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev",
-        "country": "Uzbekistan",
-        "unicorn_as_of": "March 2026",
-        "year": "2026",
-        "industry": "Fintech",
-        "founders": "Djasur Djumaev, Nikolay Seleznev, Roman Lavrentyev"
-      }
-    },
-    {
       "company": "Varda",
       "changes": {
         "valuation_m": {
@@ -1026,7 +393,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-763",
+        "id": "pb-764",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -1042,49 +409,6 @@
         "year": "2026",
         "industry": "Aerospace/Defense",
         "founders": ""
-      }
-    },
-    {
-      "company": "Airbyte",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Airbyte"
-        }
-      },
-      "current": {
-        "id": "wiki-346",
-        "source": "wiki",
-        "company": "Airbyte",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Software",
-        "valuation_str": "$1.5B",
-        "valuation_m": 1500.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Michel Tricot, John Lafleur",
-        "country": "United States",
-        "unicorn_as_of": "December 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Michel Tricot, John Lafleur"
-      },
-      "proposed": {
-        "id": "wiki-345",
-        "source": "wiki",
-        "company": "Airbyte",
-        "wikiLink": "https://en.wikipedia.org/wiki/Airbyte",
-        "wikiSlug": "Airbyte",
-        "description": "Software",
-        "valuation_str": "$1.5B",
-        "valuation_m": 1500.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Michel Tricot, John Lafleur",
-        "country": "United States",
-        "unicorn_as_of": "December 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Michel Tricot, John Lafleur"
       }
     },
     {
@@ -1113,7 +437,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-374",
+        "id": "wiki-375",
         "source": "wiki",
         "company": "Deliverect",
         "wikiLink": "",
@@ -1128,50 +452,6 @@
         "year": "2022",
         "industry": "SaaS/Enterprise",
         "founders": ""
-      }
-    },
-    {
-      "company": "Slash",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Slash_(company)"
-        }
-      },
-      "current": {
-        "id": "pb-804",
-        "source": "pb",
-        "tier": "B",
-        "company": "Slash",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Operator of an online banking platform intended to transfer funds between personal and business bank accounts.",
-        "valuation_str": "$1.4B",
-        "valuation_m": 1400.0,
-        "vc_raised": "$160.0M",
-        "lead_investors": "Goodwater Capital, Khosla Ventures, New Enterprise Associates, Ribbit Capital",
-        "country": "United States",
-        "unicorn_as_of": "April 2026",
-        "year": "2026",
-        "industry": "Fintech",
-        "founders": "Victor Cardenas, Kevin Bai"
-      },
-      "proposed": {
-        "id": "wiki-388",
-        "source": "wiki",
-        "company": "Slash",
-        "wikiLink": "https://en.wikipedia.org/wiki/Slash_(company)",
-        "wikiSlug": "Slash_(company)",
-        "description": "Financial technology",
-        "valuation_str": "$1.4B",
-        "valuation_m": 1400.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Victor Cardenas, Kevin Bai",
-        "country": "United States",
-        "unicorn_as_of": "April 2026",
-        "year": "2026",
-        "industry": "Fintech",
-        "founders": "Victor Cardenas, Kevin Bai"
       }
     },
     {
@@ -1201,7 +481,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-845",
+        "id": "pb-846",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -1222,40 +502,6 @@
   ],
   "removals": [
     {
-      "id": "wiki-0",
-      "source": "wiki",
-      "company": "SpaceX",
-      "wikiLink": "https://en.wikipedia.org/wiki/SpaceX",
-      "wikiSlug": "SpaceX",
-      "description": "Aerospace, Artificial Intelligence",
-      "valuation_str": "$1250B",
-      "valuation_m": 1250000.0,
-      "vc_raised": "—",
-      "lead_investors": "Founders: Elon Musk",
-      "country": "United States",
-      "unicorn_as_of": "February 2026",
-      "year": "2026",
-      "industry": "Aerospace/Defense",
-      "founders": "Elon Musk"
-    },
-    {
-      "id": "wiki-22",
-      "source": "wiki",
-      "company": "Cerebras",
-      "wikiLink": "https://en.wikipedia.org/wiki/Cerebras",
-      "wikiSlug": "Cerebras",
-      "description": "SemiconductorsArtificial intelligence",
-      "valuation_str": "$23B",
-      "valuation_m": 23000.0,
-      "vc_raised": "—",
-      "lead_investors": "Founders: Andrew Feldman, Sean Lie",
-      "country": "United States",
-      "unicorn_as_of": "February 2026",
-      "year": "2026",
-      "industry": "Semiconductors",
-      "founders": "Andrew Feldman, Sean Lie"
-    },
-    {
       "id": "wiki-27",
       "source": "wiki",
       "company": "Rippling",
@@ -1273,5 +519,5 @@
       "founders": "Parker Conrad"
     }
   ],
-  "generated_at": "2026-06-22T13:33:36Z"
+  "generated_at": "2026-06-29T12:31:18Z"
 }

@@ -1220,6 +1220,16 @@
     "founders": ""
   },
   {
+    "company": "Ineffable Intelligence",
+    "wikiLink": "",
+    "valuation_b": 5.1,
+    "valuation_str": "$5.1B",
+    "valuation_date": "April 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United Kingdom",
+    "founders": "David Silver"
+  },
+  {
     "company": "OneTrust",
     "wikiLink": "https://en.wikipedia.org/wiki/OneTrust",
     "valuation_b": 5.1,
