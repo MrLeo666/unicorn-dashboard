@@ -1,48 +1,25 @@
 {
-  "as_of": "2026-06-22",
+  "as_of": "2026-06-29",
   "period": "2026-05-18 to 2026-05-25",
   "source": "Notice Weekly Update email (notifications@notice.co)",
-  "extracted_at": "2026-06-29T12:34:08.652875Z",
+  "extracted_at": "2026-07-06T12:06:26.323917Z",
   "extraction_method": "scripts/scrape_notice_email.py via GitHub Action",
   "notes": "每周一封 Weekly Update 邮件覆盖 watchlist 全集。公司名已规整。",
   "records": {
-    "Neuralink": {
-      "pps": 185.98,
-      "pps_change": -4.38,
-      "valuation_b": 35.37,
-      "new_indications": 5,
-      "date": "2026-06-22",
-      "history": [
-        {
-          "pps": 190.79,
-          "pps_change": 0.62,
-          "valuation_b": 36.27,
-          "new_indications": 6,
-          "date": "2026-06-15"
-        },
-        {
-          "pps": 180.61,
-          "pps_change": 3.92,
-          "valuation_b": 34.33,
-          "new_indications": 5,
-          "date": "2026-06-08"
-        },
-        {
-          "pps": 176.68,
-          "pps_change": -6.03,
-          "valuation_b": 33.55,
-          "new_indications": 6,
-          "date": "2026-06-01"
-        }
-      ]
-    },
     "Databricks": {
-      "pps": 194.78,
-      "pps_change": -7.44,
-      "valuation_b": 137.19,
-      "new_indications": 3,
-      "date": "2026-06-22",
+      "pps": 203.46,
+      "pps_change": 8.68,
+      "valuation_b": 143.49,
+      "new_indications": 1,
+      "date": "2026-06-29",
       "history": [
+        {
+          "pps": 194.78,
+          "pps_change": -7.44,
+          "valuation_b": 137.19,
+          "new_indications": 3,
+          "date": "2026-06-22"
+        },
         {
           "pps": 201.5,
           "pps_change": -1.51,
@@ -63,119 +40,6 @@
           "valuation_b": 166.47,
           "new_indications": 8,
           "date": "2026-06-01"
-        }
-      ]
-    },
-    "SpaceX": {
-      "pps": 115.13,
-      "pps_change": -4.99,
-      "valuation_b": 1360.0,
-      "new_indications": 51,
-      "date": "2026-06-08",
-      "history": [
-        {
-          "pps": 120.12,
-          "pps_change": -2.14,
-          "valuation_b": 1419.15,
-          "new_indications": 44,
-          "date": "2026-06-01"
-        },
-        {
-          "pps": 611.3,
-          "pps_change": 20.08,
-          "valuation_b": 1445.43,
-          "new_indications": 77,
-          "date": "2026-05-25"
-        }
-      ]
-    },
-    "Kraken": {
-      "pps": 36.66,
-      "pps_change": -0.16,
-      "valuation_b": 11.93,
-      "new_indications": 2,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "ByteDance": {
-      "pps": 350.69,
-      "pps_change": -9.05,
-      "valuation_b": 576.57,
-      "new_indications": 2,
-      "date": "2026-06-22",
-      "history": [
-        {
-          "pps": 349.05,
-          "pps_change": -3.7,
-          "valuation_b": 573.41,
-          "new_indications": 27,
-          "date": "2026-06-15"
-        },
-        {
-          "pps": 338.81,
-          "pps_change": -21.99,
-          "valuation_b": 556.59,
-          "new_indications": 27,
-          "date": "2026-06-08"
-        },
-        {
-          "pps": 360.8,
-          "pps_change": 16.89,
-          "valuation_b": 591.97,
-          "new_indications": 2,
-          "date": "2026-06-01"
-        },
-        {
-          "pps": 343.91,
-          "pps_change": -4.63,
-          "valuation_b": 564.96,
-          "new_indications": 1,
-          "date": "2026-05-25"
-        }
-      ]
-    },
-    "Cognition AI": {
-      "pps": 43.32,
-      "pps_change": 0.68,
-      "valuation_b": 8.01,
-      "new_indications": 1,
-      "date": "2026-05-25",
-      "history": []
-    },
-    "Anthropic": {
-      "pps": 609.63,
-      "pps_change": -18.81,
-      "valuation_b": 997.62,
-      "new_indications": 21,
-      "date": "2026-06-22",
-      "history": [
-        {
-          "pps": 624.44,
-          "pps_change": 20.99,
-          "valuation_b": 1020.0,
-          "new_indications": 31,
-          "date": "2026-06-15"
-        },
-        {
-          "pps": 601.29,
-          "pps_change": -66.25,
-          "valuation_b": 985.13,
-          "new_indications": 30,
-          "date": "2026-06-08"
-        },
-        {
-          "pps": 667.55,
-          "pps_change": 94.58,
-          "valuation_b": 1093.67,
-          "new_indications": 40,
-          "date": "2026-06-01"
-        },
-        {
-          "pps": 572.97,
-          "pps_change": 23.78,
-          "valuation_b": 840.21,
-          "new_indications": 36,
-          "date": "2026-05-25"
         }
       ]
     },
@@ -209,43 +73,20 @@
         }
       ]
     },
-    "Revolut": {
-      "pps": 1441.96,
-      "pps_change": 25.02,
-      "valuation_b": 78.04,
-      "new_indications": 2,
-      "date": "2026-06-22",
-      "history": [
-        {
-          "pps": 1410.53,
-          "pps_change": 61.73,
-          "valuation_b": 76.34,
-          "new_indications": 3,
-          "date": "2026-06-15"
-        },
-        {
-          "pps": 1182.24,
-          "pps_change": -32.56,
-          "valuation_b": 63.98,
-          "new_indications": 3,
-          "date": "2026-06-08"
-        },
-        {
-          "pps": 1214.8,
-          "pps_change": 17.56,
-          "valuation_b": 65.62,
-          "new_indications": 1,
-          "date": "2026-06-01"
-        }
-      ]
-    },
     "Anduril Industries": {
-      "pps": 91.71,
-      "pps_change": -5.38,
-      "valuation_b": 81.09,
-      "new_indications": 5,
-      "date": "2026-06-22",
+      "pps": 91.14,
+      "pps_change": -0.57,
+      "valuation_b": 80.63,
+      "new_indications": 1,
+      "date": "2026-06-29",
       "history": [
+        {
+          "pps": 91.71,
+          "pps_change": -5.38,
+          "valuation_b": 81.09,
+          "new_indications": 5,
+          "date": "2026-06-22"
+        },
         {
           "pps": 97.46,
           "pps_change": -0.35,
@@ -276,13 +117,87 @@
         }
       ]
     },
-    "OpenAI": {
-      "pps": 694.7,
-      "pps_change": -27.37,
-      "valuation_b": 851.85,
-      "new_indications": 4,
-      "date": "2026-06-22",
+    "SpaceX": {
+      "pps": 115.13,
+      "pps_change": -4.99,
+      "valuation_b": 1360.0,
+      "new_indications": 51,
+      "date": "2026-06-08",
       "history": [
+        {
+          "pps": 120.12,
+          "pps_change": -2.14,
+          "valuation_b": 1419.15,
+          "new_indications": 44,
+          "date": "2026-06-01"
+        },
+        {
+          "pps": 611.3,
+          "pps_change": 20.08,
+          "valuation_b": 1445.43,
+          "new_indications": 77,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "ByteDance": {
+      "pps": 350.37,
+      "pps_change": -0.32,
+      "valuation_b": 575.58,
+      "new_indications": 4,
+      "date": "2026-06-29",
+      "history": [
+        {
+          "pps": 350.69,
+          "pps_change": -9.05,
+          "valuation_b": 576.57,
+          "new_indications": 2,
+          "date": "2026-06-22"
+        },
+        {
+          "pps": 349.05,
+          "pps_change": -3.7,
+          "valuation_b": 573.41,
+          "new_indications": 27,
+          "date": "2026-06-15"
+        },
+        {
+          "pps": 338.81,
+          "pps_change": -21.99,
+          "valuation_b": 556.59,
+          "new_indications": 27,
+          "date": "2026-06-08"
+        },
+        {
+          "pps": 360.8,
+          "pps_change": 16.89,
+          "valuation_b": 591.97,
+          "new_indications": 2,
+          "date": "2026-06-01"
+        },
+        {
+          "pps": 343.91,
+          "pps_change": -4.63,
+          "valuation_b": 564.96,
+          "new_indications": 1,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "OpenAI": {
+      "pps": 717.5,
+      "pps_change": 22.79,
+      "valuation_b": 880.97,
+      "new_indications": 2,
+      "date": "2026-06-29",
+      "history": [
+        {
+          "pps": 694.7,
+          "pps_change": -27.37,
+          "valuation_b": 851.85,
+          "new_indications": 4,
+          "date": "2026-06-22"
+        },
         {
           "pps": 722.07,
           "pps_change": 39.48,
@@ -312,48 +227,167 @@
           "date": "2026-05-25"
         }
       ]
+    },
+    "Anthropic": {
+      "pps": 625.82,
+      "pps_change": 16.19,
+      "valuation_b": 1030.0,
+      "new_indications": 11,
+      "date": "2026-06-29",
+      "history": [
+        {
+          "pps": 609.63,
+          "pps_change": -18.81,
+          "valuation_b": 997.62,
+          "new_indications": 21,
+          "date": "2026-06-22"
+        },
+        {
+          "pps": 624.44,
+          "pps_change": 20.99,
+          "valuation_b": 1020.0,
+          "new_indications": 31,
+          "date": "2026-06-15"
+        },
+        {
+          "pps": 601.29,
+          "pps_change": -66.25,
+          "valuation_b": 985.13,
+          "new_indications": 30,
+          "date": "2026-06-08"
+        },
+        {
+          "pps": 667.55,
+          "pps_change": 94.58,
+          "valuation_b": 1093.67,
+          "new_indications": 40,
+          "date": "2026-06-01"
+        },
+        {
+          "pps": 572.97,
+          "pps_change": 23.78,
+          "valuation_b": 840.21,
+          "new_indications": 36,
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    "Revolut": {
+      "pps": 1441.96,
+      "pps_change": 25.02,
+      "valuation_b": 78.04,
+      "new_indications": 2,
+      "date": "2026-06-22",
+      "history": [
+        {
+          "pps": 1410.53,
+          "pps_change": 61.73,
+          "valuation_b": 76.34,
+          "new_indications": 3,
+          "date": "2026-06-15"
+        },
+        {
+          "pps": 1182.24,
+          "pps_change": -32.56,
+          "valuation_b": 63.98,
+          "new_indications": 3,
+          "date": "2026-06-08"
+        },
+        {
+          "pps": 1214.8,
+          "pps_change": 17.56,
+          "valuation_b": 65.62,
+          "new_indications": 1,
+          "date": "2026-06-01"
+        }
+      ]
+    },
+    "Kraken": {
+      "pps": 36.66,
+      "pps_change": -0.16,
+      "valuation_b": 11.93,
+      "new_indications": 2,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "Cognition AI": {
+      "pps": 43.32,
+      "pps_change": 0.68,
+      "valuation_b": 8.01,
+      "new_indications": 1,
+      "date": "2026-05-25",
+      "history": []
+    },
+    "Neuralink": {
+      "pps": 194.89,
+      "pps_change": 8.92,
+      "valuation_b": 37.05,
+      "new_indications": 1,
+      "date": "2026-06-29",
+      "history": [
+        {
+          "pps": 185.98,
+          "pps_change": -4.38,
+          "valuation_b": 35.37,
+          "new_indications": 5,
+          "date": "2026-06-22"
+        },
+        {
+          "pps": 190.79,
+          "pps_change": 0.62,
+          "valuation_b": 36.27,
+          "new_indications": 6,
+          "date": "2026-06-15"
+        },
+        {
+          "pps": 180.61,
+          "pps_change": 3.92,
+          "valuation_b": 34.33,
+          "new_indications": 5,
+          "date": "2026-06-08"
+        },
+        {
+          "pps": 176.68,
+          "pps_change": -6.03,
+          "valuation_b": 33.55,
+          "new_indications": 6,
+          "date": "2026-06-01"
+        }
+      ]
     }
   },
   "most_active": [
     {
       "company": "Anthropic",
-      "indications": 21
+      "indications": 11
     },
     {
       "company": "Anduril Industries",
-      "indications": 5
+      "indications": 1
     },
     {
       "company": "OpenAI",
-      "indications": 4
+      "indications": 2
     },
     {
       "company": "Neuralink",
-      "indications": 5
+      "indications": 1
     },
     {
       "company": "Databricks",
-      "indications": 3
+      "indications": 1
     },
     {
       "company": "ByteDance",
-      "indications": 2
+      "indications": 4
     },
     {
       "company": "Polymarket",
-      "indications": 1
-    },
-    {
-      "company": "Stripe",
-      "indications": 1
+      "indications": 2
     },
     {
       "company": "Crusoe",
-      "indications": 1
-    },
-    {
-      "company": "Shield AI",
-      "indications": 2
+      "indications": 3
     }
   ],
   "_schema_hint": {
