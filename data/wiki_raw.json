@@ -7,7 +7,7 @@
     "valuation_date": "May 2026",
     "industry_raw": "Artificial Intelligence",
     "country": "United States",
-    "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Chris Olah"
+    "founders": "Dario Amodei, Daniela Amodei, Jared Kaplan, Jack Clark, Ben Mann, Tom Brown, Sam McCandlish, Chris Olah"
   },
   {
     "company": "OpenAI",
@@ -415,7 +415,7 @@
     "valuation_b": 12.5,
     "valuation_str": "$12.5B",
     "valuation_date": "April 2025",
-    "industry_raw": "Human-enhancement AI / Superintelligence",
+    "industry_raw": "Frontier Intelligences, Superintelligence, Human-enhancement AI",
     "country": "United States",
     "founders": "Duránd F. Davis Jr., and Maya Elz Davis"
   },
