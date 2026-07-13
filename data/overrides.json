@@ -186,6 +186,23 @@
       "year": "2026",
       "industry": "Aerospace/Defense",
       "founders": "John Gedmark, Ryan McLinko"
+    },
+    {
+      "id": "wiki-121",
+      "source": "wiki",
+      "company": "Ineffable Intelligence",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$5.1B",
+      "valuation_m": 5100,
+      "vc_raised": "—",
+      "lead_investors": "Founders: David Silver",
+      "country": "United Kingdom",
+      "unicorn_as_of": "April 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "David Silver"
     }
   ],
   "deletions": [
