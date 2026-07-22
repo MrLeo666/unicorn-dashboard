@@ -139,6 +139,18 @@
     },
     "Airbyte": {
       "wikiLink": "https://en.wikipedia.org/wiki/Airbyte"
+    },
+    "Rapyd": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Rapyd"
+    },
+    "Doctolib[fr]": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Doctolib?action=edit&redlink=1"
+    },
+    "Ualá": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ualá"
+    },
+    "Taxfix": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Taxfix?action=edit&redlink=1"
     }
   },
   "additions": [
@@ -203,6 +215,40 @@
       "year": "2026",
       "industry": "AI/ML",
       "founders": "David Silver"
+    },
+    {
+      "id": "wiki-10",
+      "source": "wiki",
+      "company": "Prometheus",
+      "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
+      "wikiSlug": "Project_Prometheus_(company)",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$41B",
+      "valuation_m": 41000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Jeff Bezos, Vik Bajaj",
+      "country": "United States",
+      "unicorn_as_of": "June 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Jeff Bezos, Vik Bajaj"
+    },
+    {
+      "id": "wiki-430",
+      "source": "wiki",
+      "company": "Mindtickle",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Software as a service",
+      "valuation_str": "$1.2B",
+      "valuation_m": 1200,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "India",
+      "unicorn_as_of": "August 2021",
+      "year": "2021",
+      "industry": "SaaS/Enterprise",
+      "founders": ""
     }
   ],
   "deletions": [
