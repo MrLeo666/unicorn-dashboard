@@ -1079,6 +1079,7 @@ function b64encode(s) {
 async function ghGet(cfg, path) {
   const url = `https://api.github.com/repos/${cfg.repo}/contents/${path}?ref=${encodeURIComponent(cfg.branch || 'main')}`;
   return fetch(url, {
+    cache: 'no-store',
     headers: {
       'Authorization': `Bearer ${cfg.token}`,
       'Accept': 'application/vnd.github+json',
@@ -1125,23 +1126,35 @@ async function publishOverrides() {
     return;
   }
 
-  // 2) PUT new content
-  toast('Pushing to GitHub…');
-  const putRes = await ghPut(cfg, path, {
-    message: 'data: admin overrides via web UI',
-    content,
-    branch: cfg.branch || 'main',
-    ...(sha ? { sha } : {})
-  });
-  if (!putRes.ok) {
+  // 2) PUT new content, retrying once on 409 (SHA drifted between GET and PUT,
+  // e.g. a publish from another device or a stale cached SHA)
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    toast(attempt === 1 ? 'Pushing to GitHub…' : 'SHA changed — retrying with fresh SHA…');
+    const putRes = await ghPut(cfg, path, {
+      message: 'data: admin overrides via web UI',
+      content,
+      branch: cfg.branch || 'main',
+      ...(sha ? { sha } : {})
+    });
+    if (putRes.ok) {
+      const result = await putRes.json();
+      const commitUrl = result.commit && result.commit.html_url;
+      toast('✓ Published! Pages will rebuild in ~30s');
+      if (commitUrl) console.log('Committed:', commitUrl);
+      return;
+    }
     const err = await putRes.json().catch(() => ({}));
+    if (putRes.status === 409 && attempt === 1) {
+      // Re-read the latest SHA and try once more
+      const refetch = await ghGet(cfg, path);
+      if (refetch.ok) {
+        sha = (await refetch.json()).sha;
+        continue;
+      }
+    }
     toast(`Publish failed: ${putRes.status} ${err.message || 'check token & repo'}`);
     return;
   }
-  const result = await putRes.json();
-  const commitUrl = result.commit && result.commit.html_url;
-  toast('✓ Published! Pages will rebuild in ~30s');
-  if (commitUrl) console.log('Committed:', commitUrl);
 }
 
 // ----- Settings modal -----
