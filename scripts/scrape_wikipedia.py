@@ -61,8 +61,12 @@ def main():
         wiki_link = ''
         if a is not None:
             href = a.get('href', '')
+            # Wikipedia's Parsoid HTML now emits absolute URLs; older HTML used
+            # relative /wiki/... paths. Accept both.
             if href.startswith('/wiki/'):
                 wiki_link = 'https://en.wikipedia.org' + href
+            elif href.startswith('https://en.wikipedia.org/wiki/'):
+                wiki_link = href
         date_str = re.sub(r'\s*\(\d{4}-\d{2}\)', '', clean(cells[2].get_text()))
         rows.append({
             'company': company,
