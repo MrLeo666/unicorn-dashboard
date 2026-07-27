@@ -30,6 +30,16 @@
     "founders": "Zhang Yiming, Liang Rubo"
   },
   {
+    "company": "Databricks",
+    "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
+    "valuation_b": 188.0,
+    "valuation_str": "$188B",
+    "valuation_date": "July 2026",
+    "industry_raw": "Software",
+    "country": "United States",
+    "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+  },
+  {
     "company": "Stripe",
     "wikiLink": "https://en.wikipedia.org/wiki/Stripe_(company)",
     "valuation_b": 159.0,
@@ -38,16 +48,6 @@
     "industry_raw": "Financial services",
     "country": "United States and Ireland",
     "founders": "Patrick and John Collison"
-  },
-  {
-    "company": "Databricks",
-    "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
-    "valuation_b": 134.0,
-    "valuation_str": "$134B",
-    "valuation_date": "December 2025",
-    "industry_raw": "Software",
-    "country": "United States",
-    "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
   },
   {
     "company": "Binance",
@@ -4578,6 +4578,16 @@
     "industry_raw": "Semiconductor",
     "country": "United States",
     "founders": "James Proud"
+  },
+  {
+    "company": "Aikido Security",
+    "wikiLink": "https://en.wikipedia.org/wiki/Aikido_Security",
+    "valuation_b": 1.0,
+    "valuation_str": "$1B",
+    "valuation_date": "January 2026",
+    "industry_raw": "Cybersecurity",
+    "country": "Belgium",
+    "founders": "Willem Delbare"
   },
   {
     "company": "Character.ai",

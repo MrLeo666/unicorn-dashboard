@@ -1,23 +1,6 @@
 {
   "additions": [
     {
-      "id": "wiki-10",
-      "source": "wiki",
-      "company": "Prometheus",
-      "wikiLink": "https://en.wikipedia.org/wiki/Project_Prometheus_(company)",
-      "wikiSlug": "Project_Prometheus_(company)",
-      "description": "Artificial Intelligence",
-      "valuation_str": "$41B",
-      "valuation_m": 41000.0,
-      "vc_raised": "—",
-      "lead_investors": "Founders: Jeff Bezos, Vik Bajaj",
-      "country": "United States",
-      "unicorn_as_of": "June 2026",
-      "year": "2026",
-      "industry": "AI/ML",
-      "founders": "Jeff Bezos, Vik Bajaj"
-    },
-    {
       "id": "wiki-20",
       "source": "wiki",
       "company": "Chime",
@@ -35,21 +18,21 @@
       "founders": "Chris Britt, Ryan King"
     },
     {
-      "id": "wiki-430",
+      "id": "wiki-458",
       "source": "wiki",
-      "company": "Mindtickle",
-      "wikiLink": "",
-      "wikiSlug": "",
-      "description": "Software as a service",
-      "valuation_str": "$1.2B",
-      "valuation_m": 1200.0,
+      "company": "Aikido Security",
+      "wikiLink": "https://en.wikipedia.org/wiki/Aikido_Security",
+      "wikiSlug": "Aikido_Security",
+      "description": "Cybersecurity",
+      "valuation_str": "$1B",
+      "valuation_m": 1000.0,
       "vc_raised": "—",
-      "lead_investors": "—",
-      "country": "India",
-      "unicorn_as_of": "August 2021",
-      "year": "2021",
-      "industry": "SaaS/Enterprise",
-      "founders": ""
+      "lead_investors": "Founders: Willem Delbare",
+      "country": "Belgium",
+      "unicorn_as_of": "January 2026",
+      "year": "2026",
+      "industry": "Cybersecurity",
+      "founders": "Willem Delbare"
     }
   ],
   "modifications": [
@@ -144,6 +127,49 @@
       }
     },
     {
+      "company": "Databricks",
+      "changes": {
+        "valuation_m": {
+          "from": 134000.0,
+          "to": 188000.0
+        }
+      },
+      "current": {
+        "id": "wiki-5",
+        "source": "wiki",
+        "company": "Databricks",
+        "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
+        "wikiSlug": "Databricks",
+        "description": "Software",
+        "valuation_str": "$134B",
+        "valuation_m": 134000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ali Ghodsi",
+        "country": "United States",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "SaaS/Enterprise",
+        "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+      },
+      "proposed": {
+        "id": "wiki-3",
+        "source": "wiki",
+        "company": "Databricks",
+        "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
+        "wikiSlug": "Databricks",
+        "description": "Software",
+        "valuation_str": "$188B",
+        "valuation_m": 188000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia",
+        "country": "United States",
+        "unicorn_as_of": "July 2026",
+        "year": "2026",
+        "industry": "SaaS/Enterprise",
+        "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+      }
+    },
+    {
       "company": "Cursor",
       "changes": {
         "valuation_m": {
@@ -170,7 +196,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-617",
+        "id": "pb-618",
         "source": "pb",
         "tier": "A",
         "company": "Cursor",
@@ -309,7 +335,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-621",
+        "id": "pb-622",
         "source": "pb",
         "tier": "A",
         "company": "Tether",
@@ -356,7 +382,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-624",
+        "id": "pb-625",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -374,49 +400,6 @@
         "founders": "",
         "companyZh": "月之暗面",
         "pinyinInitial": "Y"
-      }
-    },
-    {
-      "company": "Rapyd",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Rapyd"
-        }
-      },
-      "current": {
-        "id": "wiki-78",
-        "source": "wiki",
-        "company": "Rapyd",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Financial technology",
-        "valuation_str": "$8.7B",
-        "valuation_m": 8700.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United Kingdom",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Fintech",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-78",
-        "source": "wiki",
-        "company": "Rapyd",
-        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
-        "wikiSlug": "Rapyd",
-        "description": "Financial technology",
-        "valuation_str": "$8.7B",
-        "valuation_m": 8700.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United Kingdom",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Fintech",
-        "founders": ""
       }
     },
     {
@@ -463,92 +446,6 @@
       }
     },
     {
-      "company": "Doctolib[fr]",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Doctolib?action=edit&redlink=1"
-        }
-      },
-      "current": {
-        "id": "wiki-104",
-        "source": "wiki",
-        "company": "Doctolib[fr]",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Healthcare",
-        "valuation_str": "$6.2B",
-        "valuation_m": 6200.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "France",
-        "unicorn_as_of": "August 2022",
-        "year": "2022",
-        "industry": "Biotech/Health",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-105",
-        "source": "wiki",
-        "company": "Doctolib[fr]",
-        "wikiLink": "https://en.wikipedia.org/wiki/Doctolib?action=edit&redlink=1",
-        "wikiSlug": "",
-        "description": "Healthcare",
-        "valuation_str": "$6.2B",
-        "valuation_m": 6200.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "France",
-        "unicorn_as_of": "August 2022",
-        "year": "2022",
-        "industry": "Biotech/Health",
-        "founders": ""
-      }
-    },
-    {
-      "company": "Ualá",
-      "changes": {
-        "wikiLink": {
-          "from": "https://en.wikipedia.org/wiki/Ual%C3%A1",
-          "to": "https://en.wikipedia.org/wiki/Ualá"
-        }
-      },
-      "current": {
-        "id": "wiki-238",
-        "source": "wiki",
-        "company": "Ualá",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ual%C3%A1",
-        "wikiSlug": "Ual%C3%A1",
-        "description": "Personal finance",
-        "valuation_str": "$2.45B",
-        "valuation_m": 2450.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "Argentina",
-        "unicorn_as_of": "November 2019",
-        "year": "2019",
-        "industry": "Fintech",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-237",
-        "source": "wiki",
-        "company": "Ualá",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ualá",
-        "wikiSlug": "Ualá",
-        "description": "Personal finance",
-        "valuation_str": "$2.45B",
-        "valuation_m": 2450.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "Argentina",
-        "unicorn_as_of": "November 2019",
-        "year": "2019",
-        "industry": "Fintech",
-        "founders": ""
-      }
-    },
-    {
       "company": "Varda",
       "changes": {
         "valuation_m": {
@@ -575,7 +472,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-764",
+        "id": "pb-765",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -663,7 +560,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-846",
+        "id": "pb-847",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -679,49 +576,6 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": ""
-      }
-    },
-    {
-      "company": "Taxfix",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Taxfix?action=edit&redlink=1"
-        }
-      },
-      "current": {
-        "id": "wiki-570",
-        "source": "wiki",
-        "company": "Taxfix",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Fintech / Tax software",
-        "valuation_str": "$1B",
-        "valuation_m": 1000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Mathis Büchi, Lino Teuteberg",
-        "country": "Germany",
-        "unicorn_as_of": "April 2022",
-        "year": "2022",
-        "industry": "Fintech",
-        "founders": "Mathis Büchi, Lino Teuteberg"
-      },
-      "proposed": {
-        "id": "wiki-571",
-        "source": "wiki",
-        "company": "Taxfix",
-        "wikiLink": "https://en.wikipedia.org/wiki/Taxfix?action=edit&redlink=1",
-        "wikiSlug": "",
-        "description": "Fintech / Tax software",
-        "valuation_str": "$1B",
-        "valuation_m": 1000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Mathis Büchi, Lino Teuteberg",
-        "country": "Germany",
-        "unicorn_as_of": "April 2022",
-        "year": "2022",
-        "industry": "Fintech",
-        "founders": "Mathis Büchi, Lino Teuteberg"
       }
     }
   ],
@@ -778,5 +632,5 @@
       "founders": ""
     }
   ],
-  "generated_at": "2026-07-22T09:15:44Z"
+  "generated_at": "2026-07-27T11:18:26Z"
 }
