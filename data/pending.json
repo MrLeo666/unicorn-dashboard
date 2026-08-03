@@ -18,7 +18,7 @@
       "founders": "Chris Britt, Ryan King"
     },
     {
-      "id": "wiki-458",
+      "id": "wiki-459",
       "source": "wiki",
       "company": "Aikido Security",
       "wikiLink": "https://en.wikipedia.org/wiki/Aikido_Security",
@@ -196,7 +196,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-618",
+        "id": "pb-619",
         "source": "pb",
         "tier": "A",
         "company": "Cursor",
@@ -335,7 +335,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-622",
+        "id": "pb-623",
         "source": "pb",
         "tier": "A",
         "company": "Tether",
@@ -351,6 +351,281 @@
         "year": "2024",
         "industry": "Crypto/Web3",
         "founders": ""
+      }
+    },
+    {
+      "company": "Cyera",
+      "changes": {
+        "valuation_m": {
+          "from": 9000.0,
+          "to": 12000.0
+        },
+        "country": {
+          "from": "United States",
+          "to": "United States and Israel"
+        },
+        "founders": {
+          "from": "",
+          "to": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay"
+        },
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Cyera"
+        }
+      },
+      "current": {
+        "id": "pb-627",
+        "source": "pb",
+        "tier": "A",
+        "company": "Cyera",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a holistic data storage and security platform designed to prevent breaches and catch data risks in an organization.",
+        "valuation_str": "$9.0B",
+        "valuation_m": 9000.0,
+        "vc_raised": "$1.7B",
+        "lead_investors": "Accel, Blackstone, Coatue Management, CyberStarts, Georgian, Greenoaks Capital Partners, Lightspeed Venture Partners, Sapphire Ventures, Sequoia Capital",
+        "country": "United States",
+        "unicorn_as_of": "April 2024",
+        "year": "2024",
+        "industry": "Cybersecurity",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-43",
+        "source": "wiki",
+        "company": "Cyera",
+        "wikiLink": "https://en.wikipedia.org/wiki/Cyera",
+        "wikiSlug": "Cyera",
+        "description": "Cybersecurity",
+        "valuation_str": "$12B",
+        "valuation_m": 12000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay",
+        "country": "United States and Israel",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "Cybersecurity",
+        "founders": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay"
+      }
+    },
+    {
+      "company": "WHOOP",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Will Ahmed"
+        }
+      },
+      "current": {
+        "id": "wiki-167",
+        "source": "wiki",
+        "company": "WHOOP",
+        "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
+        "wikiSlug": "WHOOP_(company)",
+        "description": "Wearable technology",
+        "valuation_str": "$10.1B",
+        "valuation_m": 10100,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Biotech/Health",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-60",
+        "source": "wiki",
+        "company": "WHOOP",
+        "wikiLink": "https://en.wikipedia.org/wiki/WHOOP_(company)",
+        "wikiSlug": "WHOOP_(company)",
+        "description": "Wearable technology",
+        "valuation_str": "$10.1B",
+        "valuation_m": 10100.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Will Ahmed",
+        "country": "United States",
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "Biotech/Health",
+        "founders": "Will Ahmed"
+      }
+    },
+    {
+      "company": "Polygon Technology",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Jaynti Kanani, Sandeep Nailwal, Anurag Arjun, Mihailo Bjelic"
+        }
+      },
+      "current": {
+        "id": "wiki-68",
+        "source": "wiki",
+        "company": "Polygon Technology",
+        "wikiLink": "https://en.wikipedia.org/wiki/Polygon_(blockchain)",
+        "wikiSlug": "Polygon_(blockchain)",
+        "description": "Blockchain, Web3",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "India",
+        "unicorn_as_of": "February 2022",
+        "year": "2022",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-68",
+        "source": "wiki",
+        "company": "Polygon Technology",
+        "wikiLink": "https://en.wikipedia.org/wiki/Polygon_(blockchain)",
+        "wikiSlug": "Polygon_(blockchain)",
+        "description": "Blockchain, Web3",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jaynti Kanani, Sandeep Nailwal, Anurag Arjun, Mihailo Bjelic",
+        "country": "India",
+        "unicorn_as_of": "February 2022",
+        "year": "2022",
+        "industry": "Crypto/Web3",
+        "founders": "Jaynti Kanani, Sandeep Nailwal, Anurag Arjun, Mihailo Bjelic"
+      }
+    },
+    {
+      "company": "KuCoin",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Chun Gan, Ke Tang, Johnny Lyu"
+        }
+      },
+      "current": {
+        "id": "wiki-65",
+        "source": "wiki",
+        "company": "KuCoin",
+        "wikiLink": "https://en.wikipedia.org/wiki/KuCoin",
+        "wikiSlug": "KuCoin",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Seychelles",
+        "unicorn_as_of": "May 2022",
+        "year": "2022",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-65",
+        "source": "wiki",
+        "company": "KuCoin",
+        "wikiLink": "https://en.wikipedia.org/wiki/KuCoin",
+        "wikiSlug": "KuCoin",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Chun Gan, Ke Tang, Johnny Lyu",
+        "country": "Seychelles",
+        "unicorn_as_of": "May 2022",
+        "year": "2022",
+        "industry": "Crypto/Web3",
+        "founders": "Chun Gan, Ke Tang, Johnny Lyu"
+      }
+    },
+    {
+      "company": "Lalamove",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Chow Shing-Yuk"
+        }
+      },
+      "current": {
+        "id": "wiki-66",
+        "source": "wiki",
+        "company": "Lalamove",
+        "wikiLink": "https://en.wikipedia.org/wiki/Lalamove",
+        "wikiSlug": "Lalamove",
+        "description": "Supply chain management",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Hong Kong",
+        "unicorn_as_of": "January 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": "",
+        "companyZh": "货拉拉",
+        "pinyinInitial": "H"
+      },
+      "proposed": {
+        "id": "wiki-66",
+        "source": "wiki",
+        "company": "Lalamove",
+        "wikiLink": "https://en.wikipedia.org/wiki/Lalamove",
+        "wikiSlug": "Lalamove",
+        "description": "Supply chain management",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Chow Shing-Yuk",
+        "country": "Hong Kong",
+        "unicorn_as_of": "January 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": "Chow Shing-Yuk",
+        "companyZh": "货拉拉",
+        "pinyinInitial": "H"
+      }
+    },
+    {
+      "company": "Notion Labs",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
+        }
+      },
+      "current": {
+        "id": "wiki-67",
+        "source": "wiki",
+        "company": "Notion Labs",
+        "wikiLink": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
+        "wikiSlug": "Notion_(productivity_software)",
+        "description": "Productivity software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "October 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-67",
+        "source": "wiki",
+        "company": "Notion Labs",
+        "wikiLink": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
+        "wikiSlug": "Notion_(productivity_software)",
+        "description": "Productivity software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman",
+        "country": "United States",
+        "unicorn_as_of": "October 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
       }
     },
     {
@@ -382,7 +657,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-625",
+        "id": "pb-626",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -400,6 +675,307 @@
         "founders": "",
         "companyZh": "月之暗面",
         "pinyinInitial": "Y"
+      }
+    },
+    {
+      "company": "Digital Currency Group",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Barry Silbert"
+        }
+      },
+      "current": {
+        "id": "wiki-62",
+        "source": "wiki",
+        "company": "Digital Currency Group",
+        "wikiLink": "https://en.wikipedia.org/wiki/Digital_Currency_Group",
+        "wikiSlug": "Digital_Currency_Group",
+        "description": "Venture capital",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "November 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-62",
+        "source": "wiki",
+        "company": "Digital Currency Group",
+        "wikiLink": "https://en.wikipedia.org/wiki/Digital_Currency_Group",
+        "wikiSlug": "Digital_Currency_Group",
+        "description": "Venture capital",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Barry Silbert",
+        "country": "United States",
+        "unicorn_as_of": "November 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": "Barry Silbert"
+      }
+    },
+    {
+      "company": "Ripple",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Chris Larsen, Jed McCaleb"
+        }
+      },
+      "current": {
+        "id": "wiki-69",
+        "source": "wiki",
+        "company": "Ripple",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ripple_Labs",
+        "wikiSlug": "Ripple_Labs",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "December 2019",
+        "year": "2019",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-69",
+        "source": "wiki",
+        "company": "Ripple",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ripple_Labs",
+        "wikiSlug": "Ripple_Labs",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Chris Larsen, Jed McCaleb",
+        "country": "United States",
+        "unicorn_as_of": "December 2019",
+        "year": "2019",
+        "industry": "Crypto/Web3",
+        "founders": "Chris Larsen, Jed McCaleb"
+      }
+    },
+    {
+      "company": "Rapyd",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Arik Shtilman, Arkady Karpman, Omer Priel"
+        }
+      },
+      "current": {
+        "id": "wiki-78",
+        "source": "wiki",
+        "company": "Rapyd",
+        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United Kingdom",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-79",
+        "source": "wiki",
+        "company": "Rapyd",
+        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+        "wikiSlug": "Rapyd",
+        "description": "Financial technology",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Arik Shtilman, Arkady Karpman, Omer Priel",
+        "country": "United Kingdom",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
+      }
+    },
+    {
+      "company": "Kavak",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Carlos García Ottati"
+        }
+      },
+      "current": {
+        "id": "wiki-77",
+        "source": "wiki",
+        "company": "Kavak",
+        "wikiLink": "https://en.wikipedia.org/wiki/Kavak_(company)",
+        "wikiSlug": "Kavak_(company)",
+        "description": "Marketplace",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Mexico",
+        "unicorn_as_of": "October 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-78",
+        "source": "wiki",
+        "company": "Kavak",
+        "wikiLink": "https://en.wikipedia.org/wiki/Kavak_(company)",
+        "wikiSlug": "Kavak_(company)",
+        "description": "Marketplace",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Carlos García Ottati",
+        "country": "Mexico",
+        "unicorn_as_of": "October 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": "Carlos García Ottati"
+      }
+    },
+    {
+      "company": "Nuro",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Jiajun Zhu, Dave Ferguson"
+        }
+      },
+      "current": {
+        "id": "wiki-79",
+        "source": "wiki",
+        "company": "Nuro",
+        "wikiLink": "https://en.wikipedia.org/wiki/Nuro",
+        "wikiSlug": "Nuro",
+        "description": "Robotics",
+        "valuation_str": "$8.6B",
+        "valuation_m": 8600.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "November 2021",
+        "year": "2021",
+        "industry": "Robotics",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-80",
+        "source": "wiki",
+        "company": "Nuro",
+        "wikiLink": "https://en.wikipedia.org/wiki/Nuro",
+        "wikiSlug": "Nuro",
+        "description": "Robotics",
+        "valuation_str": "$8.6B",
+        "valuation_m": 8600.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jiajun Zhu, Dave Ferguson",
+        "country": "United States",
+        "unicorn_as_of": "November 2021",
+        "year": "2021",
+        "industry": "Robotics",
+        "founders": "Jiajun Zhu, Dave Ferguson"
+      }
+    },
+    {
+      "company": "Airwallex",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
+        }
+      },
+      "current": {
+        "id": "wiki-84",
+        "source": "wiki",
+        "company": "Airwallex",
+        "wikiLink": "https://en.wikipedia.org/wiki/Airwallex",
+        "wikiSlug": "Airwallex",
+        "description": "Financial services",
+        "valuation_str": "$8B",
+        "valuation_m": 8000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Australia",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-85",
+        "source": "wiki",
+        "company": "Airwallex",
+        "wikiLink": "https://en.wikipedia.org/wiki/Airwallex",
+        "wikiSlug": "Airwallex",
+        "description": "Financial services",
+        "valuation_str": "$8B",
+        "valuation_m": 8000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong",
+        "country": "Australia",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "Fintech",
+        "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
+      }
+    },
+    {
+      "company": "Zipline",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler"
+        }
+      },
+      "current": {
+        "id": "wiki-87",
+        "source": "wiki",
+        "company": "Zipline",
+        "wikiLink": "https://en.wikipedia.org/wiki/Zipline_(drone_delivery)",
+        "wikiSlug": "Zipline_(drone_delivery)",
+        "description": "Logistics",
+        "valuation_str": "$7.6B",
+        "valuation_m": 7600.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "January 2026",
+        "year": "2026",
+        "industry": "Other",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-88",
+        "source": "wiki",
+        "company": "Zipline",
+        "wikiLink": "https://en.wikipedia.org/wiki/Zipline_(drone_delivery)",
+        "wikiSlug": "Zipline_(drone_delivery)",
+        "description": "Logistics",
+        "valuation_str": "$7.6B",
+        "valuation_m": 7600.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler",
+        "country": "United States",
+        "unicorn_as_of": "January 2026",
+        "year": "2026",
+        "industry": "Other",
+        "founders": "Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler"
       }
     },
     {
@@ -428,7 +1004,7 @@
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
       },
       "proposed": {
-        "id": "wiki-97",
+        "id": "wiki-98",
         "source": "wiki",
         "company": "Cohere",
         "wikiLink": "https://en.wikipedia.org/wiki/Cohere",
@@ -443,6 +1019,49 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
+      }
+    },
+    {
+      "company": "Gong",
+      "changes": {
+        "founders": {
+          "from": "United States",
+          "to": ""
+        }
+      },
+      "current": {
+        "id": "wiki-91",
+        "source": "wiki",
+        "company": "Gong",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "June 2021",
+        "valuation_str": "$4.5B",
+        "valuation_m": 4500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: United States",
+        "country": "Artificial intelligence",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "Other",
+        "founders": "United States"
+      },
+      "proposed": {
+        "id": "wiki-93",
+        "source": "wiki",
+        "company": "Gong",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "June 2021",
+        "valuation_str": "$4.5B",
+        "valuation_m": 4500.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Artificial intelligence",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "Other",
+        "founders": ""
       }
     },
     {
@@ -516,7 +1135,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-374",
+        "id": "wiki-375",
         "source": "wiki",
         "company": "Deliverect",
         "wikiLink": "",
@@ -632,5 +1251,5 @@
       "founders": ""
     }
   ],
-  "generated_at": "2026-07-27T11:18:26Z"
+  "generated_at": "2026-08-03T11:20:00Z"
 }

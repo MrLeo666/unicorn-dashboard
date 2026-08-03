@@ -430,6 +430,16 @@
     "founders": "Sal Sferlazza and Chris Matarese"
   },
   {
+    "company": "Cyera",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cyera",
+    "valuation_b": 12.0,
+    "valuation_str": "$12B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Cybersecurity",
+    "country": "United States and Israel",
+    "founders": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay"
+  },
+  {
     "company": "Thinking Machines Lab",
     "wikiLink": "https://en.wikipedia.org/wiki/Thinking_Machines_Lab",
     "valuation_b": 12.0,
@@ -597,7 +607,7 @@
     "valuation_date": "March 2026",
     "industry_raw": "Wearable technology",
     "country": "United States",
-    "founders": ""
+    "founders": "Will Ahmed"
   },
   {
     "company": "Chehaoduo",
@@ -617,7 +627,7 @@
     "valuation_date": "November 2021",
     "industry_raw": "Venture capital",
     "country": "United States",
-    "founders": ""
+    "founders": "Barry Silbert"
   },
   {
     "company": "Mercor",
@@ -647,7 +657,7 @@
     "valuation_date": "May 2022",
     "industry_raw": "Cryptocurrency",
     "country": "Seychelles",
-    "founders": ""
+    "founders": "Chun Gan, Ke Tang, Johnny Lyu"
   },
   {
     "company": "Lalamove",
@@ -657,7 +667,7 @@
     "valuation_date": "January 2021",
     "industry_raw": "Supply chain management",
     "country": "Hong Kong / China",
-    "founders": ""
+    "founders": "Chow Shing-Yuk"
   },
   {
     "company": "Notion Labs",
@@ -667,7 +677,7 @@
     "valuation_date": "October 2021",
     "industry_raw": "Productivity software",
     "country": "United States",
-    "founders": ""
+    "founders": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
   },
   {
     "company": "Polygon Technology",
@@ -677,7 +687,7 @@
     "valuation_date": "February 2022",
     "industry_raw": "Blockchain, Web3",
     "country": "India / Cayman Islands",
-    "founders": ""
+    "founders": "Jaynti Kanani, Sandeep Nailwal, Anurag Arjun, Mihailo Bjelic"
   },
   {
     "company": "Ripple",
@@ -687,7 +697,7 @@
     "valuation_date": "December 2019",
     "industry_raw": "Cryptocurrency",
     "country": "United States",
-    "founders": ""
+    "founders": "Chris Larsen, Jed McCaleb"
   },
   {
     "company": "Talkdesk",
@@ -777,7 +787,7 @@
     "valuation_date": "October 2021",
     "industry_raw": "Marketplace",
     "country": "Mexico",
-    "founders": ""
+    "founders": "Carlos García Ottati"
   },
   {
     "company": "Rapyd",
@@ -787,7 +797,7 @@
     "valuation_date": "August 2021",
     "industry_raw": "Financial technology",
     "country": "United Kingdom",
-    "founders": ""
+    "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
   },
   {
     "company": "Nuro",
@@ -797,7 +807,7 @@
     "valuation_date": "November 2021",
     "industry_raw": "Robotics",
     "country": "United States",
-    "founders": ""
+    "founders": "Jiajun Zhu, Dave Ferguson"
   },
   {
     "company": "Snyk",
@@ -847,7 +857,7 @@
     "valuation_date": "December 2025",
     "industry_raw": "Financial services",
     "country": "Australia / Hong Kong",
-    "founders": ""
+    "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
   },
   {
     "company": "StarkWare Industries",
@@ -877,7 +887,7 @@
     "valuation_date": "January 2026",
     "industry_raw": "Logistics",
     "country": "United States",
-    "founders": ""
+    "founders": "Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler"
   },
   {
     "company": "AlphaSense",
@@ -927,7 +937,7 @@
     "valuation_date": "November 2025",
     "industry_raw": "June 2021",
     "country": "Artificial intelligence",
-    "founders": "United States"
+    "founders": ""
   },
   {
     "company": "PsiQuantum",
