@@ -18,7 +18,24 @@
       "founders": "Chris Britt, Ryan King"
     },
     {
-      "id": "wiki-459",
+      "id": "wiki-437",
+      "source": "wiki",
+      "company": "HappyRobot",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$1.2B",
+      "valuation_m": 1200.0,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "United States",
+      "unicorn_as_of": "August 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": ""
+    },
+    {
+      "id": "wiki-460",
       "source": "wiki",
       "company": "Aikido Security",
       "wikiLink": "https://en.wikipedia.org/wiki/Aikido_Security",
@@ -33,6 +50,23 @@
       "year": "2026",
       "industry": "Cybersecurity",
       "founders": "Willem Delbare"
+    },
+    {
+      "id": "wiki-569",
+      "source": "wiki",
+      "company": "Socket",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Security software",
+      "valuation_str": "$1B",
+      "valuation_m": 1000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Feross Aboukhadijeh",
+      "country": "United States",
+      "unicorn_as_of": "May 2026",
+      "year": "2026",
+      "industry": "Cybersecurity",
+      "founders": "Feross Aboukhadijeh"
     }
   ],
   "modifications": [
@@ -196,7 +230,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-619",
+        "id": "pb-621",
         "source": "pb",
         "tier": "A",
         "company": "Cursor",
@@ -309,51 +343,6 @@
       }
     },
     {
-      "company": "Tether",
-      "changes": {
-        "valuation_m": {
-          "from": 50000.0,
-          "to": 12000.0
-        }
-      },
-      "current": {
-        "id": "pb-620",
-        "source": "pb",
-        "tier": "A",
-        "company": "Tether",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
-        "valuation_str": "$50B",
-        "valuation_m": 50000,
-        "vc_raised": "$600.0M",
-        "lead_investors": "-",
-        "country": "El Salvador",
-        "unicorn_as_of": "November 2024",
-        "year": "2024",
-        "industry": "Crypto/Web3",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "pb-623",
-        "source": "pb",
-        "tier": "A",
-        "company": "Tether",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
-        "valuation_str": "$12.0B",
-        "valuation_m": 12000.0,
-        "vc_raised": "$600.0M",
-        "lead_investors": "-",
-        "country": "El Salvador",
-        "unicorn_as_of": "November 2024",
-        "year": "2024",
-        "industry": "Crypto/Web3",
-        "founders": ""
-      }
-    },
-    {
       "company": "Cyera",
       "changes": {
         "valuation_m": {
@@ -407,6 +396,51 @@
         "year": "2026",
         "industry": "Cybersecurity",
         "founders": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay"
+      }
+    },
+    {
+      "company": "Tether",
+      "changes": {
+        "valuation_m": {
+          "from": 50000.0,
+          "to": 12000.0
+        }
+      },
+      "current": {
+        "id": "pb-620",
+        "source": "pb",
+        "tier": "A",
+        "company": "Tether",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
+        "valuation_str": "$50B",
+        "valuation_m": 50000,
+        "vc_raised": "$600.0M",
+        "lead_investors": "-",
+        "country": "El Salvador",
+        "unicorn_as_of": "November 2024",
+        "year": "2024",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "pb-625",
+        "source": "pb",
+        "tier": "A",
+        "company": "Tether",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
+        "valuation_str": "$12.0B",
+        "valuation_m": 12000.0,
+        "vc_raised": "$600.0M",
+        "lead_investors": "-",
+        "country": "El Salvador",
+        "unicorn_as_of": "November 2024",
+        "year": "2024",
+        "industry": "Crypto/Web3",
+        "founders": ""
       }
     },
     {
@@ -496,49 +530,6 @@
       }
     },
     {
-      "company": "KuCoin",
-      "changes": {
-        "founders": {
-          "from": "",
-          "to": "Chun Gan, Ke Tang, Johnny Lyu"
-        }
-      },
-      "current": {
-        "id": "wiki-65",
-        "source": "wiki",
-        "company": "KuCoin",
-        "wikiLink": "https://en.wikipedia.org/wiki/KuCoin",
-        "wikiSlug": "KuCoin",
-        "description": "Cryptocurrency",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "Seychelles",
-        "unicorn_as_of": "May 2022",
-        "year": "2022",
-        "industry": "Crypto/Web3",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-65",
-        "source": "wiki",
-        "company": "KuCoin",
-        "wikiLink": "https://en.wikipedia.org/wiki/KuCoin",
-        "wikiSlug": "KuCoin",
-        "description": "Cryptocurrency",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Chun Gan, Ke Tang, Johnny Lyu",
-        "country": "Seychelles",
-        "unicorn_as_of": "May 2022",
-        "year": "2022",
-        "industry": "Crypto/Web3",
-        "founders": "Chun Gan, Ke Tang, Johnny Lyu"
-      }
-    },
-    {
       "company": "Lalamove",
       "changes": {
         "founders": {
@@ -586,49 +577,6 @@
       }
     },
     {
-      "company": "Notion Labs",
-      "changes": {
-        "founders": {
-          "from": "",
-          "to": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
-        }
-      },
-      "current": {
-        "id": "wiki-67",
-        "source": "wiki",
-        "company": "Notion Labs",
-        "wikiLink": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
-        "wikiSlug": "Notion_(productivity_software)",
-        "description": "Productivity software",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "October 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-67",
-        "source": "wiki",
-        "company": "Notion Labs",
-        "wikiLink": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
-        "wikiSlug": "Notion_(productivity_software)",
-        "description": "Productivity software",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman",
-        "country": "United States",
-        "unicorn_as_of": "October 2021",
-        "year": "2021",
-        "industry": "SaaS/Enterprise",
-        "founders": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
-      }
-    },
-    {
       "company": "Moonshot",
       "changes": {
         "valuation_m": {
@@ -657,7 +605,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-626",
+        "id": "pb-628",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -721,6 +669,92 @@
       }
     },
     {
+      "company": "Notion Labs",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
+        }
+      },
+      "current": {
+        "id": "wiki-67",
+        "source": "wiki",
+        "company": "Notion Labs",
+        "wikiLink": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
+        "wikiSlug": "Notion_(productivity_software)",
+        "description": "Productivity software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "October 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-67",
+        "source": "wiki",
+        "company": "Notion Labs",
+        "wikiLink": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
+        "wikiSlug": "Notion_(productivity_software)",
+        "description": "Productivity software",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman",
+        "country": "United States",
+        "unicorn_as_of": "October 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
+      }
+    },
+    {
+      "company": "KuCoin",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Chun Gan, Ke Tang, Johnny Lyu"
+        }
+      },
+      "current": {
+        "id": "wiki-65",
+        "source": "wiki",
+        "company": "KuCoin",
+        "wikiLink": "https://en.wikipedia.org/wiki/KuCoin",
+        "wikiSlug": "KuCoin",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Seychelles",
+        "unicorn_as_of": "May 2022",
+        "year": "2022",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-65",
+        "source": "wiki",
+        "company": "KuCoin",
+        "wikiLink": "https://en.wikipedia.org/wiki/KuCoin",
+        "wikiSlug": "KuCoin",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Chun Gan, Ke Tang, Johnny Lyu",
+        "country": "Seychelles",
+        "unicorn_as_of": "May 2022",
+        "year": "2022",
+        "industry": "Crypto/Web3",
+        "founders": "Chun Gan, Ke Tang, Johnny Lyu"
+      }
+    },
+    {
       "company": "Ripple",
       "changes": {
         "founders": {
@@ -764,49 +798,6 @@
       }
     },
     {
-      "company": "Rapyd",
-      "changes": {
-        "founders": {
-          "from": "",
-          "to": "Arik Shtilman, Arkady Karpman, Omer Priel"
-        }
-      },
-      "current": {
-        "id": "wiki-78",
-        "source": "wiki",
-        "company": "Rapyd",
-        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
-        "wikiSlug": "",
-        "description": "Financial technology",
-        "valuation_str": "$8.7B",
-        "valuation_m": 8700.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United Kingdom",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Fintech",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-79",
-        "source": "wiki",
-        "company": "Rapyd",
-        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
-        "wikiSlug": "Rapyd",
-        "description": "Financial technology",
-        "valuation_str": "$8.7B",
-        "valuation_m": 8700.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Arik Shtilman, Arkady Karpman, Omer Priel",
-        "country": "United Kingdom",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Fintech",
-        "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
-      }
-    },
-    {
       "company": "Kavak",
       "changes": {
         "founders": {
@@ -847,6 +838,49 @@
         "year": "2021",
         "industry": "Other",
         "founders": "Carlos García Ottati"
+      }
+    },
+    {
+      "company": "Rapyd",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Arik Shtilman, Arkady Karpman, Omer Priel"
+        }
+      },
+      "current": {
+        "id": "wiki-78",
+        "source": "wiki",
+        "company": "Rapyd",
+        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United Kingdom",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-79",
+        "source": "wiki",
+        "company": "Rapyd",
+        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+        "wikiSlug": "Rapyd",
+        "description": "Financial technology",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Arik Shtilman, Arkady Karpman, Omer Priel",
+        "country": "United Kingdom",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
       }
     },
     {
@@ -1091,7 +1125,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-765",
+        "id": "pb-767",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -1179,7 +1213,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-847",
+        "id": "pb-849",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -1251,5 +1285,5 @@
       "founders": ""
     }
   ],
-  "generated_at": "2026-08-03T11:20:00Z"
+  "generated_at": "2026-08-10T09:17:33Z"
 }

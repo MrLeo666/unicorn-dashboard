@@ -4370,6 +4370,16 @@
     "founders": ""
   },
   {
+    "company": "HappyRobot",
+    "wikiLink": "",
+    "valuation_b": 1.2,
+    "valuation_str": "$1.2B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": ""
+  },
+  {
     "company": "Sysdig",
     "wikiLink": "",
     "valuation_b": 1.18,
@@ -5678,6 +5688,16 @@
     "industry_raw": "E-commerce",
     "country": "India",
     "founders": "Rohit Bansal, Kunal Bahl"
+  },
+  {
+    "company": "Socket",
+    "wikiLink": "",
+    "valuation_b": 1.0,
+    "valuation_str": "$1B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Security software",
+    "country": "United States",
+    "founders": "Feross Aboukhadijeh"
   },
   {
     "company": "Spendesk",
