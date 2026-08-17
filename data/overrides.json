@@ -84,7 +84,9 @@
       "wikiLink": "https://en.wikipedia.org/wiki/Deliverect"
     },
     "Databricks": {
-      "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+      "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia",
+      "valuation_m": 188000,
+      "valuation_str": "$188B"
     },
     "Project Prometheus": {
       "valuation_m": 41000,
@@ -112,7 +114,8 @@
     },
     "WHOOP": {
       "valuation_m": 10100,
-      "valuation_str": "$10.1B"
+      "valuation_str": "$10.1B",
+      "founders": "Will Ahmed"
     },
     "Gusto": {
       "founders": "Joshua Reeves, Edward Kim, Tomer London"
@@ -141,7 +144,8 @@
       "wikiLink": "https://en.wikipedia.org/wiki/Airbyte"
     },
     "Rapyd": {
-      "wikiLink": "https://en.wikipedia.org/wiki/Rapyd"
+      "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+      "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
     },
     "Doctolib[fr]": {
       "wikiLink": "https://en.wikipedia.org/wiki/Doctolib?action=edit&redlink=1"
@@ -151,6 +155,82 @@
     },
     "Taxfix": {
       "wikiLink": "https://en.wikipedia.org/wiki/Taxfix?action=edit&redlink=1"
+    },
+    "Cyera": {
+      "valuation_m": 12000,
+      "valuation_str": "$12B",
+      "country": "United States and Israel",
+      "founders": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay",
+      "wikiLink": "https://en.wikipedia.org/wiki/Cyera"
+    },
+    "Polygon Technology": {
+      "founders": "Jaynti Kanani, Sandeep Nailwal, Anurag Arjun, Mihailo Bjelic"
+    },
+    "Lalamove": {
+      "founders": "Chow Shing-Yuk"
+    },
+    "Digital Currency Group": {
+      "founders": "Barry Silbert"
+    },
+    "Notion Labs": {
+      "founders": "Ivan Zhao, Simon Last, Akshay Kothari, Chris Prucha, Jessica Lam, Toby Schachman"
+    },
+    "KuCoin": {
+      "founders": "Chun Gan, Ke Tang, Johnny Lyu"
+    },
+    "Ripple": {
+      "founders": "Chris Larsen, Jed McCaleb"
+    },
+    "Kavak": {
+      "founders": "Carlos García Ottati"
+    },
+    "Nuro": {
+      "founders": "Jiajun Zhu, Dave Ferguson"
+    },
+    "Airwallex": {
+      "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
+    },
+    "Zipline": {
+      "founders": "Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler"
+    },
+    "Gong": {
+      "founders": ""
+    },
+    "Epic Games": {
+      "valuation_m": 22500,
+      "valuation_str": "$22.5B"
+    },
+    "Lovable": {
+      "valuation_m": 13300,
+      "valuation_str": "$13.3B"
+    },
+    "Etched": {
+      "valuation_m": 10300,
+      "valuation_str": "$10.3B",
+      "founders": "Gavin Uberti, Chris Zhu, Robert Wachen"
+    },
+    "Qonto": {
+      "founders": "Steve Anavi, Alexandre Prot",
+      "wikiLink": "https://en.wikipedia.org/wiki/Qonto"
+    },
+    "Flutterwave": {
+      "valuation_m": 3200,
+      "valuation_str": "$3.2B",
+      "founders": "Olugbenga Agboola , Iyinoluwa Aboyeji"
+    },
+    "PixVerse": {
+      "valuation_m": 2000,
+      "valuation_str": "$2B"
+    },
+    "MOLOCO": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MOLOCO?action=edit&redlink=1"
+    },
+    "Zetwerk": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Zetwerk?action=edit&redlink=1"
+    },
+    "Airtable": {
+      "valuation_m": 1280,
+      "valuation_str": "$1.28B"
     }
   },
   "additions": [
@@ -249,13 +329,133 @@
       "year": "2021",
       "industry": "SaaS/Enterprise",
       "founders": ""
+    },
+    {
+      "id": "wiki-437",
+      "source": "wiki",
+      "company": "HappyRobot",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$1.2B",
+      "valuation_m": 1200,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "United States",
+      "unicorn_as_of": "August 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": ""
+    },
+    {
+      "id": "wiki-460",
+      "source": "wiki",
+      "company": "Aikido Security",
+      "wikiLink": "https://en.wikipedia.org/wiki/Aikido_Security",
+      "wikiSlug": "Aikido_Security",
+      "description": "Cybersecurity",
+      "valuation_str": "$1B",
+      "valuation_m": 1000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Willem Delbare",
+      "country": "Belgium",
+      "unicorn_as_of": "January 2026",
+      "year": "2026",
+      "industry": "Cybersecurity",
+      "founders": "Willem Delbare"
+    },
+    {
+      "id": "wiki-569",
+      "source": "wiki",
+      "company": "Socket",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Security software",
+      "valuation_str": "$1B",
+      "valuation_m": 1000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Feross Aboukhadijeh",
+      "country": "United States",
+      "unicorn_as_of": "May 2026",
+      "year": "2026",
+      "industry": "Cybersecurity",
+      "founders": "Feross Aboukhadijeh"
+    },
+    {
+      "id": "wiki-36",
+      "source": "wiki",
+      "company": "Superhuman",
+      "wikiLink": "https://en.wikipedia.org/wiki/Grammarly",
+      "wikiSlug": "Grammarly",
+      "description": "Collaborative software",
+      "valuation_str": "$13B",
+      "valuation_m": 13000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Alex Shevchenko, Max Lytvyn, and Dmytro Lider",
+      "country": "Ukraine",
+      "unicorn_as_of": "November 2021",
+      "year": "2021",
+      "industry": "SaaS/Enterprise",
+      "founders": "Alex Shevchenko, Max Lytvyn, and Dmytro Lider"
+    },
+    {
+      "id": "wiki-83",
+      "source": "wiki",
+      "company": "Together AI",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$8.3B",
+      "valuation_m": 8300,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Vipul Ved Prakash, Ce Zhang, Chris Ré, Tri Dao, Percy Liang",
+      "country": "United States",
+      "unicorn_as_of": "July 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Vipul Ved Prakash, Ce Zhang, Chris Ré, Tri Dao, Percy Liang"
+    },
+    {
+      "id": "wiki-288",
+      "source": "wiki",
+      "company": "Simile",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$2B",
+      "valuation_m": 2000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Joon Sung Park, Michael Bernstein, Percy Liang",
+      "country": "United States",
+      "unicorn_as_of": "July 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Joon Sung Park, Michael Bernstein, Percy Liang"
+    },
+    {
+      "id": "wiki-375",
+      "source": "wiki",
+      "company": "Odyssey",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$1.45B",
+      "valuation_m": 1450,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Oliver Cameron, Jeff Hawke",
+      "country": "United States",
+      "unicorn_as_of": "June 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Oliver Cameron, Jeff Hawke"
     }
   ],
   "deletions": [
     "Chime",
     "Anysphere",
     "SpaceX",
-    "Cerebras"
+    "Cerebras",
+    "Grammarly"
   ],
   "archived": {
     "Cerebras": "CBRS"
