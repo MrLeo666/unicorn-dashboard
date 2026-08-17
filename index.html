@@ -103,23 +103,6 @@
   #topValue { min-width: 56px; text-align: center; }
   #stats { margin-left: auto; display: flex; gap: 22px; align-items: center; color: #8892b0; font-size: 12px; }
   #stats .num { color: #fff; font-weight: 600; font-size: 16px; margin-right: 4px; }
-  #tooltip {
-    position: fixed; pointer-events: none; opacity: 0; transition: opacity 0.12s ease;
-    background: rgba(20, 26, 58, 0.96); backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-    padding: 14px 16px; max-width: 380px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    font-size: 13px; line-height: 1.5; z-index: 100;
-  }
-  #tooltip h3 { font-size: 16px; margin-bottom: 6px; color: #fff; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  #tooltip .badge { font-size: 10px; padding: 2px 8px; border-radius: 6px; background: rgba(255,255,255,0.1);
-                    color: #c5cce0; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
-  #tooltip .row { color: #8892b0; margin-top: 6px; }
-  #tooltip .row b { color: #c5cce0; font-weight: 500; }
-  #tooltip .desc { margin-top: 8px; color: #b3bdd6; font-size: 12px; padding-top: 8px;
-                   border-top: 1px solid rgba(255,255,255,0.08); }
-  #tooltip .val { color: #fdc25c; font-weight: 600; font-size: 18px; }
-  #tooltip .investors { font-size: 11px; color: #8892b0; margin-top: 4px; max-height: 60px; overflow: hidden; }
   /* ===== Company detail panel (click a bubble) ===== */
   #detailPanel {
     position: fixed; right: 24px; bottom: 64px; width: 370px; max-width: calc(100vw - 48px);
@@ -147,6 +130,10 @@
   #detailPanel .row b { color: #c5cce0; font-weight: 500; }
   #detailPanel .desc { margin-top: 8px; color: #b3bdd6; font-size: 12px; padding-top: 8px;
                        border-top: 1px solid rgba(255,255,255,0.08); }
+  #detailPanel .investors { font-size: 11px; color: #8892b0; margin-top: 4px; }
+  #detailPanel .investors b { color: #c5cce0; font-weight: 500; }
+  /* Forge / Notice 二级市场分区 */
+  #detailPanel .dp-mkt { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); }
   #detailPanel .dp-links { margin-top: 10px; display: flex; gap: 14px; }
   #detailPanel .dp-links a { color: #8db4ff; text-decoration: none; font-size: 12px; }
   #detailPanel .dp-links a:hover { text-decoration: underline; }
@@ -275,9 +262,8 @@
   <div class="ticks"><span>$5B</span><span>$25B</span><span>$100B</span><span>$1.25T</span></div>
 </div>
 
-<div id="help">Hover for details · Click bubble for details + news · Move cursor to top for menu</div>
+<div id="help">Click bubble for details &amp; news · Move cursor to top for menu</div>
 
-<div id="tooltip"></div>
 <div id="detailPanel"></div>
 
 <script id="data" type="application/json">[]</script>
@@ -602,7 +588,7 @@ const MAX_REL  = 0.30;       // hard ceiling for T5 (SpaceX-class bubbles)
 const COVERAGE_TARGET = 0.55; // fraction of viewport area filled by bubbles
 let TIER_R = [0, 0, 0, 0, 0, 0];
 let MAX_R = 380;
-let MIN_R = 60;     // alias for tooltip placement and shadow guards (= T2 size)
+let MIN_R = 60;     // shadow guards (= T2 size)
 let SHORT = 1080;
 
 function tierFor(valM) {
@@ -715,8 +701,8 @@ function pickWanderTarget(p, now) {
 
 function physicsStep(now, dt) {
   // 1) Wander targets for big bubbles, gentle motion for small ones.
-  // The hovered bubble is frozen — no force/velocity/position update — so the
-  // user can read its tooltip without it sliding away.
+  // The hovered bubble is frozen — no force/velocity/position update — so it
+  // doesn't slide away while the user aims to click it.
   for (const p of PARTICLES) {
     if (!p.visible) continue;
     // Hover OR locked → 冻结。LOCKED 用 data 比较以避免 resize 后旧 particle 引用失效
@@ -1355,7 +1341,6 @@ function pickAt(x, y) {
   return null;
 }
 
-const tooltip = document.getElementById('tooltip');
 // 给公司名计算外链：优先 Wikipedia 页，否则 Google 搜索（含中文名）
 function getCompanyLink(d) {
   if (d.wikiLink && /wikipedia\.org\/wiki\//.test(d.wikiLink)) return d.wikiLink;
@@ -1365,84 +1350,6 @@ function getCompanyLink(d) {
   return 'https://www.google.com/search?q=' + encodeURIComponent(q);
 }
 
-function showTooltip(p) {
-  const d = p.d;
-  const sourceTag = d.source.includes('wiki') ? 'wikipedia' : 'pitchbook';
-  const parts = [];
-  // For Chinese companies, show Chinese name as primary + English as secondary line.
-  let titleInner;
-  if (d.companyZh && d.companyZh !== d.company && !d.companyZh.startsWith('Unnamed')) {
-    titleInner = esc(d.companyZh) + ' <small style="color:#8892b0;font-weight:400;font-size:13px;">' + esc(d.company) + '</small>';
-  } else {
-    titleInner = esc(d.company);
-  }
-  // 公司名包成链接，点击新窗口打开
-  const link = getCompanyLink(d);
-  const titleHTML = '<a href="' + esc(link) + '" target="_blank" rel="noopener" '
-    + 'style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.3);" '
-    + 'title="点击在新窗口打开 ' + esc(/wikipedia\.org/.test(link) ? 'Wikipedia' : 'Google 搜索') + '">'
-    + titleInner + '</a>';
-  parts.push('<h3>' + titleHTML + ' <span class="badge">' + esc(d.industry) + '</span><span class="badge">' + sourceTag + '</span></h3>');
-  parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
-  // Forge Global secondary-market overlay (Top 100 only).
-  // Price line: red/green vs prev. Valuation line: neutral color.
-  const fgT = FORGE[d.company];
-  if (fgT && (fgT.forge_price != null || fgT.forge_valuation_m != null)) {
-    const priceColor = forgeColor(fgT.forge_price, fgT.prev_forge_price) || '#ffffff';
-    if (fgT.forge_price != null) {
-      let s = '<b>Forge Price:</b> ' + fmtForgePrice(fgT.forge_price);
-      const ps = pctSuffix(fgT.forge_price, fgT.prev_forge_price);
-      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
-      parts.push('<div class="row" style="color:' + priceColor + ';margin-top:4px;">' + s + '</div>');
-    }
-    if (fgT.forge_valuation_m != null) {
-      let s = '<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m);
-      const ps = pctSuffix(fgT.forge_valuation_m, fgT.prev_forge_valuation_m);
-      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
-      parts.push('<div class="row">' + s + '</div>');
-    }
-  }
-  // Notice Weekly Update — 紫色区块，与 Forge 并列
-  const nt = NOTICE[d.company];
-  if (nt && (nt.pps != null || nt.valuation_b != null)) {
-    if (nt.pps != null) {
-      let s = '<b>Notice Price:</b> $' + nt.pps.toFixed(2);
-      if (nt.pps_change != null) {
-        const sign = nt.pps_change >= 0 ? '+' : '';
-        const col = nt.pps_change >= 0 ? '#86efac' : '#fda4af';
-        s += ' <span style="font-size:12px;color:' + col + ';">(' + sign + nt.pps_change.toFixed(2) + ')</span>';
-      }
-      parts.push('<div class="row" style="color:#d8b4fe;margin-top:4px;">' + s + '</div>');
-    }
-    if (nt.valuation_b != null) {
-      let s = '<b>Notice Valuation:</b> $' + nt.valuation_b.toFixed(2) + 'B';
-      if (nt.new_indications) {
-        s += ' <span style="font-size:12px;opacity:.85;">(' + nt.new_indications + ' new indications)</span>';
-      }
-      parts.push('<div class="row" style="color:#d8b4fe;">' + s + '</div>');
-    }
-    if (nt.date) {
-      parts.push('<div class="row" style="font-size:11px;color:#8892b0;">Notice as of ' + esc(nt.date) + '</div>');
-    }
-  }
-  if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
-  parts.push('<div class="row"><b>Country:</b> ' + esc(d.country || '—') + ' · <b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
-  if (d.description) parts.push('<div class="desc">' + esc(d.description) + '</div>');
-  if (d.lead_investors && d.lead_investors !== '—') parts.push('<div class="investors"><b>Lead investors:</b> ' + esc(d.lead_investors) + '</div>');
-  if (d.founders && (!d.lead_investors || !d.lead_investors.includes('Founders'))) parts.push('<div class="investors"><b>Founders:</b> ' + esc(d.founders) + '</div>');
-  tooltip.innerHTML = parts.join('');
-  tooltip.style.opacity = '1';
-  tooltip.style.pointerEvents = 'auto';   // 允许点击 tooltip 里的链接
-}
-function hideTooltip() { tooltip.style.opacity = '0'; tooltip.style.pointerEvents = 'none'; }
-function moveTooltip(x, y) {
-  const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
-  let tx = x + 18, ty = y + 18;
-  if (tx + tw > WIDTH - 12) tx = x - tw - 18;
-  if (ty + th > HEIGHT - 12) ty = y - th - 18;
-  tooltip.style.left = tx + 'px';
-  tooltip.style.top = ty + 'px';
-}
 function esc(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 // ===== 公司详情面板（点击气泡打开，含最新新闻） =====
@@ -1481,9 +1388,58 @@ function openDetailPanel(d) {
   parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
   if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
   parts.push('<div class="row"><b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
+
+  // ----- 二级市场分区：Forge Global + Notice Weekly Update（Top 100 才有数据） -----
+  const mkt = [];
+  // Forge: price line red/green vs prev; valuation line neutral.
+  const fgT = FORGE[d.company];
+  if (fgT && (fgT.forge_price != null || fgT.forge_valuation_m != null)) {
+    const priceColor = forgeColor(fgT.forge_price, fgT.prev_forge_price) || '#ffffff';
+    if (fgT.forge_price != null) {
+      let s = '<b>Forge Price:</b> ' + fmtForgePrice(fgT.forge_price);
+      const ps = pctSuffix(fgT.forge_price, fgT.prev_forge_price);
+      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
+      mkt.push('<div class="row" style="color:' + priceColor + ';margin-top:4px;">' + s + '</div>');
+    }
+    if (fgT.forge_valuation_m != null) {
+      let s = '<b>Forge Valuation:</b> ' + fmtForgeVal(fgT.forge_valuation_m);
+      const ps = pctSuffix(fgT.forge_valuation_m, fgT.prev_forge_valuation_m);
+      if (ps) s += ' <span style="font-size:12px;opacity:.85;">' + ps.trim() + '</span>';
+      mkt.push('<div class="row">' + s + '</div>');
+    }
+  }
+  // Notice Weekly Update — 紫色区块，与 Forge 并列
+  const nt = NOTICE[d.company];
+  if (nt && (nt.pps != null || nt.valuation_b != null)) {
+    if (nt.pps != null) {
+      let s = '<b>Notice Price:</b> $' + nt.pps.toFixed(2);
+      if (nt.pps_change != null) {
+        const sign = nt.pps_change >= 0 ? '+' : '';
+        const col = nt.pps_change >= 0 ? '#86efac' : '#fda4af';
+        s += ' <span style="font-size:12px;color:' + col + ';">(' + sign + nt.pps_change.toFixed(2) + ')</span>';
+      }
+      mkt.push('<div class="row" style="color:#d8b4fe;margin-top:4px;">' + s + '</div>');
+    }
+    if (nt.valuation_b != null) {
+      let s = '<b>Notice Valuation:</b> $' + nt.valuation_b.toFixed(2) + 'B';
+      if (nt.new_indications) {
+        s += ' <span style="font-size:12px;opacity:.85;">(' + nt.new_indications + ' new indications)</span>';
+      }
+      mkt.push('<div class="row" style="color:#d8b4fe;">' + s + '</div>');
+    }
+    if (nt.date) {
+      mkt.push('<div class="row" style="font-size:11px;color:#8892b0;">Notice as of ' + esc(nt.date) + '</div>');
+    }
+  }
+  if (mkt.length) parts.push('<div class="dp-mkt">' + mkt.join('') + '</div>');
+
   if (d.description) parts.push('<div class="desc">' + esc(d.description) + '</div>');
   if (d.lead_investors && d.lead_investors !== '—') {
-    parts.push('<div class="row" style="font-size:11px;"><b>Lead investors:</b> ' + esc(d.lead_investors) + '</div>');
+    parts.push('<div class="investors"><b>Lead investors:</b> ' + esc(d.lead_investors) + '</div>');
+  }
+  // 与原 hover 详情卡相同的条件：lead_investors 已含 "Founders" 时不重复显示
+  if (d.founders && (!d.lead_investors || !d.lead_investors.includes('Founders'))) {
+    parts.push('<div class="investors"><b>Founders:</b> ' + esc(d.founders) + '</div>');
   }
   const links = ['<a href="' + esc(link) + '" target="_blank" rel="noopener">Open '
     + (isWiki ? 'Wikipedia' : 'Google') + ' ↗</a>'];
@@ -1499,52 +1455,39 @@ function openDetailPanel(d) {
   detailPanel.querySelector('.dp-close').addEventListener('click', () => {
     LOCKED = null;
     closeDetailPanel();
-    hideTooltip();
   });
 }
 function closeDetailPanel() { detailPanel.classList.remove('open'); }
 
 // 交互：
-//   悬停 → 冻结气泡（设 HOVER）+ 瞬时 tooltip（跟随光标，移开即隐藏；
-//         已被点开详情面板的气泡不再弹 hover tooltip，避免与面板重复）；
-//   点击气泡 → 只打开右下角 #detailPanel 详情面板（公司信息 + 最新新闻），
-//         不再弹锁定 tooltip；LOCKED 仅用于保持该气泡的高亮/冻结选中态；
-//   点击空白 / Esc / 面板关闭按钮 → 取消 LOCKED + 收回 tooltip 与面板。
+//   悬停 → 仅冻结气泡（设 HOVER 高亮/定住），不弹任何图层；
+//   点击气泡 → 只打开右下角 #detailPanel 详情面板（公司信息 + 二级市场数据 + 最新新闻）；
+//         LOCKED 仅用于保持该气泡的高亮/冻结选中态；
+//   点击空白 / Esc / 面板关闭按钮 / 切换视图 → 取消 LOCKED + 关闭面板。
 canvas.addEventListener('mousemove', e => {
   const p = pickAt(e.clientX, e.clientY);
   HOVER = p;
   canvas.style.cursor = p ? 'pointer' : 'default';
-  // 瞬时 hover tooltip：悬停显示、移开消失；锁定（面板已打开）的气泡不再显示
-  if (p && !(LOCKED && LOCKED.d === p.d)) {
-    showTooltip(p);
-    moveTooltip(e.clientX, e.clientY);
-  } else {
-    hideTooltip();
-  }
 });
 canvas.addEventListener('click', e => {
   const p = pickAt(e.clientX, e.clientY);
   if (!p) {
     // 点空白 → 取消 LOCKED
     LOCKED = null;
-    hideTooltip();
     closeDetailPanel();
     return;
   }
-  // 点 LOCKED 中的气泡 → 取消 LOCKED；否则 → 切换 LOCKED 到新气泡。
-  // 详情统一由 #detailPanel 承担，这里不再弹锁定 tooltip。
+  // 点 LOCKED 中的气泡 → 取消 LOCKED；否则 → 切换 LOCKED 到新气泡并打开其详情面板
   if (LOCKED && LOCKED.d === p.d) {
     LOCKED = null;
-    hideTooltip();
     closeDetailPanel();
   } else {
     LOCKED = p;
-    hideTooltip();          // 收掉可能正悬停的瞬时 tooltip，避免与面板叠层
     openDetailPanel(p.d);
   }
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { LOCKED = null; HOVER = null; hideTooltip(); closeDetailPanel(); }
+  if (e.key === 'Escape') { LOCKED = null; HOVER = null; closeDetailPanel(); }
 });
 window.addEventListener('resize', () => {
   resize();
@@ -1558,7 +1501,7 @@ function setView(v) {
   if (v === VIEW) return;
   VIEW = v;
   document.querySelectorAll('.viewBtn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
-  LOCKED = null; HOVER = null; hideTooltip(); closeDetailPanel();
+  LOCKED = null; HOVER = null; closeDetailPanel();
   // Toggle DOM panes: HTML table vs canvas-based views.
   const tableView = document.getElementById('tableView');
   const stage = document.getElementById('stage');
