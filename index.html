@@ -86,6 +86,40 @@
   #dataTable .forge-flat  { color: #c5cce0; }
   #dataTable .forge-delta { font-size: 10px; opacity: 0.7; margin-left: 4px; }
   #dataTable .empty-row td { text-align: center; padding: 40px; color: #8892b0; }
+  /* ===== Movers view (估值增速榜, valuation-history ranking) ===== */
+  #moversView { position: fixed; inset: 0; padding: 24px 24px 80px; overflow: auto;
+                background: #0a0e27; z-index: 5; }
+  #moversWrap { max-width: 920px; margin: 0 auto; }
+  #moversSummary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .mv-stat { background: #15193b; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
+             padding: 12px 18px; font-size: 12px; color: #8892b0; }
+  .mv-stat .num { font-size: 20px; font-weight: 600; margin-right: 6px; color: #fff; }
+  .mv-stat.up .num   { color: #ff5a5a; }   /* 涨红（沿用 forge-up 惯例） */
+  .mv-stat.down .num { color: #3edc81; }   /* 跌绿（沿用 forge-down 惯例） */
+  #moversTable { width: 100%; border-collapse: collapse; font-size: 13px;
+                 color: #c5cce0; font-variant-numeric: tabular-nums; }
+  #moversTable thead th { position: sticky; top: 0; z-index: 2;
+                          background: #15193b; text-align: left;
+                          padding: 10px 12px; font-weight: 600; color: #e8ecf4;
+                          border-bottom: 1px solid rgba(255,255,255,0.12); white-space: nowrap; }
+  #moversTable thead th.num, #moversTable td.num { text-align: right; }
+  #moversTable tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+  #moversTable tbody tr:hover { background: rgba(91,141,239,0.08); }
+  #moversTable td { padding: 8px 12px; vertical-align: middle; }
+  #moversTable .co-name { color: #fff; font-weight: 500; }
+  #moversTable .co-en { color: #8892b0; font-size: 11px; margin-left: 6px; }
+  #moversTable .mv-src { display: inline-block; min-width: 18px; text-align: center; padding: 1px 4px;
+                         border-radius: 5px; font-size: 10px; font-weight: 700; }
+  #moversTable .mv-src.F { background: rgba(91,141,239,0.2); color: #8db4ff; }
+  #moversTable .mv-src.N { background: rgba(216,180,254,0.15); color: #d8b4fe; }
+  #moversTable .mv-src.W { background: rgba(255,255,255,0.08); color: #c5cce0; }
+  #moversTable .mv-up   { color: #ff5a5a; font-weight: 600; }
+  #moversTable .mv-down { color: #3edc81; font-weight: 600; }
+  #moversTable .mv-old { color: #8892b0; }
+  #moversTable .mv-period { color: #8892b0; font-size: 12px; }
+  .mv-note { text-align: center; color: #8892b0; padding: 60px 20px; font-size: 14px;
+             background: #15193b; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
+  .mv-note small { display: block; margin-top: 8px; font-size: 12px; color: #6c7494; }
   select.pill { appearance: none; padding-right: 28px;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%23c5cce0" stroke-width="1.5" fill="none"/></svg>');
     background-repeat: no-repeat; background-position: right 10px center;
@@ -196,6 +230,7 @@
     <button type="button" class="pill viewBtn active" data-view="bubbles">Bubbles</button>
     <button type="button" class="pill viewBtn" data-view="treemap">Treemap</button>
     <button type="button" class="pill viewBtn" data-view="table">Table</button>
+    <button type="button" class="pill viewBtn" data-view="movers">Movers</button>
   </div>
 
   <div class="group" id="topGroup">
@@ -256,6 +291,13 @@
   </div>
 </div>
 
+<div id="moversView" style="display:none;">
+  <div id="moversWrap">
+    <div id="moversSummary"></div>
+    <div id="moversBody"></div>
+  </div>
+</div>
+
 <div id="legend">
   <div class="lbl">Bubble color · valuation</div>
   <div class="gradient"></div>
@@ -283,6 +325,10 @@ let NOTICE = {};
 // null = data/news.json not available (区块显示「新闻数据尚未生成」);
 // {} = loaded but this company has no entries (显示「暂无近期新闻」).
 let NEWS = null;
+// Valuation history snapshots (Movers 增速榜). Array of
+// {date: 'YYYY-MM-DD', entries: {company: {wiki_m, forge_m, forge_price, notice_m, notice_price}}}
+// parsed from data/history/valuation_history.jsonl. Empty = file missing (view shows placeholder).
+let HISTORY = [];
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -320,6 +366,17 @@ async function loadData() {
     if (w.ok) {
       const wb = await w.json();
       NEWS = (wb && wb.news) || {};
+    }
+  } catch {}
+  // valuation_history.jsonl is optional; missing/malformed lines → skipped,
+  // whole file missing → Movers view shows 「估值历史尚未生成」
+  try {
+    const h = await fetch('./data/history/valuation_history.jsonl?t=' + ts);
+    if (h.ok) {
+      HISTORY = (await h.text()).split('\n')
+        .map(l => l.trim()).filter(Boolean)
+        .map(l => { try { return JSON.parse(l); } catch { return null; } })
+        .filter(s => s && s.date && s.entries);
     }
   } catch {}
   DATA_FULL = applyOverridesClient(base, overrides);
@@ -478,7 +535,8 @@ let WIDTH = 0, HEIGHT = 0, DPR = 1;
 let HOVER = null, LOCKED = null;
 const FILTER = { topX: 1011, country: 'all', industry: 'all', letter: 'all' };
 // View mode: 'bubbles' (default, animated) | 'treemap' (industry-grouped rectangles)
-// | 'table' (sortable HTML table). All three share DATA + FILTER + Forge data.
+// | 'table' (sortable HTML table) | 'movers' (估值增速榜, history-driven).
+// Bubbles/treemap/table share DATA + FILTER + Forge data; movers uses HISTORY.
 let VIEW = 'bubbles';
 let TREEMAP = { leaves: [], groups: [], dirty: true };
 let TABLE = { sortKey: 'valuation_m', sortDir: 'desc', dirty: true };
@@ -1299,6 +1357,99 @@ function buildTable() {
   TABLE.dirty = false;
 }
 
+// ===== Movers 增速榜：最新快照 vs 约 4 周前快照的估值变化排名 =====
+// 数据源优先级 forge > notice > wiki，取两个快照里同一家公司在同一来源上都有值的
+// 最高优先级来源做对比（避免跨源混比），徽章 F / N / W 标注。
+const MV_SOURCES = [['forge_m', 'F'], ['notice_m', 'N'], ['wiki_m', 'W']];
+const MV_TOP = 50;          // 榜单最多展示行数
+const MV_FLAT = 0.05;       // |变化%| 低于此视为持平，不计入涨/跌统计
+
+function pickMvPair(newE, oldE) {
+  for (const [k, badge] of MV_SOURCES) {
+    const nv = newE ? newE[k] : null;
+    const ov = oldE ? oldE[k] : null;
+    if (nv != null && nv > 0 && ov != null && ov > 0) return { nv, ov, badge };
+  }
+  return null;
+}
+
+function buildMovers() {
+  const body = document.getElementById('moversBody');
+  const summary = document.getElementById('moversSummary');
+  if (!body || !summary) return;
+  if (!HISTORY.length) {
+    summary.innerHTML = '';
+    body.innerHTML = '<div class="mv-note">估值历史尚未生成'
+      + '<small>data/history/valuation_history.jsonl 不存在；每周一自动快照后开始积累</small></div>';
+    return;
+  }
+  if (HISTORY.length < 2) {
+    summary.innerHTML = '';
+    body.innerHTML = '<div class="mv-note">数据积累中，下周开始出榜'
+      + '<small>目前只有 ' + esc(HISTORY[0].date) + ' 一个快照，需要至少两个快照才能计算增速</small></div>';
+    return;
+  }
+  const latest = HISTORY[HISTORY.length - 1];
+  // 基准快照：日期最接近「最新快照 - 28 天」的一条；没有更早快照时用最早的一条
+  const target = new Date(latest.date).getTime() - 28 * 864e5;
+  let base = HISTORY[0], bestDiff = Infinity;
+  for (const s of HISTORY.slice(0, -1)) {
+    const diff = Math.abs(new Date(s.date).getTime() - target);
+    if (diff < bestDiff) { bestDiff = diff; base = s; }
+  }
+  const weeks = Math.max(1, Math.round((new Date(latest.date) - new Date(base.date)) / (7 * 864e5)));
+
+  const rows = [];
+  for (const co of Object.keys(latest.entries)) {
+    const pair = pickMvPair(latest.entries[co], base.entries[co]);
+    if (!pair) continue;   // 基期无同源记录（新公司 / 缺数据）→ 跳过
+    const pct = (pair.nv - pair.ov) / pair.ov * 100;
+    rows.push({ co, pct, ...pair });
+  }
+  rows.sort((a, b) => Math.abs(b.pct) - Math.abs(a.pct));
+
+  const up = rows.filter(r => r.pct > MV_FLAT).length;
+  const down = rows.filter(r => r.pct < -MV_FLAT).length;
+  summary.innerHTML =
+      '<div class="mv-stat up"><span class="num">' + up + '</span>期间上涨</div>'
+    + '<div class="mv-stat down"><span class="num">' + down + '</span>期间下跌</div>'
+    + '<div class="mv-stat"><span class="num">' + weeks + 'w</span>对比区间 '
+    + esc(base.date) + ' → ' + esc(latest.date) + '</div>';
+
+  if (!rows.length) {
+    body.innerHTML = '<div class="mv-note">两个快照之间没有可对比的公司</div>';
+    return;
+  }
+  // 公司中文名（如有）从 DATA_FULL 里查
+  const zhMap = {};
+  for (const d of DATA_FULL) {
+    if (d.companyZh && d.companyZh !== d.company && !String(d.companyZh).startsWith('Unnamed')) {
+      zhMap[d.company] = d.companyZh;
+    }
+  }
+  const trs = rows.slice(0, MV_TOP).map((r, i) => {
+    const zh = zhMap[r.co];
+    const nameCell = zh
+      ? '<span class="co-name">' + esc(zh) + '</span><span class="co-en">' + esc(r.co) + '</span>'
+      : '<span class="co-name">' + esc(r.co) + '</span>';
+    const cls = r.pct > MV_FLAT ? 'mv-up' : (r.pct < -MV_FLAT ? 'mv-down' : 'mv-period');
+    const sign = r.pct >= 0 ? '+' : '';
+    return '<tr>'
+      + '<td class="num">' + (i + 1) + '</td>'
+      + '<td>' + nameCell + '</td>'
+      + '<td><span class="mv-src ' + r.badge + '" title="' + esc({F: 'Forge 二级市场', N: 'Notice 二级报价', W: 'Wikipedia/基座估值'}[r.badge]) + '">' + r.badge + '</span></td>'
+      + '<td class="num"><span class="mv-old">' + esc(fmtForgeVal(r.ov)) + '</span> → ' + esc(fmtForgeVal(r.nv)) + '</td>'
+      + '<td class="num ' + cls + '">' + sign + r.pct.toFixed(1) + '%</td>'
+      + '<td class="num mv-period">' + weeks + 'w</td>'
+      + '</tr>';
+  });
+  body.innerHTML = '<table id="moversTable"><thead><tr>'
+    + '<th class="num">#</th><th>Company</th><th>Src</th>'
+    + '<th class="num">Valuation ' + esc(base.date) + ' → ' + esc(latest.date) + '</th>'
+    + '<th class="num">Change</th><th class="num">Period</th>'
+    + '</tr></thead><tbody>' + trs.join('') + '</tbody></table>';
+}
+
 // ===== Render dispatch =====
 function tick(now) {
   const dt = Math.min(40, lastT ? now - lastT : 16);
@@ -1509,27 +1660,25 @@ window.addEventListener('resize', () => {
   markStaticDirty();
 });
 
-// View toggle (Bubbles / Treemap / Table)
+// View toggle (Bubbles / Treemap / Table / Movers)
 function setView(v) {
   if (v === VIEW) return;
   VIEW = v;
   document.querySelectorAll('.viewBtn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
   LOCKED = null; HOVER = null; closeDetailPanel();
-  // Toggle DOM panes: HTML table vs canvas-based views.
+  // Toggle DOM panes: HTML table / movers list vs canvas-based views.
   const tableView = document.getElementById('tableView');
+  const moversView = document.getElementById('moversView');
   const stage = document.getElementById('stage');
   const legend = document.getElementById('legend');
-  if (v === 'table') {
-    tableView.style.display = 'block';
-    stage.style.display = 'none';
-    if (legend) legend.style.display = 'none';
-    if (TABLE.dirty) buildTable();
-  } else {
-    tableView.style.display = 'none';
-    stage.style.display = 'block';
-    if (legend) legend.style.display = 'block';
-    markStaticDirty();
-  }
+  const isCanvas = (v === 'bubbles' || v === 'treemap');
+  tableView.style.display = v === 'table' ? 'block' : 'none';
+  moversView.style.display = v === 'movers' ? 'block' : 'none';
+  stage.style.display = isCanvas ? 'block' : 'none';
+  if (legend) legend.style.display = isCanvas ? 'block' : 'none';
+  if (v === 'table' && TABLE.dirty) buildTable();
+  if (v === 'movers') buildMovers();
+  if (isCanvas) markStaticDirty();
 }
 document.querySelectorAll('.viewBtn').forEach(btn => {
   btn.addEventListener('click', () => setView(btn.dataset.view));

@@ -49,11 +49,16 @@ jobs:
         continue-on-error: true
         run: python scripts/scrape_news.py
 
+      # Append today's valuation snapshot to data/history/valuation_history.jsonl
+      # (idempotent per day). Local-only inputs, no network — safe to fail hard.
+      - name: Snapshot valuation history
+        run: python scripts/snapshot_history.py
+
       - name: Commit if changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json data/news.json
+          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json data/news.json data/history/
           if git diff --cached --quiet; then
             echo 'Nothing changed.'
           else
