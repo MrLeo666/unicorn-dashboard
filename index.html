@@ -1505,13 +1505,22 @@ function openDetailPanel(d) {
 function closeDetailPanel() { detailPanel.classList.remove('open'); }
 
 // 交互：
-//   悬停 → 仅冻结气泡（设 HOVER），不弹层；
-//   点击气泡 → 切换 LOCKED + 弹 tooltip + 打开右下角详情面板（公司信息 + 最新新闻）；
-//   点击空白 / Esc / 面板关闭按钮 → 取消 LOCKED + 收回层与面板。
+//   悬停 → 冻结气泡（设 HOVER）+ 瞬时 tooltip（跟随光标，移开即隐藏；
+//         已被点开详情面板的气泡不再弹 hover tooltip，避免与面板重复）；
+//   点击气泡 → 只打开右下角 #detailPanel 详情面板（公司信息 + 最新新闻），
+//         不再弹锁定 tooltip；LOCKED 仅用于保持该气泡的高亮/冻结选中态；
+//   点击空白 / Esc / 面板关闭按钮 → 取消 LOCKED + 收回 tooltip 与面板。
 canvas.addEventListener('mousemove', e => {
   const p = pickAt(e.clientX, e.clientY);
   HOVER = p;
   canvas.style.cursor = p ? 'pointer' : 'default';
+  // 瞬时 hover tooltip：悬停显示、移开消失；锁定（面板已打开）的气泡不再显示
+  if (p && !(LOCKED && LOCKED.d === p.d)) {
+    showTooltip(p);
+    moveTooltip(e.clientX, e.clientY);
+  } else {
+    hideTooltip();
+  }
 });
 canvas.addEventListener('click', e => {
   const p = pickAt(e.clientX, e.clientY);
@@ -1522,15 +1531,15 @@ canvas.addEventListener('click', e => {
     closeDetailPanel();
     return;
   }
-  // 点 LOCKED 中的气泡 → 取消 LOCKED；否则 → 切换 LOCKED 到新气泡
+  // 点 LOCKED 中的气泡 → 取消 LOCKED；否则 → 切换 LOCKED 到新气泡。
+  // 详情统一由 #detailPanel 承担，这里不再弹锁定 tooltip。
   if (LOCKED && LOCKED.d === p.d) {
     LOCKED = null;
     hideTooltip();
     closeDetailPanel();
   } else {
     LOCKED = p;
-    showTooltip(p);
-    moveTooltip(e.clientX, e.clientY);
+    hideTooltip();          // 收掉可能正悬停的瞬时 tooltip，避免与面板叠层
     openDetailPanel(p.d);
   }
 });
