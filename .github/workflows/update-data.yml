@@ -49,6 +49,12 @@ jobs:
         continue-on-error: true
         run: python scripts/scrape_news.py
 
+      # Heuristic discovery of new-unicorn candidates + valuation jumps →
+      # data/candidates.json (reviewed in admin.html, kept separate from pending.json)
+      - name: Discover candidates
+        continue-on-error: true
+        run: python scripts/discover_candidates.py
+
       # Append today's valuation snapshot to data/history/valuation_history.jsonl
       # (idempotent per day). Local-only inputs, no network — safe to fail hard.
       - name: Snapshot valuation history
@@ -58,7 +64,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json data/news.json data/history/
+          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json data/news.json data/history/ data/candidates.json
           if git diff --cached --quiet; then
             echo 'Nothing changed.'
           else
