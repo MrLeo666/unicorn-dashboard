@@ -86,6 +86,9 @@
   #dataTable .forge-flat  { color: #c5cce0; }
   #dataTable .forge-delta { font-size: 10px; opacity: 0.7; margin-left: 4px; }
   #dataTable .empty-row td { text-align: center; padding: 40px; color: #8892b0; }
+  #dataTable .cand-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+                         background: #f5c842; margin-right: 6px; vertical-align: middle;
+                         box-shadow: 0 0 5px rgba(245,200,66,0.7); cursor: help; }
   /* ===== Movers view (估值增速榜, valuation-history ranking) ===== */
   #moversView { position: fixed; inset: 0; padding: 24px 24px 80px; overflow: auto;
                 background: #0a0e27; z-index: 5; }
@@ -329,6 +332,25 @@ let NEWS = null;
 // {date: 'YYYY-MM-DD', entries: {company: {wiki_m, forge_m, forge_price, notice_m, notice_price}}}
 // parsed from data/history/valuation_history.jsonl. Empty = file missing (view shows placeholder).
 let HISTORY = [];
+// ===== 候选公司黄圈（data/candidates.json 的 valuation_jumps） =====
+// 只有 jumps 涉及的公司在看板上有气泡可画；new_candidates 尚未入基座，无气泡，不画。
+// 已看状态持久化到 localStorage，指纹 = generated_at + '::' + company：
+// candidates.json 下周重生成后 generated_at 变化 → 仍是候选的公司重新亮圈。
+const SEEN_CAND_KEY = 'unicornSeenCandidates_v1';
+let CAND_GENERATED_AT = '';
+let CAND_JUMP_COMPANIES = new Set();
+let SEEN_CAND = new Set();
+try { SEEN_CAND = new Set(JSON.parse(localStorage.getItem(SEEN_CAND_KEY) || '[]')); } catch {}
+function candFingerprint(co) { return CAND_GENERATED_AT + '::' + co; }
+function isUnseenCandidate(co) {
+  return !!(co && CAND_GENERATED_AT) && CAND_JUMP_COMPANIES.has(co) && !SEEN_CAND.has(candFingerprint(co));
+}
+function markCandidateSeen(co) {
+  if (!isUnseenCandidate(co)) return;
+  SEEN_CAND.add(candFingerprint(co));
+  try { localStorage.setItem(SEEN_CAND_KEY, JSON.stringify([...SEEN_CAND])); } catch {}
+  markStaticDirty();   // bubbles 每帧重绘自动掉圈；treemap/table 需要 dirty 触发
+}
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -377,6 +399,16 @@ async function loadData() {
         .map(l => l.trim()).filter(Boolean)
         .map(l => { try { return JSON.parse(l); } catch { return null; } })
         .filter(s => s && s.date && s.entries);
+    }
+  } catch {}
+  // candidates.json is optional; missing → no candidate gold rings.
+  // 只取 valuation_jumps（new_candidates 不在基座里，没有气泡可画）。
+  try {
+    const cd = await fetch('./data/candidates.json?t=' + ts);
+    if (cd.ok) {
+      const cb = await cd.json();
+      CAND_GENERATED_AT = (cb && cb.generated_at) || '';
+      CAND_JUMP_COMPANIES = new Set(((cb && cb.valuation_jumps) || []).map(j => j.company));
     }
   } catch {}
   DATA_FULL = applyOverridesClient(base, overrides);
@@ -1117,6 +1149,20 @@ function drawBubble(p) {
   ctx.arc(x, y, r, 0, Math.PI * 2);
   ctx.stroke();
 
+  // —— 候选公司（估值跳变未查看）：外层金圈强调 ——
+  // 独立于 LOCKED/HOVER/admin 描边，叠加在最外圈；点击打开详情面板后消失。
+  // 色值/线宽沿用 radar.html 的 #f5c842 金色口径。
+  if (alpha > 0.25 && isUnseenCandidate(p.d.company)) {
+    ctx.strokeStyle = '#f5c842';
+    ctx.lineWidth = Math.max(2, r * 0.05);
+    ctx.shadowColor = 'rgba(245,200,66,0.55)';
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.arc(x, y, r + Math.max(3, r * 0.08), 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+
   // —— Admin 公司：12 点钟方向画 ✨ 角标，仅在气泡足够大时显示 ——
   // 半径 < 28 时角标会和气泡名字打架，宁可只靠光环+描边表达
   if (isAdmin && alpha > 0.4 && r >= 28) {
@@ -1342,9 +1388,12 @@ function buildTable() {
     const nameCell = isCN
       ? '<span class="co-zh">' + esc(d.companyZh) + '</span><span class="co-en">' + esc(d.company) + '</span>'
       : '<span class="co-name">' + esc(d.company) + '</span>';
+    // 估值跳变候选（未查看）→ 名称前加黄点，点击行查看后消失
+    const candDot = isUnseenCandidate(d.company)
+      ? '<span class="cand-dot" title="估值跳变候选，点击查看"></span>' : '';
     return '<tr data-co="' + esc(d.company) + '">'
          + '<td class="num">' + rank + '</td>'
-         + '<td>' + nameCell + '</td>'
+         + '<td>' + candDot + nameCell + '</td>'
          + '<td><span class="industry-tag">' + esc(d.industry || 'Other') + '</span></td>'
          + '<td>' + esc(d.country || '—') + '</td>'
          + '<td class="num val-cell">' + esc(d.valuation_str || '') + '</td>'
@@ -1647,6 +1696,7 @@ canvas.addEventListener('click', e => {
     closeDetailPanel();
   } else {
     LOCKED = p;
+    markCandidateSeen(p.d.company);   // 点击查看 → 黄圈消失
     openDetailPanel(p.d, e.clientX, e.clientY);
   }
 });
@@ -1731,6 +1781,7 @@ document.querySelector('#dataTable tbody').addEventListener('click', e => {
   const co = tr.dataset.co;
   const d = DATA.find(x => x.company === co);
   if (!d) return;
+  markCandidateSeen(d.company);   // 点击查看 → 黄点消失（重渲染由 markStaticDirty 触发）
   let url;
   if (d.wikiLink && /wikipedia\.org\/wiki\//.test(d.wikiLink)) {
     url = d.wikiLink;
