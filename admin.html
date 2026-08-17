@@ -1041,6 +1041,11 @@ function toast(msg) {
   toast._timer = setTimeout(() => t.classList.remove('show'), 2400);
 }
 
+// Surface silent JS errors as toasts so failures are never invisible
+window.addEventListener('error', e => toast('⚠ JS error: ' + (e.message || 'unknown')));
+window.addEventListener('unhandledrejection', e =>
+  toast('⚠ ' + ((e.reason && e.reason.message) || e.reason || 'async error')));
+
 // ============================================================================
 //  GITHUB PUBLISHING (PAT + Contents API)
 // ============================================================================
@@ -1103,7 +1108,8 @@ async function ghPut(cfg, path, body) {
 }
 
 async function publishOverrides() {
-  const cfg = getCfg();
+  try {
+    const cfg = getCfg();
   if (!cfg.token || !cfg.repo) {
     openSettings();
     toast('Configure your GitHub repo + token first');
@@ -1154,6 +1160,10 @@ async function publishOverrides() {
     }
     toast(`Publish failed: ${putRes.status} ${err.message || 'check token & repo'}`);
     return;
+  }
+  } catch (e) {
+    toast('⚠ Publish error: ' + (e && e.message ? e.message : e));
+    console.error('publishOverrides failed:', e);
   }
 }
 
