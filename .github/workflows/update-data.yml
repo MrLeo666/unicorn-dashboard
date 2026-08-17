@@ -44,14 +44,19 @@ jobs:
           GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
         run: python scripts/scrape_notice_email.py
 
+      # Google News RSS for the Top 100 by valuation → data/news.json
+      - name: Scrape company news (Top 100)
+        continue-on-error: true
+        run: python scripts/scrape_news.py
+
       - name: Commit if changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json
+          git add data/wiki_raw.json data/pending.json data/forge_data.json data/notice_secondary.json data/news.json
           if git diff --cached --quiet; then
             echo 'Nothing changed.'
           else
-            git commit -m "data: weekly Wikipedia + Forge + Notice refresh"
+            git commit -m "data: weekly Wikipedia + Forge + Notice + News refresh"
             git push
           fi

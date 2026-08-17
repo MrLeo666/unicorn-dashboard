@@ -120,6 +120,44 @@
                    border-top: 1px solid rgba(255,255,255,0.08); }
   #tooltip .val { color: #fdc25c; font-weight: 600; font-size: 18px; }
   #tooltip .investors { font-size: 11px; color: #8892b0; margin-top: 4px; max-height: 60px; overflow: hidden; }
+  /* ===== Company detail panel (click a bubble) ===== */
+  #detailPanel {
+    position: fixed; right: 24px; bottom: 64px; width: 370px; max-width: calc(100vw - 48px);
+    max-height: calc(100vh - 150px); overflow-y: auto;
+    background: rgba(20, 26, 58, 0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+    padding: 16px 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    font-size: 13px; line-height: 1.5; z-index: 90; display: none;
+  }
+  #detailPanel.open { display: block; }
+  #detailPanel .dp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  #detailPanel h3 { font-size: 17px; color: #fff; margin-bottom: 6px; }
+  #detailPanel h3 small { color: #8892b0; font-weight: 400; font-size: 12px; }
+  #detailPanel .dp-close {
+    flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+    color: #c5cce0; font-size: 14px; line-height: 1; padding: 0; transition: all 0.15s ease;
+  }
+  #detailPanel .dp-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
+  #detailPanel .badge { font-size: 10px; padding: 2px 8px; border-radius: 6px; background: rgba(255,255,255,0.1);
+                        color: #c5cce0; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
+  #detailPanel .dp-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  #detailPanel .val { color: #fdc25c; font-weight: 600; font-size: 18px; }
+  #detailPanel .row { color: #8892b0; margin-top: 6px; }
+  #detailPanel .row b { color: #c5cce0; font-weight: 500; }
+  #detailPanel .desc { margin-top: 8px; color: #b3bdd6; font-size: 12px; padding-top: 8px;
+                       border-top: 1px solid rgba(255,255,255,0.08); }
+  #detailPanel .dp-links { margin-top: 10px; display: flex; gap: 14px; }
+  #detailPanel .dp-links a { color: #8db4ff; text-decoration: none; font-size: 12px; }
+  #detailPanel .dp-links a:hover { text-decoration: underline; }
+  #detailPanel .dp-news { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
+  #detailPanel .dp-news .dp-news-title { font-size: 11px; color: #8892b0; text-transform: uppercase;
+                                         letter-spacing: 0.8px; margin-bottom: 8px; }
+  #detailPanel .dp-news .dp-item { margin-bottom: 10px; }
+  #detailPanel .dp-news .dp-item a { color: #e8ecf4; text-decoration: none; font-size: 13px; line-height: 1.4; }
+  #detailPanel .dp-news .dp-item a:hover { color: #8db4ff; text-decoration: underline; }
+  #detailPanel .dp-news .dp-meta { font-size: 11px; color: #8892b0; margin-top: 2px; }
+  #detailPanel .dp-news .dp-empty { color: #6c7494; font-size: 12px; }
   #legend {
     position: fixed; bottom: 24px; left: 24px;
     padding: 14px 18px; border-radius: 12px;
@@ -237,9 +275,10 @@
   <div class="ticks"><span>$5B</span><span>$25B</span><span>$100B</span><span>$1.25T</span></div>
 </div>
 
-<div id="help">Hover for details · Click to open Wikipedia / Google · Move cursor to top for menu</div>
+<div id="help">Hover for details · Click bubble for details + news · Move cursor to top for menu</div>
 
 <div id="tooltip"></div>
+<div id="detailPanel"></div>
 
 <script id="data" type="application/json">[]</script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -254,6 +293,10 @@ let SHOW_ARCHIVED = false;
 // admin overrides do not apply.
 let FORGE = {};
 let NOTICE = {};
+// Google News overlay (Top 100). Map: company → [{title, url, source, date}].
+// null = data/news.json not available (区块显示「新闻数据尚未生成」);
+// {} = loaded but this company has no entries (显示「暂无近期新闻」).
+let NEWS = null;
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -282,6 +325,15 @@ async function loadData() {
     if (n.ok) {
       const nb = await n.json();
       NOTICE = (nb && nb.records) || {};
+    }
+  } catch {}
+  // news.json is optional; missing/malformed → NEWS stays null and the detail
+  // panel shows 「新闻数据尚未生成」 instead of the news list
+  try {
+    const w = await fetch('./data/news.json?t=' + ts);
+    if (w.ok) {
+      const wb = await w.json();
+      NEWS = (wb && wb.news) || {};
     }
   } catch {}
   DATA_FULL = applyOverridesClient(base, overrides);
@@ -1393,10 +1445,69 @@ function moveTooltip(x, y) {
 }
 function esc(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-// 新交互：
+// ===== 公司详情面板（点击气泡打开，含最新新闻） =====
+const detailPanel = document.getElementById('detailPanel');
+
+function renderNewsBlock(d) {
+  if (NEWS === null) return '<div class="dp-empty">新闻数据尚未生成</div>';
+  const items = (NEWS[d.company] || []).slice(0, 3);
+  if (!items.length) return '<div class="dp-empty">暂无近期新闻</div>';
+  return items.map(it => {
+    const meta = [it.source, it.date].filter(Boolean).map(esc).join(' · ');
+    return '<div class="dp-item">'
+      + '<a href="' + esc(it.url) + '" target="_blank" rel="noopener">' + esc(it.title) + '</a>'
+      + (meta ? '<div class="dp-meta">' + meta + '</div>' : '')
+      + '</div>';
+  }).join('');
+}
+
+function openDetailPanel(d) {
+  const link = getCompanyLink(d);
+  const isWiki = /wikipedia\.org/.test(link);
+  const sourceTag = d.source.includes('wiki') ? 'wikipedia' : 'pitchbook';
+  const parts = [];
+  // For Chinese companies, show Chinese name as primary + English as secondary line.
+  let titleInner;
+  if (d.companyZh && d.companyZh !== d.company && !d.companyZh.startsWith('Unnamed')) {
+    titleInner = esc(d.companyZh) + ' <small>' + esc(d.company) + '</small>';
+  } else {
+    titleInner = esc(d.company);
+  }
+  parts.push('<div class="dp-head"><h3>' + titleInner + '</h3>'
+    + '<button class="dp-close" title="关闭 (Esc)">×</button></div>');
+  parts.push('<div class="dp-badges"><span class="badge">' + esc(d.industry) + '</span>'
+    + '<span class="badge">' + esc(d.country || '—') + '</span>'
+    + '<span class="badge">' + sourceTag + '</span></div>');
+  parts.push('<div class="val">' + esc(d.valuation_str) + '</div>');
+  if (d.vc_raised && d.vc_raised !== '—') parts.push('<div class="row"><b>VC raised:</b> ' + esc(d.vc_raised) + '</div>');
+  parts.push('<div class="row"><b>As of:</b> ' + esc(d.unicorn_as_of || '—') + '</div>');
+  if (d.description) parts.push('<div class="desc">' + esc(d.description) + '</div>');
+  if (d.lead_investors && d.lead_investors !== '—') {
+    parts.push('<div class="row" style="font-size:11px;"><b>Lead investors:</b> ' + esc(d.lead_investors) + '</div>');
+  }
+  const links = ['<a href="' + esc(link) + '" target="_blank" rel="noopener">Open '
+    + (isWiki ? 'Wikipedia' : 'Google') + ' ↗</a>'];
+  if (isWiki) {
+    const q = (d.companyZh && d.companyZh !== d.company) ? d.companyZh + ' ' + d.company : d.company;
+    links.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(q)
+      + '" target="_blank" rel="noopener">Google 搜索 ↗</a>');
+  }
+  parts.push('<div class="dp-links">' + links.join('') + '</div>');
+  parts.push('<div class="dp-news"><div class="dp-news-title">最新新闻</div>' + renderNewsBlock(d) + '</div>');
+  detailPanel.innerHTML = parts.join('');
+  detailPanel.classList.add('open');
+  detailPanel.querySelector('.dp-close').addEventListener('click', () => {
+    LOCKED = null;
+    closeDetailPanel();
+    hideTooltip();
+  });
+}
+function closeDetailPanel() { detailPanel.classList.remove('open'); }
+
+// 交互：
 //   悬停 → 仅冻结气泡（设 HOVER），不弹层；
-//   点击气泡 → 切换 LOCKED + 弹层（公司名链接，点击新窗口打开）；
-//   点击空白 → 取消 LOCKED + 收回层。
+//   点击气泡 → 切换 LOCKED + 弹 tooltip + 打开右下角详情面板（公司信息 + 最新新闻）；
+//   点击空白 / Esc / 面板关闭按钮 → 取消 LOCKED + 收回层与面板。
 canvas.addEventListener('mousemove', e => {
   const p = pickAt(e.clientX, e.clientY);
   HOVER = p;
@@ -1408,20 +1519,23 @@ canvas.addEventListener('click', e => {
     // 点空白 → 取消 LOCKED
     LOCKED = null;
     hideTooltip();
+    closeDetailPanel();
     return;
   }
   // 点 LOCKED 中的气泡 → 取消 LOCKED；否则 → 切换 LOCKED 到新气泡
   if (LOCKED && LOCKED.d === p.d) {
     LOCKED = null;
     hideTooltip();
+    closeDetailPanel();
   } else {
     LOCKED = p;
     showTooltip(p);
     moveTooltip(e.clientX, e.clientY);
+    openDetailPanel(p.d);
   }
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { LOCKED = null; HOVER = null; hideTooltip(); }
+  if (e.key === 'Escape') { LOCKED = null; HOVER = null; hideTooltip(); closeDetailPanel(); }
 });
 window.addEventListener('resize', () => {
   resize();
@@ -1435,7 +1549,7 @@ function setView(v) {
   if (v === VIEW) return;
   VIEW = v;
   document.querySelectorAll('.viewBtn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
-  LOCKED = null; HOVER = null; hideTooltip();
+  LOCKED = null; HOVER = null; hideTooltip(); closeDetailPanel();
   // Toggle DOM panes: HTML table vs canvas-based views.
   const tableView = document.getElementById('tableView');
   const stage = document.getElementById('stage');
