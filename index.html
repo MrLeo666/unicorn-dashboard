@@ -103,10 +103,10 @@
   #topValue { min-width: 56px; text-align: center; }
   #stats { margin-left: auto; display: flex; gap: 22px; align-items: center; color: #8892b0; font-size: 12px; }
   #stats .num { color: #fff; font-weight: 600; font-size: 16px; margin-right: 4px; }
-  /* ===== Company detail panel (click a bubble) ===== */
+  /* ===== Company detail panel (click a bubble; positioned near the click point) ===== */
   #detailPanel {
-    position: fixed; right: 24px; bottom: 64px; width: 370px; max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 150px); overflow-y: auto;
+    position: fixed; left: 0; top: 0; width: 370px; max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px); overflow-y: auto;
     background: rgba(20, 26, 58, 0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
     padding: 16px 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
@@ -1368,7 +1368,7 @@ function renderNewsBlock(d) {
   }).join('');
 }
 
-function openDetailPanel(d) {
+function openDetailPanel(d, x, y) {
   const link = getCompanyLink(d);
   const isWiki = /wikipedia\.org/.test(link);
   const sourceTag = d.source.includes('wiki') ? 'wikipedia' : 'pitchbook';
@@ -1452,6 +1452,7 @@ function openDetailPanel(d) {
   parts.push('<div class="dp-news"><div class="dp-news-title">最新新闻</div>' + renderNewsBlock(d) + '</div>');
   detailPanel.innerHTML = parts.join('');
   detailPanel.classList.add('open');
+  positionDetailPanel(x, y);
   detailPanel.querySelector('.dp-close').addEventListener('click', () => {
     LOCKED = null;
     closeDetailPanel();
@@ -1459,9 +1460,21 @@ function openDetailPanel(d) {
 }
 function closeDetailPanel() { detailPanel.classList.remove('open'); }
 
+// 面板定位在点击点附近：默认锚在点击坐标右下方 12px；若会超出视口右/下边缘，
+// 则翻转到点击点左侧/上方，保证完整可见。页面是全屏 canvas（body overflow:hidden，
+// 无滚动），clientX/Y 可直接配合 position:fixed 使用，无需 pageX/Y 换算。
+function positionDetailPanel(x, y) {
+  const pw = detailPanel.offsetWidth, ph = detailPanel.offsetHeight;
+  let px = x + 12, py = y + 12;
+  if (px + pw > window.innerWidth - 12) px = x - pw - 12;
+  if (py + ph > window.innerHeight - 12) py = y - ph - 12;
+  detailPanel.style.left = Math.max(12, px) + 'px';
+  detailPanel.style.top = Math.max(12, py) + 'px';
+}
+
 // 交互：
 //   悬停 → 仅冻结气泡（设 HOVER 高亮/定住），不弹任何图层；
-//   点击气泡 → 只打开右下角 #detailPanel 详情面板（公司信息 + 二级市场数据 + 最新新闻）；
+//   点击气泡 → 在点击位置附近打开 #detailPanel 详情面板（公司信息 + 二级市场数据 + 最新新闻）；
 //         LOCKED 仅用于保持该气泡的高亮/冻结选中态；
 //   点击空白 / Esc / 面板关闭按钮 / 切换视图 → 取消 LOCKED + 关闭面板。
 canvas.addEventListener('mousemove', e => {
@@ -1483,7 +1496,7 @@ canvas.addEventListener('click', e => {
     closeDetailPanel();
   } else {
     LOCKED = p;
-    openDetailPanel(p.d);
+    openDetailPanel(p.d, e.clientX, e.clientY);
   }
 });
 document.addEventListener('keydown', e => {
