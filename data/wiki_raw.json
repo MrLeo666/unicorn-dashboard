@@ -32,9 +32,9 @@
   {
     "company": "Databricks",
     "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
-    "valuation_b": 188.0,
-    "valuation_str": "$188B",
-    "valuation_date": "July 2026",
+    "valuation_b": 190.0,
+    "valuation_str": "$190B",
+    "valuation_date": "August 2026",
     "industry_raw": "Software",
     "country": "United States",
     "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
@@ -140,16 +140,6 @@
     "founders": "Ilya Sutskever, Daniel Gross, Daniel Levy"
   },
   {
-    "company": "Epic Games",
-    "wikiLink": "https://en.wikipedia.org/wiki/Epic_Games",
-    "valuation_b": 31.5,
-    "valuation_str": "$31.5B",
-    "valuation_date": "June 2022",
-    "industry_raw": "Video games",
-    "country": "United States",
-    "founders": "Tim Sweeney"
-  },
-  {
     "company": "VAST Data",
     "wikiLink": "https://en.wikipedia.org/wiki/VAST_Data",
     "valuation_b": 30.0,
@@ -200,14 +190,14 @@
     "founders": "Scott Wu, Steven Hao, Walden Yan"
   },
   {
-    "company": "Chime",
-    "wikiLink": "https://en.wikipedia.org/wiki/Chime_(company)",
-    "valuation_b": 25.0,
-    "valuation_str": "$25B",
-    "valuation_date": "June 2025",
-    "industry_raw": "Financial technology",
+    "company": "Epic Games",
+    "wikiLink": "https://en.wikipedia.org/wiki/Epic_Games",
+    "valuation_b": 22.5,
+    "valuation_str": "$22.5B",
+    "valuation_date": "February 2024",
+    "industry_raw": "Video games",
     "country": "United States",
-    "founders": "Chris Britt, Ryan King"
+    "founders": "Tim Sweeney"
   },
   {
     "company": "Perplexity AI",
@@ -370,7 +360,7 @@
     "founders": "Devin Finzer, Chris Maddern"
   },
   {
-    "company": "Grammarly",
+    "company": "Superhuman",
     "wikiLink": "https://en.wikipedia.org/wiki/Grammarly",
     "valuation_b": 13.0,
     "valuation_str": "$13B",
@@ -500,6 +490,16 @@
     "founders": "Tarek Mansour and Luana Lopes Lara"
   },
   {
+    "company": "Lovable",
+    "wikiLink": "https://en.wikipedia.org/wiki/Lovable_(company)",
+    "valuation_b": 13.3,
+    "valuation_str": "$13.3B",
+    "valuation_date": "PixVerse",
+    "industry_raw": "Artificial intelligence",
+    "country": "Sweden",
+    "founders": "Anton Osika, Fabian Hedin"
+  },
+  {
     "company": "Checkout.com",
     "wikiLink": "https://en.wikipedia.org/wiki/Checkout.com",
     "valuation_b": 12.0,
@@ -518,16 +518,6 @@
     "industry_raw": "E-Commerce",
     "country": "United States",
     "founders": "Grant LaFontaine (CEO), Logan Head"
-  },
-  {
-    "company": "Airtable",
-    "wikiLink": "https://en.wikipedia.org/wiki/Airtable",
-    "valuation_b": 11.0,
-    "valuation_str": "$11B",
-    "valuation_date": "December 2021",
-    "industry_raw": "Collaborative software",
-    "country": "United States",
-    "founders": "Howie Liu, Andrew Ofstad, Emmett Nicholas"
   },
   {
     "company": "Celonis",
@@ -578,6 +568,16 @@
     "industry_raw": "Financial Technology",
     "country": "United States",
     "founders": "Ankur Jain"
+  },
+  {
+    "company": "Etched",
+    "wikiLink": "",
+    "valuation_b": 10.3,
+    "valuation_str": "$10.3B",
+    "valuation_date": "July 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Gavin Uberti, Chris Zhu, Robert Wachen"
   },
   {
     "company": "Colossal Biosciences",
@@ -830,6 +830,16 @@
     "founders": "Markus Villig"
   },
   {
+    "company": "Together AI",
+    "wikiLink": "",
+    "valuation_b": 8.3,
+    "valuation_str": "$8.3B",
+    "valuation_date": "July 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Vipul Ved Prakash, Ce Zhang, Chris Ré, Tri Dao, Percy Liang"
+  },
+  {
     "company": "Dream11",
     "wikiLink": "https://en.wikipedia.org/wiki/Dream11",
     "valuation_b": 8.0,
@@ -1008,16 +1018,6 @@
     "industry_raw": "Real estate technology",
     "country": "China",
     "founders": ""
-  },
-  {
-    "company": "Lovable",
-    "wikiLink": "https://en.wikipedia.org/wiki/Lovable_(company)",
-    "valuation_b": 6.6,
-    "valuation_str": "$6.6B",
-    "valuation_date": "December 2025",
-    "industry_raw": "Artificial intelligence",
-    "country": "Sweden",
-    "founders": "Anton Osika, Fabian Hedin"
   },
   {
     "company": "Mollie",
@@ -1301,13 +1301,13 @@
   },
   {
     "company": "Qonto",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Qonto",
     "valuation_b": 5.0,
     "valuation_str": "$5B",
     "valuation_date": "August 2022",
     "industry_raw": "Finance",
     "country": "France",
-    "founders": ""
+    "founders": "Steve Anavi, Alexandre Prot"
   },
   {
     "company": "Ro",
@@ -1848,6 +1848,16 @@
     "industry_raw": "Blockchain",
     "country": "United States",
     "founders": ""
+  },
+  {
+    "company": "Flutterwave",
+    "wikiLink": "https://en.wikipedia.org/wiki/Flutterwave",
+    "valuation_b": 3.2,
+    "valuation_str": "$3.2B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Financial technology",
+    "country": "Nigeria / United States",
+    "founders": "Olugbenga Agboola , Iyinoluwa Aboyeji"
   },
   {
     "company": "Verkada",
@@ -2860,6 +2870,26 @@
     "founders": ""
   },
   {
+    "company": "PixVerse",
+    "wikiLink": "",
+    "valuation_b": 2.0,
+    "valuation_str": "$2B",
+    "valuation_date": "July 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "Singapore",
+    "founders": ""
+  },
+  {
+    "company": "Simile",
+    "wikiLink": "",
+    "valuation_b": 2.0,
+    "valuation_str": "$2B",
+    "valuation_date": "July 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Joon Sung Park, Michael Bernstein, Percy Liang"
+  },
+  {
     "company": "Sword Health",
     "wikiLink": "https://en.wikipedia.org/wiki/Sword_Health",
     "valuation_b": 2.0,
@@ -3541,7 +3571,7 @@
   },
   {
     "company": "MOLOCO",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MOLOCO?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "August 2021",
@@ -3718,6 +3748,16 @@
     "industry_raw": "Financial technology",
     "country": "United States",
     "founders": ""
+  },
+  {
+    "company": "Odyssey",
+    "wikiLink": "",
+    "valuation_b": 1.45,
+    "valuation_str": "$1.45B",
+    "valuation_date": "June 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Oliver Cameron, Jeff Hawke"
   },
   {
     "company": "Zeta",
@@ -3951,7 +3991,7 @@
   },
   {
     "company": "Zetwerk",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Zetwerk?action=edit&redlink=1",
     "valuation_b": 1.33,
     "valuation_str": "$1.33B",
     "valuation_date": "August 2021",
@@ -4058,6 +4098,16 @@
     "industry_raw": "Database management",
     "country": "United States",
     "founders": ""
+  },
+  {
+    "company": "Airtable",
+    "wikiLink": "https://en.wikipedia.org/wiki/Airtable",
+    "valuation_b": 1.28,
+    "valuation_str": "$1.28B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Collaborative software",
+    "country": "United States",
+    "founders": "Howie Liu, Andrew Ofstad, Emmett Nicholas"
   },
   {
     "company": "Cart.com",
@@ -4948,16 +4998,6 @@
     "industry_raw": "Logistics",
     "country": "United States",
     "founders": "Karl Siebrecht"
-  },
-  {
-    "company": "Flutterwave",
-    "wikiLink": "https://en.wikipedia.org/wiki/Flutterwave",
-    "valuation_b": 1.0,
-    "valuation_str": "$1B",
-    "valuation_date": "March 2021",
-    "industry_raw": "Financial technology",
-    "country": "Nigeria / United States",
-    "founders": ""
   },
   {
     "company": "FreshBooks",

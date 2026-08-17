@@ -1,24 +1,75 @@
 {
   "additions": [
     {
-      "id": "wiki-20",
+      "id": "wiki-36",
       "source": "wiki",
-      "company": "Chime",
-      "wikiLink": "https://en.wikipedia.org/wiki/Chime_(company)",
-      "wikiSlug": "Chime_(company)",
-      "description": "Financial technology",
-      "valuation_str": "$25B",
-      "valuation_m": 25000.0,
+      "company": "Superhuman",
+      "wikiLink": "https://en.wikipedia.org/wiki/Grammarly",
+      "wikiSlug": "Grammarly",
+      "description": "Collaborative software",
+      "valuation_str": "$13B",
+      "valuation_m": 13000.0,
       "vc_raised": "—",
-      "lead_investors": "Founders: Chris Britt, Ryan King",
-      "country": "United States",
-      "unicorn_as_of": "June 2025",
-      "year": "2025",
-      "industry": "Fintech",
-      "founders": "Chris Britt, Ryan King"
+      "lead_investors": "Founders: Alex Shevchenko, Max Lytvyn, and Dmytro Lider",
+      "country": "Ukraine",
+      "unicorn_as_of": "November 2021",
+      "year": "2021",
+      "industry": "SaaS/Enterprise",
+      "founders": "Alex Shevchenko, Max Lytvyn, and Dmytro Lider"
     },
     {
-      "id": "wiki-437",
+      "id": "wiki-83",
+      "source": "wiki",
+      "company": "Together AI",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$8.3B",
+      "valuation_m": 8300.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Vipul Ved Prakash, Ce Zhang, Chris Ré, Tri Dao, Percy Liang",
+      "country": "United States",
+      "unicorn_as_of": "July 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Vipul Ved Prakash, Ce Zhang, Chris Ré, Tri Dao, Percy Liang"
+    },
+    {
+      "id": "wiki-288",
+      "source": "wiki",
+      "company": "Simile",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$2B",
+      "valuation_m": 2000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Joon Sung Park, Michael Bernstein, Percy Liang",
+      "country": "United States",
+      "unicorn_as_of": "July 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Joon Sung Park, Michael Bernstein, Percy Liang"
+    },
+    {
+      "id": "wiki-375",
+      "source": "wiki",
+      "company": "Odyssey",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$1.45B",
+      "valuation_m": 1450.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Oliver Cameron, Jeff Hawke",
+      "country": "United States",
+      "unicorn_as_of": "June 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Oliver Cameron, Jeff Hawke"
+    },
+    {
+      "id": "wiki-442",
       "source": "wiki",
       "company": "HappyRobot",
       "wikiLink": "",
@@ -35,7 +86,7 @@
       "founders": ""
     },
     {
-      "id": "wiki-460",
+      "id": "wiki-465",
       "source": "wiki",
       "company": "Aikido Security",
       "wikiLink": "https://en.wikipedia.org/wiki/Aikido_Security",
@@ -52,7 +103,7 @@
       "founders": "Willem Delbare"
     },
     {
-      "id": "wiki-569",
+      "id": "wiki-573",
       "source": "wiki",
       "company": "Socket",
       "wikiLink": "",
@@ -165,7 +216,7 @@
       "changes": {
         "valuation_m": {
           "from": 134000.0,
-          "to": 188000.0
+          "to": 190000.0
         }
       },
       "current": {
@@ -192,12 +243,12 @@
         "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
         "wikiSlug": "Databricks",
         "description": "Software",
-        "valuation_str": "$188B",
-        "valuation_m": 188000.0,
+        "valuation_str": "$190B",
+        "valuation_m": 190000.0,
         "vc_raised": "—",
         "lead_investors": "Founders: Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia",
         "country": "United States",
-        "unicorn_as_of": "July 2026",
+        "unicorn_as_of": "August 2026",
         "year": "2026",
         "industry": "SaaS/Enterprise",
         "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
@@ -230,7 +281,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-621",
+        "id": "pb-625",
         "source": "pb",
         "tier": "A",
         "company": "Cursor",
@@ -246,6 +297,49 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": ""
+      }
+    },
+    {
+      "company": "Epic Games",
+      "changes": {
+        "valuation_m": {
+          "from": 31500.0,
+          "to": 22500.0
+        }
+      },
+      "current": {
+        "id": "wiki-13",
+        "source": "wiki",
+        "company": "Epic Games",
+        "wikiLink": "https://en.wikipedia.org/wiki/Epic_Games",
+        "wikiSlug": "Epic_Games",
+        "description": "Video games",
+        "valuation_str": "$31.5B",
+        "valuation_m": 31500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Tim Sweeney",
+        "country": "United States",
+        "unicorn_as_of": "June 2022",
+        "year": "2022",
+        "industry": "Other",
+        "founders": "Tim Sweeney"
+      },
+      "proposed": {
+        "id": "wiki-19",
+        "source": "wiki",
+        "company": "Epic Games",
+        "wikiLink": "https://en.wikipedia.org/wiki/Epic_Games",
+        "wikiSlug": "Epic_Games",
+        "description": "Video games",
+        "valuation_str": "$22.5B",
+        "valuation_m": 22500.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Tim Sweeney",
+        "country": "United States",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "Other",
+        "founders": "Tim Sweeney"
       }
     },
     {
@@ -276,7 +370,7 @@
         "pinyinInitial": "D"
       },
       "proposed": {
-        "id": "wiki-28",
+        "id": "wiki-27",
         "source": "wiki",
         "company": "DJI",
         "wikiLink": "https://en.wikipedia.org/wiki/DJI",
@@ -323,7 +417,7 @@
         "pinyinInitial": "X"
       },
       "proposed": {
-        "id": "wiki-32",
+        "id": "wiki-31",
         "source": "wiki",
         "company": "Xiaohongshu",
         "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
@@ -340,6 +434,94 @@
         "founders": "Miranda Qu Fang, Charlwin Mao Wenchao",
         "companyZh": "小红书",
         "pinyinInitial": "X"
+      }
+    },
+    {
+      "company": "Lovable",
+      "changes": {
+        "valuation_m": {
+          "from": 6600.0,
+          "to": 13300.0
+        }
+      },
+      "current": {
+        "id": "wiki-99",
+        "source": "wiki",
+        "company": "Lovable",
+        "wikiLink": "https://en.wikipedia.org/wiki/Lovable_(company)",
+        "wikiSlug": "Lovable_(company)",
+        "description": "Artificial intelligence",
+        "valuation_str": "$6.6B",
+        "valuation_m": 6600.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Anton Osika, Fabian Hedin",
+        "country": "Sweden",
+        "unicorn_as_of": "December 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Anton Osika, Fabian Hedin"
+      },
+      "proposed": {
+        "id": "wiki-49",
+        "source": "wiki",
+        "company": "Lovable",
+        "wikiLink": "https://en.wikipedia.org/wiki/Lovable_(company)",
+        "wikiSlug": "Lovable_(company)",
+        "description": "Artificial intelligence",
+        "valuation_str": "$13.3B",
+        "valuation_m": 13300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Anton Osika, Fabian Hedin",
+        "country": "Sweden",
+        "unicorn_as_of": "PixVerse",
+        "year": "",
+        "industry": "AI/ML",
+        "founders": "Anton Osika, Fabian Hedin"
+      }
+    },
+    {
+      "company": "Tether",
+      "changes": {
+        "valuation_m": {
+          "from": 50000.0,
+          "to": 12000.0
+        }
+      },
+      "current": {
+        "id": "pb-620",
+        "source": "pb",
+        "tier": "A",
+        "company": "Tether",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
+        "valuation_str": "$50B",
+        "valuation_m": 50000,
+        "vc_raised": "$600.0M",
+        "lead_investors": "-",
+        "country": "El Salvador",
+        "unicorn_as_of": "November 2024",
+        "year": "2024",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "pb-629",
+        "source": "pb",
+        "tier": "A",
+        "company": "Tether",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
+        "valuation_str": "$12.0B",
+        "valuation_m": 12000.0,
+        "vc_raised": "$600.0M",
+        "lead_investors": "-",
+        "country": "El Salvador",
+        "unicorn_as_of": "November 2024",
+        "year": "2024",
+        "industry": "Crypto/Web3",
+        "founders": ""
       }
     },
     {
@@ -381,7 +563,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-43",
+        "id": "wiki-42",
         "source": "wiki",
         "company": "Cyera",
         "wikiLink": "https://en.wikipedia.org/wiki/Cyera",
@@ -399,48 +581,51 @@
       }
     },
     {
-      "company": "Tether",
+      "company": "Etched",
       "changes": {
         "valuation_m": {
-          "from": 50000.0,
-          "to": 12000.0
+          "from": 5000.0,
+          "to": 10300.0
+        },
+        "founders": {
+          "from": "",
+          "to": "Gavin Uberti, Chris Zhu, Robert Wachen"
         }
       },
       "current": {
-        "id": "pb-620",
+        "id": "pb-646",
         "source": "pb",
         "tier": "A",
-        "company": "Tether",
+        "company": "Etched",
         "wikiLink": "",
         "wikiSlug": "",
-        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
-        "valuation_str": "$50B",
-        "valuation_m": 50000,
-        "vc_raised": "$600.0M",
-        "lead_investors": "-",
-        "country": "El Salvador",
-        "unicorn_as_of": "November 2024",
-        "year": "2024",
-        "industry": "Crypto/Web3",
+        "description": "Developer of an artificial intelligence-based computing hardware designed to cut LLM inference costs radically, specialized for transformers.",
+        "valuation_str": "$5.0B",
+        "valuation_m": 5000.0,
+        "vc_raised": "$710.4M",
+        "lead_investors": "Positive Sum, Primary Venture Partners, Stripes",
+        "country": "United States",
+        "unicorn_as_of": "March 2025",
+        "year": "2025",
+        "industry": "AI/ML",
         "founders": ""
       },
       "proposed": {
-        "id": "pb-625",
-        "source": "pb",
-        "tier": "A",
-        "company": "Tether",
+        "id": "wiki-57",
+        "source": "wiki",
+        "company": "Etched",
         "wikiLink": "",
         "wikiSlug": "",
-        "description": "Developer of a blockchain-enabled platform intended to digitise fiat currency usage and expand access to decentralised technologies.",
-        "valuation_str": "$12.0B",
-        "valuation_m": 12000.0,
-        "vc_raised": "$600.0M",
-        "lead_investors": "-",
-        "country": "El Salvador",
-        "unicorn_as_of": "November 2024",
-        "year": "2024",
-        "industry": "Crypto/Web3",
-        "founders": ""
+        "description": "Artificial intelligence",
+        "valuation_str": "$10.3B",
+        "valuation_m": 10300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Gavin Uberti, Chris Zhu, Robert Wachen",
+        "country": "United States",
+        "unicorn_as_of": "July 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Gavin Uberti, Chris Zhu, Robert Wachen"
       }
     },
     {
@@ -530,6 +715,49 @@
       }
     },
     {
+      "company": "Ripple",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Chris Larsen, Jed McCaleb"
+        }
+      },
+      "current": {
+        "id": "wiki-69",
+        "source": "wiki",
+        "company": "Ripple",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ripple_Labs",
+        "wikiSlug": "Ripple_Labs",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "December 2019",
+        "year": "2019",
+        "industry": "Crypto/Web3",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-69",
+        "source": "wiki",
+        "company": "Ripple",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ripple_Labs",
+        "wikiSlug": "Ripple_Labs",
+        "description": "Cryptocurrency",
+        "valuation_str": "$10B",
+        "valuation_m": 10000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Chris Larsen, Jed McCaleb",
+        "country": "United States",
+        "unicorn_as_of": "December 2019",
+        "year": "2019",
+        "industry": "Crypto/Web3",
+        "founders": "Chris Larsen, Jed McCaleb"
+      }
+    },
+    {
       "company": "Lalamove",
       "changes": {
         "founders": {
@@ -574,55 +802,6 @@
         "founders": "Chow Shing-Yuk",
         "companyZh": "货拉拉",
         "pinyinInitial": "H"
-      }
-    },
-    {
-      "company": "Moonshot",
-      "changes": {
-        "valuation_m": {
-          "from": 18000.0,
-          "to": 10000.0
-        }
-      },
-      "current": {
-        "id": "pb-623",
-        "source": "pb",
-        "tier": "A",
-        "company": "Moonshot",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Developer of an artificial intelligence model designed to serve the AGI industry.",
-        "valuation_str": "$18B",
-        "valuation_m": 18000,
-        "vc_raised": "$2.9B",
-        "lead_investors": "5Y Capital, Alibaba Group, Andon Hong Kong, HSG (Hong Kong), IDG Capital, Tencent Holdings",
-        "country": "China",
-        "unicorn_as_of": "February 2024",
-        "year": "2024",
-        "industry": "AI/ML",
-        "founders": "",
-        "companyZh": "月之暗面",
-        "pinyinInitial": "Y"
-      },
-      "proposed": {
-        "id": "pb-628",
-        "source": "pb",
-        "tier": "A",
-        "company": "Moonshot",
-        "wikiLink": "",
-        "wikiSlug": "",
-        "description": "Developer of an artificial intelligence model designed to serve the AGI industry.",
-        "valuation_str": "$10.0B",
-        "valuation_m": 10000.0,
-        "vc_raised": "$2.9B",
-        "lead_investors": "5Y Capital, Alibaba Group, Andon Hong Kong, HSG (Hong Kong), IDG Capital, Tencent Holdings",
-        "country": "China",
-        "unicorn_as_of": "February 2024",
-        "year": "2024",
-        "industry": "AI/ML",
-        "founders": "",
-        "companyZh": "月之暗面",
-        "pinyinInitial": "Y"
       }
     },
     {
@@ -712,6 +891,55 @@
       }
     },
     {
+      "company": "Moonshot",
+      "changes": {
+        "valuation_m": {
+          "from": 18000.0,
+          "to": 10000.0
+        }
+      },
+      "current": {
+        "id": "pb-623",
+        "source": "pb",
+        "tier": "A",
+        "company": "Moonshot",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence model designed to serve the AGI industry.",
+        "valuation_str": "$18B",
+        "valuation_m": 18000,
+        "vc_raised": "$2.9B",
+        "lead_investors": "5Y Capital, Alibaba Group, Andon Hong Kong, HSG (Hong Kong), IDG Capital, Tencent Holdings",
+        "country": "China",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "AI/ML",
+        "founders": "",
+        "companyZh": "月之暗面",
+        "pinyinInitial": "Y"
+      },
+      "proposed": {
+        "id": "pb-632",
+        "source": "pb",
+        "tier": "A",
+        "company": "Moonshot",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence model designed to serve the AGI industry.",
+        "valuation_str": "$10.0B",
+        "valuation_m": 10000.0,
+        "vc_raised": "$2.9B",
+        "lead_investors": "5Y Capital, Alibaba Group, Andon Hong Kong, HSG (Hong Kong), IDG Capital, Tencent Holdings",
+        "country": "China",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "AI/ML",
+        "founders": "",
+        "companyZh": "月之暗面",
+        "pinyinInitial": "Y"
+      }
+    },
+    {
       "company": "KuCoin",
       "changes": {
         "founders": {
@@ -755,46 +983,46 @@
       }
     },
     {
-      "company": "Ripple",
+      "company": "Rapyd",
       "changes": {
         "founders": {
           "from": "",
-          "to": "Chris Larsen, Jed McCaleb"
+          "to": "Arik Shtilman, Arkady Karpman, Omer Priel"
         }
       },
       "current": {
-        "id": "wiki-69",
+        "id": "wiki-78",
         "source": "wiki",
-        "company": "Ripple",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ripple_Labs",
-        "wikiSlug": "Ripple_Labs",
-        "description": "Cryptocurrency",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
+        "company": "Rapyd",
+        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
         "vc_raised": "—",
         "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "December 2019",
-        "year": "2019",
-        "industry": "Crypto/Web3",
+        "country": "United Kingdom",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Fintech",
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-69",
+        "id": "wiki-79",
         "source": "wiki",
-        "company": "Ripple",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ripple_Labs",
-        "wikiSlug": "Ripple_Labs",
-        "description": "Cryptocurrency",
-        "valuation_str": "$10B",
-        "valuation_m": 10000.0,
+        "company": "Rapyd",
+        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
+        "wikiSlug": "Rapyd",
+        "description": "Financial technology",
+        "valuation_str": "$8.7B",
+        "valuation_m": 8700.0,
         "vc_raised": "—",
-        "lead_investors": "Founders: Chris Larsen, Jed McCaleb",
-        "country": "United States",
-        "unicorn_as_of": "December 2019",
-        "year": "2019",
-        "industry": "Crypto/Web3",
-        "founders": "Chris Larsen, Jed McCaleb"
+        "lead_investors": "Founders: Arik Shtilman, Arkady Karpman, Omer Priel",
+        "country": "United Kingdom",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
       }
     },
     {
@@ -838,49 +1066,6 @@
         "year": "2021",
         "industry": "Other",
         "founders": "Carlos García Ottati"
-      }
-    },
-    {
-      "company": "Rapyd",
-      "changes": {
-        "founders": {
-          "from": "",
-          "to": "Arik Shtilman, Arkady Karpman, Omer Priel"
-        }
-      },
-      "current": {
-        "id": "wiki-78",
-        "source": "wiki",
-        "company": "Rapyd",
-        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
-        "wikiSlug": "",
-        "description": "Financial technology",
-        "valuation_str": "$8.7B",
-        "valuation_m": 8700.0,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United Kingdom",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Fintech",
-        "founders": ""
-      },
-      "proposed": {
-        "id": "wiki-79",
-        "source": "wiki",
-        "company": "Rapyd",
-        "wikiLink": "https://en.wikipedia.org/wiki/Rapyd",
-        "wikiSlug": "Rapyd",
-        "description": "Financial technology",
-        "valuation_str": "$8.7B",
-        "valuation_m": 8700.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Arik Shtilman, Arkady Karpman, Omer Priel",
-        "country": "United Kingdom",
-        "unicorn_as_of": "August 2021",
-        "year": "2021",
-        "industry": "Fintech",
-        "founders": "Arik Shtilman, Arkady Karpman, Omer Priel"
       }
     },
     {
@@ -952,7 +1137,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-85",
+        "id": "wiki-86",
         "source": "wiki",
         "company": "Airwallex",
         "wikiLink": "https://en.wikipedia.org/wiki/Airwallex",
@@ -995,7 +1180,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-88",
+        "id": "wiki-89",
         "source": "wiki",
         "company": "Zipline",
         "wikiLink": "https://en.wikipedia.org/wiki/Zipline_(drone_delivery)",
@@ -1038,7 +1223,7 @@
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
       },
       "proposed": {
-        "id": "wiki-98",
+        "id": "wiki-99",
         "source": "wiki",
         "company": "Cohere",
         "wikiLink": "https://en.wikipedia.org/wiki/Cohere",
@@ -1053,6 +1238,53 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": "Aidan Gomez, Ivan Zhang, Nick Frosst"
+      }
+    },
+    {
+      "company": "Qonto",
+      "changes": {
+        "founders": {
+          "from": "",
+          "to": "Steve Anavi, Alexandre Prot"
+        },
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Qonto"
+        }
+      },
+      "current": {
+        "id": "wiki-128",
+        "source": "wiki",
+        "company": "Qonto",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Finance",
+        "valuation_str": "$5B",
+        "valuation_m": 5000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "France",
+        "unicorn_as_of": "August 2022",
+        "year": "2022",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-130",
+        "source": "wiki",
+        "company": "Qonto",
+        "wikiLink": "https://en.wikipedia.org/wiki/Qonto",
+        "wikiSlug": "Qonto",
+        "description": "Finance",
+        "valuation_str": "$5B",
+        "valuation_m": 5000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Steve Anavi, Alexandre Prot",
+        "country": "France",
+        "unicorn_as_of": "August 2022",
+        "year": "2022",
+        "industry": "Fintech",
+        "founders": "Steve Anavi, Alexandre Prot"
       }
     },
     {
@@ -1081,7 +1313,7 @@
         "founders": "United States"
       },
       "proposed": {
-        "id": "wiki-93",
+        "id": "wiki-94",
         "source": "wiki",
         "company": "Gong",
         "wikiLink": "",
@@ -1095,6 +1327,97 @@
         "unicorn_as_of": "November 2025",
         "year": "2025",
         "industry": "Other",
+        "founders": ""
+      }
+    },
+    {
+      "company": "Flutterwave",
+      "changes": {
+        "valuation_m": {
+          "from": 1000.0,
+          "to": 3200.0
+        },
+        "founders": {
+          "from": "",
+          "to": "Olugbenga Agboola , Iyinoluwa Aboyeji"
+        }
+      },
+      "current": {
+        "id": "wiki-491",
+        "source": "wiki",
+        "company": "Flutterwave",
+        "wikiLink": "https://en.wikipedia.org/wiki/Flutterwave",
+        "wikiSlug": "Flutterwave",
+        "description": "Financial technology",
+        "valuation_str": "$1B",
+        "valuation_m": 1000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Nigeria",
+        "unicorn_as_of": "March 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-185",
+        "source": "wiki",
+        "company": "Flutterwave",
+        "wikiLink": "https://en.wikipedia.org/wiki/Flutterwave",
+        "wikiSlug": "Flutterwave",
+        "description": "Financial technology",
+        "valuation_str": "$3.2B",
+        "valuation_m": 3200.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Olugbenga Agboola , Iyinoluwa Aboyeji",
+        "country": "Nigeria",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Olugbenga Agboola , Iyinoluwa Aboyeji"
+      }
+    },
+    {
+      "company": "PixVerse",
+      "changes": {
+        "valuation_m": {
+          "from": 1000.0,
+          "to": 2000.0
+        }
+      },
+      "current": {
+        "id": "pb-929",
+        "source": "pb",
+        "tier": "B",
+        "company": "PixVerse",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Developer of AI-powered video generation technology designed for creative content production.",
+        "valuation_str": "$1.0B",
+        "valuation_m": 1000.0,
+        "vc_raised": "$415.0M",
+        "lead_investors": "Alibaba Capital Partners, CDH Investments, Eminence Ventures",
+        "country": "Singapore",
+        "unicorn_as_of": "March 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-287",
+        "source": "wiki",
+        "company": "PixVerse",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Artificial Intelligence",
+        "valuation_str": "$2B",
+        "valuation_m": 2000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Singapore",
+        "unicorn_as_of": "July 2026",
+        "year": "2026",
+        "industry": "AI/ML",
         "founders": ""
       }
     },
@@ -1125,7 +1448,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-767",
+        "id": "pb-769",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -1140,6 +1463,49 @@
         "unicorn_as_of": "January 2026",
         "year": "2026",
         "industry": "Aerospace/Defense",
+        "founders": ""
+      }
+    },
+    {
+      "company": "MOLOCO",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/MOLOCO?action=edit&redlink=1"
+        }
+      },
+      "current": {
+        "id": "wiki-354",
+        "source": "wiki",
+        "company": "MOLOCO",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Advertising technology",
+        "valuation_str": "$1.5B",
+        "valuation_m": 1500.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-357",
+        "source": "wiki",
+        "company": "MOLOCO",
+        "wikiLink": "https://en.wikipedia.org/wiki/MOLOCO?action=edit&redlink=1",
+        "wikiSlug": "",
+        "description": "Advertising technology",
+        "valuation_str": "$1.5B",
+        "valuation_m": 1500.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Other",
         "founders": ""
       }
     },
@@ -1169,7 +1535,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-375",
+        "id": "wiki-379",
         "source": "wiki",
         "company": "Deliverect",
         "wikiLink": "",
@@ -1183,6 +1549,49 @@
         "unicorn_as_of": "January 2022",
         "year": "2022",
         "industry": "SaaS/Enterprise",
+        "founders": ""
+      }
+    },
+    {
+      "company": "Zetwerk",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Zetwerk?action=edit&redlink=1"
+        }
+      },
+      "current": {
+        "id": "wiki-394",
+        "source": "wiki",
+        "company": "Zetwerk",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "",
+        "valuation_str": "$1.33B",
+        "valuation_m": 1330.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "India",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Other",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-399",
+        "source": "wiki",
+        "company": "Zetwerk",
+        "wikiLink": "https://en.wikipedia.org/wiki/Zetwerk?action=edit&redlink=1",
+        "wikiSlug": "",
+        "description": "",
+        "valuation_str": "$1.33B",
+        "valuation_m": 1330.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "India",
+        "unicorn_as_of": "August 2021",
+        "year": "2021",
+        "industry": "Other",
         "founders": ""
       }
     },
@@ -1213,7 +1622,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-849",
+        "id": "pb-851",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -1229,6 +1638,49 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": ""
+      }
+    },
+    {
+      "company": "Airtable",
+      "changes": {
+        "valuation_m": {
+          "from": 11000.0,
+          "to": 1280.0
+        }
+      },
+      "current": {
+        "id": "wiki-51",
+        "source": "wiki",
+        "company": "Airtable",
+        "wikiLink": "https://en.wikipedia.org/wiki/Airtable",
+        "wikiSlug": "Airtable",
+        "description": "Collaborative software",
+        "valuation_str": "$11B",
+        "valuation_m": 11000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Howie Liu, Andrew Ofstad, Emmett Nicholas",
+        "country": "United States",
+        "unicorn_as_of": "December 2021",
+        "year": "2021",
+        "industry": "SaaS/Enterprise",
+        "founders": "Howie Liu, Andrew Ofstad, Emmett Nicholas"
+      },
+      "proposed": {
+        "id": "wiki-410",
+        "source": "wiki",
+        "company": "Airtable",
+        "wikiLink": "https://en.wikipedia.org/wiki/Airtable",
+        "wikiSlug": "Airtable",
+        "description": "Collaborative software",
+        "valuation_str": "$1.28B",
+        "valuation_m": 1280.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Howie Liu, Andrew Ofstad, Emmett Nicholas",
+        "country": "United States",
+        "unicorn_as_of": "August 2026",
+        "year": "2026",
+        "industry": "SaaS/Enterprise",
+        "founders": "Howie Liu, Andrew Ofstad, Emmett Nicholas"
       }
     }
   ],
@@ -1268,6 +1720,23 @@
       "founders": "Parker Conrad"
     },
     {
+      "id": "wiki-39",
+      "source": "wiki",
+      "company": "Grammarly",
+      "wikiLink": "https://en.wikipedia.org/wiki/Grammarly",
+      "wikiSlug": "Grammarly",
+      "description": "Collaborative software",
+      "valuation_str": "$13B",
+      "valuation_m": 13000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Alex Shevchenko, Max Lytvyn, and Dmytro Lider",
+      "country": "Ukraine",
+      "unicorn_as_of": "November 2021",
+      "year": "2021",
+      "industry": "SaaS/Enterprise",
+      "founders": "Alex Shevchenko, Max Lytvyn, and Dmytro Lider"
+    },
+    {
       "id": "wiki-429",
       "source": "wiki",
       "company": "MindTickle",
@@ -1285,5 +1754,5 @@
       "founders": ""
     }
   ],
-  "generated_at": "2026-08-10T09:17:33Z"
+  "generated_at": "2026-08-17T08:40:05Z"
 }
