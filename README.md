@@ -22,6 +22,11 @@ deploy/
 │   ├── wiki_raw.json           # ✱ fresh Wikipedia scrape (auto-updated weekly)
 │   ├── forge_data.json         # ✱ Forge Global secondary-market overlay (Top 100, weekly)
 │   ├── forge_slugs.json        # company → forgeglobal.com URL slug mapping
+│   ├── notice_secondary.json   # ✱ Notice Weekly Update 二级报价 (email pipeline, weekly)
+│   ├── news.json               # ✱ 🆕 Google News RSS：Top 100 每家最新 3 条 (weekly)
+│   ├── candidates.json         # ✱ 🆕 候选发现：new_candidates + valuation_jumps (weekly)
+│   ├── history/
+│   │   └── valuation_history.jsonl  # ✱ 🆕 估值历史快照（每周一行 JSONL，幂等追加）
 │   ├── lqp_overlay.json        # 🆕 ✱ LQP 专属层 (sector_map / ratings / pipeline / watchlist /
 │   │                           #         diligence / client / exclusions / aliases / notes)
 │   ├── seed_pitchbook.json     # frozen PitchBook-only rows from the initial seed
@@ -30,6 +35,10 @@ deploy/
 │   ├── _lib.py                 # shared merge / diff helpers
 │   ├── scrape_wikipedia.py     # HTTP + BeautifulSoup
 │   ├── scrape_forge.py         # weekly Forge Global secondary-market scrape (Top 100)
+│   ├── scrape_notice_email.py  # Notice Weekly Update 邮件抓取 (Gmail API)
+│   ├── scrape_news.py          # 🆕 weekly Google News RSS scrape (Top 100, 每家 3 条)
+│   ├── discover_candidates.py  # 🆕 候选发现引擎：新独角兽 + 估值跳变 → candidates.json
+│   ├── snapshot_history.py     # 🆕 每周估值快照 → history/valuation_history.jsonl (幂等)
 │   ├── compute_pending.py      # runs weekly; writes pending.json
 │   ├── merge.py                # promote canonical (run only when compacting overrides)
 │   └── requirements.txt
@@ -111,6 +120,11 @@ Weekly GitHub Action
               ▼
         data/pending.json  ─────►  admin.html shows banner & review UI
 
+  parallel data products (同一次 Action，see "监控与发现闭环"):
+    scrape_forge / scrape_notice_email / scrape_news / discover_candidates /
+    snapshot_history → forge_data.json · notice_secondary.json · news.json ·
+    candidates.json · history/valuation_history.jsonl
+
 You (in admin.html)
   · edit / add / delete in the table         → STATE.{edits,additions,deletions}
   · click Approve on pending entries         → same STATE
@@ -138,6 +152,76 @@ overlay above each bubble's original valuation label, with **red** when the new 
 is ≥ the previous run's, and **green** when it's < the previous run's. The slug map is
 in `data/forge_slugs.json`; add to `manual_overrides` there to extend coverage to
 companies the auto-matcher missed.
+
+## 监控与发现闭环 (Monitoring & Discovery, 2026-08-17/18)
+
+在 Wikipedia/Forge/Notice 之上叠了一整套"新闻 → 发现 → 审核 → 历史"管道，全部由
+weekly Action 驱动，产出全部落在 `data/` 下走同一个 auto-commit。
+
+### 📰 新闻管道 → `data/news.json`
+
+`scrape_news.py` 每周对**估值 Top 100** 的公司逐一请求 Google News RSS
+（默认查询 `"公司名" when:180d`，脚本顶部的 `NEWS_QUERY_OVERRIDES` 表处理
+Scale/Ripple/Bolt/Block/Discord 等歧义名），每家保留最新 3 条
+（title / url / source / date，标题剥离尾部来源后缀）。请求间隔 0.3s、单请求
+15s 超时；某家失败时保留上一周的数据。
+
+看板消费方式：**点击气泡**弹出详情面板，底部「最新新闻」区块列出这 3 条
+（可点击新标签打开）；无新闻显示「暂无近期新闻」，文件缺失显示「新闻数据尚未生成」。
+
+### 🦄 候选发现引擎 → `data/candidates.json`
+
+`discover_candidates.py` 做两件事，输出**独立于 `pending.json`**（后者每周被
+`compute_pending.py` 整体重写，不能混）：
+
+- **新独角兽候选**：跑 5 条通用融资查询（3 英文：`raises/valued at/new unicorn`；
+  2 中文：`融资 独角兽 估值` / `完成 轮融资 估值`，均 `when:30d`），用保守正则从标题
+  提取「公司 + 估值」对（亿美元 ×100M、billion ×1000M 统一换算成 $M），
+  剥离描述性前缀（"Defense Startup X" → "X"）、截断逗号同位语、停用词过滤，
+  与有效基座（unicorns + overrides）去重。**宁缺毋滥**：提不出干净配对的标题直接丢弃。
+- **存量估值跳变**：扫 `news.json` 已有公司标题里的估值句式，与当前有效估值
+  差异 >20% 即记为 `valuation_jumps` 条目。
+
+### ✅ admin.html 候选审核
+
+Review 面板在原有 pending 三区之外新增两区（**没有 Approve-all**，启发式数据
+必须逐条人工确认）：
+
+- 🦄 **候选新公司**（紫边）：✓ → 预填 `STATE.additions`（company + valuation，
+  country/industry 留空待 Edit 补全）；✗ 仅本地忽略。
+- 📈 **估值跳变**（橙边）：当前 → 检测估值（+xx%）+ 标题链接；✓ → 写
+  `STATE.edits[company].valuation_m`；✗ 仅本地忽略。
+- 已在 STATE 里的候选按钮置灰「已加入」；批准后照常走 **Publish** 推 GitHub，
+  无新增发布路径。Reject 不持久化（candidates.json 每周重生成，刷新后会复现）。
+
+### 📈 估值历史 + Movers 视图
+
+`snapshot_history.py` 每周把三源估值（有效基座 wiki_m / Forge forge_m+price /
+Notice notice_m+price，按公司英文名汇总）追加一行到
+`data/history/valuation_history.jsonl`（JSONL，**幂等**：同日重跑替换当天快照）。
+
+index.html 新增第 4 个视图 pill **Movers**：最新快照 vs 约 4 周前（没有则取最早）
+快照的估值变化榜——同公司同源对比（优先级 forge > notice > wiki，徽章 F/N/W），
+按 |变化%| 降序取前 50，顶部摘要卡显示期间上涨/下跌家数与对比区间。
+**涨跌配色沿用 Forge 惯例：涨红（#ff5a5a）跌绿（#3edc81）**。
+快照不足两个时整个视图显示「数据积累中，下周开始出榜」。
+
+### 🟡 跳变公司黄圈提醒
+
+`candidates.json` 的 valuation_jumps 公司（必须在看板上有气泡）在气泡视图中叠加
+**#f5c842 金色外圈**（复用既有 admin 高亮 / radar 短名单的色值体系），点击打开详情
+面板后消失。已看状态存 localStorage（`unicornSeenCandidates_v1`），指纹 =
+`generated_at + company`——**只针对当前这一批**，下周 candidates.json 重生成后
+仍是候选的公司自动重新亮圈。new_candidates 未入基座前没有气泡，不画圈。
+Table 视图里这些公司名前同步显示金色圆点，点击行查看后消失。
+
+### 🖱 index.html 交互变更
+
+- **hover 不再弹 tooltip**：悬停只冻结/高亮气泡，无任何浮层。
+- **点击气泡**在**点击位置附近**弹出统一详情面板（默认右下偏移 12px，视口边界
+  自动翻转），内容 = 公司全部信息（估值/国家/行业/投资人/创始人/简介）+
+  Forge/Notice 二级市场分区 + Wiki/Google 外链 + 最新新闻区块。
+- 关闭：面板 × 按钮 / Esc / 点空白 / 切换视图；点其他气泡切换面板。
 
 ## Deploy in 5 minutes (GitHub Pages)
 
@@ -167,11 +251,20 @@ git commit -am "data: compact overrides into canonical"
 
 ## Pending-review workflow (auto-scraped changes)
 
-Every Monday at 08:00 UTC, the GitHub Action:
+Every Monday at 08:00 UTC, the GitHub Action runs the full pipeline:
 
-1. Re-scrapes Wikipedia → `wiki_raw.json` (committed)
-2. Runs `compute_pending.py` → `pending.json` (committed)
-3. Does **NOT** modify `unicorns.json`. The dashboard renders unchanged.
+1. `scrape_wikipedia.py` → `wiki_raw.json` (committed)
+2. `compute_pending.py` → `pending.json` (committed) — does **NOT** modify
+   `unicorns.json`; the dashboard renders unchanged
+3. `scrape_forge.py` → `forge_data.json` (continue-on-error)
+4. `scrape_notice_email.py` → `notice_secondary.json` (continue-on-error; needs Gmail secrets)
+5. `scrape_news.py` → `news.json` (continue-on-error)
+6. `discover_candidates.py` → `candidates.json` (continue-on-error)
+7. `snapshot_history.py` → `history/valuation_history.jsonl` (hard-fail; local-only, no network)
+8. Commit & push everything under `data/` that changed
+
+Steps 3–6 are `continue-on-error` so a single external-source failure never blocks
+the rest of the refresh or the commit.
 
 When you next open `admin.html`, you'll see a banner:
 
