@@ -351,6 +351,22 @@ function markCandidateSeen(co) {
   try { localStorage.setItem(SEEN_CAND_KEY, JSON.stringify([...SEEN_CAND])); } catch {}
   markStaticDirty();   // bubbles 每帧重绘自动掉圈；treemap/table 需要 dirty 触发
 }
+
+// ===== Admin 手动添加公司的金色强调：点击查看后永久消失 =====
+// 与候选黄圈同一交互语义，但 admin 公司没有批次概念 —— localStorage 直接存公司名，
+// 看过一次就永久回归普通样式（无光晕 / 无金边 / 无 ✨）。
+const SEEN_ADMIN_KEY = 'unicornSeenAdmin_v1';
+let SEEN_ADMIN = new Set();
+try { SEEN_ADMIN = new Set(JSON.parse(localStorage.getItem(SEEN_ADMIN_KEY) || '[]')); } catch {}
+function isUnseenAdmin(d) {
+  return !!(d && d.source === 'admin') && !SEEN_ADMIN.has(d.company);
+}
+function markAdminSeen(d) {
+  if (!isUnseenAdmin(d)) return;
+  SEEN_ADMIN.add(d.company);
+  try { localStorage.setItem(SEEN_ADMIN_KEY, JSON.stringify([...SEEN_ADMIN])); } catch {}
+  markStaticDirty();
+}
 // Data is fetched at runtime so it can be regenerated server-side without rebuilding HTML.
 // Overrides are merged client-side so admin edits go live as soon as overrides.json is committed
 // — no need to wait for a full canonical merge.
@@ -1008,11 +1024,11 @@ function drawBubble(p) {
   const dim = LOCKED ? (p.d === LOCKED.d ? false : true) : false;
   const alpha = !p.visible ? 0.06 : (dim ? 0.18 : 1.0);
   const x = p.x, y = p.y, r = p.r;
-  const isAdmin = p.d.source === 'admin';
+  const isAdminGold = isUnseenAdmin(p.d);   // admin 公司且未被查看过 → 金色强调
 
-  // —— Admin 手动添加：在所有图层最底下先打一层金色光环 ——
-  // 即使小气泡也会有光晕，让它在大盘中一眼可辨。
-  if (isAdmin && alpha > 0.25) {
+  // —— Admin 手动添加（未查看）：在所有图层最底下先打一层金色光环 ——
+  // 即使小气泡也会有光晕，让它在大盘中一眼可辨。点击打开详情面板后永久消失。
+  if (isAdminGold && alpha > 0.25) {
     const goldR = Math.max(r * 1.4, r + 14);
     const goldGlow = ctx.createRadialGradient(x, y, r * 0.92, x, y, goldR);
     goldGlow.addColorStop(0,    'rgba(245,200,66,0.55)');
@@ -1136,7 +1152,7 @@ function drawBubble(p) {
   ctx.globalAlpha = alpha;
   if (LOCKED && p.d === LOCKED.d) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; }
   else if (HOVER && p.d === HOVER.d) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; }
-  else if (isAdmin) {
+  else if (isAdminGold) {
     // 金色双层描边（外亮内暗，让边缘有"被点亮"的层次感）
     ctx.strokeStyle = 'rgba(245,200,66,0.55)';
     ctx.lineWidth = Math.max(2.5, r * 0.05);
@@ -1163,9 +1179,9 @@ function drawBubble(p) {
     ctx.shadowBlur = 0;
   }
 
-  // —— Admin 公司：12 点钟方向画 ✨ 角标，仅在气泡足够大时显示 ——
+  // —— Admin 公司（未查看）：12 点钟方向画 ✨ 角标，仅在气泡足够大时显示 ——
   // 半径 < 28 时角标会和气泡名字打架，宁可只靠光环+描边表达
-  if (isAdmin && alpha > 0.4 && r >= 28) {
+  if (isAdminGold && alpha > 0.4 && r >= 28) {
     const sx = x;
     const sy = y - r - Math.max(8, r * 0.18);
     const sparkSize = Math.max(11, Math.min(r * 0.28, 22));
@@ -1696,7 +1712,8 @@ canvas.addEventListener('click', e => {
     closeDetailPanel();
   } else {
     LOCKED = p;
-    markCandidateSeen(p.d.company);   // 点击查看 → 黄圈消失
+    markCandidateSeen(p.d.company);   // 候选黄圈：点击查看 → 消失（本周批次）
+    markAdminSeen(p.d);               // admin 金色强调：点击查看 → 永久消失
     openDetailPanel(p.d, e.clientX, e.clientY);
   }
 });
