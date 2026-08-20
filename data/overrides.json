@@ -93,7 +93,9 @@
       "valuation_str": "$41B"
     },
     "Ramp": {
-      "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
+      "founders": "Eric Glyman, Karim Atiyeh, Gene Lee",
+      "valuation_m": 44000,
+      "valuation_str": "$44.0B"
     },
     "Cognition AI": {
       "valuation_m": 26000,
@@ -188,7 +190,9 @@
       "founders": "Jiajun Zhu, Dave Ferguson"
     },
     "Airwallex": {
-      "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
+      "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong",
+      "valuation_m": 11000,
+      "valuation_str": "$11.0B"
     },
     "Zipline": {
       "founders": "Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler"
@@ -231,6 +235,18 @@
     "Airtable": {
       "valuation_m": 1280,
       "valuation_str": "$1.28B"
+    },
+    "Whatnot": {
+      "valuation_m": 20000,
+      "valuation_str": "$20.0B"
+    },
+    "Revolut": {
+      "valuation_m": 115000,
+      "valuation_str": "$115.0B"
+    },
+    "Helsing": {
+      "valuation_m": 18000,
+      "valuation_str": "$18.0B"
     }
   },
   "additions": [
@@ -448,6 +464,36 @@
       "year": "2026",
       "industry": "AI/ML",
       "founders": "Oliver Cameron, Jeff Hawke"
+    },
+    {
+      "company": "Obsidian Security",
+      "valuation_m": 1100,
+      "valuation_str": "$1.1B"
+    },
+    {
+      "company": "Humanoid",
+      "valuation_m": 1350,
+      "valuation_str": "$1.4B"
+    },
+    {
+      "company": "CodeRabbit",
+      "valuation_m": 1500,
+      "valuation_str": "$1.5B"
+    },
+    {
+      "company": "Wispr Flow",
+      "valuation_m": 2000,
+      "valuation_str": "$2.0B"
+    },
+    {
+      "company": "Volta",
+      "valuation_m": 2400,
+      "valuation_str": "$2.4B"
+    },
+    {
+      "company": "K2 Space",
+      "valuation_m": 6800,
+      "valuation_str": "$6.8B"
     }
   ],
   "deletions": [
@@ -458,6 +504,7 @@
     "Grammarly"
   ],
   "archived": {
-    "Cerebras": "CBRS"
+    "Cerebras": "CBRS",
+    "Cursor": "已被收购"
   }
 }
