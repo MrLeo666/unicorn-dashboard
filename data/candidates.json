@@ -1,100 +1,56 @@
 {
-  "generated_at": "2026-08-17T16:57:10+00:00",
+  "generated_at": "2026-08-24T08:48:23+00:00",
   "new_candidates": [
     {
-      "company": "K2 Space",
-      "valuation_m": 6800.0,
-      "headline": "Satellite Startup K2 Space Raises $500 Million at $6.8 Billion Value",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQa19aT3pUMkNFQ3ljNERDYVZ4VmdGaDk2MklrOWJETEZKWlRpTHY3QkRoRmVVYVczZVFxQ0ZJSE5QNXBmNzlUd2RsSDZ4SHpjbmhEMlVBM0JIV19ib2IzN2NyOUU2MlhUY3FaNllXMG9fS1pnUzZnZGlqQ0c1NllPS3RFY0FWRHUxekMwZElHa0c2TkdCdXhmbXBTLVppWDJTNkZLVXNOVWx3U0wwRGRZTg?oc=5",
-      "source": "Bloomberg.com",
-      "date": "2026-07-30"
+      "company": "missile maker",
+      "valuation_m": 13000.0,
+      "headline": "Startup missile maker now valued at $13 billion",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBISF96ZDlxZk5yOHRIU1RscVdQWk5kN2VxRFk1aHNrYkVJSmNXZUtpUFhOSFhXeC1FU2xFaEdDd1NiUFNTOXMyNUo0Y1FQVUNEdlUxTjQ4blBrazhhazk3bmRBRVEyX2RJRXlGWlFn?oc=5",
+      "source": "Axios",
+      "date": "2026-08-20"
     },
     {
-      "company": "Volta",
-      "valuation_m": 2400.0,
-      "headline": "AI cloud startup Volta valued at $2.4 billion, announces $10 billion AI partnership",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORVNKc2JqcmZfVzBfczJuMDFnREpKUl9xME1jNlMyckt5TUJJdmstdmZtZ2VmZThsbl9RWDJZNE9qV0Vtang2bzFObk8xTUl1b2taUnBTd0hBc3BvdXNONlNlbkNIZUVpblhrR2FYSXMwWmt6MHphbUhLRUxmZGZGZHRlVmhxc3hKZERHWFpYbTYxd1JzVmxXdlkxNXZIYWxSNjNYdlNBNWNJdWNzNi1QY1NJR1ZhMExRTWFUQzRR?oc=5",
-      "source": "Reuters",
-      "date": "2026-08-04"
+      "company": "Ben Lamm’s Other AI Tech Startup",
+      "valuation_m": 3800.0,
+      "headline": "Ben Lamm’s Other AI Tech Startup Valued at $3.8 Billion After Latest Raise",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZDNvWGJUOE5yNTFtZGNKU2s1Rk1ZbmlUX3ZwaDFqamYzUDNONmpLODNCSmVsN2dJVmlaQVhYSjdkNDZOcFF4R0xUdzJoQ25IQmhfOGtEUHFjTXQzNE4tRTYxVnVlek5uNDRxUUprYXBKV3R6VHFsX25WcjQzQzlkbTEtUVNRVXJybElNUlhKMkVxMUJF?oc=5",
+      "source": "D Magazine",
+      "date": "2026-08-21"
     },
     {
-      "company": "Wispr Flow",
-      "valuation_m": 2000.0,
-      "headline": "Wispr Flow valued at $2 billion on investor demand for AI voice-to-text startups",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbGFDWnhuZzZ6UGlqLVJqZGwwb2JUZFNBLWNXejVGR2ZDUUVjWVpGYXE2SGkzaEhybHRsdEtMSDFSeEotTzhLOVdzMzNpR3JPaGtzeVdoVW5uUmRGOTNwMHltZG9BT0Vsb0EyLVVOdW4zT3NaOGlrU3BMREZxR3NRWGhKODZVdmNiSWJZV3llTEZoQQ?oc=5",
-      "source": "1470 & 100.3 WMBD",
-      "date": "2026-08-17"
+      "company": "Moove",
+      "valuation_m": 2100.0,
+      "headline": "Moove raises $250 million at $2.1 billion valuation",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTC1rSjhTYTlCOEFLTDBfRHQyRS15OU01MFJTaTZ6cHlsWlgwenRCWXhwYjFleGhMUVZSUU9hOE5GS21XaHBDS3doUGR6WFJHd2hoWV9ZZ3hhdS1PcmM0d21MSnhVSG5aay1aVVNORW56YlRZcENUenVya0JBT1h1SC0yNWRMUWxVcXc?oc=5",
+      "source": "Portal ERP",
+      "date": "2026-08-20"
     },
     {
-      "company": "CodeRabbit",
-      "valuation_m": 1500.0,
-      "headline": "Nvidia-Backed Startup CodeRabbit Valued at $1.5 Billion in Round",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZ2JPRXItakJ3dXhQNGFVMXh1SGU0N2pZMmlUYWVVWTl6V01Pc1pnSXYzSzJSb0VxX1pxOEcyT2NGakpPNFN3dE82RWtrWDZCV1FWNVJUZThETm1VdlV6OWM3SUpkT3pyOXZhczkzUmctSFQ2ckZZRkF3eFNRenQzTGlVb1F4QXd3MzBHa21tQV9VU0daNzM5dWZtdEVYMjdSSEhPQ1ZHQTI0S2tJeVlHM2REOXU?oc=5",
-      "source": "Bloomberg.com",
-      "date": "2026-08-12"
+      "company": "Rillet",
+      "valuation_m": 1000.0,
+      "headline": "Rillet Raises $100M Series C at $1B Valuation for AI-Native ERP",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9lRFNDRmFOUTJESGw4c0xKR3hyZS11VmlZdUVXNUljZVRxdzNlRGdpbmQ2V2RmblVRTndCazNaLUtqNXJMd3pJSjB1Ymd4UFpQU0tF?oc=5",
+      "source": "Wowtale",
+      "date": "2026-08-20"
     },
     {
-      "company": "Humanoid",
-      "valuation_m": 1350.0,
-      "headline": "Humanoid Raises $152 Million At $1.35 Billion Valuation: Europe’s Newest Robot Unicorn",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOQ1VROGdUb3BVVkdrUkVleU50TkhNY0dpMDlNSV9CTENBZ2hPOG5zQVJXcFJld2xZaExLbG5PMmFGMDFRMXpzakJERnlhaC1iRnF2bGQ0V2o2NXFFR2h5TGd0U2syUk1xRUJMbFpJMklxcnQ3NW9aZHc3Qjg1RC15a2hpcVdpMEp3cjlpckZKQlc3bEltd0lZVlhnUk9TZEh5VzA2RDBLNEcySjUzSTg2bXYwMHNhM2xTaGFVcVMwbV9uWmIwNVdSNlhnTnFfV2Fq?oc=5",
-      "source": "Forbes",
-      "date": "2026-07-21"
-    },
-    {
-      "company": "Obsidian Security",
-      "valuation_m": 1100.0,
-      "headline": "Obsidian Security Raises $85 Million Series D at $1.1 Billion Valuation",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNFN1OVRSaGxBRUFRTDM4MC1saUtXUEoxZUN3NmdnWG1NNW1MSkpVRTk3RTQ0MDk1MXZNVDdKNXFPVUZfeDJVaEJzRzB5TlNSVzV6XzlDUDVRNmdVZTdkZkFOX016cGdEX2ttellpalBWR09qZ0dCS09nVFZ4amZiU2pfa0dleEp2eElKMjFBUEI?oc=5",
-      "source": "Unite.AI",
-      "date": "2026-08-04"
+      "company": "UAE's Fasset",
+      "valuation_m": 1000.0,
+      "headline": "UAE's Fasset raises $68M Series C at $1B valuation, led by Japan's SBI",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRnFlRU1Fb3RtX2RoaDBHUzRsQ3lLVW81bS1GRUxlVHNIblBkcTNTM2pNOWJnZ0tHV1hqWW9vRWpaeDJ6OVE0MnZiR0tZa2J4YUdfY3pYYnBLaWZXTXpRSnNReVRteTRFY0FHaXE0WXZKMzN2UDVaaVpQcGJNdGRsQjl4aUJ2a1FkQTZXMTBSTkYzWFRsUUdWb0hnMGl1MFdnaGRn?oc=5",
+      "source": "TNGlobal",
+      "date": "2026-08-24"
     }
   ],
   "valuation_jumps": [
     {
-      "company": "Whatnot",
-      "current_m": 11500.0,
-      "detected_m": 20000.0,
-      "headline": "Shopping App Whatnot Valued at $20 Billion in New Funding",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNZS1zMDhpZE5hM2dNQTRMQS1zWVF1T3lNRklOUVVJQjEyX0RzMWlnenFCZ2RyYzlkcEN4ZG1nRVJHWTFib0ljOU9DUzFENDdGT25GZVRWbGdVVjhTWGpzY2QwN3hvaC1uSnNZSkZSTjdhUXJwYTBZS0lPb0NKV1F5WklwN1AtSTdqMjJXR1RBOVlaZm9hSlYyR0dn?oc=5",
-      "source": "WSJ",
-      "date": "2026-08-07"
-    },
-    {
-      "company": "Revolut",
-      "current_m": 75000.0,
-      "detected_m": 115000.0,
-      "headline": "Digital Bank Revolut, Europe’s Most Valuable Startup, Valued at $115 Billion",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQVXhIMWY2VTE0eEJJQ25FMXB1MVVya0Zna25HZUR6Z29jZ0x0aEhROG1ZMGtYUGVMdW5aYVpkWHZRS2FVam9PZVlETV9yQktSN0dzVnYzbGF0WlFkckhOcy1LLWNTQm1Za1F3T1F6MHhndXBDY3RrZVFCVkdMcU9UR1RMeDluakxta1J1YWpDSFRNUmZLWWwxUjNqYnZVTGdrUTJObFJnVzQ5Y2ZHdzZ0T0owSmt1QjFS?oc=5",
-      "source": "WSJ",
-      "date": "2026-07-22"
-    },
-    {
-      "company": "Ramp",
-      "current_m": 32000.0,
-      "detected_m": 44000.0,
-      "headline": "Ramp raises $750M at $44B as Harvard classmates turn a corporate card into America's fastest-growing finance platform",
-      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNc09tNjIyQlVuenM4UTZFMzFFQWJfN3ZsVkdwMWJvdnEzZ0MyX01SbElPMjFPTXhYX1BGOTdHZ0NuUGVuMjFpRThrVm9sQmVFVmZhMFd2MlJYQ0lqT2dHUUxDWWdJRFVmWThackV0cWlrTDhGZUswaUFxZWpMUEdrei1NdjdwbHJwaG85OWFfTW9OZEhzM2NoY3dvWDBQb3NPbU9qMFVWc05sOUlDSVctRHZNR2RvNVZaTTdaOWppLUVpSVRTR1RMS2pSbnhvRUJfc3RyTFhtdngyNUE?oc=5",
-      "source": "Tech Funding News",
-      "date": "2026-06-05"
-    },
-    {
-      "company": "Airwallex",
-      "current_m": 8000.0,
-      "detected_m": 11000.0,
-      "headline": "Airwallex hits $11 billion valuation with $320 million raise as fintech pushes into finance run by AI agents",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOOVVvVG8zNGdHSzQ0Uk80ck9kenJ6THA2NFMzUk9oekwxR2I4eDEzV1dxd3d1djFMUHA0eEtHXzRQZjRaMndTM29QMW4xMU9kUXBSdmptcjVnMndLNDY5MmVtY1k5Z2hxaUZFUGh0NGlqbXpvb28tNVZzNWZFVm9pMXMxVFJKYWttT1J0bk5ad0VRdU1kV2hYWjRONNIBoAFBVV95cUxQdl9hbUxkTDg3d2Jibk12NHVwZXBsbXBuSnRzaWFYN3daZEYta1pkV1pDdmRKX3kwQl9tTXlzUzZBNGcyTno5UHRCRmtFblVQeEJHZURHc21hOC1sSGQ2dUhSQkRwc0d6Wk55ZDhlRi1vUmFsT2c3Sl90ZWhuTVhFNXhVZ0tYWWRjV0pBdzdMZXZXT3k1WUlsRUJuenRtUVJZ?oc=5",
-      "source": "CNBC",
-      "date": "2026-06-26"
-    },
-    {
-      "company": "Helsing",
-      "current_m": 14000.0,
-      "detected_m": 18000.0,
-      "headline": "Europe's Anduril rival Helsing raises $1.8 billion at $18 billion valuation",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1wTGVEMDBXbGF3eUk4WWJHejhjcDZfYU9Qc0RoOWJJVW5CMUdCOFMtYjdoaldoRVdKNzU1QnZBVVliUnJJQjN4Y2NmVjM2YnBpbjZ0dTh5eXgyd0xJWi1kUWFVTTc2YzBrSlBGbXBLVHBzTl9uTl9ka3pwbmcyVUXSAYQBQVVfeXFMTlQ5VjQ4VkxhanNqcGdvb0FLS2VaQmJacTF6bTRGNVFBbWFkZE5iQ0dEeWxYT3BkRENRNzRRRUJSUkFUVHBhLWJqY2ltZEVzQl9qZVZaOFBPMllTMHYtdjZzZkpyU1p4X0RwLTJiYTJ0VVZFWU9kb2NJVDROUERHWS1ncGk0?oc=5",
-      "source": "CNBC",
-      "date": "2026-07-13"
+      "company": "Groq",
+      "current_m": 20000.0,
+      "detected_m": 3500.0,
+      "headline": "Groq Valued at $3.5 Billion in Funding Round After Nvidia Deal",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNV1l5RGtDbmdGNmVpaW9DbGU1NkFqV2x0YXl6amZ0TE5nRXE1X0V5UVBBSmloZTlEbmNHUm4zeWFubTQ0cDZJWkhyUi12VHRvN1ljdWxIVHRsWWg3TGN4ZTVOTFgxSzMwS3BUVWFGSnJScVVZWDlBT29UZEhfN3FwUHRPeFJYemlGTGlCLUh6b1duV09BOXMxSm43WFJScmlmZ2hndm1FRTR4OWhab3gwZGtn?oc=5",
+      "source": "Bloomberg.com",
+      "date": "2026-08-17"
     }
   ]
 }

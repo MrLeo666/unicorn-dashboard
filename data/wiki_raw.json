@@ -46,7 +46,7 @@
     "valuation_str": "$159B",
     "valuation_date": "February 2026",
     "industry_raw": "Financial services",
-    "country": "United States and Ireland",
+    "country": "United States and  Ireland",
     "founders": "Patrick and John Collison"
   },
   {
@@ -136,7 +136,7 @@
     "valuation_str": "$32B",
     "valuation_date": "April 2025",
     "industry_raw": "Artificial Intelligence",
-    "country": "United States and Israel",
+    "country": "United States and  Israel",
     "founders": "Ilya Sutskever, Daniel Gross, Daniel Levy"
   },
   {
@@ -251,7 +251,7 @@
   },
   {
     "company": "Yuanfudao",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Yuanfudao?action=edit&redlink=1",
     "valuation_b": 15.5,
     "valuation_str": "$15.5B",
     "valuation_date": "October 2020",
@@ -331,7 +331,7 @@
   },
   {
     "company": "Skild AI",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Skild_AI?action=edit&redlink=1",
     "valuation_b": 14.0,
     "valuation_str": "$14B",
     "valuation_date": "January 2026",
@@ -366,7 +366,7 @@
     "valuation_str": "$13B",
     "valuation_date": "November 2021",
     "industry_raw": "Collaborative software",
-    "country": "Ukraine/United States",
+    "country": "Ukraine/ United States",
     "founders": "Alex Shevchenko, Max Lytvyn, and Dmytro Lider"
   },
   {
@@ -381,7 +381,7 @@
   },
   {
     "company": "Devoted Health",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Devoted_Health?action=edit&redlink=1",
     "valuation_b": 12.6,
     "valuation_str": "$12.6B",
     "valuation_date": "October 2021",
@@ -391,7 +391,7 @@
   },
   {
     "company": "Faire",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Faire_(company)?action=edit&redlink=1",
     "valuation_b": 12.59,
     "valuation_str": "$12.59B",
     "valuation_date": "November 2021",
@@ -401,7 +401,7 @@
   },
   {
     "company": "Labs",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Labs_(company)?action=edit&redlink=1",
     "valuation_b": 12.5,
     "valuation_str": "$12.5B",
     "valuation_date": "April 2025",
@@ -411,7 +411,7 @@
   },
   {
     "company": "NinjaOne",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/NinjaOne?action=edit&redlink=1",
     "valuation_b": 12.3,
     "valuation_str": "$12.3B",
     "valuation_date": "June 2026",
@@ -426,7 +426,7 @@
     "valuation_str": "$12B",
     "valuation_date": "June 2026",
     "industry_raw": "Cybersecurity",
-    "country": "United States and Israel",
+    "country": "United States and  Israel",
     "founders": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay"
   },
   {
@@ -551,7 +551,7 @@
   },
   {
     "company": "ZongMu Technology",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ZongMu_Technology?action=edit&redlink=1",
     "valuation_b": 11.0,
     "valuation_str": "$11B",
     "valuation_date": "June 2021",
@@ -571,7 +571,7 @@
   },
   {
     "company": "Etched",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Etched_(company)?action=edit&redlink=1",
     "valuation_b": 10.3,
     "valuation_str": "$10.3B",
     "valuation_date": "July 2026",
@@ -591,7 +591,7 @@
   },
   {
     "company": "Alchemy",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Alchemy_(company)",
     "valuation_b": 10.2,
     "valuation_str": "$10.2B",
     "valuation_date": "January 2022",
@@ -611,7 +611,7 @@
   },
   {
     "company": "Chehaoduo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Chehaoduo?action=edit&redlink=1",
     "valuation_b": 10.0,
     "valuation_str": "$10B",
     "valuation_date": "July 2021",
@@ -666,7 +666,7 @@
     "valuation_str": "$10B",
     "valuation_date": "January 2021",
     "industry_raw": "Supply chain management",
-    "country": "Hong Kong / China",
+    "country": "Hong Kong /  China",
     "founders": "Chow Shing-Yuk"
   },
   {
@@ -686,7 +686,7 @@
     "valuation_str": "$10B",
     "valuation_date": "February 2022",
     "industry_raw": "Blockchain, Web3",
-    "country": "India / Cayman Islands",
+    "country": "India /  Cayman Islands",
     "founders": "Jaynti Kanani, Sandeep Nailwal, Anurag Arjun, Mihailo Bjelic"
   },
   {
@@ -701,12 +701,12 @@
   },
   {
     "company": "Talkdesk",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Talkdesk?action=edit&redlink=1",
     "valuation_b": 10.0,
     "valuation_str": "$10B",
     "valuation_date": "August 2021",
     "industry_raw": "Software as a service",
-    "country": "Portugal / United States",
+    "country": "Portugal /  United States",
     "founders": "Cristina Fonseca, Tiago Paiva"
   },
   {
@@ -726,7 +726,7 @@
     "valuation_str": "$9.5B",
     "valuation_date": "February 2021",
     "industry_raw": "Software development",
-    "country": "Portugal / United States",
+    "country": "Portugal /  United States",
     "founders": "Paulo Rosado, Rui Pereira"
   },
   {
@@ -831,7 +831,7 @@
   },
   {
     "company": "Together AI",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Together_AI?action=edit&redlink=1",
     "valuation_b": 8.3,
     "valuation_str": "$8.3B",
     "valuation_date": "July 2026",
@@ -866,7 +866,7 @@
     "valuation_str": "$8B",
     "valuation_date": "December 2025",
     "industry_raw": "Financial services",
-    "country": "Australia / Hong Kong",
+    "country": "Australia /  Hong Kong",
     "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
   },
   {
@@ -901,17 +901,17 @@
   },
   {
     "company": "AlphaSense",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/AlphaSense?action=edit&redlink=1",
     "valuation_b": 7.5,
     "valuation_str": "$7.5B",
     "valuation_date": "June 2026",
     "industry_raw": "Software",
-    "country": "United States (formerly Finland)",
+    "country": "United States (formerly  Finland)",
     "founders": "Jaakko Kokko, Raj Neervannan"
   },
   {
     "company": "Razorpay",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Razorpay?action=edit&redlink=1",
     "valuation_b": 7.5,
     "valuation_str": "$7.5B",
     "valuation_date": "December 2021",
@@ -941,7 +941,7 @@
   },
   {
     "company": "Gong",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Gong_(company)?action=edit&redlink=1",
     "valuation_b": 4.5,
     "valuation_str": "$4.5B",
     "valuation_date": "November 2025",
@@ -981,7 +981,7 @@
   },
   {
     "company": "WeDoctor",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/WeDoctor?action=edit&redlink=1",
     "valuation_b": 6.8,
     "valuation_str": "$6.8B",
     "valuation_date": "February 2021",
@@ -1001,7 +1001,7 @@
   },
   {
     "company": "Yanolja",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Yanolja?action=edit&redlink=1",
     "valuation_b": 6.7,
     "valuation_str": "$6.7B",
     "valuation_date": "July 2021",
@@ -1011,7 +1011,7 @@
   },
   {
     "company": "Ziroom",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ziroom?action=edit&redlink=1",
     "valuation_b": 6.6,
     "valuation_str": "$6.6B",
     "valuation_date": "March 2020",
@@ -1021,7 +1021,7 @@
   },
   {
     "company": "Mollie",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mollie_(company)?action=edit&redlink=1",
     "valuation_b": 6.5,
     "valuation_str": "$6.5B",
     "valuation_date": "June 2021",
@@ -1041,7 +1041,7 @@
   },
   {
     "company": "DataRobot",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/DataRobot?action=edit&redlink=1",
     "valuation_b": 6.3,
     "valuation_str": "$6.3B",
     "valuation_date": "July 2021",
@@ -1060,7 +1060,7 @@
     "founders": ""
   },
   {
-    "company": "Doctolib[fr]",
+    "company": "Doctolib",
     "wikiLink": "https://en.wikipedia.org/wiki/Doctolib?action=edit&redlink=1",
     "valuation_b": 6.2,
     "valuation_str": "$6.2B",
@@ -1081,7 +1081,7 @@
   },
   {
     "company": "Xingsheng Youxuan",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Xingsheng_Youxuan?action=edit&redlink=1",
     "valuation_b": 6.0,
     "valuation_str": "$6B",
     "valuation_date": "January 2021",
@@ -1101,7 +1101,7 @@
   },
   {
     "company": "Back Market",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Back_Market?action=edit&redlink=1",
     "valuation_b": 5.8,
     "valuation_str": "$5.8B",
     "valuation_date": "August 2022",
@@ -1121,7 +1121,7 @@
   },
   {
     "company": "Relex",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Relex_Solutions?action=edit&redlink=1",
     "valuation_b": 5.68,
     "valuation_str": "$5.68B",
     "valuation_date": "February 2022",
@@ -1131,7 +1131,7 @@
   },
   {
     "company": "Contentsquare",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Contentsquare?action=edit&redlink=1",
     "valuation_b": 5.6,
     "valuation_str": "$5.6B",
     "valuation_date": "August 2022",
@@ -1141,7 +1141,7 @@
   },
   {
     "company": "Fivetran",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Fivetran?action=edit&redlink=1",
     "valuation_b": 5.6,
     "valuation_str": "$5.6B",
     "valuation_date": "September 2021",
@@ -1156,7 +1156,7 @@
     "valuation_str": "$5.6B",
     "valuation_date": "August 2021",
     "industry_raw": "Software as a service",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": ""
   },
   {
@@ -1178,6 +1178,16 @@
     "industry_raw": "Financial technology",
     "country": "South Korea",
     "founders": ""
+  },
+  {
+    "company": "Higgsfield",
+    "wikiLink": "",
+    "valuation_b": 5.4,
+    "valuation_str": "$5.4B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Alex Mashrabov"
   },
   {
     "company": "Trade Republic",
@@ -1221,7 +1231,7 @@
   },
   {
     "company": "Ineffable Intelligence",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ineffable_Intelligence?action=edit&redlink=1",
     "valuation_b": 5.1,
     "valuation_str": "$5.1B",
     "valuation_date": "April 2026",
@@ -1236,12 +1246,12 @@
     "valuation_str": "$5.1B",
     "valuation_date": "December 2020",
     "industry_raw": "Cybersecurity",
-    "country": "United Kingdom / United States",
+    "country": "United Kingdom /  United States",
     "founders": ""
   },
   {
     "company": "SambaNova",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/SambaNova?action=edit&redlink=1",
     "valuation_b": 5.1,
     "valuation_str": "$5.1B",
     "valuation_date": "April 2021",
@@ -1251,7 +1261,7 @@
   },
   {
     "company": "Collibra",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Collibra?action=edit&redlink=1",
     "valuation_b": 5.0,
     "valuation_str": "$5B",
     "valuation_date": "January 2019",
@@ -1271,7 +1281,7 @@
   },
   {
     "company": "Hello TransTech",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Hello_TransTech?action=edit&redlink=1",
     "valuation_b": 5.0,
     "valuation_str": "$5B",
     "valuation_date": "March 2021",
@@ -1291,7 +1301,7 @@
   },
   {
     "company": "OfBusiness",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/OfBusiness?action=edit&redlink=1",
     "valuation_b": 5.0,
     "valuation_str": "$5B",
     "valuation_date": "December 2021",
@@ -1321,7 +1331,7 @@
   },
   {
     "company": "GetBlock",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/GetBlock?action=edit&redlink=1",
     "valuation_b": 4.6,
     "valuation_str": "$4.6B",
     "valuation_date": "June 2020",
@@ -1361,7 +1371,7 @@
   },
   {
     "company": "Pleo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Pleo",
     "valuation_b": 4.7,
     "valuation_str": "$4.7B",
     "valuation_date": "December 2021",
@@ -1371,7 +1381,7 @@
   },
   {
     "company": "Checkr",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Checkr?action=edit&redlink=1",
     "valuation_b": 4.6,
     "valuation_str": "$4.6B",
     "valuation_date": "August 2021",
@@ -1386,7 +1396,7 @@
     "valuation_str": "$4.6B",
     "valuation_date": "August 2021",
     "industry_raw": "Artificial intelligence",
-    "country": "France / United States",
+    "country": "France /  United States",
     "founders": ""
   },
   {
@@ -1411,7 +1421,7 @@
   },
   {
     "company": "Socure",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Socure?action=edit&redlink=1",
     "valuation_b": 4.5,
     "valuation_str": "$4.5B",
     "valuation_date": "November 2021",
@@ -1441,7 +1451,7 @@
   },
   {
     "company": "Outreach",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Outreach_(company)?action=edit&redlink=1",
     "valuation_b": 4.4,
     "valuation_str": "$4.4B",
     "valuation_date": "June 2021",
@@ -1511,7 +1521,7 @@
   },
   {
     "company": "Abnormal Security",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Abnormal_Security?action=edit&redlink=1",
     "valuation_b": 4.0,
     "valuation_str": "$4B",
     "valuation_date": "May 2022",
@@ -1571,7 +1581,7 @@
   },
   {
     "company": "Melio",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Melio_(company)?action=edit&redlink=1",
     "valuation_b": 4.0,
     "valuation_str": "$4B",
     "valuation_date": "September 2021",
@@ -1591,7 +1601,7 @@
   },
   {
     "company": "PointClickCare",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/PointClickCare?action=edit&redlink=1",
     "valuation_b": 4.0,
     "valuation_str": "$4B",
     "valuation_date": "January 2021",
@@ -1601,7 +1611,7 @@
   },
   {
     "company": "QuintoAndar",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/QuintoAndar?action=edit&redlink=1",
     "valuation_b": 4.0,
     "valuation_str": "$4B",
     "valuation_date": "May 2021",
@@ -1631,7 +1641,7 @@
   },
   {
     "company": "Articulate",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Articulate_(company)?action=edit&redlink=1",
     "valuation_b": 3.75,
     "valuation_str": "$3.75B",
     "valuation_date": "July 2021",
@@ -1666,7 +1676,7 @@
     "valuation_str": "$3.7B",
     "valuation_date": "September 2021",
     "industry_raw": "Workforce management",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -1691,7 +1701,7 @@
   },
   {
     "company": "Coalition",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Coalition_(company)?action=edit&redlink=1",
     "valuation_b": 3.5,
     "valuation_str": "$3.5B",
     "valuation_date": "September 2021",
@@ -1701,7 +1711,7 @@
   },
   {
     "company": "Commure",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Commure?action=edit&redlink=1",
     "valuation_b": 3.5,
     "valuation_str": "$3.5B",
     "valuation_date": "September 2021",
@@ -1751,7 +1761,7 @@
   },
   {
     "company": "Kurly",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kurly?action=edit&redlink=1",
     "valuation_b": 3.3,
     "valuation_str": "$3.3B",
     "valuation_date": "July 2021",
@@ -1781,7 +1791,7 @@
   },
   {
     "company": "Upstox",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Upstox?action=edit&redlink=1",
     "valuation_b": 3.4,
     "valuation_str": "$3.4B",
     "valuation_date": "November 2021",
@@ -1801,7 +1811,7 @@
   },
   {
     "company": "Starburst Data",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Starburst_Data?action=edit&redlink=1",
     "valuation_b": 3.3,
     "valuation_str": "$3.3B",
     "valuation_date": "February 2022",
@@ -1856,7 +1866,7 @@
     "valuation_str": "$3.2B",
     "valuation_date": "June 2026",
     "industry_raw": "Financial technology",
-    "country": "Nigeria / United States",
+    "country": "Nigeria /  United States",
     "founders": "Olugbenga Agboola , Iyinoluwa Aboyeji"
   },
   {
@@ -1871,7 +1881,7 @@
   },
   {
     "company": "Eruditus",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Eruditus?action=edit&redlink=1",
     "valuation_b": 3.2,
     "valuation_str": "$3.2B",
     "valuation_date": "August 2021",
@@ -1881,7 +1891,7 @@
   },
   {
     "company": "SpotOn",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/SpotOn?action=edit&redlink=1",
     "valuation_b": 3.15,
     "valuation_str": "$3.15B",
     "valuation_date": "September 2021",
@@ -1891,7 +1901,7 @@
   },
   {
     "company": "TiendaNube",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/TiendaNube?action=edit&redlink=1",
     "valuation_b": 3.1,
     "valuation_str": "$3.1B",
     "valuation_date": "August 2021",
@@ -1901,7 +1911,7 @@
   },
   {
     "company": "Udaan",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Udaan_(company)?action=edit&redlink=1",
     "valuation_b": 3.1,
     "valuation_str": "$3.1B",
     "valuation_date": "January 2021",
@@ -1911,7 +1921,7 @@
   },
   {
     "company": "Wildlife",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Wildlife_Studios?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "August 2020",
@@ -1996,7 +2006,7 @@
     "valuation_str": "$3B",
     "valuation_date": "May 2021",
     "industry_raw": "Software",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -2021,7 +2031,7 @@
   },
   {
     "company": "MessageBird",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MessageBird?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "October 2020",
@@ -2031,7 +2041,7 @@
   },
   {
     "company": "Seismic",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Seismic_(company)?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "August 2021",
@@ -2041,7 +2051,7 @@
   },
   {
     "company": "Sky Mavis",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Sky_Mavis?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "October 2021",
@@ -2051,7 +2061,7 @@
   },
   {
     "company": "Souche",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Souche?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "September 2018",
@@ -2071,7 +2081,7 @@
   },
   {
     "company": "Aiven",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Aiven?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "May 2022",
@@ -2081,7 +2091,7 @@
   },
   {
     "company": "VANCL",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/VANCL?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "February 2014",
@@ -2111,7 +2121,7 @@
   },
   {
     "company": "Wefox",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Wefox?action=edit&redlink=1",
     "valuation_b": 3.0,
     "valuation_str": "$3B",
     "valuation_date": "June 2021",
@@ -2121,7 +2131,7 @@
   },
   {
     "company": "Workrise",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Workrise?action=edit&redlink=1",
     "valuation_b": 2.9,
     "valuation_str": "$2.9B",
     "valuation_date": "May 2021",
@@ -2131,7 +2141,7 @@
   },
   {
     "company": "DriveWealth",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/DriveWealth?action=edit&redlink=1",
     "valuation_b": 2.85,
     "valuation_str": "$2.85B",
     "valuation_date": "August 2021",
@@ -2156,7 +2166,7 @@
     "valuation_str": "$2.8B",
     "valuation_date": "March 2021",
     "industry_raw": "Software",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": "Samir Bodas, Monish Darda."
   },
   {
@@ -2181,7 +2191,7 @@
   },
   {
     "company": "Abridge",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Abridge",
     "valuation_b": 2.75,
     "valuation_str": "$2.75B",
     "valuation_date": "May 2025",
@@ -2221,7 +2231,7 @@
   },
   {
     "company": "Daangn Market",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Daangn_Market?action=edit&redlink=1",
     "valuation_b": 2.7,
     "valuation_str": "$2.7B",
     "valuation_date": "August 2021",
@@ -2231,7 +2241,7 @@
   },
   {
     "company": "Tridge",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tridge_(company)?action=edit&redlink=1",
     "valuation_b": 2.7,
     "valuation_str": "$2.7B",
     "valuation_date": "August 2022",
@@ -2271,7 +2281,7 @@
   },
   {
     "company": "AmWINS Group",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/AmWINS_Group?action=edit&redlink=1",
     "valuation_b": 2.6,
     "valuation_str": "$2.6B",
     "valuation_date": "October 2016",
@@ -2281,7 +2291,7 @@
   },
   {
     "company": "ManoMano",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ManoMano?action=edit&redlink=1",
     "valuation_b": 2.6,
     "valuation_str": "$2.6B",
     "valuation_date": "July 2021",
@@ -2291,7 +2301,7 @@
   },
   {
     "company": "Pendo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Pendo_(company)?action=edit&redlink=1",
     "valuation_b": 2.6,
     "valuation_str": "$2.6B",
     "valuation_date": "July 2021",
@@ -2311,7 +2321,7 @@
   },
   {
     "company": "Jumpcloud",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Jumpcloud?action=edit&redlink=1",
     "valuation_b": 2.56,
     "valuation_str": "$2.56B",
     "valuation_date": "September 2021",
@@ -2341,7 +2351,7 @@
   },
   {
     "company": "Infra.Market",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Infra.Market?action=edit&redlink=1",
     "valuation_b": 2.5,
     "valuation_str": "$2.5B",
     "valuation_date": "August 2021",
@@ -2406,7 +2416,7 @@
     "valuation_str": "$2.4B",
     "valuation_date": "November 2021",
     "industry_raw": "Financial services",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -2450,8 +2460,18 @@
     "founders": ""
   },
   {
+    "company": "Starcloud",
+    "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
+    "valuation_b": 2.3,
+    "valuation_str": "$2.3B",
+    "valuation_date": "March 2026",
+    "industry_raw": "Orbital Data Centers",
+    "country": "United States",
+    "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
+  },
+  {
     "company": "Headway",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Headway_(company)?action=edit&redlink=1",
     "valuation_b": 2.3,
     "valuation_str": "$2.3B",
     "valuation_date": "July 2024",
@@ -2461,7 +2481,7 @@
   },
   {
     "company": "Highspot",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Highspot?action=edit&redlink=1",
     "valuation_b": 2.3,
     "valuation_str": "$2.3B",
     "valuation_date": "February 2021",
@@ -2471,7 +2491,7 @@
   },
   {
     "company": "MPL",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MPL_(company)?action=edit&redlink=1",
     "valuation_b": 2.3,
     "valuation_str": "$2.3B",
     "valuation_date": "September 2021",
@@ -2506,7 +2526,7 @@
     "valuation_str": "$2.25B",
     "valuation_date": "June 2021",
     "industry_raw": "Software",
-    "country": "France / United States",
+    "country": "France /  United States",
     "founders": ""
   },
   {
@@ -2531,7 +2551,7 @@
   },
   {
     "company": "Bitso",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Bitso?action=edit&redlink=1",
     "valuation_b": 2.2,
     "valuation_str": "$2.2B",
     "valuation_date": "May 2021",
@@ -2541,12 +2561,12 @@
   },
   {
     "company": "Gympass",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Gympass?action=edit&redlink=1",
     "valuation_b": 2.2,
     "valuation_str": "$2.2B",
     "valuation_date": "June 2021",
     "industry_raw": "Fitness",
-    "country": "Brazil / United States",
+    "country": "Brazil /  United States",
     "founders": ""
   },
   {
@@ -2556,7 +2576,7 @@
     "valuation_str": "$2.2B",
     "valuation_date": "June 2021",
     "industry_raw": "Cybersecurity",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -2571,7 +2591,7 @@
   },
   {
     "company": "Eightfold.ai",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Eightfold.ai?action=edit&redlink=1",
     "valuation_b": 2.1,
     "valuation_str": "$2.1B",
     "valuation_date": "June 2021",
@@ -2581,7 +2601,7 @@
   },
   {
     "company": "Gamma",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Gamma_(AI_company)?action=edit&redlink=1",
     "valuation_b": 2.1,
     "valuation_str": "$2.1B",
     "valuation_date": "November 2025",
@@ -2591,7 +2611,7 @@
   },
   {
     "company": "PayFit",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/PayFit?action=edit&redlink=1",
     "valuation_b": 2.1,
     "valuation_str": "$2.1B",
     "valuation_date": "January 2022",
@@ -2601,7 +2621,7 @@
   },
   {
     "company": "6sense",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/6sense?action=edit&redlink=1",
     "valuation_b": 2.1,
     "valuation_str": "$2.1B",
     "valuation_date": "March 2021",
@@ -2611,7 +2631,7 @@
   },
   {
     "company": "C6 Bank",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/C6_Bank?action=edit&redlink=1",
     "valuation_b": 2.1,
     "valuation_str": "$2.1B",
     "valuation_date": "December 2020",
@@ -2651,7 +2671,7 @@
   },
   {
     "company": "Bought By Many",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Bought_By_Many?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "June 2021",
@@ -2676,7 +2696,7 @@
     "valuation_str": "$2B",
     "valuation_date": "October 2020",
     "industry_raw": "Financial technology",
-    "country": "United States / Israel",
+    "country": "United States /  Israel",
     "founders": ""
   },
   {
@@ -2691,12 +2711,12 @@
   },
   {
     "company": "Mural",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mural_(company)?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "July 2021",
     "industry_raw": "Technology",
-    "country": "Argentina / United States",
+    "country": "Argentina /  United States",
     "founders": "Patricio Jutard"
   },
   {
@@ -2706,7 +2726,7 @@
     "valuation_str": "$2B",
     "valuation_date": "November 2020",
     "industry_raw": "Mobile marketing analytics",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -2741,7 +2761,7 @@
   },
   {
     "company": "Clip",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Clip_(company)?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "June 2021",
@@ -2761,7 +2781,7 @@
   },
   {
     "company": "Divvy Homes",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Divvy_Homes?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "August 2021",
@@ -2776,12 +2796,12 @@
     "valuation_str": "$2B",
     "valuation_date": "April 2021",
     "industry_raw": "Cloud computing",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": ""
   },
   {
     "company": "Exotec",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Exotec?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "August 2022",
@@ -2791,7 +2811,7 @@
   },
   {
     "company": "Firstp2p",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Firstp2p?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "September 2016",
@@ -2811,7 +2831,7 @@
   },
   {
     "company": "Huimin.cn",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Huimin.cn?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "September 2016",
@@ -2821,7 +2841,7 @@
   },
   {
     "company": "Iterable",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Iterable?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "June 2021",
@@ -2841,7 +2861,7 @@
   },
   {
     "company": "Meicai.cn",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Meicai.cn?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "June 2016",
@@ -2851,7 +2871,7 @@
   },
   {
     "company": "Mynt",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mynt",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "November 2021",
@@ -2861,7 +2881,7 @@
   },
   {
     "company": "OPay",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/OPay?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "August 2021",
@@ -2871,7 +2891,7 @@
   },
   {
     "company": "PixVerse",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/PixVerse?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "July 2026",
@@ -2881,7 +2901,7 @@
   },
   {
     "company": "Simile",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Simile_(company)?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "July 2026",
@@ -2896,17 +2916,17 @@
     "valuation_str": "$2B",
     "valuation_date": "November 2021",
     "industry_raw": "Health",
-    "country": "Portugal / United States",
+    "country": "Portugal /  United States",
     "founders": "Virgílio Bento, Márcio Colunas"
   },
   {
     "company": "Trendy International Group",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Trendy_International_Group?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "February 2012",
     "industry_raw": "Fashion, Retail",
-    "country": "China / Hong Kong",
+    "country": "China /  Hong Kong",
     "founders": ""
   },
   {
@@ -2961,7 +2981,7 @@
   },
   {
     "company": "Ankorstore",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ankorstore?action=edit&redlink=1",
     "valuation_b": 1.98,
     "valuation_str": "$1.98B",
     "valuation_date": "August 2022",
@@ -2991,7 +3011,7 @@
   },
   {
     "company": "Sanpower Group",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Sanpower_Group?action=edit&redlink=1",
     "valuation_b": 1.93,
     "valuation_str": "$1.93B",
     "valuation_date": "March 2018",
@@ -3001,7 +3021,7 @@
   },
   {
     "company": "ZigBang",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ZigBang?action=edit&redlink=1",
     "valuation_b": 1.93,
     "valuation_str": "$1.93B",
     "valuation_date": "June 2022",
@@ -3021,7 +3041,7 @@
   },
   {
     "company": "CoinSwitch Kuber",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/CoinSwitch_Kuber?action=edit&redlink=1",
     "valuation_b": 1.9,
     "valuation_str": "$1.9B",
     "valuation_date": "October 2021",
@@ -3031,7 +3051,7 @@
   },
   {
     "company": "Dfinity",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dfinity?action=edit&redlink=1",
     "valuation_b": 1.9,
     "valuation_str": "$1.9B",
     "valuation_date": "August 2018",
@@ -3051,7 +3071,7 @@
   },
   {
     "company": "Musinsa",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Musinsa",
     "valuation_b": 1.89,
     "valuation_str": "$1.89B",
     "valuation_date": "November 2019",
@@ -3061,7 +3081,7 @@
   },
   {
     "company": "Apus Group",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Apus_Group?action=edit&redlink=1",
     "valuation_b": 1.85,
     "valuation_str": "$1.85B",
     "valuation_date": "August 2017",
@@ -3071,7 +3091,7 @@
   },
   {
     "company": "MEGAZONE",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MEGAZONE?action=edit&redlink=1",
     "valuation_b": 1.83,
     "valuation_str": "$1.83B",
     "valuation_date": "Aug 2022",
@@ -3081,7 +3101,7 @@
   },
   {
     "company": "Landa Digital Printing",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Landa_Digital_Printing?action=edit&redlink=1",
     "valuation_b": 1.8,
     "valuation_str": "$1.8B",
     "valuation_date": "June 2018",
@@ -3111,7 +3131,7 @@
   },
   {
     "company": "Orca Security",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Orca_Security?action=edit&redlink=1",
     "valuation_b": 1.8,
     "valuation_str": "$1.8B",
     "valuation_date": "October 2021",
@@ -3131,7 +3151,7 @@
   },
   {
     "company": "Radiant Nuclear",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Radiant_Nuclear",
     "valuation_b": 1.8,
     "valuation_str": "$1.8B",
     "valuation_date": "December 2025",
@@ -3151,7 +3171,7 @@
   },
   {
     "company": "L&P Cosmetic",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/L&P_Cosmetic?action=edit&redlink=1",
     "valuation_b": 1.78,
     "valuation_str": "$1.78B",
     "valuation_date": "March 2018",
@@ -3161,7 +3181,7 @@
   },
   {
     "company": "Creditas",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Creditas?action=edit&redlink=1",
     "valuation_b": 1.75,
     "valuation_str": "$1.75B",
     "valuation_date": "December 2020",
@@ -3171,7 +3191,7 @@
   },
   {
     "company": "Spinny",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Spinny?action=edit&redlink=1",
     "valuation_b": 1.75,
     "valuation_str": "$1.75B",
     "valuation_date": "November 2021",
@@ -3191,7 +3211,7 @@
   },
   {
     "company": "Productboard",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Productboard?action=edit&redlink=1",
     "valuation_b": 1.725,
     "valuation_str": "$1.725B",
     "valuation_date": "February 2022",
@@ -3201,7 +3221,7 @@
   },
   {
     "company": "ADVASA",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ADVASA?action=edit&redlink=1",
     "valuation_b": 1.7,
     "valuation_str": "$1.7B",
     "valuation_date": "January 2023",
@@ -3221,7 +3241,7 @@
   },
   {
     "company": "Dragos",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dragos_(company)?action=edit&redlink=1",
     "valuation_b": 1.7,
     "valuation_str": "$1.7B",
     "valuation_date": "October 2021",
@@ -3231,7 +3251,7 @@
   },
   {
     "company": "Dutchie.com",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dutchie.com?action=edit&redlink=1",
     "valuation_b": 1.7,
     "valuation_str": "$1.7B",
     "valuation_date": "March 2021",
@@ -3241,7 +3261,7 @@
   },
   {
     "company": "GVE",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/GVE_(company)?action=edit&redlink=1",
     "valuation_b": 1.7,
     "valuation_str": "$1.7B",
     "valuation_date": "January 2023",
@@ -3251,7 +3271,7 @@
   },
   {
     "company": "Harness",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Harness_(company)?action=edit&redlink=1",
     "valuation_b": 1.7,
     "valuation_str": "$1.7B",
     "valuation_date": "June 2021",
@@ -3271,7 +3291,7 @@
   },
   {
     "company": "Vestiaire Collective",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Vestiaire_Collective",
     "valuation_b": 1.7,
     "valuation_str": "$1.7B",
     "valuation_date": "September 2021",
@@ -3301,7 +3321,7 @@
   },
   {
     "company": "Alan",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Alan_(company)?action=edit&redlink=1",
     "valuation_b": 1.68,
     "valuation_str": "$1.68B",
     "valuation_date": "April 2021",
@@ -3311,7 +3331,7 @@
   },
   {
     "company": "Incredible Health",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Incredible_Health?action=edit&redlink=1",
     "valuation_b": 1.65,
     "valuation_str": "$1.65B",
     "valuation_date": "August 2022",
@@ -3361,7 +3381,7 @@
   },
   {
     "company": "Cresta",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cresta_(company)?action=edit&redlink=1",
     "valuation_b": 1.6,
     "valuation_str": "$1.6B",
     "valuation_date": "March 2022",
@@ -3371,7 +3391,7 @@
   },
   {
     "company": "Clari",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Clari",
     "valuation_b": 1.6,
     "valuation_str": "$1.6B",
     "valuation_date": "March 2021",
@@ -3421,7 +3441,7 @@
   },
   {
     "company": "SafetyCulture",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/SafetyCulture?action=edit&redlink=1",
     "valuation_b": 1.6,
     "valuation_str": "$1.6B",
     "valuation_date": "May 2021",
@@ -3431,7 +3451,7 @@
   },
   {
     "company": "SmartHR",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/SmartHR?action=edit&redlink=1",
     "valuation_b": 1.6,
     "valuation_str": "$1.6B",
     "valuation_date": "May 2021",
@@ -3441,7 +3461,7 @@
   },
   {
     "company": "Unite Us",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Unite_Us?action=edit&redlink=1",
     "valuation_b": 1.6,
     "valuation_str": "$1.6B",
     "valuation_date": "March 2021",
@@ -3461,7 +3481,7 @@
   },
   {
     "company": "CureFit",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/CureFit?action=edit&redlink=1",
     "valuation_b": 1.56,
     "valuation_str": "$1.56B",
     "valuation_date": "November 2021",
@@ -3481,7 +3501,7 @@
   },
   {
     "company": "KreditBee",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/KreditBee?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "April 2026",
@@ -3506,7 +3526,7 @@
     "valuation_str": "$1.5B",
     "valuation_date": "September 2021",
     "industry_raw": "Education",
-    "country": "Nigeria/ United States",
+    "country": "Nigeria /  United States",
     "founders": ""
   },
   {
@@ -3521,7 +3541,7 @@
   },
   {
     "company": "Devo, Inc.",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Devo,_Inc.?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "October 2021",
@@ -3531,7 +3551,7 @@
   },
   {
     "company": "Granola",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Granola_(company)?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "March 2026",
@@ -3551,7 +3571,7 @@
   },
   {
     "company": "Ledger",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ledger_(company)?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "June 2021",
@@ -3561,7 +3581,7 @@
   },
   {
     "company": "Matillion",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Matillion?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "September 2021",
@@ -3581,7 +3601,7 @@
   },
   {
     "company": "Molbio Diagnostics",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Molbio_Diagnostics",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "February 2023",
@@ -3596,12 +3616,12 @@
     "valuation_str": "$1.5B",
     "valuation_date": "February 2013",
     "industry_raw": "Management consulting",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": ""
   },
   {
     "company": "NextSilicon",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/NextSilicon?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "June 2021",
@@ -3611,7 +3631,7 @@
   },
   {
     "company": "NotCo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/NotCo?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "July 2021",
@@ -3631,17 +3651,17 @@
   },
   {
     "company": "Remote",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Remote_(company)?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "July 2021",
     "industry_raw": "Software",
-    "country": "Portugal / United States",
+    "country": "Portugal /  United States",
     "founders": "Marcelo Lebre, Job van der Voort"
   },
   {
     "company": "Render",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Render_(company)?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "February 17, 2026 (2026-02-17)",
@@ -3651,7 +3671,7 @@
   },
   {
     "company": "Spring Rain Software",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Spring_Rain_Software?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "June 2016",
@@ -3671,7 +3691,7 @@
   },
   {
     "company": "5ire",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/5ire?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "July 2022",
@@ -3681,7 +3701,7 @@
   },
   {
     "company": "Tujia.com",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tujia.com?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "October 2017",
@@ -3691,7 +3711,7 @@
   },
   {
     "company": "ZBJ.com",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ZBJ.com?action=edit&redlink=1",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "June 2015",
@@ -3731,7 +3751,7 @@
   },
   {
     "company": "Koudai Gouwu",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Koudai_Gouwu?action=edit&redlink=1",
     "valuation_b": 1.45,
     "valuation_str": "$1.45B",
     "valuation_date": "October 2014",
@@ -3751,7 +3771,7 @@
   },
   {
     "company": "Odyssey",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Odyssey_(company)?action=edit&redlink=1",
     "valuation_b": 1.45,
     "valuation_str": "$1.45B",
     "valuation_date": "June 2026",
@@ -3791,7 +3811,7 @@
   },
   {
     "company": "Deliverect",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Deliverect?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "January 2022",
@@ -3811,7 +3831,7 @@
   },
   {
     "company": "OneCard",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/OneCard?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "July 2022",
@@ -3821,7 +3841,7 @@
   },
   {
     "company": "Bucketplace",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Bucketplace?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "May 2022",
@@ -3841,12 +3861,12 @@
   },
   {
     "company": "Chargebee",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Chargebee?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "April 2021",
     "industry_raw": "Financial technology",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": ""
   },
   {
@@ -3861,7 +3881,7 @@
   },
   {
     "company": "Five Star Finance",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Five_Star_Finance?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "March 2021",
@@ -3871,7 +3891,7 @@
   },
   {
     "company": "IAD",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/IAD_(company)?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "Oct 2021",
@@ -3891,7 +3911,7 @@
   },
   {
     "company": "Panther Labs, Inc.",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Panther_Labs,_Inc.?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "December 2021",
@@ -3911,7 +3931,7 @@
   },
   {
     "company": "QOMPLX, Inc.",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/QOMPLX,_Inc.?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "March 2021",
@@ -3961,7 +3981,7 @@
   },
   {
     "company": "Voyager",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Voyager_(company)?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "April 2022",
@@ -3971,17 +3991,17 @@
   },
   {
     "company": "Yotpo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Yotpo?action=edit&redlink=1",
     "valuation_b": 1.4,
     "valuation_str": "$1.4B",
     "valuation_date": "March 2021",
     "industry_raw": "Marketing",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
     "company": "RIDI",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/RIDI?action=edit&redlink=1",
     "valuation_b": 1.33,
     "valuation_str": "$1.33B",
     "valuation_date": "August 2021",
@@ -4001,7 +4021,7 @@
   },
   {
     "company": "GPClub",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/GPClub?action=edit&redlink=1",
     "valuation_b": 1.32,
     "valuation_str": "$1.32B",
     "valuation_date": "December 2018",
@@ -4011,7 +4031,7 @@
   },
   {
     "company": "Corgi",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)",
     "valuation_b": 1.3,
     "valuation_str": "$1.3B",
     "valuation_date": "May 2026",
@@ -4031,7 +4051,7 @@
   },
   {
     "company": "ETCP",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ETCP?action=edit&redlink=1",
     "valuation_b": 1.3,
     "valuation_str": "$1.3B",
     "valuation_date": "October 2016",
@@ -4046,7 +4066,7 @@
     "valuation_str": "$1.3B",
     "valuation_date": "March 2021",
     "industry_raw": "Artificial intelligence",
-    "country": "Portugal / United States",
+    "country": "Portugal /  United States",
     "founders": "Nuno Sebastião"
   },
   {
@@ -4066,12 +4086,12 @@
     "valuation_str": "$1.3B",
     "valuation_date": "February 2021",
     "industry_raw": "Health care",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": "Abhinav Shashank, Kanav Hasija, Sandeep Gupta"
   },
   {
     "company": "Konfio",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Konfio?action=edit&redlink=1",
     "valuation_b": 1.3,
     "valuation_str": "$1.3B",
     "valuation_date": "September 2021",
@@ -4081,7 +4101,7 @@
   },
   {
     "company": "Kr Space",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kr_Space?action=edit&redlink=1",
     "valuation_b": 1.3,
     "valuation_str": "$1.3B",
     "valuation_date": "June 2018",
@@ -4111,7 +4131,7 @@
   },
   {
     "company": "Cart.com",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cart.com",
     "valuation_b": 1.27,
     "valuation_str": "$1.27B",
     "valuation_date": "June 2023",
@@ -4121,7 +4141,7 @@
   },
   {
     "company": "Incode",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Incode?action=edit&redlink=1",
     "valuation_b": 1.25,
     "valuation_str": "$1.25B",
     "valuation_date": "December 2021",
@@ -4131,7 +4151,7 @@
   },
   {
     "company": "Applied Intuition",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Applied_Intuition",
     "valuation_b": 1.25,
     "valuation_str": "$1.25B",
     "valuation_date": "October 2020",
@@ -4141,12 +4161,12 @@
   },
   {
     "company": "BigID",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/BigID?action=edit&redlink=1",
     "valuation_b": 1.25,
     "valuation_str": "$1.25B",
     "valuation_date": "May 2018",
     "industry_raw": "Cybersecurity",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -4156,7 +4176,7 @@
     "valuation_str": "$17.3B",
     "valuation_date": "October 2025",
     "industry_raw": "",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -4171,7 +4191,7 @@
   },
   {
     "company": "Iwjw",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Iwjw?action=edit&redlink=1",
     "valuation_b": 1.25,
     "valuation_str": "$1.25B",
     "valuation_date": "November 2015",
@@ -4181,7 +4201,7 @@
   },
   {
     "company": "Marshmallow",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Marshmallow_(company)",
     "valuation_b": 1.25,
     "valuation_str": "$1.25B",
     "valuation_date": "September 2021",
@@ -4201,7 +4221,7 @@
   },
   {
     "company": "Spiber",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Spiber?action=edit&redlink=1",
     "valuation_b": 1.22,
     "valuation_str": "$1.22B",
     "valuation_date": "September 2021",
@@ -4211,7 +4231,7 @@
   },
   {
     "company": "Insider",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Insider_(company)?action=edit&redlink=1",
     "valuation_b": 1.22,
     "valuation_str": "$1.22B",
     "valuation_date": "March 2022",
@@ -4221,7 +4241,7 @@
   },
   {
     "company": "Merama",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Merama?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "December 2021",
@@ -4231,7 +4251,7 @@
   },
   {
     "company": "Ada",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ada_(company)?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "May 2021",
@@ -4251,17 +4271,17 @@
   },
   {
     "company": "Axonius",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Axonius?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "March 2021",
     "industry_raw": "Cybersecurity",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
     "company": "CarDekho",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/CarDekho?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "October 2021",
@@ -4271,17 +4291,17 @@
   },
   {
     "company": "Copado",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Copado?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "September 2021",
     "industry_raw": "Software",
-    "country": "Spain / United States",
+    "country": "Spain /  United States",
     "founders": ""
   },
   {
     "company": "Dental Monitoring",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dental_Monitoring?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "October 2021",
@@ -4291,17 +4311,17 @@
   },
   {
     "company": "Deutsche Health",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Deutsche_Health?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "August 2020",
     "industry_raw": "Biotech/Medical",
-    "country": "Germany/Russia",
+    "country": "Germany /  Russia",
     "founders": ""
   },
   {
     "company": "Droom",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Droom",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "July 2021",
@@ -4311,7 +4331,7 @@
   },
   {
     "company": "Fair",
-    "wikiLink": "https://en.wikipedia.org/wiki/Fair",
+    "wikiLink": "https://en.wikipedia.org/wiki/Fair_(company)?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "December 2018",
@@ -4331,7 +4351,7 @@
   },
   {
     "company": "Forto",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Forto",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "June 2021",
@@ -4351,7 +4371,7 @@
   },
   {
     "company": "Kyriba",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kyriba?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "October 2021",
@@ -4361,7 +4381,7 @@
   },
   {
     "company": "Mindtickle",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mindtickle?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "August 2021",
@@ -4371,7 +4391,7 @@
   },
   {
     "company": "MyGlamm",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MyGlamm?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "November 2021",
@@ -4381,7 +4401,7 @@
   },
   {
     "company": "Triple-1",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Triple-1?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "January 2023",
@@ -4391,7 +4411,7 @@
   },
   {
     "company": "Rohlik",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Rohlik?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "June 2021",
@@ -4401,7 +4421,7 @@
   },
   {
     "company": "upGrad",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/UpGrad?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "August 2021",
@@ -4421,7 +4441,7 @@
   },
   {
     "company": "HappyRobot",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/HappyRobot?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "August 2026",
@@ -4431,23 +4451,13 @@
   },
   {
     "company": "Sysdig",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Sysdig?action=edit&redlink=1",
     "valuation_b": 1.18,
     "valuation_str": "$1.18B",
     "valuation_date": "April 2021",
     "industry_raw": "Cybersecurity",
     "country": "United States",
     "founders": ""
-  },
-  {
-    "company": "Starcloud",
-    "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
-    "valuation_b": 1.1,
-    "valuation_str": "$1.1B",
-    "valuation_date": "March 2026",
-    "industry_raw": "Orbital Data Centers",
-    "country": "United States",
-    "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
   },
   {
     "company": "Deputy",
@@ -4461,7 +4471,7 @@
   },
   {
     "company": "3DOM Alliance, Inc.",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/3DOM_Alliance,_Inc.?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "January 2023",
@@ -4481,7 +4491,7 @@
   },
   {
     "company": "Apna",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Apna_(company)?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "September 2021",
@@ -4501,7 +4511,7 @@
   },
   {
     "company": "CoinDCX",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/CoinDCX?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "August 2021",
@@ -4511,7 +4521,7 @@
   },
   {
     "company": "Purplle",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Purplle?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "June 2022",
@@ -4521,7 +4531,7 @@
   },
   {
     "company": "GlobalBees",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/GlobalBees?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "December 2021",
@@ -4531,7 +4541,7 @@
   },
   {
     "company": "Luoji Siwei",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Luoji_Siwei?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "September 2017",
@@ -4541,7 +4551,7 @@
   },
   {
     "company": "Nexthink",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Nexthink",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "February 2021",
@@ -4556,12 +4566,12 @@
     "valuation_str": "$1.1B",
     "valuation_date": "January 2020",
     "industry_raw": "Business intelligence",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
     "company": "Drools",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Drools",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "January 2023",
@@ -4571,7 +4581,7 @@
   },
   {
     "company": "SmartNews",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/SmartNews?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "August 2019",
@@ -4596,12 +4606,12 @@
     "valuation_str": "$1.1B",
     "valuation_date": "May 2019",
     "industry_raw": "",
-    "country": "Singapore / Israel",
+    "country": "Singapore /  Israel",
     "founders": ""
   },
   {
     "company": "Virta Health",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Virta_Health?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "December 2020",
@@ -4611,7 +4621,7 @@
   },
   {
     "company": "YouniteD",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/YouniteD?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "December 2022",
@@ -4631,7 +4641,7 @@
   },
   {
     "company": "Zego",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Zego",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "March 2021",
@@ -4641,7 +4651,7 @@
   },
   {
     "company": "Substrate",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Substrate_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2025",
@@ -4681,7 +4691,7 @@
   },
   {
     "company": "VectorBuilder, Inc.",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/VectorBuilder,_Inc.?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 26, 2023",
@@ -4696,7 +4706,7 @@
     "valuation_str": "$1B",
     "valuation_date": "March 2022",
     "industry_raw": "Technology",
-    "country": "United States, United Kingdom and Europe",
+    "country": "United States,  United Kingdom and Europe",
     "founders": ""
   },
   {
@@ -4741,7 +4751,7 @@
   },
   {
     "company": "58 Daojia",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/58_Daojia?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2015",
@@ -4756,12 +4766,12 @@
     "valuation_str": "$1B",
     "valuation_date": "September 2019",
     "industry_raw": "Software",
-    "country": "Singapore / Switzerland",
+    "country": "Singapore /   Switzerland",
     "founders": ""
   },
   {
     "company": "Aircall",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Aircall?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2021",
@@ -4771,7 +4781,7 @@
   },
   {
     "company": "Ajaib",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ajaib?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2021",
@@ -4781,7 +4791,7 @@
   },
   {
     "company": "Amber Group",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Amber_Group?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -4791,7 +4801,7 @@
   },
   {
     "company": "AppDirect",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/AppDirect?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2015",
@@ -4801,7 +4811,7 @@
   },
   {
     "company": "Aqua Security",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Aqua_Security?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "March 2021",
@@ -4811,7 +4821,7 @@
   },
   {
     "company": "Asia First Media",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Asia_First_Media?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "September 2019",
@@ -4821,7 +4831,7 @@
   },
   {
     "company": "Assent Compliance",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Assent_Compliance?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2022",
@@ -4841,7 +4851,7 @@
   },
   {
     "company": "Beibei",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Beibei_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2016",
@@ -4851,7 +4861,7 @@
   },
   {
     "company": "Back Market",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Back_Market?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2021",
@@ -4861,7 +4871,7 @@
   },
   {
     "company": "Bluecore",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Bluecore?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2021",
@@ -4871,7 +4881,7 @@
   },
   {
     "company": "Bringg",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Bringg?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -4881,7 +4891,7 @@
   },
   {
     "company": "Cadence Solutions, Inc.",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cadence_Solutions,_Inc.?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "December 2021",
@@ -4891,7 +4901,7 @@
   },
   {
     "company": "Carro",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Carro_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -4901,7 +4911,7 @@
   },
   {
     "company": "Chubao Technology",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Chubao_Technology?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2017",
@@ -4911,7 +4921,7 @@
   },
   {
     "company": "Dt Dream",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dt_Dream?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2017",
@@ -4921,17 +4931,17 @@
   },
   {
     "company": "Dunamu",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dunamu",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
-    "valuation_date": "Jul 2021",
+    "valuation_date": "July 2021",
     "industry_raw": "Financial technology",
     "country": "South Korea",
     "founders": ""
   },
   {
     "company": "DXY",
-    "wikiLink": "https://en.wikipedia.org/wiki/DXY",
+    "wikiLink": "https://en.wikipedia.org/wiki/DXY.cn",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2018",
@@ -4941,7 +4951,7 @@
   },
   {
     "company": "Earnix",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Earnix?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2021",
@@ -4951,7 +4961,7 @@
   },
   {
     "company": "Ebanx",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ebanx?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2019",
@@ -4961,7 +4971,7 @@
   },
   {
     "company": "EMPG",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/EMPG",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2020",
@@ -4971,17 +4981,17 @@
   },
   {
     "company": "eSentire",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/ESentire?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "Feb 2022",
     "industry_raw": "Cybersecurity",
-    "country": "Canada / United States",
+    "country": "Canada /  United States",
     "founders": ""
   },
   {
     "company": "Flash Express",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Flash_Express?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -4991,7 +5001,7 @@
   },
   {
     "company": "Flexe",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Flexe?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2022",
@@ -5011,7 +5021,7 @@
   },
   {
     "company": "FXiaoKe",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/FXiaoKe?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2018",
@@ -5021,7 +5031,7 @@
   },
   {
     "company": "Gelato",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Gelato",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2021",
@@ -5031,7 +5041,7 @@
   },
   {
     "company": "GeoComply",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/GeoComply?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "March 2021",
@@ -5061,7 +5071,7 @@
   },
   {
     "company": "Go1",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Go1?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2021",
@@ -5081,7 +5091,7 @@
   },
   {
     "company": "Grover",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Grover",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2022",
@@ -5091,7 +5101,7 @@
   },
   {
     "company": "Hailo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Hailo",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -5101,12 +5111,12 @@
   },
   {
     "company": "HighRadius",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/HighRadius?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2020",
     "industry_raw": "Software as a service",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": ""
   },
   {
@@ -5116,12 +5126,12 @@
     "valuation_str": "$1B",
     "valuation_date": "July 2024",
     "industry_raw": "Health Technology",
-    "country": "Lithuania, Belarus",
+    "country": "Lithuania,  Belarus",
     "founders": "Dmitry Gurski, Yuri Gurski"
   },
   {
     "company": "Huikedu Group",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Huikedu_Group?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2018",
@@ -5151,7 +5161,7 @@
   },
   {
     "company": "IGAWorks",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/IGAWorks?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "Aug 2021",
@@ -5201,7 +5211,7 @@
   },
   {
     "company": "Ivalua",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ivalua?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2020",
@@ -5211,7 +5221,7 @@
   },
   {
     "company": "Jollychic",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Jollychic?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2018",
@@ -5231,7 +5241,7 @@
   },
   {
     "company": "Just Salad",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Just_Salad",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2025",
@@ -5251,7 +5261,7 @@
   },
   {
     "company": "Kitopi",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kitopi?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2021",
@@ -5271,7 +5281,7 @@
   },
   {
     "company": "LetsGetChecked",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/LetsGetChecked?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -5281,7 +5291,7 @@
   },
   {
     "company": "Lydia",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Lydia",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2022",
@@ -5290,8 +5300,8 @@
     "founders": ""
   },
   {
-    "company": "LinkSure Network (WiFi Master Key)",
-    "wikiLink": "https://en.wikipedia.org/wiki/WiFi_Master_Key",
+    "company": "LinkSure Network(WiFi Master Key)",
+    "wikiLink": "https://en.wikipedia.org/wiki/LinkSure_Network?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2015",
@@ -5311,7 +5321,7 @@
   },
   {
     "company": "Locus Robotics",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Locus_Robotics?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2021",
@@ -5321,7 +5331,7 @@
   },
   {
     "company": "Loft Brazil Technology",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Loft_Brazil_Technology?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2020",
@@ -5331,7 +5341,7 @@
   },
   {
     "company": "Lunar",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Lunar_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2021",
@@ -5341,7 +5351,7 @@
   },
   {
     "company": "Loggi",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Loggi",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2019",
@@ -5351,7 +5361,7 @@
   },
   {
     "company": "Lookout",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Lookout",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2014",
@@ -5361,7 +5371,7 @@
   },
   {
     "company": "MadeiraMadeira",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MadeiraMadeira?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2021",
@@ -5371,7 +5381,7 @@
   },
   {
     "company": "Maimai",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Maimai_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2018",
@@ -5391,7 +5401,7 @@
   },
   {
     "company": "Matrixport",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Matrixport?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2021",
@@ -5401,7 +5411,7 @@
   },
   {
     "company": "Meero",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Meero",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2019",
@@ -5411,7 +5421,7 @@
   },
   {
     "company": "Mensa Brands",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mensa_Brands?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "November 2021",
@@ -5421,7 +5431,7 @@
   },
   {
     "company": "Mia.com",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mia.com?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2016",
@@ -5431,7 +5441,7 @@
   },
   {
     "company": "MindMaze",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MindMaze",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2016",
@@ -5451,7 +5461,7 @@
   },
   {
     "company": "Mofang Apartment",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mofang_Apartment?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2016",
@@ -5466,12 +5476,12 @@
     "valuation_str": "$1B",
     "valuation_date": "May 2021",
     "industry_raw": "E-commerce",
-    "country": "India / Singapore",
+    "country": "India /  Singapore",
     "founders": "Rahul Garg"
   },
   {
     "company": "Moka",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Moka",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "November 2021",
@@ -5521,7 +5531,7 @@
   },
   {
     "company": "Kredivo",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kredivo?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2022",
@@ -5541,7 +5551,7 @@
   },
   {
     "company": "Opn (Synqa)",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Opn_(Synqa)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2022",
@@ -5581,7 +5591,7 @@
   },
   {
     "company": "PatSnap",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/PatSnap?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "March 2021",
@@ -5596,12 +5606,12 @@
     "valuation_str": "$1B",
     "valuation_date": "August 2021",
     "industry_raw": "Graphic design",
-    "country": "Armenia / United States",
+    "country": "Armenia /  United States",
     "founders": "Hovhannes Avoyan, Artavazd Mehrabyan, Mikayel Vardanyan"
   },
   {
     "company": "Playco",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Playco?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "September 2020",
@@ -5616,7 +5626,7 @@
     "valuation_str": "$1B",
     "valuation_date": "August 2020",
     "industry_raw": "Software",
-    "country": "Israel / United States",
+    "country": "Israel /  United States",
     "founders": ""
   },
   {
@@ -5641,7 +5651,7 @@
   },
   {
     "company": "Revolution Precrafted",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Revolution_Precrafted?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2017",
@@ -5651,7 +5661,7 @@
   },
   {
     "company": "Sennder",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Sennder?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "January 2021",
@@ -5661,7 +5671,7 @@
   },
   {
     "company": "Shift Technology",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Shift_Technology?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2021",
@@ -5681,7 +5691,7 @@
   },
   {
     "company": "Sift",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Sift",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2021",
@@ -5691,7 +5701,7 @@
   },
   {
     "company": "Slice",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Slice_Small_Finance_Bank",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "November 2021",
@@ -5711,7 +5721,7 @@
   },
   {
     "company": "SmartMore",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/SmartMore?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "June 2021",
@@ -5731,7 +5741,7 @@
   },
   {
     "company": "Socket",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2026",
@@ -5741,7 +5751,7 @@
   },
   {
     "company": "Spendesk",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Spendesk?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2022",
@@ -5761,7 +5771,7 @@
   },
   {
     "company": "Staffbase",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Staffbase?action=edit&redlink=1",
     "valuation_b": 1.1,
     "valuation_str": "$1.1B",
     "valuation_date": "March 2022",
@@ -5771,7 +5781,7 @@
   },
   {
     "company": "Swile",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Swile?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2021",
@@ -5801,7 +5811,7 @@
   },
   {
     "company": "Tekion",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tekion?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2020",
@@ -5811,7 +5821,7 @@
   },
   {
     "company": "Tenstorrent",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tenstorrent",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2021",
@@ -5821,7 +5831,7 @@
   },
   {
     "company": "Tezign",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tezign?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2021",
@@ -5831,7 +5841,7 @@
   },
   {
     "company": "Tongdun Technology",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tongdun_Technology?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2017",
@@ -5851,7 +5861,7 @@
   },
   {
     "company": "Tresata",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tresata?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2018",
@@ -5861,7 +5871,7 @@
   },
   {
     "company": "TrueLayer",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/TrueLayer?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "September 2021",
@@ -5901,7 +5911,7 @@
   },
   {
     "company": "VerSe Innovation",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/VerSe_Innovation?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "December 2020",
@@ -5941,7 +5951,7 @@
   },
   {
     "company": "VTS",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/VTS_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2019",
@@ -5951,7 +5961,7 @@
   },
   {
     "company": "Wacai.com",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Wacai.com?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2018",
@@ -5981,7 +5991,7 @@
   },
   {
     "company": "Xendit",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Xendit?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "September 2021",
@@ -6001,7 +6011,7 @@
   },
   {
     "company": "YH Global",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/YH_Global?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "September 2017",
@@ -6011,7 +6021,7 @@
   },
   {
     "company": "Yidian Zixun",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Yidian_Zixun?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "October 2017",
@@ -6031,7 +6041,7 @@
   },
   {
     "company": "YunQuNa",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/YunQuNa?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2021",
@@ -6041,17 +6051,17 @@
   },
   {
     "company": "Zenoti",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Zenoti?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "December 2020",
     "industry_raw": "Software company",
-    "country": "India / United States",
+    "country": "India /  United States",
     "founders": ""
   },
   {
     "company": "Zhuanzhuan",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Zhuanzhuan?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2017",
@@ -6061,7 +6071,7 @@
   },
   {
     "company": "Zuoyebang",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Zuoyebang?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2018",
@@ -6101,7 +6111,7 @@
   },
   {
     "company": "DANA",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/DANA_(payment_service)",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "September 2022",
@@ -6121,7 +6131,7 @@
   },
   {
     "company": "Ecovadis",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ecovadis?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2022",
@@ -6141,7 +6151,7 @@
   },
   {
     "company": "BlueVoyant",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/BlueVoyant?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2022",
@@ -6151,7 +6161,7 @@
   },
   {
     "company": "Payhawk",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Payhawk?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "March 2022",
@@ -6161,7 +6171,7 @@
   },
   {
     "company": "Voi",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Voi",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "April 2022",
@@ -6171,7 +6181,7 @@
   },
   {
     "company": "Neo Financial",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Neo_Financial",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "May 2022",
@@ -6181,7 +6191,7 @@
   },
   {
     "company": "Stytch",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Stytch?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "November 2021",
@@ -6191,7 +6201,7 @@
   },
   {
     "company": "Epassi",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Epassi?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "December 2023",
@@ -6201,7 +6211,7 @@
   },
   {
     "company": "HMD Global",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/HMD_Global",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "August 2020",
@@ -6211,7 +6221,7 @@
   },
   {
     "company": "IQM",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/IQM_Quantum_Computers",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2022",
@@ -6221,7 +6231,7 @@
   },
   {
     "company": "Hostaway",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Hostaway?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "December 2024",
@@ -6231,7 +6241,7 @@
   },
   {
     "company": "Papara",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/Papara",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2023",
@@ -6241,7 +6251,7 @@
   },
   {
     "company": "MNT-Halan",
-    "wikiLink": "",
+    "wikiLink": "https://en.wikipedia.org/wiki/MNT-Halan?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2023",
