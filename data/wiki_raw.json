@@ -200,6 +200,16 @@
     "founders": "Tim Sweeney"
   },
   {
+    "company": "Kalshi",
+    "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
+    "valuation_b": 22.0,
+    "valuation_str": "$22B",
+    "valuation_date": "May 2026",
+    "industry_raw": "Finance",
+    "country": "United States",
+    "founders": "Tarek Mansour and Luana Lopes Lara"
+  },
+  {
     "company": "Perplexity AI",
     "wikiLink": "https://en.wikipedia.org/wiki/Perplexity_AI",
     "valuation_b": 20.0,
@@ -350,6 +360,16 @@
     "founders": "Zach Perret, William Hockey"
   },
   {
+    "company": "Lovable",
+    "wikiLink": "https://en.wikipedia.org/wiki/Lovable_(company)",
+    "valuation_b": 13.3,
+    "valuation_str": "$13.3B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "Sweden",
+    "founders": "Anton Osika, Fabian Hedin"
+  },
+  {
     "company": "OpenSea",
     "wikiLink": "https://en.wikipedia.org/wiki/OpenSea",
     "valuation_b": 13.3,
@@ -400,8 +420,8 @@
     "founders": "Max Rhodes"
   },
   {
-    "company": "Labs",
-    "wikiLink": "https://en.wikipedia.org/wiki/Labs_(company)?action=edit&redlink=1",
+    "company": "Labs Companies",
+    "wikiLink": "https://en.wikipedia.org/wiki/Labs_Companies",
     "valuation_b": 12.5,
     "valuation_str": "$12.5B",
     "valuation_date": "April 2025",
@@ -478,26 +498,6 @@
     "industry_raw": "Financial technology",
     "country": "United States",
     "founders": "Hayes Barnard, Jason Walker, Matt Dawson"
-  },
-  {
-    "company": "Kalshi",
-    "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
-    "valuation_b": 22.0,
-    "valuation_str": "$22B",
-    "valuation_date": "May 2026",
-    "industry_raw": "Finance",
-    "country": "United States",
-    "founders": "Tarek Mansour and Luana Lopes Lara"
-  },
-  {
-    "company": "Lovable",
-    "wikiLink": "https://en.wikipedia.org/wiki/Lovable_(company)",
-    "valuation_b": 13.3,
-    "valuation_str": "$13.3B",
-    "valuation_date": "PixVerse",
-    "industry_raw": "Artificial intelligence",
-    "country": "Sweden",
-    "founders": "Anton Osika, Fabian Hedin"
   },
   {
     "company": "Checkout.com",
@@ -1318,6 +1318,16 @@
     "industry_raw": "Finance",
     "country": "France",
     "founders": "Steve Anavi, Alexandre Prot"
+  },
+  {
+    "company": "River AI",
+    "wikiLink": "",
+    "valuation_b": 5.0,
+    "valuation_str": "$5B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Igor Babuschkin"
   },
   {
     "company": "Ro",
@@ -2360,6 +2370,16 @@
     "founders": "Aaditya Sharda, Souvik Sengupta"
   },
   {
+    "company": "Instinct",
+    "wikiLink": "",
+    "valuation_b": 2.5,
+    "valuation_str": "$2.5B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Noah Shinn"
+  },
+  {
     "company": "DriveNets",
     "wikiLink": "https://en.wikipedia.org/wiki/DriveNets",
     "valuation_b": 2.5,
@@ -2458,16 +2478,6 @@
     "industry_raw": "E-commerce",
     "country": "United States",
     "founders": ""
-  },
-  {
-    "company": "Starcloud",
-    "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
-    "valuation_b": 2.3,
-    "valuation_str": "$2.3B",
-    "valuation_date": "March 2026",
-    "industry_raw": "Orbital Data Centers",
-    "country": "United States",
-    "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
   },
   {
     "company": "Headway",
@@ -2971,7 +2981,7 @@
   },
   {
     "company": "Akulaku",
-    "wikiLink": "https://en.wikipedia.org/wiki/Akulaku",
+    "wikiLink": "https://en.wikipedia.org/wiki/Akulaku?action=edit&redlink=1",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "February 2022",
@@ -4458,6 +4468,16 @@
     "industry_raw": "Cybersecurity",
     "country": "United States",
     "founders": ""
+  },
+  {
+    "company": "Starcloud",
+    "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
+    "valuation_b": 1.1,
+    "valuation_str": "$1.1B",
+    "valuation_date": "March 2026",
+    "industry_raw": "Orbital Data Centers",
+    "country": "United States",
+    "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
   },
   {
     "company": "Deputy",

@@ -1,14 +1,6 @@
 {
-  "generated_at": "2026-08-24T08:48:23+00:00",
+  "generated_at": "2026-08-31T15:54:32+00:00",
   "new_candidates": [
-    {
-      "company": "missile maker",
-      "valuation_m": 13000.0,
-      "headline": "Startup missile maker now valued at $13 billion",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBISF96ZDlxZk5yOHRIU1RscVdQWk5kN2VxRFk1aHNrYkVJSmNXZUtpUFhOSFhXeC1FU2xFaEdDd1NiUFNTOXMyNUo0Y1FQVUNEdlUxTjQ4blBrazhhazk3bmRBRVEyX2RJRXlGWlFn?oc=5",
-      "source": "Axios",
-      "date": "2026-08-20"
-    },
     {
       "company": "Ben Lamm’s Other AI Tech Startup",
       "valuation_m": 3800.0,
@@ -18,39 +10,53 @@
       "date": "2026-08-21"
     },
     {
-      "company": "Moove",
+      "company": "Generalist",
+      "valuation_m": 3000.0,
+      "headline": "Robotics startup Generalist reaches $3B valuation, sources say",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPYkd5SE9nM3B6NWtJNnRDY2ZuRjhsMk5LYWxpRGdCQTNEa1c5enhFWmxOSEJTeXpTZC1hTkYxdzFIeEZrZ0xlTWJodUJEWlJyTkMzX2tKcHBPWU8wbFlsRkNsaFQySWRUMlNnWFNtc0NJSGxGM0I4cDVncVBhTVZDMF9XckY1MWhFVnNlZ3E1LVNJQnVRLXlaaUEyYw?oc=5",
+      "source": "TechCrunch",
+      "date": "2026-08-26"
+    },
+    {
+      "company": "获得优步投资的Moove在完成新一轮融资后",
       "valuation_m": 2100.0,
-      "headline": "Moove raises $250 million at $2.1 billion valuation",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTC1rSjhTYTlCOEFLTDBfRHQyRS15OU01MFJTaTZ6cHlsWlgwenRCWXhwYjFleGhMUVZSUU9hOE5GS21XaHBDS3doUGR6WFJHd2hoWV9ZZ3hhdS1PcmM0d21MSnhVSG5aay1aVVNORW56YlRZcENUenVya0JBT1h1SC0yNWRMUWxVcXc?oc=5",
-      "source": "Portal ERP",
-      "date": "2026-08-20"
+      "headline": "获得优步投资的Moove在完成新一轮融资后估值达21亿美元",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE0zQV9WTWlBXzRWQXFXbUFBcTRRMGQtTnk1d3Rnc3UyV1lFcTBsbUNpbl9WMnVJSFdFN016YURZYlZWdUlsX1RRcnI3SkdRRGRKYW0xNHZObFJtODZmckwtVzJRY09DLVlVNGFPd05MOWdFZnhqWHRvdw?oc=5",
+      "source": "TradingView",
+      "date": "2026-08-05"
+    },
+    {
+      "company": "HubX",
+      "valuation_m": 1280.0,
+      "headline": "HubX raises $75M Series A at $1.28B valuation, joining unicorn ranks",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUmZabGVFSHlBaXh0MFdGUVNLNUhpdk9oNldYdzZ6S0FCZzdMMUVRZW9DX21DSzdrNHkxeVVCRVd2N2F2S05iMXlNY1M0QzNieVgxdWVvU1JadVZXMU5BMXZYZndhM1RGQzhhcGJoTlNfaTl1WG5MNkllVFJYeldCV1lNRDJmRThNUHJES3hRdHcxYUpIMjlxdGs3bDRaVW8w?oc=5",
+      "source": "Dealroom",
+      "date": "2026-08-28"
+    },
+    {
+      "company": "Fasset",
+      "valuation_m": 1000.0,
+      "headline": "Fasset Raises $68 Million Series C At $1 Billion Valuation As Volume Tops $40 Billion Annualized",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSGY3dEtmU3lQc2ZvenBaWjRoN3hoeTJEN2NNVlRSV1ZQcGNWM3BxLUhzajRFQU1FWmJNZnhEbmFtcGpJZGktVTJKZzlLaG54MDVhc0xhckI0Sk9WMlZnQkhqRlRTX055VEhYeTYyUGNDbkl3ZklnVjI5Q1hWRm1Vckc1N0lLbXRrRGxMd2xWbTRPdWs1SVBRRlo5cmRTRndGMkpHTjVleG5LYl9oTGV4ai1Nc9IBuAFBVV95cUxPaDlUSVFvSmVRQlpCYTBxVTJueU9QeDltb3MyeFJtVDluMWctVTFCUUllTzJJQ29LbTEtM1JfelBHZTRuOVhJWVJPS0ZOUkJZQ2JWRnZXV1Z6QmlLcGViQUJfWGMxb21WdjlNSjkwLXZhcnhkOGRiTWItM0VPXy1iLV9WVE1OcDQ0R3k1YXlBMkc2czdvN1Z6MnhGVlFWVElHRjkteXRlVU9seGNQOV8xb282TzdHN1dO?oc=5",
+      "source": "Pulse 2.0",
+      "date": "2026-08-25"
     },
     {
       "company": "Rillet",
       "valuation_m": 1000.0,
-      "headline": "Rillet Raises $100M Series C at $1B Valuation for AI-Native ERP",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9lRFNDRmFOUTJESGw4c0xKR3hyZS11VmlZdUVXNUljZVRxdzNlRGdpbmQ2V2RmblVRTndCazNaLUtqNXJMd3pJSjB1Ymd4UFpQU0tF?oc=5",
-      "source": "Wowtale",
+      "headline": "Rillet Raises $100 Million at $1B Valuation To Build Financing AI Agents",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMFJ0cWc0NS1OVUlMM2w3Qkx4enhmeXVGdWRmcWxxeHQyXzNRZTZ4aGUzTTFYSWpJWmpFQ282cGRYTWRleXhRal9BanZ2QWgtUGpDeExOa3lvRUh3M1dKQUF6eGFiSUIwc1pnc3lIT3dLd0dnTDd4ckktWU5JeUJFcktjU2NOQUJudnI3dHVhaWh5dlllOXc2czhVMNIBmwFBVV95cUxOMFJ0cWc0NS1OVUlMM2w3Qkx4enhmeXVGdWRmcWxxeHQyXzNRZTZ4aGUzTTFYSWpJWmpFQ282cGRYTWRleXhRal9BanZ2QWgtUGpDeExOa3lvRUh3M1dKQUF6eGFiSUIwc1pnc3lIT3dLd0dnTDd4ckktWU5JeUJFcktjU2NOQUJudnI3dHVhaWh5dlllOXc2czhVMA?oc=5",
+      "source": "Ventureburn",
       "date": "2026-08-20"
     },
     {
-      "company": "UAE's Fasset",
-      "valuation_m": 1000.0,
-      "headline": "UAE's Fasset raises $68M Series C at $1B valuation, led by Japan's SBI",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRnFlRU1Fb3RtX2RoaDBHUzRsQ3lLVW81bS1GRUxlVHNIblBkcTNTM2pNOWJnZ0tHV1hqWW9vRWpaeDJ6OVE0MnZiR0tZa2J4YUdfY3pYYnBLaWZXTXpRSnNReVRteTRFY0FHaXE0WXZKMzN2UDVaaVpQcGJNdGRsQjl4aUJ2a1FkQTZXMTBSTkYzWFRsUUdWb0hnMGl1MFdnaGRn?oc=5",
-      "source": "TNGlobal",
-      "date": "2026-08-24"
+      "company": "Wrtn",
+      "valuation_m": 870.0,
+      "headline": "韩国 AI 平台 Wrtn 完成 6900 万美元 C 轮融资，估值 8.7 亿美元",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1xVkFlM0ZUYmxlMmVSRnRiTFBRWGdoU0xQTExXelB1eVNVVEtPRElFa1RaaVFXcDRoSjc1bjhCXzItaFk0eXhST1hvS0FtYnpNcHpBQnpDZkQ?oc=5",
+      "source": "CryptoRank",
+      "date": "2026-08-26"
     }
   ],
-  "valuation_jumps": [
-    {
-      "company": "Groq",
-      "current_m": 20000.0,
-      "detected_m": 3500.0,
-      "headline": "Groq Valued at $3.5 Billion in Funding Round After Nvidia Deal",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNV1l5RGtDbmdGNmVpaW9DbGU1NkFqV2x0YXl6amZ0TE5nRXE1X0V5UVBBSmloZTlEbmNHUm4zeWFubTQ0cDZJWkhyUi12VHRvN1ljdWxIVHRsWWg3TGN4ZTVOTFgxSzMwS3BUVWFGSnJScVVZWDlBT29UZEhfN3FwUHRPeFJYemlGTGlCLUh6b1duV09BOXMxSm43WFJScmlmZ2hndm1FRTR4OWhab3gwZGtn?oc=5",
-      "source": "Bloomberg.com",
-      "date": "2026-08-17"
-    }
-  ]
+  "valuation_jumps": []
 }
