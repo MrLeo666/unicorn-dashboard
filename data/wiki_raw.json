@@ -70,16 +70,6 @@
     "founders": "Nikolay Storonsky, Vlad Yatsenko"
   },
   {
-    "company": "Shein",
-    "wikiLink": "https://en.wikipedia.org/wiki/Shein_(company)",
-    "valuation_b": 66.0,
-    "valuation_str": "$66B",
-    "valuation_date": "May 2023",
-    "industry_raw": "E-commerce",
-    "country": "China",
-    "founders": "Chris Xu"
-  },
-  {
     "company": "Anduril Industries",
     "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
     "valuation_b": 61.0,
@@ -2351,7 +2341,7 @@
   },
   {
     "company": "EasyA",
-    "wikiLink": "https://en.wikipedia.org/wiki/EasyA",
+    "wikiLink": "https://en.wikipedia.org/wiki/EasyA?action=edit&redlink=1",
     "valuation_b": 2.5,
     "valuation_str": "$2.5B",
     "valuation_date": "May 2024",
