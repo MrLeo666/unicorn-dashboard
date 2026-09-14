@@ -80,6 +80,16 @@
     "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
   },
   {
+    "company": "Cognition AI",
+    "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
+    "valuation_b": 48.0,
+    "valuation_str": "$48B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Scott Wu, Steven Hao, Walden Yan"
+  },
+  {
     "company": "Canva",
     "wikiLink": "https://en.wikipedia.org/wiki/Canva",
     "valuation_b": 42.0,
@@ -170,16 +180,6 @@
     "founders": "Alan Trager, Mitch Trager, Michael Rubin"
   },
   {
-    "company": "Cognition AI",
-    "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
-    "valuation_b": 26.0,
-    "valuation_str": "$26B",
-    "valuation_date": "May 2026",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Scott Wu, Steven Hao, Walden Yan"
-  },
-  {
     "company": "Epic Games",
     "wikiLink": "https://en.wikipedia.org/wiki/Epic_Games",
     "valuation_b": 22.5,
@@ -238,6 +238,16 @@
     "industry_raw": "Software",
     "country": "United States",
     "founders": "Andrey Khusid"
+  },
+  {
+    "company": "Harvey",
+    "wikiLink": "https://en.wikipedia.org/wiki/Harvey_(software)",
+    "valuation_b": 15.5,
+    "valuation_str": "$15.5B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Winston Weinberg, Gabriel Pereyra"
   },
   {
     "company": "Helion Energy",
@@ -528,16 +538,6 @@
     "industry_raw": "AI Audio technologies",
     "country": "Poland",
     "founders": "Mati Staniszewski, Piotr Dabkowski"
-  },
-  {
-    "company": "Harvey",
-    "wikiLink": "https://en.wikipedia.org/wiki/Harvey_(software)",
-    "valuation_b": 11.0,
-    "valuation_str": "$11B",
-    "valuation_date": "March 2026",
-    "industry_raw": "Artificial intelligence",
-    "country": "United States",
-    "founders": "Winston Weinberg, Gabriel Pereyra"
   },
   {
     "company": "ZongMu Technology",
@@ -1330,14 +1330,14 @@
     "founders": ""
   },
   {
-    "company": "GetBlock",
-    "wikiLink": "https://en.wikipedia.org/wiki/GetBlock?action=edit&redlink=1",
-    "valuation_b": 4.6,
-    "valuation_str": "$4.6B",
-    "valuation_date": "June 2020",
-    "industry_raw": "Blockchain",
-    "country": "Georgia",
-    "founders": "Steven Lloyd"
+    "company": "Wonderful",
+    "wikiLink": "",
+    "valuation_b": 5.0,
+    "valuation_str": "$5B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "Israel/ Netherlands",
+    "founders": "Bar Winkler, Roey Lalazar"
   },
   {
     "company": "Zepz",
@@ -1398,6 +1398,16 @@
     "industry_raw": "Artificial intelligence",
     "country": "France /  United States",
     "founders": ""
+  },
+  {
+    "company": "GetBlock",
+    "wikiLink": "https://en.wikipedia.org/wiki/GetBlock?action=edit&redlink=1",
+    "valuation_b": 4.6,
+    "valuation_str": "$4.6B",
+    "valuation_date": "June 2020",
+    "industry_raw": "Blockchain",
+    "country": "Georgia",
+    "founders": "Steven Lloyd"
   },
   {
     "company": "Sorare",

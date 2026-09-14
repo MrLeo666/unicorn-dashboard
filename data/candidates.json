@@ -1,13 +1,21 @@
 {
-  "generated_at": "2026-09-07T14:02:29+00:00",
+  "generated_at": "2026-09-14T14:47:50+00:00",
   "new_candidates": [
     {
       "company": "Crusoe",
       "valuation_m": 30000.0,
       "headline": "AI startup Crusoe valued at $30 billion after new funding, Bloomberg News reports",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNSmhKcV9fbVphNkhVcnhiMHVkTGJoRzhKd1BROE5UR1JTNDVTVkltdFJiNUJIOGI1YnF3cTV3bjRISV9BVV92TDE0eWN4NTdNT0tMV2xFaFZGTGJDazdfdWFtenNaU0lreVB1WDlaclh1SW04cDNiNW9IdFdrSlFuVFRGczdJbW5RcUtjNTVQMFhmZkM0cmNyeU15VzBDWnItOG9say1ubklwNXZZY3ZweWRDS1k3cUFrRDFkNnNCVFVOWV9FOVF6Z29YOUVTSFNIQ1BFTDJzTmVqZ0dHbFM3OEtpSQ?oc=5",
-      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOanJfNWE3V3k4Q2kzR3BBZmF0aGtpNDRZUldsbXZURmJCbDBGSmdqSGdwbG41Y3QyZkg1QkZfeG9tSmJtZVVLQlNNNUZnQjFwYm9PbUxQXzNYejBMODlQeVloZTVjTU95OTNTQWRDd1lrd3p2UHZiaUItOFVOcXNOMlloV0F1ZW1hSFFPQ2l4MFpwLWZaRDZwSWpZMzMxbEljc3owN3BndVJuQnIwTjJWS0l3aV9QMVh5MHZsRGpBT1I1UQ?oc=5",
+      "source": "Reuters",
       "date": "2026-09-03"
+    },
+    {
+      "company": "Exclusive | Positron",
+      "valuation_m": 5000.0,
+      "headline": "Exclusive | Positron Valued at $5 Billion in New Funding as Demand for AI Chips Surges",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZWpZd1RtLU1tcFpSOUoxYVYtd0gzeTZfanNNaVg1UWxoZ2lfSTFZV2MzdldoTDQyR0lCTGFUd1ZsTG8xcVRlZ1NZWHBPWWphNHdpTTVjSFAtREJnQzhZc0VaS3Vha3U0bVBPQXZqdmhRRlV0Rm9DWnE2MnFTTS1sTWlwajZ1VHFDanNianRkRnpkaG5WZ3ZfT01NdkkzaHlSbUw0?oc=5",
+      "source": "WSJ",
+      "date": "2026-09-10"
     },
     {
       "company": "Ben Lamm’s Other AI Tech Startup",
@@ -18,19 +26,11 @@
       "date": "2026-08-21"
     },
     {
-      "company": "Cambridge Aerospace",
-      "valuation_m": 3400.0,
-      "headline": "Cambridge Aerospace Raises $300M At $3.4B Valuation",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5DNW1wc19NZDJhYVZURkpfT0xuMEM2OWpyUGdfai0tR1NzM2VCMjYwZ3ZJazc2YW5FRUNHTHA4aXFVc1dfYmtSbmVjV1FMTU9xWm9nYUQ3N2pkczBCSHpSQ0xHVXVtcmllVkRSNXpncHZiOVnSAXNBVV95cUxOQzVtcHNfTWQyYWFWVEZKX09MbjBDNjlqclBnX2otLUdTczNlQjI2MGd2SWs3NmFuRUVDR0xwOGlxVXNXX2JrUm5lY1dRTE1PcVpvZ2FENzdqZHMwQkh6UkNMR1V1bXJpZVZEUjV6Z3B2YjlZ?oc=5",
-      "source": "Ventureburn",
-      "date": "2026-08-10"
-    },
-    {
       "company": "Gimlet Is",
       "valuation_m": 3000.0,
       "headline": "Andreessen-Backed AI Startup Gimlet Is Now Valued at $3 Billion",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSDlySGRQNGpxajlQbEZzVlhtZ05EZTFpaFliR0lKeE1RNlBNUzFyem9yZGtXNk9HbEFROS1YWVBIMlo5SGtjX0UxMjFJNk90WUlrR05WdGc1M083U2xLNlUwSUQzODBPSjVYUm5GU3paMndReWQxMEVxckVfTEJmcUVVMVI2ZWVsWVByVEpObjZVVjNKX2FPMWNLWkI1eHZVQTJ0a0VhM1J4ZUNOVkpjREMwVDdIT3ZzVjNKc0FCUQ?oc=5",
-      "source": "Bloomberg.com",
+      "source": "bloomberg.com",
       "date": "2026-09-04"
     },
     {
@@ -42,20 +42,20 @@
       "date": "2026-08-25"
     },
     {
-      "company": "Lyte",
-      "valuation_m": 1600.0,
-      "headline": "Lyte raises $165 million at $1.6 billion valuation as investors pile into physical AI",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBGVjRhZi1ZcFhBVFA5aXhnbWFIOGpTUDRrRVdONVBjZGF1SEZlZE5ab1hJOGM5WEJOajlXZUt4QnAtZ1NuZnIzVHNnMk5LcGlYR1luUW1xbnRMU2xzWkZTR0ZNZklsVHM?oc=5",
-      "source": "calcalistech.com",
-      "date": "2026-09-02"
+      "company": "Exclusive: Sequen",
+      "valuation_m": 1400.0,
+      "headline": "Exclusive: Sequen raises $90 million at $1.4 billion valuation",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQZkFyZlhWNi1xLUtXQWtMSV9LZFJqN2NROE9FLWh4QmZCZVdlb1YwbUVMS1dDUV9OdldCdWwtRzdfZEx0UFZIU2VJVzE3aTBOSzZfUVpweHlIYmFDZnVEYlE3R2I5QWYycWpMNU5tRlZqMk1QbzViMDdRN1dGOHMtb2R6c0dqVW9TN3VwTXVBdWg4SUNjUU1KSA?oc=5",
+      "source": "Axios",
+      "date": "2026-09-10"
     },
     {
-      "company": "Fasset",
-      "valuation_m": 1000.0,
-      "headline": "Fasset Raises $68 Million Series C At $1 Billion Valuation As Volume Tops $40 Billion Annualized",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSGY3dEtmU3lQc2ZvenBaWjRoN3hoeTJEN2NNVlRSV1ZQcGNWM3BxLUhzajRFQU1FWmJNZnhEbmFtcGpJZGktVTJKZzlLaG54MDVhc0xhckI0Sk9WMlZnQkhqRlRTX055VEhYeTYyUGNDbkl3ZklnVjI5Q1hWRm1Vckc1N0lLbXRrRGxMd2xWbTRPdWs1SVBRRlo5cmRTRndGMkpHTjVleG5LYl9oTGV4ai1Nc9IBuAFBVV95cUxPaDlUSVFvSmVRQlpCYTBxVTJueU9QeDltb3MyeFJtVDluMWctVTFCUUllTzJJQ29LbTEtM1JfelBHZTRuOVhJWVJPS0ZOUkJZQ2JWRnZXV1Z6QmlLcGViQUJfWGMxb21WdjlNSjkwLXZhcnhkOGRiTWItM0VPXy1iLV9WVE1OcDQ0R3k1YXlBMkc2czdvN1Z6MnhGVlFWVElHRjkteXRlVU9seGNQOV8xb282TzdHN1dO?oc=5",
-      "source": "Pulse 2.0",
-      "date": "2026-08-25"
+      "company": "HubX",
+      "valuation_m": 1280.0,
+      "headline": "HubX raises $75M Series A at $1.28B valuation, joining unicorn ranks",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUmZabGVFSHlBaXh0MFdGUVNLNUhpdk9oNldYdzZ6S0FCZzdMMUVRZW9DX21DSzdrNHkxeVVCRVd2N2F2S05iMXlNY1M0QzNieVgxdWVvU1JadVZXMU5BMXZYZndhM1RGQzhhcGJoTlNfaTl1WG5MNkllVFJYeldCV1lNRDJmRThNUHJES3hRdHcxYUpIMjlxdGs3bDRaVW8w?oc=5",
+      "source": "Dealroom",
+      "date": "2026-08-28"
     },
     {
       "company": "Rillet",
@@ -64,15 +64,26 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9lRFNDRmFOUTJESGw4c0xKR3hyZS11VmlZdUVXNUljZVRxdzNlRGdpbmQ2V2RmblVRTndCazNaLUtqNXJMd3pJSjB1Ymd4UFpQU0tF?oc=5",
       "source": "Wowtale",
       "date": "2026-08-21"
-    },
-    {
-      "company": "Wrtn",
-      "valuation_m": 870.0,
-      "headline": "韩国 AI 平台 Wrtn 完成 6900 万美元 C 轮融资，估值 8.7 亿美元",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1xVkFlM0ZUYmxlMmVSRnRiTFBRWGdoU0xQTExXelB1eVNVVEtPRElFa1RaaVFXcDRoSjc1bjhCXzItaFk0eXhST1hvS0FtYnpNcHpBQnpDZkQ?oc=5",
-      "source": "CryptoRank",
-      "date": "2026-08-26"
     }
   ],
-  "valuation_jumps": []
+  "valuation_jumps": [
+    {
+      "company": "Cognition AI",
+      "current_m": 26000.0,
+      "detected_m": 48000.0,
+      "headline": "Cognition AI raises $2 billion at $48 billion valuation",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc3hsV1U1MTdYTkgwaHJhanppVTU1cUZVLW94amhlM3liQjE1SUVFdnJtRFlvcExWRkI5RURMMllzd1djSlhUT09VTGotRHhFZm1NTmdDTXpEYmdNaVhITU1STXdTSVE3NlhQVVAySTE1WUVhXzZSZzdSUl9DRVlmVWVpaEl0cXR5ZzBjYUZlaDRzbkVfSFllNVJEOWlHQQ?oc=5",
+      "source": "Reuters",
+      "date": "2026-09-08"
+    },
+    {
+      "company": "Harvey",
+      "current_m": 11000.0,
+      "detected_m": 15500.0,
+      "headline": "Harvey Raises $550M at a $15.5B Valuation to Help Legal Teams Own Their Intelligence",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNMzhxRXRqZFpTQnE1TkthcDNTdEl4RnFESFR0LTlvdTlDTGF4WTBPb2Y0dTNKNXFLU0dDNC1LM3N0RUZJOXJIUjR5cTdfVU1ZT3Qwa0d3ZGMtRWhGYnBfeWtYYzdIMkNUU01PWXhuZGswQWFmVWZiSkQ2WUtfcVdlNTFBUko2UnNpRTluU3hvOEM4M1JVMTBZVVUzX0pkT3EwS2JQTEFCcGpjY1RWRDNfbkhoOG9vbVlsZ1lCYw?oc=5",
+      "source": "Harvey",
+      "date": "2026-09-09"
+    }
+  ]
 }
