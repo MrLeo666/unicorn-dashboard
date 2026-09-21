@@ -2390,8 +2390,8 @@
     "founders": "Ido Susan, Hillel Kobrinsky"
   },
   {
-    "company": "Mews",
-    "wikiLink": "https://en.wikipedia.org/wiki/Mews",
+    "company": "Mews (company)",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mews_(company)",
     "valuation_b": 2.5,
     "valuation_str": "$2.5B",
     "valuation_date": "January 2026",
@@ -2811,7 +2811,7 @@
   },
   {
     "company": "Exotec",
-    "wikiLink": "https://en.wikipedia.org/wiki/Exotec?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/Exotec",
     "valuation_b": 2.0,
     "valuation_str": "$2B",
     "valuation_date": "August 2022",
@@ -4421,7 +4421,7 @@
   },
   {
     "company": "Rohlik",
-    "wikiLink": "https://en.wikipedia.org/wiki/Rohlik?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/Rohlik_Group",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "June 2021",
@@ -5858,6 +5858,16 @@
     "industry_raw": "Software",
     "country": "China",
     "founders": ""
+  },
+  {
+    "company": "Thatch",
+    "wikiLink": "",
+    "valuation_b": 1.0,
+    "valuation_str": "$1B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Individual health benefits",
+    "country": "United States",
+    "founders": "Adam Stevenson, Chris Ellis"
   },
   {
     "company": "Tongdun Technology",
