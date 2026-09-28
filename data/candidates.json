@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T14:54:31+00:00",
+  "generated_at": "2026-09-28T16:31:13+00:00",
   "new_candidates": [
     {
       "company": "Crusoe",
@@ -10,12 +10,36 @@
       "date": "2026-09-03"
     },
     {
+      "company": "The 'ChatGPT for doctors",
+      "valuation_m": 15000.0,
+      "headline": "The 'ChatGPT for doctors,' OpenEvidence, was valued at $15 billion in a new funding round",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRGk2VXozdjVVcnRxOXRTNEMyVTBGd3ZOR3lyZlhMcDllS21USl83c2sxUEZRZF8wT0djVldZMHpoVlF5WDZrQnVYYU1RaEFiVmJvclVOdC00U1lqUmtzVXYzeFZ4SW9yci1HVUVWTTU0RFB0d3pXeTlIOXd6a0lLYjdTVmhwT1c5cThxTU84bVNkWlE0aUE?oc=5",
+      "source": "Business Insider",
+      "date": "2026-09-24"
+    },
+    {
       "company": "Saudi's new unicorn",
       "valuation_m": 6500.0,
       "headline": "Saudi's new unicorn, Tabby hits $6.5B valuation",
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE53cEJmYWJGdDJnZ3lqZTRyNE16RVB2dC1tSy05TW5lUFlEOXFUQ3JYdVp2aDVmNi0waTFyN20zM1dmMDJyNVNBTmFzOFlCblZQUjdjNXpDNFpkck9JTk5aeTN1bFdNUDlqRjIzXzRZZ19qZWVHN2tFdXU2MA?oc=5",
-      "source": "fwdstart.me",
+      "source": "FWDStart",
       "date": "2026-09-18"
+    },
+    {
+      "company": "Island",
+      "valuation_m": 6400.0,
+      "headline": "Cybersecurity startup Island valued at $6.4 billion amid AI agent security risks",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPd1puRmlKdUNRcnUzb2hocUxkZmdland2NVEzY0V3T0g3akFuM2M0dzF4T3dxWEZVYlBMN1NxSTQ4cUR3VndWRV94eThxV3dzRjhzNzNIdnpKeUZJQ2JmZjBFSXZuU0E0LVh6cVp3dGc4RE9RVF9JWXVhbXZTQXJWREtrVkIzbzh2akFkUVJwNE8wcVlWLXd4UzFqWmM2c0p0bkk4dDZR?oc=5",
+      "source": "Reuters",
+      "date": "2026-09-24"
+    },
+    {
+      "company": "US-Israeli browser startup",
+      "valuation_m": 6400.0,
+      "headline": "US-Israeli browser startup valued at $6.4 billion as AI agents reshape workplace risk",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPM2MtNHpSM3N6eENEWjhfN0tXVDJwYXhOMVREb2lTRkpIYUFsaXdacHpoSjBwTXNaQkJqdGVrTzVRV1JKUmNqS3ZOSHVUVXBHeTdOZjU3cWFBSHFKdmw2LVRySlZPYnR2WkE5aThFV3dNbERFY3RPelpIOVJUT3JxT3JPR004YmtleGEwX29kQUgtUXJEWm56bC1oQkMtUUhNcUZZQTBGdFlubHFMbGlLNExIOUFzUdIBuwFBVV95cUxPdHdlRDlyTUtPVjFFTUtrVXByTFREVXVpWXhVZkJiR1BXRk5NQ3N4TzhfOHhXWjlBemFGQ1E1N3JZbU52OFpkRUplSUt5XzYtTXhYMHp1MGtOMXo2OU0wSWRHZ2ZqX0F2OV9zdmNrWnZYY1hyQllLdDd3cUVxZ3ZhRUtlNzVIWk9rS251cER1V0QwNU9EZGwwUVhHSmt3TDBUUGUyalM0Mnd2dk1oV2RNVHdkV1l1Z0Jvb3h3?oc=5",
+      "source": "The Times of Israel",
+      "date": "2026-09-24"
     },
     {
       "company": "Exclusive | Positron",
@@ -23,7 +47,7 @@
       "headline": "Exclusive | Positron Valued at $5 Billion in New Funding as Demand for AI Chips Surges",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZWpZd1RtLU1tcFpSOUoxYVYtd0gzeTZfanNNaVg1UWxoZ2lfSTFZV2MzdldoTDQyR0lCTGFUd1ZsTG8xcVRlZ1NZWHBPWWphNHdpTTVjSFAtREJnQzhZc0VaS3Vha3U0bVBPQXZqdmhRRlV0Rm9DWnE2MnFTTS1sTWlwajZ1VHFDanNianRkRnpkaG5WZ3ZfT01NdkkzaHlSbUw0?oc=5",
       "source": "WSJ",
-      "date": "2026-09-11"
+      "date": "2026-09-10"
     },
     {
       "company": "Upwind Security 完成 3 亿美元融资",
@@ -31,7 +55,15 @@
       "headline": "Upwind Security 完成 3 亿美元融资，估值达到 38 亿美元",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WanRTU0R0cXU0dDlIR051Z052OXpiZW1KV085NkFfTTliQ2pmTXotN1ZuQlo2a3NseWdkbFgzRHgxeGpZVmFTUGwzQ29lV0pRTjRHZm9idDI?oc=5",
       "source": "CryptoRank",
-      "date": "2026-09-18"
+      "date": "2026-09-02"
+    },
+    {
+      "company": "EXCLUSIVE: Snorkel AI",
+      "valuation_m": 3500.0,
+      "headline": "EXCLUSIVE: Snorkel AI valued at $3.5 billion amid surging demand for complex AI training data",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQnpTdVJoYlBubmcxZzZDSGlkaHAwemtyWEVFaWZ4TGtQVkFhNVZ2VlViVGRXQkFTYUhQVlREVmxxcGhTYmNxMW5YbFd2TUt4Y0NVTkgtWWZjcnhYNmJQREhYTkk4elNZX0Q3STRGNG51eV81NGNaZXV1ZnR1MTBmeXhoOUt2Y3lmNEgzMFd2a184Mk5NdVo4UUVFbGlzSGhvOEJuR1ZCZ09pMFVGZk9MYnZTUWRJaEFlQ2VtVzd2bDlsQUVHbHBtSA?oc=5",
+      "source": "Reuters",
+      "date": "2026-09-22"
     },
     {
       "company": "Gimlet Is",
@@ -42,22 +74,6 @@
       "date": "2026-09-04"
     },
     {
-      "company": "Generalist",
-      "valuation_m": 3000.0,
-      "headline": "Robotics startup Generalist reaches $3B valuation, sources say",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPYkd5SE9nM3B6NWtJNnRDY2ZuRjhsMk5LYWxpRGdCQTNEa1c5enhFWmxOSEJTeXpTZC1hTkYxdzFIeEZrZ0xlTWJodUJEWlJyTkMzX2tKcHBPWU8wbFlsRkNsaFQySWRUMlNnWFNtc0NJSGxGM0I4cDVncVBhTVZDMF9XckY1MWhFVnNlZ3E1LVNJQnVRLXlaaUEyYw?oc=5",
-      "source": "TechCrunch",
-      "date": "2026-08-25"
-    },
-    {
-      "company": "Forus",
-      "valuation_m": 3000.0,
-      "headline": "AI healthcare platform Forus valued at $3 billion in latest funding round",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWVBNejEwMWhscHN1QXlpNkZTZm1LV1NnQkVUZ0h2ei15TzB6dmlOR0ZZOUFfUFA4ODdPN0YyLWtOVFJiQ3RMcXh4V3BRMFFWYzVLM2hfWDgxT254M3BIb1BNcXFTUm5fOENpUFUwS2ZlSHpjQWQ2OXpsd0FCYTVqZ1JodnBmY1o5MHV1TnJ1WWFsTnFHQ3hQZjExVm1PMi1jY2g2cHVTYmcxRXM5S1ZqbE9PTUM4M1VSMHVqY1ZTWQ?oc=5",
-      "source": "Reuters",
-      "date": "2026-09-08"
-    },
-    {
       "company": "Exclusive: Sequen",
       "valuation_m": 1400.0,
       "headline": "Exclusive: Sequen raises $90 million at $1.4 billion valuation",
@@ -66,55 +82,58 @@
       "date": "2026-09-10"
     },
     {
-      "company": "A Tsinghua Professor’s Stealth LLM Startup",
-      "valuation_m": 1400.0,
-      "headline": "A Tsinghua Professor’s Stealth LLM Startup Hits $1.4 Billion Valuation",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOFk5eWJnMkFoUi1EWGtkUXpRcDdULW5OSEtwYkJsVVBkUHE5TWl6ZFBpbDlfak1EQlJYYm40UWZocGF6LWNxUm9EOVZBZFZWWmtYMFM2MkxxTDZaTU5oLW1JeWo3NEpxZHg1NGdINEFNSWJ4cGtiUDZTS2I5dnhYc3cyZkN1UHZxWXMzRGFUM0l1U1NSWURXc0dYQ0luRmxBN1dGUjE1akE5Zw?oc=5",
-      "source": "The Information",
-      "date": "2026-09-18"
+      "company": "Heidi raises $475 million",
+      "valuation_m": 1260.0,
+      "headline": "Heidi raises $475 million, hits $1.26 billion valuation in blockbuster funding round",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNV3hiUjBneTItaWlvdzRiVUY0cWtydk5DNjN4Q0cxUlRxTFdDellYaVVrejJjXzZvRVJvc0hWWEVYR0ZrS2dXMTdBU053UU5KMnpRUzVMVkdwYXRxLTBMWFVaX0ZTR1c1b1FlM1diM3F0X0xtcjFaWXNNMWF6U28yU015eGl6X3RmWFhRNEpXb3g0U0RKc1ZMSUw2cXFBR252V0ZyR01WSkZIamxjRWdaSmJxaXVPOEdJREZaMDVRQTZmZw?oc=5",
+      "source": "SmartCompany",
+      "date": "2026-09-22"
     },
     {
-      "company": "HubX",
-      "valuation_m": 1280.0,
-      "headline": "HubX raises $75M Series A at $1.28B valuation, joining unicorn ranks",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUmZabGVFSHlBaXh0MFdGUVNLNUhpdk9oNldYdzZ6S0FCZzdMMUVRZW9DX21DSzdrNHkxeVVCRVd2N2F2S05iMXlNY1M0QzNieVgxdWVvU1JadVZXMU5BMXZYZndhM1RGQzhhcGJoTlNfaTl1WG5MNkllVFJYeldCV1lNRDJmRThNUHJES3hRdHcxYUpIMjlxdGs3bDRaVW8w?oc=5",
-      "source": "Dealroom",
-      "date": "2026-08-28"
+      "company": "Heidi",
+      "valuation_m": 1200.0,
+      "headline": "Heidi hits $1.2 billion valuation with $480 million in fresh funding",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOY2ZEVzhYMXA3WThfc19RbDMwSml2Z2lvZzNHRUh5QnFhZ1ZOSWdGN3d0b05EQzVKdXNRcTMzSm5udm1jdnhLLUh2QmhXY2RJaUJRUnFsZGZfS1FXdkNuOVhnQmtscmlWa1RmeE1hUHFiV1JyMFI1MFVxalMwcmFWNDVtZFQ5S0RNYzNlWVp1dHpFN3ZLckFoTmxRT25NM3FIM0RBMEh1Q2dfaUs2RHd1UnhR?oc=5",
+      "source": "Forbes Australia",
+      "date": "2026-09-22"
     },
     {
       "company": "Exclusive: Manufacturing AI startup CADDi",
       "valuation_m": 1200.0,
       "headline": "Exclusive: Manufacturing AI startup CADDi valued at $1.2 billion following $114 million Series D funding round",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5",
-      "source": "Fortune",
-      "date": "2026-09-15"
-    },
-    {
-      "company": "alert: Thatch",
-      "valuation_m": 1000.0,
-      "headline": "Unicorn alert: Thatch raises $108M from General Catalyst and Index Ventures at $1B valuation",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPZ00zMEMtYy0wRTFuLUxwMjJrOWdpdXFSeWJuWENKZUVQdFRKRWxMMF82N0J5Ni0yeUI2ams1UHk3Vnc2eHpvekxUZXJLZkNYT0w5ZTQ0Z0oyQzV6c3Ztb01YMGgtQldqT24yb1dqSWNXckJocVk5ZUNxNlpWSmJDa0g2anEwQnd3OHJNXzVVWVp1MEVHVENibVViRGFDd2JQY2tHaHFORTlmOFBmMWJoVVFCUGxueE00clE?oc=5",
-      "source": "techfundingnews.com",
-      "date": "2026-09-16"
-    },
-    {
-      "company": "Fasset",
-      "valuation_m": 1000.0,
-      "headline": "Fasset Raises $68 Million Series C At $1 Billion Valuation As Volume Tops $40 Billion Annualized",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSGY3dEtmU3lQc2ZvenBaWjRoN3hoeTJEN2NNVlRSV1ZQcGNWM3BxLUhzajRFQU1FWmJNZnhEbmFtcGpJZGktVTJKZzlLaG54MDVhc0xhckI0Sk9WMlZnQkhqRlRTX055VEhYeTYyUGNDbkl3ZklnVjI5Q1hWRm1Vckc1N0lLbXRrRGxMd2xWbTRPdWs1SVBRRlo5cmRTRndGMkpHTjVleG5LYl9oTGV4ai1Nc9IBuAFBVV95cUxPaDlUSVFvSmVRQlpCYTBxVTJueU9QeDltb3MyeFJtVDluMWctVTFCUUllTzJJQ29LbTEtM1JfelBHZTRuOVhJWVJPS0ZOUkJZQ2JWRnZXV1Z6QmlLcGViQUJfWGMxb21WdjlNSjkwLXZhcnhkOGRiTWItM0VPXy1iLV9WVE1OcDQ0R3k1YXlBMkc2czdvN1Z6MnhGVlFWVElHRjkteXRlVU9seGNQOV8xb282TzdHN1dO?oc=5",
-      "source": "pulse2.com",
-      "date": "2026-08-25"
-    },
-    {
-      "company": "Thatch",
-      "valuation_m": 1000.0,
-      "headline": "Thatch Raises $108M at $1B Valuation as Employers Shift Away From Traditional Health Plans",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZUQ5UEZvSWY0eWxqeXh4RXdFMzFNbjFGb25oaWVVZHViVUZoVjR2S1JSakd3Q1pFVmdkMTRLRDFhbFlqeU9HLVNDTERKWjd2TG82ZnktRlNCNUItRkEySXBfeGpMOG5WLV9zc3g3N1Fvak1pUjhydEk0RWZOMDVRWnh5aTFvWEU?oc=5",
-      "source": "Yahoo Finance Singapore",
+      "source": "fortune.com",
       "date": "2026-09-15"
     }
   ],
   "valuation_jumps": [
+    {
+      "company": "Thinking Machines Lab",
+      "current_m": 12000.0,
+      "detected_m": 40000.0,
+      "headline": "Thinking Machines Lab Seeks $40B Valuation as Nvidia Extends Its Capital Allocator Role Into Model-Space",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUkdWaHp4cjRwVno1T05zaGxXNkN5ZGlmVzl5aGZSemNiTTdyajRqY3gtbVJhV01jbGRkaGx0YVRkWU5xanFwRC1mZlkxdTFOaExsTVhtLWNlQTJFdFBBYUx2c3ItZlVwVlRmMHdRMDZROGtJcjlqWmZZV0ZvVHdpSDE5QVk5Ulk5VHNmdVJUT2IxRmc0QmdVZjdIQQ?oc=5",
+      "source": "Yahoo Finance",
+      "date": "2026-09-04"
+    },
+    {
+      "company": "Cognition AI",
+      "current_m": 26000.0,
+      "detected_m": 48000.0,
+      "headline": "Cognition AI raises $2 billion at $48 billion valuation",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc3hsV1U1MTdYTkgwaHJhanppVTU1cUZVLW94amhlM3liQjE1SUVFdnJtRFlvcExWRkI5RURMMllzd1djSlhUT09VTGotRHhFZm1NTmdDTXpEYmdNaVhITU1STXdTSVE3NlhQVVAySTE1WUVhXzZSZzdSUl9DRVlmVWVpaEl0cXR5ZzBjYUZlaDRzbkVfSFllNVJEOWlHQQ?oc=5",
+      "source": "Reuters",
+      "date": "2026-09-08"
+    },
+    {
+      "company": "Mistral AI",
+      "current_m": 14000.0,
+      "detected_m": 24000.0,
+      "headline": "French AI company Mistral hits $24 billion valuation in funding round",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSzZndFBZYk1SQ19xOVJYSXR1ZHdKa2p2a0RSYTVfeWVicHRLZ2JOdG5zc3hibHhJYWh1V3pIVEhDaV9Wc2xQV2RlYkNkTEZJSDV2V1V6aGloYXVPcFNtMHlCU1ZsTnR5UEZTNTI5WTExa1A4Vy0xZjN4ZFE3TVUzN2tUWFNnc3V2aXNBRldFWXlGYnFwcGtGVkFtRE9HTDktVUhJR09HVUwtdHZmNHdjWGZCTkw?oc=5",
+      "source": "Reuters",
+      "date": "2026-09-07"
+    },
     {
       "company": "Quantinuum",
       "current_m": 10800.0,

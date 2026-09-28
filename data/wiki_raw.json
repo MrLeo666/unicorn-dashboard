@@ -200,6 +200,16 @@
     "founders": "Tarek Mansour and Luana Lopes Lara"
   },
   {
+    "company": "Etched",
+    "wikiLink": "https://en.wikipedia.org/wiki/Etched_(company)?action=edit&redlink=1",
+    "valuation_b": 21.0,
+    "valuation_str": "$21B",
+    "valuation_date": "August 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Gavin Uberti, Chris Zhu, Robert Wachen"
+  },
+  {
     "company": "Perplexity AI",
     "wikiLink": "https://en.wikipedia.org/wiki/Perplexity_AI",
     "valuation_b": 20.0,
@@ -228,16 +238,6 @@
     "industry_raw": "Artificial intelligence",
     "country": "United States",
     "founders": "Jonathan Ross"
-  },
-  {
-    "company": "Miro",
-    "wikiLink": "https://en.wikipedia.org/wiki/Miro_(collaboration_platform)",
-    "valuation_b": 17.5,
-    "valuation_str": "$17.5B",
-    "valuation_date": "January 2022",
-    "industry_raw": "Software",
-    "country": "United States",
-    "founders": "Andrey Khusid"
   },
   {
     "company": "Harvey",
@@ -560,16 +560,6 @@
     "founders": "Ankur Jain"
   },
   {
-    "company": "Etched",
-    "wikiLink": "https://en.wikipedia.org/wiki/Etched_(company)?action=edit&redlink=1",
-    "valuation_b": 10.3,
-    "valuation_str": "$10.3B",
-    "valuation_date": "July 2026",
-    "industry_raw": "Artificial intelligence",
-    "country": "United States",
-    "founders": "Gavin Uberti, Chris Zhu, Robert Wachen"
-  },
-  {
     "company": "Colossal Biosciences",
     "wikiLink": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
     "valuation_b": 10.2,
@@ -620,16 +610,6 @@
     "founders": "Barry Silbert"
   },
   {
-    "company": "Mercor",
-    "wikiLink": "https://en.wikipedia.org/wiki/Mercor",
-    "valuation_b": 10.0,
-    "valuation_str": "$10B",
-    "valuation_date": "October 2025",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Brendan Foody, Adarsh Hiremath, Surya Midha"
-  },
-  {
     "company": "Gusto",
     "wikiLink": "https://en.wikipedia.org/wiki/Gusto_(software)",
     "valuation_b": 10.0,
@@ -638,6 +618,16 @@
     "industry_raw": "Software",
     "country": "United States",
     "founders": "Joshua Reeves, Edward Kim, Tomer London"
+  },
+  {
+    "company": "Instinct",
+    "wikiLink": "",
+    "valuation_b": 10.0,
+    "valuation_str": "$10B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Noah Shinn"
   },
   {
     "company": "KuCoin",
@@ -658,6 +648,16 @@
     "industry_raw": "Supply chain management",
     "country": "Hong Kong /  China",
     "founders": "Chow Shing-Yuk"
+  },
+  {
+    "company": "Mercor",
+    "wikiLink": "https://en.wikipedia.org/wiki/Mercor",
+    "valuation_b": 10.0,
+    "valuation_str": "$10B",
+    "valuation_date": "October 2025",
+    "industry_raw": "Artificial Intelligence",
+    "country": "United States",
+    "founders": "Brendan Foody, Adarsh Hiremath, Surya Midha"
   },
   {
     "company": "Notion Labs",
@@ -1138,6 +1138,16 @@
     "industry_raw": "Data infrastructure",
     "country": "United States",
     "founders": ""
+  },
+  {
+    "company": "Legora",
+    "wikiLink": "https://en.wikipedia.org/wiki/Legora",
+    "valuation_b": 5.6,
+    "valuation_str": "$5.6B",
+    "valuation_date": "April 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "Sweden",
+    "founders": "Max Junestrand, Sigge Labor, August Erséus"
   },
   {
     "company": "Postman",
@@ -2370,16 +2380,6 @@
     "founders": "Aaditya Sharda, Souvik Sengupta"
   },
   {
-    "company": "Instinct",
-    "wikiLink": "",
-    "valuation_b": 2.5,
-    "valuation_str": "$2.5B",
-    "valuation_date": "August 2026",
-    "industry_raw": "Artificial Intelligence",
-    "country": "United States",
-    "founders": "Noah Shinn"
-  },
-  {
     "company": "DriveNets",
     "wikiLink": "https://en.wikipedia.org/wiki/DriveNets",
     "valuation_b": 2.5,
@@ -3221,7 +3221,7 @@
   },
   {
     "company": "Productboard",
-    "wikiLink": "https://en.wikipedia.org/wiki/Productboard?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/Productboard",
     "valuation_b": 1.725,
     "valuation_str": "$1.725B",
     "valuation_date": "February 2022",
@@ -3711,11 +3711,11 @@
   },
   {
     "company": "Tujia.com",
-    "wikiLink": "https://en.wikipedia.org/wiki/Tujia.com?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tujia.com",
     "valuation_b": 1.5,
     "valuation_str": "$1.5B",
     "valuation_date": "October 2017",
-    "industry_raw": "",
+    "industry_raw": "Justin Luo and Melissa Yang",
     "country": "China",
     "founders": ""
   },
@@ -4008,6 +4008,16 @@
     "industry_raw": "Marketing",
     "country": "Israel /  United States",
     "founders": ""
+  },
+  {
+    "company": "Miro",
+    "wikiLink": "https://en.wikipedia.org/wiki/Miro_(collaboration_platform)",
+    "valuation_b": 1.36,
+    "valuation_str": "$1.36B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Software",
+    "country": "United States",
+    "founders": "Andrey Khusid"
   },
   {
     "company": "RIDI",
@@ -4421,7 +4431,7 @@
   },
   {
     "company": "Rohlik",
-    "wikiLink": "https://en.wikipedia.org/wiki/Rohlik_Group",
+    "wikiLink": "https://en.wikipedia.org/wiki/Rohlik_Group?action=edit&redlink=1",
     "valuation_b": 1.2,
     "valuation_str": "$1.2B",
     "valuation_date": "June 2021",
