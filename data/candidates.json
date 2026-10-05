@@ -1,14 +1,6 @@
 {
-  "generated_at": "2026-09-28T16:31:13+00:00",
+  "generated_at": "2026-10-05T16:51:52+00:00",
   "new_candidates": [
-    {
-      "company": "Crusoe",
-      "valuation_m": 30000.0,
-      "headline": "AI startup Crusoe valued at $30 billion after new funding, Bloomberg News reports",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOanJfNWE3V3k4Q2kzR3BBZmF0aGtpNDRZUldsbXZURmJCbDBGSmdqSGdwbG41Y3QyZkg1QkZfeG9tSmJtZVVLQlNNNUZnQjFwYm9PbUxQXzNYejBMODlQeVloZTVjTU95OTNTQWRDd1lrd3p2UHZiaUItOFVOcXNOMlloV0F1ZW1hSFFPQ2l4MFpwLWZaRDZwSWpZMzMxbEljc3owN3BndVJuQnIwTjJWS0l3aV9QMVh5MHZsRGpBT1I1UQ?oc=5",
-      "source": "Reuters",
-      "date": "2026-09-03"
-    },
     {
       "company": "The 'ChatGPT for doctors",
       "valuation_m": 15000.0,
@@ -16,6 +8,22 @@
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRGk2VXozdjVVcnRxOXRTNEMyVTBGd3ZOR3lyZlhMcDllS21USl83c2sxUEZRZF8wT0djVldZMHpoVlF5WDZrQnVYYU1RaEFiVmJvclVOdC00U1lqUmtzVXYzeFZ4SW9yci1HVUVWTTU0RFB0d3pXeTlIOXd6a0lLYjdTVmhwT1c5cThxTU84bVNkWlE0aUE?oc=5",
       "source": "Business Insider",
       "date": "2026-09-24"
+    },
+    {
+      "company": "with just 14 people is",
+      "valuation_m": 10000.0,
+      "headline": "A startup with just 14 people is now valued at $10 billion — it was founded by a 23-year-old college dropout",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNdmZMS2xFekJoVHdZVjZiNWVFZG5qRm1HNXd6bWlTMjlhWnhGMkhEemJDY3U1Z1BGNkZmMmR0R3BmUlJJV0VYS3plZC1mdFVNcHJFbDQ4aG5LMHppZGRKMU5tR2duTFpUa3pfSTRFU3BDekJUMGY5cW5kdnRhNVo5S01UeUJiVXdROGJtbWlzN01GVF9x?oc=5",
+      "source": "Yahoo Finance",
+      "date": "2026-09-28"
+    },
+    {
+      "company": "FieldAI is set to",
+      "valuation_m": 10000.0,
+      "headline": "Robotics startup FieldAI is set to raise $700 million at a $10 billion valuation",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPdlB3WE40MnpRb2RsaUFaV0tjekEyM2dMNFFWZTc0LWJEa3ZpUEFVVFZWTUtwR3lyY1JRRjFmTlVldHRWbHdZTks4TnR6aFJ3NXVwYXdRdFNKaFR0R241UUNQQVEtZ2hQb0F2WWZyUjNvWmpfNnBjUC1oUzhVdktrdXhFd2t3a2dRRzAtQS1TREZvM011MUlvVGVWaFBLYjlRdFpz?oc=5",
+      "source": "Business Insider",
+      "date": "2026-10-02"
     },
     {
       "company": "Saudi's new unicorn",
@@ -34,28 +42,12 @@
       "date": "2026-09-24"
     },
     {
-      "company": "US-Israeli browser startup",
-      "valuation_m": 6400.0,
-      "headline": "US-Israeli browser startup valued at $6.4 billion as AI agents reshape workplace risk",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPM2MtNHpSM3N6eENEWjhfN0tXVDJwYXhOMVREb2lTRkpIYUFsaXdacHpoSjBwTXNaQkJqdGVrTzVRV1JKUmNqS3ZOSHVUVXBHeTdOZjU3cWFBSHFKdmw2LVRySlZPYnR2WkE5aThFV3dNbERFY3RPelpIOVJUT3JxT3JPR004YmtleGEwX29kQUgtUXJEWm56bC1oQkMtUUhNcUZZQTBGdFlubHFMbGlLNExIOUFzUdIBuwFBVV95cUxPdHdlRDlyTUtPVjFFTUtrVXByTFREVXVpWXhVZkJiR1BXRk5NQ3N4TzhfOHhXWjlBemFGQ1E1N3JZbU52OFpkRUplSUt5XzYtTXhYMHp1MGtOMXo2OU0wSWRHZ2ZqX0F2OV9zdmNrWnZYY1hyQllLdDd3cUVxZ3ZhRUtlNzVIWk9rS251cER1V0QwNU9EZGwwUVhHSmt3TDBUUGUyalM0Mnd2dk1oV2RNVHdkV1l1Z0Jvb3h3?oc=5",
-      "source": "The Times of Israel",
-      "date": "2026-09-24"
-    },
-    {
       "company": "Exclusive | Positron",
       "valuation_m": 5000.0,
       "headline": "Exclusive | Positron Valued at $5 Billion in New Funding as Demand for AI Chips Surges",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZWpZd1RtLU1tcFpSOUoxYVYtd0gzeTZfanNNaVg1UWxoZ2lfSTFZV2MzdldoTDQyR0lCTGFUd1ZsTG8xcVRlZ1NZWHBPWWphNHdpTTVjSFAtREJnQzhZc0VaS3Vha3U0bVBPQXZqdmhRRlV0Rm9DWnE2MnFTTS1sTWlwajZ1VHFDanNianRkRnpkaG5WZ3ZfT01NdkkzaHlSbUw0?oc=5",
       "source": "WSJ",
       "date": "2026-09-10"
-    },
-    {
-      "company": "Upwind Security 完成 3 亿美元融资",
-      "valuation_m": 3800.0,
-      "headline": "Upwind Security 完成 3 亿美元融资，估值达到 38 亿美元",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WanRTU0R0cXU0dDlIR051Z052OXpiZW1KV085NkFfTTliQ2pmTXotN1ZuQlo2a3NseWdkbFgzRHgxeGpZVmFTUGwzQ29lV0pRTjRHZm9idDI?oc=5",
-      "source": "CryptoRank",
-      "date": "2026-09-02"
     },
     {
       "company": "EXCLUSIVE: Snorkel AI",
@@ -66,12 +58,28 @@
       "date": "2026-09-22"
     },
     {
-      "company": "Gimlet Is",
+      "company": "Neocloud PaleBlueDot AI",
+      "valuation_m": 3200.0,
+      "headline": "Neocloud PaleBlueDot AI Raises $200M Series C at $3.2B Valuation",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBzQ1pIRjA2XzIxQk1EUnBaNkswRWVLYVBienk4dlNMVTUxUG9EUVFKdWtLRS1aVkgzRXhhVEIxYmdxcFFvbVIwNVNKRWh0eVJJcV93?oc=5",
+      "source": "Wowtale",
+      "date": "2026-10-03"
+    },
+    {
+      "company": "Forus",
       "valuation_m": 3000.0,
-      "headline": "Andreessen-Backed AI Startup Gimlet Is Now Valued at $3 Billion",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSDlySGRQNGpxajlQbEZzVlhtZ05EZTFpaFliR0lKeE1RNlBNUzFyem9yZGtXNk9HbEFROS1YWVBIMlo5SGtjX0UxMjFJNk90WUlrR05WdGc1M083U2xLNlUwSUQzODBPSjVYUm5GU3paMndReWQxMEVxckVfTEJmcUVVMVI2ZWVsWVByVEpObjZVVjNKX2FPMWNLWkI1eHZVQTJ0a0VhM1J4ZUNOVkpjREMwVDdIT3ZzVjNKc0FCUQ?oc=5",
-      "source": "Bloomberg.com",
-      "date": "2026-09-04"
+      "headline": "AI healthcare platform Forus valued at $3 billion in latest funding round",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWVBNejEwMWhscHN1QXlpNkZTZm1LV1NnQkVUZ0h2ei15TzB6dmlOR0ZZOUFfUFA4ODdPN0YyLWtOVFJiQ3RMcXh4V3BRMFFWYzVLM2hfWDgxT254M3BIb1BNcXFTUm5fOENpUFUwS2ZlSHpjQWQ2OXpsd0FCYTVqZ1JodnBmY1o5MHV1TnJ1WWFsTnFHQ3hQZjExVm1PMi1jY2g2cHVTYmcxRXM5S1ZqbE9PTUM4M1VSMHVqY1ZTWQ?oc=5",
+      "source": "Reuters",
+      "date": "2026-09-08"
+    },
+    {
+      "company": "Armadin",
+      "valuation_m": 2500.0,
+      "headline": "Offensive Security Startup Armadin Raises $255.5M Series B at $2.5B+ Valuation",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5uQ2xYcFd1X18zNXlpc0pSRHBqYnNEcVdxZ2tNRUR2dkl2dzJVcklZTGE4V3hfM29DYl90ZWlxQVFhMXcxWHFXVTdsU1pGWDhSR3BB?oc=5",
+      "source": "Wowtale",
+      "date": "2026-10-01"
     },
     {
       "company": "Exclusive: Sequen",
@@ -102,7 +110,7 @@
       "valuation_m": 1200.0,
       "headline": "Exclusive: Manufacturing AI startup CADDi valued at $1.2 billion following $114 million Series D funding round",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5",
-      "source": "fortune.com",
+      "source": "Fortune",
       "date": "2026-09-15"
     }
   ],
@@ -124,15 +132,6 @@
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc3hsV1U1MTdYTkgwaHJhanppVTU1cUZVLW94amhlM3liQjE1SUVFdnJtRFlvcExWRkI5RURMMllzd1djSlhUT09VTGotRHhFZm1NTmdDTXpEYmdNaVhITU1STXdTSVE3NlhQVVAySTE1WUVhXzZSZzdSUl9DRVlmVWVpaEl0cXR5ZzBjYUZlaDRzbkVfSFllNVJEOWlHQQ?oc=5",
       "source": "Reuters",
       "date": "2026-09-08"
-    },
-    {
-      "company": "Mistral AI",
-      "current_m": 14000.0,
-      "detected_m": 24000.0,
-      "headline": "French AI company Mistral hits $24 billion valuation in funding round",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSzZndFBZYk1SQ19xOVJYSXR1ZHdKa2p2a0RSYTVfeWVicHRLZ2JOdG5zc3hibHhJYWh1V3pIVEhDaV9Wc2xQV2RlYkNkTEZJSDV2V1V6aGloYXVPcFNtMHlCU1ZsTnR5UEZTNTI5WTExa1A4Vy0xZjN4ZFE3TVUzN2tUWFNnc3V2aXNBRldFWXlGYnFwcGtGVkFtRE9HTDktVUhJR09HVUwtdHZmNHdjWGZCTkw?oc=5",
-      "source": "Reuters",
-      "date": "2026-09-07"
     },
     {
       "company": "Quantinuum",

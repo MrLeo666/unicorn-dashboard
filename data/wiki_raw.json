@@ -190,6 +190,16 @@
     "founders": "Tim Sweeney"
   },
   {
+    "company": "ElevenLabs",
+    "wikiLink": "https://en.wikipedia.org/wiki/ElevenLabs",
+    "valuation_b": 22.0,
+    "valuation_str": "$22B",
+    "valuation_date": "September 2026",
+    "industry_raw": "AI Audio technologies",
+    "country": "Poland",
+    "founders": "Mati Staniszewski, Piotr Dabkowski"
+  },
+  {
     "company": "Kalshi",
     "wikiLink": "https://en.wikipedia.org/wiki/Kalshi",
     "valuation_b": 22.0,
@@ -421,7 +431,7 @@
   },
   {
     "company": "Labs Companies",
-    "wikiLink": "https://en.wikipedia.org/wiki/Labs_Companies",
+    "wikiLink": "",
     "valuation_b": 12.5,
     "valuation_str": "$12.5B",
     "valuation_date": "April 2025",
@@ -528,16 +538,6 @@
     "industry_raw": "Software",
     "country": "Germany",
     "founders": "Alex Rinke, Bastian Nominacher, Martin Klenk"
-  },
-  {
-    "company": "ElevenLabs",
-    "wikiLink": "https://en.wikipedia.org/wiki/ElevenLabs",
-    "valuation_b": 11.0,
-    "valuation_str": "$11B",
-    "valuation_date": "February 2026",
-    "industry_raw": "AI Audio technologies",
-    "country": "Poland",
-    "founders": "Mati Staniszewski, Piotr Dabkowski"
   },
   {
     "company": "ZongMu Technology",
@@ -1578,6 +1578,16 @@
     "industry_raw": "Messaging",
     "country": "United States",
     "founders": "Paul Davison and Rohan Seth"
+  },
+  {
+    "company": "EliseAI",
+    "wikiLink": "",
+    "valuation_b": 4.0,
+    "valuation_str": "$4B",
+    "valuation_date": "September 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Minna Song, Tony Stoyanov"
   },
   {
     "company": "Houzz",
@@ -6261,7 +6271,7 @@
   },
   {
     "company": "IQM",
-    "wikiLink": "https://en.wikipedia.org/wiki/IQM_Quantum_Computers",
+    "wikiLink": "",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "July 2022",
