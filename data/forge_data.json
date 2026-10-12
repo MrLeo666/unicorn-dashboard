@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-05T16:47:43Z",
+  "as_of": "2026-10-12T17:21:57Z",
   "top_n": 100,
   "records": {
     "OpenAI": {
@@ -7,10 +7,10 @@
       "forge_price": 954.7,
       "forge_valuation_m": 1180000.0,
       "last_round_valuation_m": null,
-      "prev_forge_price": 721.85,
-      "prev_forge_valuation_m": 894330.0,
+      "prev_forge_price": 954.7,
+      "prev_forge_valuation_m": 1180000.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:47:43Z"
+      "fetched_at": "2026-10-12T17:21:57Z"
     },
     "Anthropic": {
       "slug": "anthropic",
@@ -20,17 +20,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 41290.0,
-      "fetched_at": "2026-10-05T16:47:45Z"
+      "fetched_at": "2026-10-12T17:21:59Z"
     },
     "ByteDance": {
       "slug": "bytedance",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 15000.0,
+      "last_round_valuation_m": 4010.0,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 15000.0,
-      "fetched_at": "2026-10-05T16:47:47Z"
+      "fetched_at": "2026-10-12T17:22:02Z"
     },
     "Stripe": {
       "slug": "stripe",
@@ -40,7 +40,7 @@
       "prev_forge_price": 72.45,
       "prev_forge_valuation_m": 184400.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:47:49Z"
+      "fetched_at": "2026-10-12T17:22:03Z"
     },
     "Databricks": {
       "slug": "databricks",
@@ -50,17 +50,17 @@
       "prev_forge_price": 268.5,
       "prev_forge_valuation_m": 201640.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:47:50Z"
+      "fetched_at": "2026-10-12T17:22:05Z"
     },
     "Binance": {
       "slug": "binance",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 12440.0,
+      "last_round_valuation_m": 64.83,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
-      "prev_last_round_valuation_m": 64.83,
-      "fetched_at": "2026-10-05T16:47:53Z"
+      "prev_last_round_valuation_m": 12440.0,
+      "fetched_at": "2026-10-12T17:22:08Z"
     },
     "Revolut": {
       "slug": "revolut",
@@ -70,17 +70,17 @@
       "prev_forge_price": 2125.0,
       "prev_forge_valuation_m": 121160.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:47:54Z"
+      "fetched_at": "2026-10-12T17:22:10Z"
     },
     "Shein": {
       "slug": "shein",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 1150.0,
+      "last_round_valuation_m": 367.08,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
-      "prev_last_round_valuation_m": 367.08,
-      "fetched_at": "2026-10-05T16:47:56Z"
+      "prev_last_round_valuation_m": 1150.0,
+      "fetched_at": "2026-10-12T17:22:13Z"
     },
     "Canva": {
       "slug": "canva",
@@ -90,7 +90,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 60.0,
-      "fetched_at": "2026-10-05T16:47:58Z"
+      "fetched_at": "2026-10-12T17:22:15Z"
     },
     "Figure AI": {
       "slug": "figure-ai",
@@ -100,7 +100,7 @@
       "prev_forge_price": 174.0,
       "prev_forge_valuation_m": 34220.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:47:59Z"
+      "fetched_at": "2026-10-12T17:22:19Z"
     },
     "Ramp": {
       "slug": "ramp",
@@ -110,7 +110,7 @@
       "prev_forge_price": 125.54,
       "prev_forge_valuation_m": 46030.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:01Z"
+      "fetched_at": "2026-10-12T17:22:20Z"
     },
     "Safe Superintelligence": {
       "slug": "safe-superintelligence",
@@ -120,7 +120,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 965000.0,
-      "fetched_at": "2026-10-05T16:48:03Z"
+      "fetched_at": "2026-10-12T17:22:22Z"
     },
     "Epic Games": {
       "slug": "epic-games",
@@ -130,17 +130,17 @@
       "prev_forge_price": 332.9,
       "prev_forge_valuation_m": 12480.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:05Z"
+      "fetched_at": "2026-10-12T17:22:25Z"
     },
     "Anduril Industries": {
       "slug": "anduril",
       "forge_price": 132.12,
       "forge_valuation_m": 116890.0,
       "last_round_valuation_m": null,
-      "prev_forge_price": 131.87,
-      "prev_forge_valuation_m": 116670.0,
+      "prev_forge_price": 132.12,
+      "prev_forge_valuation_m": 116890.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:07Z"
+      "fetched_at": "2026-10-12T17:22:27Z"
     },
     "VAST Data": {
       "slug": "vast-data",
@@ -149,8 +149,8 @@
       "last_round_valuation_m": 2060.0,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
-      "prev_last_round_valuation_m": 21000.0,
-      "fetched_at": "2026-10-05T16:48:09Z"
+      "prev_last_round_valuation_m": 2060.0,
+      "fetched_at": "2026-10-12T17:22:30Z"
     },
     "Telegram": {
       "slug": "telegram",
@@ -160,7 +160,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 15000.0,
-      "fetched_at": "2026-10-05T16:48:11Z"
+      "fetched_at": "2026-10-12T17:22:32Z"
     },
     "Scale AI": {
       "slug": "scale-ai-inc",
@@ -170,7 +170,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 7150.0,
-      "fetched_at": "2026-10-05T16:48:14Z"
+      "fetched_at": "2026-10-12T17:22:35Z"
     },
     "Motional": {
       "slug": "motional",
@@ -180,7 +180,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 310.82,
-      "fetched_at": "2026-10-05T16:48:15Z"
+      "fetched_at": "2026-10-12T17:22:37Z"
     },
     "Fanatics": {
       "slug": "fanatics",
@@ -190,17 +190,17 @@
       "prev_forge_price": 56.75,
       "prev_forge_valuation_m": 23100.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:17Z"
+      "fetched_at": "2026-10-12T17:22:40Z"
     },
     "Perplexity AI": {
       "slug": "perplexity",
-      "forge_price": 69.5,
-      "forge_valuation_m": 20510.0,
+      "forge_price": 60.0,
+      "forge_valuation_m": 17710.0,
       "last_round_valuation_m": null,
       "prev_forge_price": 69.5,
       "prev_forge_valuation_m": 20510.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:19Z"
+      "fetched_at": "2026-10-12T17:22:42Z"
     },
     "Groq": {
       "slug": "groq",
@@ -210,7 +210,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 750.0,
-      "fetched_at": "2026-10-05T16:48:21Z"
+      "fetched_at": "2026-10-12T17:22:44Z"
     },
     "Miro": {
       "slug": "miro",
@@ -220,7 +220,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 400.0,
-      "fetched_at": "2026-10-05T16:48:23Z"
+      "fetched_at": "2026-10-12T17:22:47Z"
     },
     "Rippling": {
       "slug": "rippling",
@@ -230,7 +230,7 @@
       "prev_forge_price": 47.28,
       "prev_forge_valuation_m": 15280.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:25Z"
+      "fetched_at": "2026-10-12T17:22:49Z"
     },
     "Yuanfudao": {
       "slug": "yuanfudao",
@@ -240,17 +240,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 2200.0,
-      "fetched_at": "2026-10-05T16:48:28Z"
+      "fetched_at": "2026-10-12T17:22:52Z"
     },
     "Discord": {
       "slug": "discord",
-      "forge_price": 36.79,
-      "forge_valuation_m": 10020.0,
+      "forge_price": 36.51,
+      "forge_valuation_m": 9950.0,
       "last_round_valuation_m": null,
       "prev_forge_price": 36.79,
       "prev_forge_valuation_m": 10020.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:29Z"
+      "fetched_at": "2026-10-12T17:22:54Z"
     },
     "DJI": {
       "slug": "dji",
@@ -260,7 +260,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 61000.0,
-      "fetched_at": "2026-10-05T16:48:31Z"
+      "fetched_at": "2026-10-12T17:22:57Z"
     },
     "GoPuff": {
       "slug": "gopuff",
@@ -270,7 +270,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 1000.0,
-      "fetched_at": "2026-10-05T16:48:34Z"
+      "fetched_at": "2026-10-12T17:22:59Z"
     },
     "Bending": {
       "slug": "bending-spoons",
@@ -280,7 +280,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 1300.0,
-      "fetched_at": "2026-10-05T16:48:36Z"
+      "fetched_at": "2026-10-12T17:23:01Z"
     },
     "Mistral AI": {
       "slug": "mistral-ai",
@@ -290,7 +290,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 965000.0,
-      "fetched_at": "2026-10-05T16:48:38Z"
+      "fetched_at": "2026-10-12T17:23:04Z"
     },
     "Helsing": {
       "slug": "helsing",
@@ -300,17 +300,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 965000.0,
-      "fetched_at": "2026-10-05T16:48:41Z"
+      "fetched_at": "2026-10-12T17:23:06Z"
     },
     "Skild AI": {
       "slug": "skild-ai",
-      "forge_price": 78.4,
-      "forge_valuation_m": 16900.0,
+      "forge_price": 76.22,
+      "forge_valuation_m": 16430.0,
       "last_round_valuation_m": null,
       "prev_forge_price": 78.4,
       "prev_forge_valuation_m": 16900.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:42Z"
+      "fetched_at": "2026-10-12T17:23:09Z"
     },
     "Plaid": {
       "slug": "plaid",
@@ -320,7 +320,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 449.99,
-      "fetched_at": "2026-10-05T16:48:45Z"
+      "fetched_at": "2026-10-12T17:23:11Z"
     },
     "OpenSea": {
       "slug": "opensea",
@@ -330,7 +330,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 300.0,
-      "fetched_at": "2026-10-05T16:48:47Z"
+      "fetched_at": "2026-10-12T17:23:14Z"
     },
     "Shield AI": {
       "slug": "shield-ai",
@@ -340,7 +340,7 @@
       "prev_forge_price": 172.04,
       "prev_forge_valuation_m": 13770.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:49Z"
+      "fetched_at": "2026-10-12T17:23:16Z"
     },
     "Devoted Health": {
       "slug": "devoted-health",
@@ -350,7 +350,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 555.0,
-      "fetched_at": "2026-10-05T16:48:51Z"
+      "fetched_at": "2026-10-12T17:23:18Z"
     },
     "Faire": {
       "slug": "faire",
@@ -360,7 +360,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 596.21,
-      "fetched_at": "2026-10-05T16:48:54Z"
+      "fetched_at": "2026-10-12T17:23:21Z"
     },
     "Thinking Machines Lab": {
       "slug": "thinking-machines-lab",
@@ -370,7 +370,7 @@
       "prev_forge_price": 318.92,
       "prev_forge_valuation_m": 13500.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:48:56Z"
+      "fetched_at": "2026-10-12T17:23:23Z"
     },
     "GoodLeap": {
       "slug": "goodleap",
@@ -380,7 +380,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 617.59,
-      "fetched_at": "2026-10-05T16:48:58Z"
+      "fetched_at": "2026-10-12T17:23:25Z"
     },
     "Whatnot": {
       "slug": "whatnot",
@@ -390,7 +390,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 545.0,
-      "fetched_at": "2026-10-05T16:49:01Z"
+      "fetched_at": "2026-10-12T17:23:27Z"
     },
     "Airtable": {
       "slug": "airtable",
@@ -400,7 +400,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 735.0,
-      "fetched_at": "2026-10-05T16:49:03Z"
+      "fetched_at": "2026-10-12T17:23:30Z"
     },
     "Celonis": {
       "slug": "celonis",
@@ -410,7 +410,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 965000.0,
-      "fetched_at": "2026-10-05T16:49:05Z"
+      "fetched_at": "2026-10-12T17:23:32Z"
     },
     "ElevenLabs": {
       "slug": "elevenlabs",
@@ -420,7 +420,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 467.47,
-      "fetched_at": "2026-10-05T16:49:06Z"
+      "fetched_at": "2026-10-12T17:23:34Z"
     },
     "Harvey": {
       "slug": "harvey",
@@ -430,17 +430,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 550.0,
-      "fetched_at": "2026-10-05T16:49:08Z"
+      "fetched_at": "2026-10-12T17:23:36Z"
     },
     "Kalshi": {
       "slug": "kalshi",
-      "forge_price": 962.36,
-      "forge_valuation_m": 36100.0,
+      "forge_price": 970.53,
+      "forge_valuation_m": 36400.0,
       "last_round_valuation_m": null,
       "prev_forge_price": 962.36,
       "prev_forge_valuation_m": 36100.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:49:10Z"
+      "fetched_at": "2026-10-12T17:23:38Z"
     },
     "Quantinuum": {
       "slug": "quantinuum",
@@ -450,7 +450,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 838.88,
-      "fetched_at": "2026-10-05T16:49:12Z"
+      "fetched_at": "2026-10-12T17:23:41Z"
     },
     "Bilt Rewards": {
       "slug": "bilt-rewards",
@@ -460,17 +460,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 250.0,
-      "fetched_at": "2026-10-05T16:49:14Z"
+      "fetched_at": "2026-10-12T17:23:43Z"
     },
     "Cognition AI": {
       "slug": "cognition",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 2000.0,
+      "last_round_valuation_m": 20.21,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 2000.0,
-      "fetched_at": "2026-10-05T16:49:16Z"
+      "fetched_at": "2026-10-12T17:23:46Z"
     },
     "Colossal Biosciences": {
       "slug": "colossal-biosciences",
@@ -480,7 +480,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 380.0,
-      "fetched_at": "2026-10-05T16:49:18Z"
+      "fetched_at": "2026-10-12T17:23:48Z"
     },
     "Alchemy": {
       "slug": "alchemy",
@@ -490,7 +490,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 200.0,
-      "fetched_at": "2026-10-05T16:49:20Z"
+      "fetched_at": "2026-10-12T17:23:51Z"
     },
     "Chehaoduo": {
       "slug": "chehaoduo",
@@ -500,17 +500,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 617.59,
-      "fetched_at": "2026-10-05T16:49:22Z"
+      "fetched_at": "2026-10-12T17:23:54Z"
     },
     "Digital Currency Group": {
       "slug": "digital-currency-group",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 340.03,
+      "last_round_valuation_m": 3030.0,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 340.03,
-      "fetched_at": "2026-10-05T16:49:24Z"
+      "fetched_at": "2026-10-12T17:23:56Z"
     },
     "Mercor": {
       "slug": "mercor",
@@ -520,7 +520,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 500.0,
-      "fetched_at": "2026-10-05T16:49:26Z"
+      "fetched_at": "2026-10-12T17:23:58Z"
     },
     "Gusto": {
       "slug": "gusto",
@@ -530,7 +530,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 364.64,
-      "fetched_at": "2026-10-05T16:49:29Z"
+      "fetched_at": "2026-10-12T17:24:00Z"
     },
     "Notion Labs": {
       "slug": "notion",
@@ -540,17 +540,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 275.0,
-      "fetched_at": "2026-10-05T16:49:31Z"
+      "fetched_at": "2026-10-12T17:24:03Z"
     },
     "Ripple": {
       "slug": "ripple",
-      "forge_price": 90.39,
-      "forge_valuation_m": 14860.0,
+      "forge_price": 90.05,
+      "forge_valuation_m": 14810.0,
       "last_round_valuation_m": null,
       "prev_forge_price": 90.39,
       "prev_forge_valuation_m": 14860.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:49:33Z"
+      "fetched_at": "2026-10-12T17:24:06Z"
     },
     "Talkdesk": {
       "slug": "talkdesk",
@@ -560,7 +560,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 212.78,
-      "fetched_at": "2026-10-05T16:49:35Z"
+      "fetched_at": "2026-10-12T17:24:08Z"
     },
     "Moonshot": {
       "slug": "moonshot-ai",
@@ -570,7 +570,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 965000.0,
-      "fetched_at": "2026-10-05T16:49:37Z"
+      "fetched_at": "2026-10-12T17:24:11Z"
     },
     "Sierra": {
       "slug": "sierra-ai",
@@ -580,7 +580,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 800.0,
-      "fetched_at": "2026-10-05T16:49:39Z"
+      "fetched_at": "2026-10-12T17:24:13Z"
     },
     "Oyo": {
       "slug": "oyo",
@@ -590,17 +590,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 674.65,
-      "fetched_at": "2026-10-05T16:49:41Z"
+      "fetched_at": "2026-10-12T17:24:15Z"
     },
     "Polymarket": {
       "slug": "polymarket",
-      "forge_price": 137.7,
-      "forge_valuation_m": 14340.0,
+      "forge_price": 133.04,
+      "forge_valuation_m": 13650.0,
       "last_round_valuation_m": null,
       "prev_forge_price": 137.7,
       "prev_forge_valuation_m": 14340.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:49:43Z"
+      "fetched_at": "2026-10-12T17:24:17Z"
     },
     "OutSystems": {
       "slug": "outsystems",
@@ -610,7 +610,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 13000.0,
-      "fetched_at": "2026-10-05T16:49:45Z"
+      "fetched_at": "2026-10-12T17:24:20Z"
     },
     "Vercel": {
       "slug": "vercel",
@@ -620,17 +620,17 @@
       "prev_forge_price": 224.99,
       "prev_forge_valuation_m": 10420.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:49:47Z"
+      "fetched_at": "2026-10-12T17:24:22Z"
     },
     "Saronic": {
       "slug": "saronic",
-      "forge_price": 34.29,
-      "forge_valuation_m": 11290.0,
+      "forge_price": 32.6,
+      "forge_valuation_m": 10720.0,
       "last_round_valuation_m": null,
-      "prev_forge_price": 33.76,
-      "prev_forge_valuation_m": 11110.0,
+      "prev_forge_price": 34.29,
+      "prev_forge_valuation_m": 11290.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:49:49Z"
+      "fetched_at": "2026-10-12T17:24:24Z"
     },
     "Neuralink": {
       "slug": "neuralink",
@@ -640,7 +640,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 324.5,
-      "fetched_at": "2026-10-05T16:49:51Z"
+      "fetched_at": "2026-10-12T17:24:27Z"
     },
     "Tanium": {
       "slug": "tanium",
@@ -650,7 +650,7 @@
       "prev_forge_price": 4.71,
       "prev_forge_valuation_m": 3720.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:49:53Z"
+      "fetched_at": "2026-10-12T17:24:29Z"
     },
     "Cyera": {
       "slug": "cyera",
@@ -660,7 +660,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 6000.0,
-      "fetched_at": "2026-10-05T16:49:55Z"
+      "fetched_at": "2026-10-12T17:24:32Z"
     },
     "Kavak": {
       "slug": "kavak",
@@ -670,7 +670,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 617.59,
-      "fetched_at": "2026-10-05T16:49:58Z"
+      "fetched_at": "2026-10-12T17:24:34Z"
     },
     "Rapyd": {
       "slug": "rapyd",
@@ -679,8 +679,8 @@
       "last_round_valuation_m": 704.35,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
-      "prev_last_round_valuation_m": 2230.0,
-      "fetched_at": "2026-10-05T16:50:00Z"
+      "prev_last_round_valuation_m": 704.35,
+      "fetched_at": "2026-10-12T17:24:36Z"
     },
     "Nuro": {
       "slug": "nuro",
@@ -690,7 +690,7 @@
       "prev_forge_price": 8.5,
       "prev_forge_valuation_m": 3990.0,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:50:02Z"
+      "fetched_at": "2026-10-12T17:24:38Z"
     },
     "Wayve": {
       "slug": "wayve",
@@ -700,7 +700,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 1500.0,
-      "fetched_at": "2026-10-05T16:50:04Z"
+      "fetched_at": "2026-10-12T17:24:40Z"
     },
     "Snyk": {
       "slug": "snyk",
@@ -710,7 +710,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 221.5,
-      "fetched_at": "2026-10-05T16:50:06Z"
+      "fetched_at": "2026-10-12T17:24:43Z"
     },
     "Bolt": {
       "slug": "bolt",
@@ -720,7 +720,7 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 895.57,
-      "fetched_at": "2026-10-05T16:50:08Z"
+      "fetched_at": "2026-10-12T17:24:45Z"
     },
     "Flexport": {
       "slug": "flexport",
@@ -730,7 +730,7 @@
       "prev_forge_price": 2.95,
       "prev_forge_valuation_m": 828.91,
       "prev_last_round_valuation_m": null,
-      "fetched_at": "2026-10-05T16:50:10Z"
+      "fetched_at": "2026-10-12T17:24:47Z"
     },
     "Airwallex": {
       "slug": "airwallex",
@@ -740,17 +740,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 11000.0,
-      "fetched_at": "2026-10-05T16:50:12Z"
+      "fetched_at": "2026-10-12T17:24:50Z"
     },
     "StarkWare Industries": {
       "slug": "starkware",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 340.03,
+      "last_round_valuation_m": 3030.0,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
-      "prev_last_round_valuation_m": 3030.0,
-      "fetched_at": "2026-10-05T16:50:14Z"
+      "prev_last_round_valuation_m": 340.03,
+      "fetched_at": "2026-10-12T17:24:53Z"
     },
     "Reflection": {
       "slug": "reflection-ai",
@@ -760,17 +760,17 @@
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
       "prev_last_round_valuation_m": 2500.0,
-      "fetched_at": "2026-10-05T16:50:16Z"
+      "fetched_at": "2026-10-12T17:24:55Z"
     },
     "Dapper Labs": {
       "slug": "dapper-labs",
       "forge_price": null,
       "forge_valuation_m": null,
-      "last_round_valuation_m": 4.57,
+      "last_round_valuation_m": 454.45,
       "prev_forge_price": null,
       "prev_forge_valuation_m": null,
-      "prev_last_round_valuation_m": 454.45,
-      "fetched_at": "2026-10-05T16:50:18Z"
+      "prev_last_round_valuation_m": 4.57,
+      "fetched_at": "2026-10-12T17:24:57Z"
     }
   },
   "no_data": [],

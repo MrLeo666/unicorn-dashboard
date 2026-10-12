@@ -30,6 +30,16 @@
     "founders": "Zhang Yiming, Liang Rubo"
   },
   {
+    "company": "Ethereum",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ethereum",
+    "valuation_b": 314.0,
+    "valuation_str": "$314B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Cryptocurrency",
+    "country": "Switzerland",
+    "founders": "Vitalik Buterin, Gavin Wood, Charles Hoskinson,Anthony Di Iorio, Joseph Lubin"
+  },
+  {
     "company": "Databricks",
     "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
     "valuation_b": 190.0,
@@ -38,6 +48,16 @@
     "industry_raw": "Software",
     "country": "United States",
     "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+  },
+  {
+    "company": "Tether",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
+    "valuation_b": 189.0,
+    "valuation_str": "$189B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Cryptocurrency",
+    "country": "El Salvador",
+    "founders": "Paolo Ardoino, Brock Pierce"
   },
   {
     "company": "Stripe",
@@ -50,24 +70,24 @@
     "founders": "Patrick and John Collison"
   },
   {
-    "company": "Binance",
-    "wikiLink": "https://en.wikipedia.org/wiki/Binance",
-    "valuation_b": 85.0,
-    "valuation_str": "$85B",
-    "valuation_date": "September 2021",
+    "company": "Revolut",
+    "wikiLink": "https://en.wikipedia.org/wiki/Revolut",
+    "valuation_b": 115.0,
+    "valuation_str": "$115B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Financial services",
+    "country": "United Kingdom",
+    "founders": "Nikolay Storonsky, Vlad Yatsenko"
+  },
+  {
+    "company": "BNB",
+    "wikiLink": "https://en.wikipedia.org/wiki/BNB_Smart_Chain_(blockchain_platform)",
+    "valuation_b": 102.0,
+    "valuation_str": "$102B",
+    "valuation_date": "October 2026",
     "industry_raw": "Cryptocurrency",
     "country": "Canada",
     "founders": "Changpeng Zhao"
-  },
-  {
-    "company": "Revolut",
-    "wikiLink": "https://en.wikipedia.org/wiki/Revolut",
-    "valuation_b": 75.0,
-    "valuation_str": "$75B",
-    "valuation_date": "November 2025",
-    "industry_raw": "Financial technology",
-    "country": "United Kingdom",
-    "founders": "Nikolay Storonsky, Vlad Yatsenko"
   },
   {
     "company": "Anduril Industries",
