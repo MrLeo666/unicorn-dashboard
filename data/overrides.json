@@ -35,8 +35,10 @@
       "valuation_str": "$23B"
     },
     "Tether": {
-      "valuation_m": 50000,
-      "valuation_str": "$50B"
+      "valuation_m": 189000,
+      "valuation_str": "$189B",
+      "founders": "Paolo Ardoino, Brock Pierce",
+      "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)"
     },
     "Moonshot": {
       "valuation_m": 18000,
@@ -109,7 +111,8 @@
     "NinjaOne": {
       "valuation_m": 12300,
       "valuation_str": "$12.3B",
-      "founders": "Sal Sferlazza and Chris Matarese"
+      "founders": "Sal Sferlazza and Chris Matarese",
+      "wikiLink": "https://en.wikipedia.org/wiki/NinjaOne?action=edit&redlink=1"
     },
     "Colossal Biosciences": {
       "founders": "George Church, Ben Lamm"
@@ -129,7 +132,8 @@
     "AlphaSense": {
       "valuation_m": 7500,
       "valuation_str": "$7.5B",
-      "country": "United States (formerly Finland)"
+      "country": "United States (formerly  Finland)",
+      "wikiLink": "https://en.wikipedia.org/wiki/AlphaSense?action=edit&redlink=1"
     },
     "Suno": {
       "valuation_m": 2450,
@@ -198,7 +202,8 @@
       "founders": "Keller Rinaudo Cliffton, Keenan Wyrobek, Ryan Oksenhorn, William Hetzler"
     },
     "Gong": {
-      "founders": ""
+      "founders": "",
+      "wikiLink": "https://en.wikipedia.org/wiki/Gong_(company)?action=edit&redlink=1"
     },
     "Epic Games": {
       "valuation_m": 22500,
@@ -209,9 +214,10 @@
       "valuation_str": "$13.3B"
     },
     "Etched": {
-      "valuation_m": 10300,
-      "valuation_str": "$10.3B",
-      "founders": "Gavin Uberti, Chris Zhu, Robert Wachen"
+      "valuation_m": 21000,
+      "valuation_str": "$21B",
+      "founders": "Gavin Uberti, Chris Zhu, Robert Wachen",
+      "wikiLink": "https://en.wikipedia.org/wiki/Etched_(company)?action=edit&redlink=1"
     },
     "Qonto": {
       "founders": "Steve Anavi, Alexandre Prot",
@@ -224,7 +230,8 @@
     },
     "PixVerse": {
       "valuation_m": 2000,
-      "valuation_str": "$2B"
+      "valuation_str": "$2B",
+      "wikiLink": "https://en.wikipedia.org/wiki/PixVerse?action=edit&redlink=1"
     },
     "MOLOCO": {
       "wikiLink": "https://en.wikipedia.org/wiki/MOLOCO?action=edit&redlink=1"
@@ -247,6 +254,903 @@
     "Helsing": {
       "valuation_m": 18000,
       "valuation_str": "$18.0B"
+    },
+    "Stripe": {
+      "country": "United States and  Ireland"
+    },
+    "Safe Superintelligence": {
+      "country": "United States and  Israel"
+    },
+    "ElevenLabs": {
+      "valuation_m": 22000,
+      "valuation_str": "$22B"
+    },
+    "Yuanfudao": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Yuanfudao?action=edit&redlink=1"
+    },
+    "Harvey": {
+      "valuation_m": 15500,
+      "valuation_str": "$15.5B"
+    },
+    "Skild AI": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Skild_AI?action=edit&redlink=1"
+    },
+    "Devoted Health": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Devoted_Health?action=edit&redlink=1"
+    },
+    "Faire": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Faire_(company)?action=edit&redlink=1"
+    },
+    "ZongMu Technology": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ZongMu_Technology?action=edit&redlink=1"
+    },
+    "Alchemy": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Alchemy_(company)"
+    },
+    "Talkdesk": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Talkdesk?action=edit&redlink=1"
+    },
+    "Chehaoduo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Chehaoduo?action=edit&redlink=1"
+    },
+    "Together AI": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Together_AI?action=edit&redlink=1"
+    },
+    "Razorpay": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Razorpay?action=edit&redlink=1"
+    },
+    "WeDoctor": {
+      "wikiLink": "https://en.wikipedia.org/wiki/WeDoctor?action=edit&redlink=1"
+    },
+    "Yanolja": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Yanolja?action=edit&redlink=1"
+    },
+    "Ziroom": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ziroom?action=edit&redlink=1"
+    },
+    "Mollie": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mollie_(company)?action=edit&redlink=1"
+    },
+    "DataRobot": {
+      "wikiLink": "https://en.wikipedia.org/wiki/DataRobot?action=edit&redlink=1"
+    },
+    "Xingsheng Youxuan": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Xingsheng_Youxuan?action=edit&redlink=1"
+    },
+    "Back Market": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Back_Market?action=edit&redlink=1"
+    },
+    "Relex": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Relex_Solutions?action=edit&redlink=1"
+    },
+    "Fivetran": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Fivetran?action=edit&redlink=1"
+    },
+    "Contentsquare": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Contentsquare?action=edit&redlink=1"
+    },
+    "Legora": {
+      "valuation_m": 5600,
+      "valuation_str": "$5.6B",
+      "founders": "Max Junestrand, Sigge Labor, August Erséus",
+      "wikiLink": "https://en.wikipedia.org/wiki/Legora"
+    },
+    "Higgsfield": {
+      "valuation_m": 5400,
+      "valuation_str": "$5.4B",
+      "founders": "Alex Mashrabov"
+    },
+    "SambaNova": {
+      "wikiLink": "https://en.wikipedia.org/wiki/SambaNova?action=edit&redlink=1"
+    },
+    "Ineffable Intelligence": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ineffable_Intelligence?action=edit&redlink=1"
+    },
+    "Collibra": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Collibra?action=edit&redlink=1"
+    },
+    "Hello TransTech": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Hello_TransTech?action=edit&redlink=1"
+    },
+    "Wonderful": {
+      "valuation_m": 5000,
+      "valuation_str": "$5B",
+      "country": "Israel",
+      "founders": "Bar Winkler, Roey Lalazar"
+    },
+    "OfBusiness": {
+      "wikiLink": "https://en.wikipedia.org/wiki/OfBusiness?action=edit&redlink=1"
+    },
+    "Pleo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Pleo"
+    },
+    "GetBlock": {
+      "wikiLink": "https://en.wikipedia.org/wiki/GetBlock?action=edit&redlink=1"
+    },
+    "Checkr": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Checkr?action=edit&redlink=1"
+    },
+    "Socure": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Socure?action=edit&redlink=1"
+    },
+    "Outreach": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Outreach_(company)?action=edit&redlink=1"
+    },
+    "QuintoAndar": {
+      "wikiLink": "https://en.wikipedia.org/wiki/QuintoAndar?action=edit&redlink=1"
+    },
+    "EliseAI": {
+      "valuation_m": 4000,
+      "valuation_str": "$4B",
+      "founders": "Minna Song, Tony Stoyanov"
+    },
+    "Melio": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Melio_(company)?action=edit&redlink=1"
+    },
+    "PointClickCare": {
+      "wikiLink": "https://en.wikipedia.org/wiki/PointClickCare?action=edit&redlink=1"
+    },
+    "Abnormal Security": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Abnormal_Security?action=edit&redlink=1"
+    },
+    "Articulate": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Articulate_(company)?action=edit&redlink=1"
+    },
+    "Coalition": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Coalition_(company)?action=edit&redlink=1"
+    },
+    "Commure": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Commure?action=edit&redlink=1"
+    },
+    "Upstox": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Upstox?action=edit&redlink=1"
+    },
+    "Kurly": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Kurly?action=edit&redlink=1"
+    },
+    "Starburst Data": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Starburst_Data?action=edit&redlink=1"
+    },
+    "Eruditus": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Eruditus?action=edit&redlink=1"
+    },
+    "SpotOn": {
+      "wikiLink": "https://en.wikipedia.org/wiki/SpotOn?action=edit&redlink=1"
+    },
+    "TiendaNube": {
+      "wikiLink": "https://en.wikipedia.org/wiki/TiendaNube?action=edit&redlink=1"
+    },
+    "Udaan": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Udaan_(company)?action=edit&redlink=1"
+    },
+    "Aiven": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Aiven?action=edit&redlink=1"
+    },
+    "Seismic": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Seismic_(company)?action=edit&redlink=1"
+    },
+    "Souche": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Souche?action=edit&redlink=1"
+    },
+    "VANCL": {
+      "wikiLink": "https://en.wikipedia.org/wiki/VANCL?action=edit&redlink=1"
+    },
+    "MessageBird": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MessageBird?action=edit&redlink=1"
+    },
+    "Wildlife": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Wildlife_Studios?action=edit&redlink=1"
+    },
+    "Wefox": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Wefox?action=edit&redlink=1"
+    },
+    "Sky Mavis": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Sky_Mavis?action=edit&redlink=1"
+    },
+    "GeoComply": {
+      "wikiLink": "https://en.wikipedia.org/wiki/GeoComply?action=edit&redlink=1"
+    },
+    "Just Salad": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Just_Salad"
+    },
+    "Amber Group": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Amber_Group?action=edit&redlink=1"
+    },
+    "Grover": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Grover"
+    },
+    "Chubao Technology": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Chubao_Technology?action=edit&redlink=1"
+    },
+    "Ecovadis": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ecovadis?action=edit&redlink=1"
+    },
+    "Yidian Zixun": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Yidian_Zixun?action=edit&redlink=1"
+    },
+    "Zenoti": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Zenoti?action=edit&redlink=1"
+    },
+    "Hostaway": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Hostaway?action=edit&redlink=1"
+    },
+    "Tezign": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tezign?action=edit&redlink=1"
+    },
+    "Moka": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Moka"
+    },
+    "Stytch": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Stytch?action=edit&redlink=1"
+    },
+    "Zhuanzhuan": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Zhuanzhuan?action=edit&redlink=1"
+    },
+    "Lydia": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    "PatSnap": {
+      "wikiLink": "https://en.wikipedia.org/wiki/PatSnap?action=edit&redlink=1"
+    },
+    "SmartMore": {
+      "wikiLink": "https://en.wikipedia.org/wiki/SmartMore?action=edit&redlink=1"
+    },
+    "IGAWorks": {
+      "wikiLink": "https://en.wikipedia.org/wiki/IGAWorks?action=edit&redlink=1"
+    },
+    "Playco": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Playco?action=edit&redlink=1"
+    },
+    "FXiaoKe": {
+      "wikiLink": "https://en.wikipedia.org/wiki/FXiaoKe?action=edit&redlink=1"
+    },
+    "LetsGetChecked": {
+      "wikiLink": "https://en.wikipedia.org/wiki/LetsGetChecked?action=edit&redlink=1"
+    },
+    "Emplifi": {
+      "country": "United States,  United Kingdom and Europe"
+    },
+    "Aircall": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Aircall?action=edit&redlink=1"
+    },
+    "Lookout": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Lookout"
+    },
+    "Opn (Synqa)": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Opn_(Synqa)?action=edit&redlink=1"
+    },
+    "Huikedu Group": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Huikedu_Group?action=edit&redlink=1"
+    },
+    "Maimai": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Maimai_(company)?action=edit&redlink=1"
+    },
+    "HMD Global": {
+      "wikiLink": "https://en.wikipedia.org/wiki/HMD_Global"
+    },
+    "Dunamu": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Dunamu"
+    },
+    "Matrixport": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Matrixport?action=edit&redlink=1"
+    },
+    "Earnix": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Earnix?action=edit&redlink=1"
+    },
+    "Lunar": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Lunar_(company)?action=edit&redlink=1"
+    },
+    "EMPG": {
+      "wikiLink": "https://en.wikipedia.org/wiki/EMPG"
+    },
+    "DANA": {
+      "wikiLink": "https://en.wikipedia.org/wiki/DANA_(payment_service)"
+    },
+    "MNT-Halan": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MNT-Halan?action=edit&redlink=1"
+    },
+    "Tongdun Technology": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tongdun_Technology?action=edit&redlink=1"
+    },
+    "Payhawk": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Payhawk?action=edit&redlink=1"
+    },
+    "Papara": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Papara"
+    },
+    "Socket": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1"
+    },
+    "Spendesk": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Spendesk?action=edit&redlink=1"
+    },
+    "eSentire": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ESentire?action=edit&redlink=1"
+    },
+    "Beibei": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Beibei_(company)?action=edit&redlink=1"
+    },
+    "58 Daojia": {
+      "wikiLink": "https://en.wikipedia.org/wiki/58_Daojia?action=edit&redlink=1"
+    },
+    "Ajaib": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ajaib?action=edit&redlink=1"
+    },
+    "Flash Express": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Flash_Express?action=edit&redlink=1"
+    },
+    "Bringg": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Bringg?action=edit&redlink=1"
+    },
+    "Mia.com": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mia.com?action=edit&redlink=1"
+    },
+    "BlueVoyant": {
+      "wikiLink": "https://en.wikipedia.org/wiki/BlueVoyant?action=edit&redlink=1"
+    },
+    "Flo Health": {
+      "country": "Lithuania,  Belarus"
+    },
+    "Tenstorrent": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tenstorrent"
+    },
+    "Epassi": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Epassi?action=edit&redlink=1"
+    },
+    "Assent Compliance": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Assent_Compliance?action=edit&redlink=1"
+    },
+    "Flexe": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Flexe?action=edit&redlink=1"
+    },
+    "Revolution Precrafted": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Revolution_Precrafted?action=edit&redlink=1"
+    },
+    "Dt Dream": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Dt_Dream?action=edit&redlink=1"
+    },
+    "Meero": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Meero"
+    },
+    "Tekion": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tekion?action=edit&redlink=1"
+    },
+    "Asia First Media": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Asia_First_Media?action=edit&redlink=1"
+    },
+    "YH Global": {
+      "wikiLink": "https://en.wikipedia.org/wiki/YH_Global?action=edit&redlink=1"
+    },
+    "Loggi": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Loggi"
+    },
+    "Hailo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Hailo"
+    },
+    "VerSe Innovation": {
+      "wikiLink": "https://en.wikipedia.org/wiki/VerSe_Innovation?action=edit&redlink=1"
+    },
+    "TrueLayer": {
+      "wikiLink": "https://en.wikipedia.org/wiki/TrueLayer?action=edit&redlink=1"
+    },
+    "Xendit": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Xendit?action=edit&redlink=1"
+    },
+    "AppDirect": {
+      "wikiLink": "https://en.wikipedia.org/wiki/AppDirect?action=edit&redlink=1"
+    },
+    "Ebanx": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ebanx?action=edit&redlink=1"
+    },
+    "VectorBuilder, Inc.": {
+      "wikiLink": "https://en.wikipedia.org/wiki/VectorBuilder,_Inc.?action=edit&redlink=1"
+    },
+    "Carro": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Carro_(company)?action=edit&redlink=1"
+    },
+    "Slice": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Slice_Small_Finance_Bank"
+    },
+    "Swile": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Swile?action=edit&redlink=1"
+    },
+    "MadeiraMadeira": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MadeiraMadeira?action=edit&redlink=1"
+    },
+    "Voi": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Voi"
+    },
+    "Aqua Security": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Aqua_Security?action=edit&redlink=1"
+    },
+    "Shift Technology": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Shift_Technology?action=edit&redlink=1"
+    },
+    "Sennder": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Sennder?action=edit&redlink=1"
+    },
+    "Wacai.com": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Wacai.com?action=edit&redlink=1"
+    },
+    "Go1": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Go1?action=edit&redlink=1"
+    },
+    "YunQuNa": {
+      "wikiLink": "https://en.wikipedia.org/wiki/YunQuNa?action=edit&redlink=1"
+    },
+    "Mensa Brands": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mensa_Brands?action=edit&redlink=1"
+    },
+    "HighRadius": {
+      "wikiLink": "https://en.wikipedia.org/wiki/HighRadius?action=edit&redlink=1"
+    },
+    "Mofang Apartment": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mofang_Apartment?action=edit&redlink=1"
+    },
+    "Ivalua": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ivalua?action=edit&redlink=1"
+    },
+    "VTS": {
+      "wikiLink": "https://en.wikipedia.org/wiki/VTS_(company)?action=edit&redlink=1"
+    },
+    "Substrate": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Substrate_(company)?action=edit&redlink=1"
+    },
+    "Neo Financial": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Neo_Financial"
+    },
+    "Kredivo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Kredivo?action=edit&redlink=1"
+    },
+    "Loft Brazil Technology": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Loft_Brazil_Technology?action=edit&redlink=1"
+    },
+    "Bluecore": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Bluecore?action=edit&redlink=1"
+    },
+    "Cadence Solutions, Inc.": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Cadence_Solutions,_Inc.?action=edit&redlink=1"
+    },
+    "Tresata": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tresata?action=edit&redlink=1"
+    },
+    "Kitopi": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Kitopi?action=edit&redlink=1"
+    },
+    "Jollychic": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Jollychic?action=edit&redlink=1"
+    },
+    "Locus Robotics": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Locus_Robotics?action=edit&redlink=1"
+    },
+    "MindMaze": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MindMaze"
+    },
+    "Sift": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Sift"
+    },
+    "Zuoyebang": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Zuoyebang?action=edit&redlink=1"
+    },
+    "DXY": {
+      "wikiLink": "https://en.wikipedia.org/wiki/DXY.cn"
+    },
+    "Gelato": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Gelato"
+    },
+    "Purplle": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Purplle?action=edit&redlink=1"
+    },
+    "SmartNews": {
+      "wikiLink": "https://en.wikipedia.org/wiki/SmartNews?action=edit&redlink=1"
+    },
+    "Luoji Siwei": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Luoji_Siwei?action=edit&redlink=1"
+    },
+    "Apna": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Apna_(company)?action=edit&redlink=1"
+    },
+    "YouniteD": {
+      "wikiLink": "https://en.wikipedia.org/wiki/YouniteD?action=edit&redlink=1"
+    },
+    "Virta Health": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Virta_Health?action=edit&redlink=1"
+    },
+    "Zego": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Zego"
+    },
+    "Drools": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Drools"
+    },
+    "3DOM Alliance, Inc.": {
+      "wikiLink": "https://en.wikipedia.org/wiki/3DOM_Alliance,_Inc.?action=edit&redlink=1"
+    },
+    "Nexthink": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Nexthink"
+    },
+    "Staffbase": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Staffbase?action=edit&redlink=1"
+    },
+    "GlobalBees": {
+      "wikiLink": "https://en.wikipedia.org/wiki/GlobalBees?action=edit&redlink=1"
+    },
+    "CoinDCX": {
+      "wikiLink": "https://en.wikipedia.org/wiki/CoinDCX?action=edit&redlink=1"
+    },
+    "Sysdig": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Sysdig?action=edit&redlink=1"
+    },
+    "Copado": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Copado?action=edit&redlink=1"
+    },
+    "HappyRobot": {
+      "wikiLink": "https://en.wikipedia.org/wiki/HappyRobot?action=edit&redlink=1"
+    },
+    "Dental Monitoring": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Dental_Monitoring?action=edit&redlink=1"
+    },
+    "Mindtickle": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mindtickle?action=edit&redlink=1"
+    },
+    "upGrad": {
+      "wikiLink": "https://en.wikipedia.org/wiki/UpGrad?action=edit&redlink=1"
+    },
+    "Merama": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Merama?action=edit&redlink=1"
+    },
+    "CarDekho": {
+      "wikiLink": "https://en.wikipedia.org/wiki/CarDekho?action=edit&redlink=1"
+    },
+    "Forto": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Forto"
+    },
+    "Triple-1": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Triple-1?action=edit&redlink=1"
+    },
+    "Axonius": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Axonius?action=edit&redlink=1"
+    },
+    "Deutsche Health": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Deutsche_Health?action=edit&redlink=1"
+    },
+    "Rohlik": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Rohlik_Group?action=edit&redlink=1"
+    },
+    "MyGlamm": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MyGlamm?action=edit&redlink=1"
+    },
+    "Kyriba": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Kyriba?action=edit&redlink=1"
+    },
+    "Droom": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Droom"
+    },
+    "Fair": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Fair_(company)?action=edit&redlink=1"
+    },
+    "Ada": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ada_(company)?action=edit&redlink=1"
+    },
+    "Insider": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Insider_(company)?action=edit&redlink=1"
+    },
+    "Spiber": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Spiber?action=edit&redlink=1"
+    },
+    "Incode": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Incode?action=edit&redlink=1"
+    },
+    "Applied Intuition": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Applied_Intuition"
+    },
+    "Marshmallow": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Marshmallow_(company)"
+    },
+    "BigID": {
+      "wikiLink": "https://en.wikipedia.org/wiki/BigID?action=edit&redlink=1"
+    },
+    "Iwjw": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Iwjw?action=edit&redlink=1"
+    },
+    "Cart.com": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Cart.com"
+    },
+    "Konfio": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Konfio?action=edit&redlink=1"
+    },
+    "Kr Space": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Kr_Space?action=edit&redlink=1"
+    },
+    "Corgi": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)"
+    },
+    "ETCP": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ETCP?action=edit&redlink=1"
+    },
+    "GPClub": {
+      "wikiLink": "https://en.wikipedia.org/wiki/GPClub?action=edit&redlink=1"
+    },
+    "RIDI": {
+      "wikiLink": "https://en.wikipedia.org/wiki/RIDI?action=edit&redlink=1"
+    },
+    "Miro": {
+      "valuation_m": 1360,
+      "valuation_str": "$1.36B"
+    },
+    "Panther Labs, Inc.": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Panther_Labs,_Inc.?action=edit&redlink=1"
+    },
+    "QOMPLX, Inc.": {
+      "wikiLink": "https://en.wikipedia.org/wiki/QOMPLX,_Inc.?action=edit&redlink=1"
+    },
+    "Yotpo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Yotpo?action=edit&redlink=1"
+    },
+    "OneCard": {
+      "wikiLink": "https://en.wikipedia.org/wiki/OneCard?action=edit&redlink=1"
+    },
+    "Chargebee": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Chargebee?action=edit&redlink=1"
+    },
+    "Bucketplace": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Bucketplace?action=edit&redlink=1"
+    },
+    "IAD": {
+      "wikiLink": "https://en.wikipedia.org/wiki/IAD_(company)?action=edit&redlink=1"
+    },
+    "Voyager": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Voyager_(company)?action=edit&redlink=1"
+    },
+    "Five Star Finance": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Five_Star_Finance?action=edit&redlink=1"
+    },
+    "Koudai Gouwu": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Koudai_Gouwu?action=edit&redlink=1"
+    },
+    "Odyssey": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Odyssey_(company)?action=edit&redlink=1"
+    },
+    "KreditBee": {
+      "wikiLink": "https://en.wikipedia.org/wiki/KreditBee?action=edit&redlink=1"
+    },
+    "Granola": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Granola_(company)?action=edit&redlink=1"
+    },
+    "Spring Rain Software": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Spring_Rain_Software?action=edit&redlink=1"
+    },
+    "5ire": {
+      "wikiLink": "https://en.wikipedia.org/wiki/5ire?action=edit&redlink=1"
+    },
+    "NextSilicon": {
+      "wikiLink": "https://en.wikipedia.org/wiki/NextSilicon?action=edit&redlink=1"
+    },
+    "Remote": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Remote_(company)?action=edit&redlink=1"
+    },
+    "ZBJ.com": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ZBJ.com?action=edit&redlink=1"
+    },
+    "Tujia.com": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tujia.com"
+    },
+    "NotCo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/NotCo?action=edit&redlink=1"
+    },
+    "Molbio Diagnostics": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Molbio_Diagnostics"
+    },
+    "Devo, Inc.": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Devo,_Inc.?action=edit&redlink=1"
+    },
+    "Matillion": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Matillion?action=edit&redlink=1"
+    },
+    "Ledger": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ledger_(company)?action=edit&redlink=1"
+    },
+    "Render": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Render_(company)?action=edit&redlink=1"
+    },
+    "CureFit": {
+      "wikiLink": "https://en.wikipedia.org/wiki/CureFit?action=edit&redlink=1"
+    },
+    "Cresta": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Cresta_(company)?action=edit&redlink=1"
+    },
+    "Unite Us": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Unite_Us?action=edit&redlink=1"
+    },
+    "Clari": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Clari"
+    },
+    "SafetyCulture": {
+      "wikiLink": "https://en.wikipedia.org/wiki/SafetyCulture?action=edit&redlink=1"
+    },
+    "SmartHR": {
+      "wikiLink": "https://en.wikipedia.org/wiki/SmartHR?action=edit&redlink=1"
+    },
+    "Incredible Health": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Incredible_Health?action=edit&redlink=1"
+    },
+    "Alan": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Alan_(company)?action=edit&redlink=1"
+    },
+    "Vestiaire Collective": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Vestiaire_Collective"
+    },
+    "Dutchie.com": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Dutchie.com?action=edit&redlink=1"
+    },
+    "Dragos": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Dragos_(company)?action=edit&redlink=1"
+    },
+    "Harness": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Harness_(company)?action=edit&redlink=1"
+    },
+    "ADVASA": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ADVASA?action=edit&redlink=1"
+    },
+    "GVE": {
+      "wikiLink": "https://en.wikipedia.org/wiki/GVE_(company)?action=edit&redlink=1"
+    },
+    "Productboard": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Productboard"
+    },
+    "Creditas": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Creditas?action=edit&redlink=1"
+    },
+    "Spinny": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Spinny?action=edit&redlink=1"
+    },
+    "L&P Cosmetic": {
+      "wikiLink": "https://en.wikipedia.org/wiki/L&P_Cosmetic?action=edit&redlink=1"
+    },
+    "Landa Digital Printing": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Landa_Digital_Printing?action=edit&redlink=1"
+    },
+    "Radiant Nuclear": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Radiant_Nuclear"
+    },
+    "Orca Security": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Orca_Security?action=edit&redlink=1"
+    },
+    "MEGAZONE": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MEGAZONE?action=edit&redlink=1"
+    },
+    "Apus Group": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Apus_Group?action=edit&redlink=1"
+    },
+    "Musinsa": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Musinsa"
+    },
+    "Dfinity": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Dfinity?action=edit&redlink=1"
+    },
+    "CoinSwitch Kuber": {
+      "wikiLink": "https://en.wikipedia.org/wiki/CoinSwitch_Kuber?action=edit&redlink=1"
+    },
+    "Sanpower Group": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Sanpower_Group?action=edit&redlink=1"
+    },
+    "ZigBang": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ZigBang?action=edit&redlink=1"
+    },
+    "Ankorstore": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Ankorstore?action=edit&redlink=1"
+    },
+    "Huimin.cn": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Huimin.cn?action=edit&redlink=1"
+    },
+    "Meicai.cn": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Meicai.cn?action=edit&redlink=1"
+    },
+    "Mynt": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mynt"
+    },
+    "Akulaku": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Akulaku?action=edit&redlink=1"
+    },
+    "Trendy International Group": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Trendy_International_Group?action=edit&redlink=1"
+    },
+    "Mural": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Mural_(company)?action=edit&redlink=1"
+    },
+    "Iterable": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Iterable?action=edit&redlink=1"
+    },
+    "Bought By Many": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Bought_By_Many?action=edit&redlink=1"
+    },
+    "Clip": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Clip_(company)?action=edit&redlink=1"
+    },
+    "Firstp2p": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Firstp2p?action=edit&redlink=1"
+    },
+    "OPay": {
+      "wikiLink": "https://en.wikipedia.org/wiki/OPay?action=edit&redlink=1"
+    },
+    "Simile": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Simile_(company)?action=edit&redlink=1"
+    },
+    "Divvy Homes": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Divvy_Homes?action=edit&redlink=1"
+    },
+    "Exotec": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Exotec"
+    },
+    "Eightfold.ai": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Eightfold.ai?action=edit&redlink=1"
+    },
+    "6sense": {
+      "wikiLink": "https://en.wikipedia.org/wiki/6sense?action=edit&redlink=1"
+    },
+    "C6 Bank": {
+      "wikiLink": "https://en.wikipedia.org/wiki/C6_Bank?action=edit&redlink=1"
+    },
+    "PayFit": {
+      "wikiLink": "https://en.wikipedia.org/wiki/PayFit?action=edit&redlink=1"
+    },
+    "Gamma": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Gamma_(AI_company)?action=edit&redlink=1"
+    },
+    "Bitso": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Bitso?action=edit&redlink=1"
+    },
+    "Gympass": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Gympass?action=edit&redlink=1"
+    },
+    "MPL": {
+      "wikiLink": "https://en.wikipedia.org/wiki/MPL_(company)?action=edit&redlink=1"
+    },
+    "Headway": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Headway_(company)?action=edit&redlink=1"
+    },
+    "Highspot": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Highspot?action=edit&redlink=1"
+    },
+    "EasyA": {
+      "wikiLink": "https://en.wikipedia.org/wiki/EasyA?action=edit&redlink=1"
+    },
+    "Infra.Market": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Infra.Market?action=edit&redlink=1"
+    },
+    "Jumpcloud": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Jumpcloud?action=edit&redlink=1"
+    },
+    "Pendo": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Pendo_(company)?action=edit&redlink=1"
+    },
+    "AmWINS Group": {
+      "wikiLink": "https://en.wikipedia.org/wiki/AmWINS_Group?action=edit&redlink=1"
+    },
+    "ManoMano": {
+      "wikiLink": "https://en.wikipedia.org/wiki/ManoMano?action=edit&redlink=1"
+    },
+    "Daangn Market": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Daangn_Market?action=edit&redlink=1"
+    },
+    "Tridge": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Tridge_(company)?action=edit&redlink=1"
+    },
+    "Abridge": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Abridge"
+    },
+    "DriveWealth": {
+      "wikiLink": "https://en.wikipedia.org/wiki/DriveWealth?action=edit&redlink=1"
+    },
+    "Workrise": {
+      "wikiLink": "https://en.wikipedia.org/wiki/Workrise?action=edit&redlink=1"
+    },
+    "Mistral AI": {
+      "valuation_m": 24000,
+      "valuation_str": "$24.0B"
+    },
+    "Quantinuum": {
+      "valuation_m": 17600,
+      "valuation_str": "$17.6B"
     }
   },
   "additions": [
@@ -494,6 +1398,166 @@
       "company": "K2 Space",
       "valuation_m": 6800,
       "valuation_str": "$6.8B"
+    },
+    {
+      "id": "wiki-590",
+      "source": "wiki",
+      "company": "Thatch",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Individual health benefits",
+      "valuation_str": "$1B",
+      "valuation_m": 1000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Adam Stevenson, Chris Ellis",
+      "country": "United States",
+      "unicorn_as_of": "September 2026",
+      "year": "2026",
+      "industry": "Biotech/Health",
+      "founders": "Adam Stevenson, Chris Ellis"
+    },
+    {
+      "id": "wiki-536",
+      "source": "wiki",
+      "company": "LinkSure Network(WiFi Master Key)",
+      "wikiLink": "https://en.wikipedia.org/wiki/LinkSure_Network?action=edit&redlink=1",
+      "wikiSlug": "",
+      "description": "",
+      "valuation_str": "$1B",
+      "valuation_m": 1000,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "China",
+      "unicorn_as_of": "January 2015",
+      "year": "2015",
+      "industry": "Other",
+      "founders": "",
+      "companyZh": "LinkSure Network(WiFi Master Key)",
+      "pinyinInitial": "L"
+    },
+    {
+      "id": "wiki-242",
+      "source": "wiki",
+      "company": "Mews (company)",
+      "wikiLink": "https://en.wikipedia.org/wiki/Mews_(company)",
+      "wikiSlug": "Mews_(company)",
+      "description": "Hospitality management platform",
+      "valuation_str": "$2.5B",
+      "valuation_m": 2500,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Richard Valtr",
+      "country": "Czech Republic",
+      "unicorn_as_of": "January 2026",
+      "year": "2026",
+      "industry": "Consumer",
+      "founders": "Richard Valtr"
+    },
+    {
+      "id": "wiki-134",
+      "source": "wiki",
+      "company": "River AI",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$5B",
+      "valuation_m": 5000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Igor Babuschkin",
+      "country": "United States",
+      "unicorn_as_of": "August 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Igor Babuschkin"
+    },
+    {
+      "id": "wiki-107",
+      "source": "wiki",
+      "company": "Doctolib",
+      "wikiLink": "https://en.wikipedia.org/wiki/Doctolib?action=edit&redlink=1",
+      "wikiSlug": "",
+      "description": "Healthcare",
+      "valuation_str": "$6.2B",
+      "valuation_m": 6200,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "France",
+      "unicorn_as_of": "August 2022",
+      "year": "2022",
+      "industry": "Biotech/Health",
+      "founders": ""
+    },
+    {
+      "id": "wiki-64",
+      "source": "wiki",
+      "company": "Instinct",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial Intelligence",
+      "valuation_str": "$10B",
+      "valuation_m": 10000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Noah Shinn",
+      "country": "United States",
+      "unicorn_as_of": "September 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Noah Shinn"
+    },
+    {
+      "id": "wiki-45",
+      "source": "wiki",
+      "company": "Labs Companies",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Frontier Intelligences, Superintelligence, Human-enhancement AI",
+      "valuation_str": "$12.5B",
+      "valuation_m": 12500,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Duránd F. Davis Jr., and Maya Elz Davis",
+      "country": "United States",
+      "unicorn_as_of": "April 2025",
+      "year": "2025",
+      "industry": "AI/ML",
+      "founders": "Duránd F. Davis Jr., and Maya Elz Davis"
+    },
+    {
+      "id": "wiki-8",
+      "source": "wiki",
+      "company": "BNB",
+      "wikiLink": "https://en.wikipedia.org/wiki/BNB_Smart_Chain_(blockchain_platform)",
+      "wikiSlug": "BNB_Smart_Chain_(blockchain_platform)",
+      "description": "Cryptocurrency",
+      "valuation_str": "$102B",
+      "valuation_m": 102000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Changpeng Zhao",
+      "country": "Canada",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "Crypto/Web3",
+      "founders": "Changpeng Zhao"
+    },
+    {
+      "id": "wiki-3",
+      "source": "wiki",
+      "company": "Ethereum",
+      "wikiLink": "https://en.wikipedia.org/wiki/Ethereum",
+      "wikiSlug": "Ethereum",
+      "description": "Cryptocurrency",
+      "valuation_str": "$314B",
+      "valuation_m": 314000,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Vitalik Buterin, Gavin Wood, Charles Hoskinson,Anthony Di Iorio, Joseph Lubin",
+      "country": "Switzerland",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "Crypto/Web3",
+      "founders": "Vitalik Buterin, Gavin Wood, Charles Hoskinson,Anthony Di Iorio, Joseph Lubin"
+    },
+    {
+      "company": "The 'ChatGPT for doctors",
+      "valuation_m": 15000,
+      "valuation_str": "$15.0B"
     }
   ],
   "deletions": [
@@ -501,7 +1565,13 @@
     "Anysphere",
     "SpaceX",
     "Cerebras",
-    "Grammarly"
+    "Grammarly",
+    "LinkSure Network (WiFi Master Key)",
+    "Mews",
+    "Doctolib[fr]",
+    "Labs",
+    "Shein",
+    "Binance"
   ],
   "archived": {
     "Cerebras": "CBRS",
