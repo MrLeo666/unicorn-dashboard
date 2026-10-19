@@ -1,14 +1,6 @@
 {
-  "generated_at": "2026-10-12T17:26:21+00:00",
+  "generated_at": "2026-10-19T15:21:12+00:00",
   "new_candidates": [
-    {
-      "company": "The 'ChatGPT for doctors",
-      "valuation_m": 15000.0,
-      "headline": "The 'ChatGPT for doctors,' OpenEvidence, was valued at $15 billion in a new funding round",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRGk2VXozdjVVcnRxOXRTNEMyVTBGd3ZOR3lyZlhMcDllS21USl83c2sxUEZRZF8wT0djVldZMHpoVlF5WDZrQnVYYU1RaEFiVmJvclVOdC00U1lqUmtzVXYzeFZ4SW9yci1HVUVWTTU0RFB0d3pXeTlIOXd6a0lLYjdTVmhwT1c5cThxTU84bVNkWlE0aUE?oc=5",
-      "source": "Business Insider",
-      "date": "2026-09-24"
-    },
     {
       "company": "with just 14 people is",
       "valuation_m": 10000.0,
@@ -26,14 +18,6 @@
       "date": "2026-10-02"
     },
     {
-      "company": "Saudi's new unicorn",
-      "valuation_m": 6500.0,
-      "headline": "Saudi's new unicorn, Tabby hits $6.5B valuation",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE53cEJmYWJGdDJnZ3lqZTRyNE16RVB2dC1tSy05TW5lUFlEOXFUQ3JYdVp2aDVmNi0waTFyN20zM1dmMDJyNVNBTmFzOFlCblZQUjdjNXpDNFpkck9JTk5aeTN1bFdNUDlqRjIzXzRZZ19qZWVHN2tFdXU2MA?oc=5",
-      "source": "FWDStart",
-      "date": "2026-09-18"
-    },
-    {
       "company": "Island",
       "valuation_m": 6400.0,
       "headline": "Island raises $400 million at $6.4 billion valuation as AI agents reshape enterprise security",
@@ -48,14 +32,6 @@
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPM2MtNHpSM3N6eENEWjhfN0tXVDJwYXhOMVREb2lTRkpIYUFsaXdacHpoSjBwTXNaQkJqdGVrTzVRV1JKUmNqS3ZOSHVUVXBHeTdOZjU3cWFBSHFKdmw2LVRySlZPYnR2WkE5aThFV3dNbERFY3RPelpIOVJUT3JxT3JPR004YmtleGEwX29kQUgtUXJEWm56bC1oQkMtUUhNcUZZQTBGdFlubHFMbGlLNExIOUFzUdIBuwFBVV95cUxPdHdlRDlyTUtPVjFFTUtrVXByTFREVXVpWXhVZkJiR1BXRk5NQ3N4TzhfOHhXWjlBemFGQ1E1N3JZbU52OFpkRUplSUt5XzYtTXhYMHp1MGtOMXo2OU0wSWRHZ2ZqX0F2OV9zdmNrWnZYY1hyQllLdDd3cUVxZ3ZhRUtlNzVIWk9rS251cER1V0QwNU9EZGwwUVhHSmt3TDBUUGUyalM0Mnd2dk1oV2RNVHdkV1l1Z0Jvb3h3?oc=5",
       "source": "The Times of Israel",
       "date": "2026-09-24"
-    },
-    {
-      "company": "Exclusive: AI housing unicorn EliseAI",
-      "valuation_m": 4000.0,
-      "headline": "Exclusive: AI housing unicorn EliseAI hits $4 billion valuation in new funding round led by a16z and Bessemer",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPODZ4cVlQNGFmUEZXMVBnSWo2RWhSUWdfUEcwZHJzc1kwZEtYYVc0V3NCMTdzaS1yWWozMV9hSjg4dWdSWE1UYThsUzNiYk1OaW16S1YydVZTYlBsNUVxTWJaTXNYRldTWFBNMW5BaVhXTktlODNwQzZJNUJ3SWJpcDhXaERPdUdqRDJUMDdqYTRGdzJzMnkzMm9RY0pfSG5yWjg1SzdYRV80d0huM1ZZ?oc=5",
-      "source": "Fortune",
-      "date": "2026-09-29"
     },
     {
       "company": "EXCLUSIVE: Snorkel AI",
@@ -90,12 +66,12 @@
       "date": "2026-09-22"
     },
     {
-      "company": "Exclusive: Manufacturing AI startup CADDi",
-      "valuation_m": 1200.0,
-      "headline": "Exclusive: Manufacturing AI startup CADDi valued at $1.2 billion following $114 million Series D funding round",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3FpVERha3hBZnV4MDNqYU5iOVhUUnFwemhmU1h3YUV2dnZFcWF3TEdEd2pHblJiVW1KTUJmMVJXazRoZzFmdmxCSGRlXzVwdG5rdTM3MGM4aEtsRXlCbHdhMVk2OHZsZXFSdHpxNkU0Y3Y4bXVVR2U2dENnZ0xPSVZuSTlwclg5OEsxZ3lqYnNmSGlmeHhtdF9sZk1IVFVsMVFfQg?oc=5",
+      "company": "Exclusive: Stand",
+      "valuation_m": 1000.0,
+      "headline": "Exclusive: Stand raises $70 million at $1 billion valuation to price wildfire risk by treating homes like airplanes in flight",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNbUFHeGRBVjdXWlM3aUQxS1JUdVhWbUtyMzVlX2ZLOG9Gd1lhOWh5b2UxLUEycW5VOGpQdjhTamxVYmM1MXRCQW9DM1NSUVRrQXhuNDhDYUFoVG9xOFhhMlFvdmtqSm55Q2dZZVE2V1RreXJZSTgweERNa2tGVF9nTVIwQ1YweVdISTJkQ2M1elViNVROUDlYSzE1VlpvNXctbmdUbQ?oc=5",
       "source": "Fortune",
-      "date": "2026-09-15"
+      "date": "2026-10-15"
     },
     {
       "company": "RobCo",
@@ -108,6 +84,15 @@
   ],
   "valuation_jumps": [
     {
+      "company": "Thinking Machines Lab",
+      "current_m": 12000.0,
+      "detected_m": 40000.0,
+      "headline": "Thinking Machines Lab Seeks $40B Valuation as Nvidia Extends Its Capital Allocator Role Into Model-Space",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUkdWaHp4cjRwVno1T05zaGxXNkN5ZGlmVzl5aGZSemNiTTdyajRqY3gtbVJhV01jbGRkaGx0YVRkWU5xanFwRC1mZlkxdTFOaExsTVhtLWNlQTJFdFBBYUx2c3ItZlVwVlRmMHdRMDZROGtJcjlqWmZZV0ZvVHdpSDE5QVk5Ulk5VHNmdVJUT2IxRmc0QmdVZjdIQQ?oc=5",
+      "source": "Yahoo Finance",
+      "date": "2026-09-04"
+    },
+    {
       "company": "Cognition AI",
       "current_m": 26000.0,
       "detected_m": 48000.0,
@@ -117,22 +102,13 @@
       "date": "2026-09-08"
     },
     {
-      "company": "Mistral AI",
-      "current_m": 14000.0,
-      "detected_m": 24000.0,
-      "headline": "French AI company Mistral hits $24 billion valuation in funding round",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSzZndFBZYk1SQ19xOVJYSXR1ZHdKa2p2a0RSYTVfeWVicHRLZ2JOdG5zc3hibHhJYWh1V3pIVEhDaV9Wc2xQV2RlYkNkTEZJSDV2V1V6aGloYXVPcFNtMHlCU1ZsTnR5UEZTNTI5WTExa1A4Vy0xZjN4ZFE3TVUzN2tUWFNnc3V2aXNBRldFWXlGYnFwcGtGVkFtRE9HTDktVUhJR09HVUwtdHZmNHdjWGZCTkw?oc=5",
-      "source": "Reuters",
-      "date": "2026-09-07"
-    },
-    {
-      "company": "Quantinuum",
-      "current_m": 10800.0,
-      "detected_m": 17600.0,
-      "headline": "Honeywell's Quantinuum valued at $17.6 billion as shares rise in Nasdaq debut",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOUDhiWmdEaFMzb05UYVVQY2tTOEZpb2c1eEdGRUlwbDlRVE1HSXNSd0pTTS1WT1R2U0ozU0poM0xIUXpRSHd0elFfWFphSmthbXVJS2hOVWNlUGtIaThaOVFRZVA0U2VoS3lKYlRqaEhTYmoydGM5WFN2VHBvOUd5VFVRS1l4OTRCSGNyWngtMU5qbjFWSTVrTkRoQ1NkYnFOXzkxOEM5aFExT3dfa3ZROWhNVWFMU1Q2elE?oc=5",
-      "source": "Reuters",
-      "date": "2026-06-04"
+      "company": "Ramp",
+      "current_m": 44000.0,
+      "detected_m": 60000.0,
+      "headline": "Ramp reaches $60B valuation as it pushes deeper into AI",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQN3djZ09tWnlvSlg5cVNMV2UzanVMQ0VEcmNHLThlT0c4aTJKeTdmZjd6Z0Y3Z1JxeEo0RnRyaFRGQ2FySmwxSTB0SzBFclVuV0JhS3RUc05landudElrS0JwR2JzNXFJQzdhTG5YYzVVZHRZdm02aEVma00yNDlaS016bmgwd3YwYkNvbTg4Z3ZtWlk?oc=5",
+      "source": "TechCrunch",
+      "date": "2026-10-15"
     }
   ]
 }

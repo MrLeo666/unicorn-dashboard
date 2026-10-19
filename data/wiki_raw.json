@@ -40,6 +40,16 @@
     "founders": "Vitalik Buterin, Gavin Wood, Charles Hoskinson,Anthony Di Iorio, Joseph Lubin"
   },
   {
+    "company": "Tether",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
+    "valuation_b": 215.0,
+    "valuation_str": "$215B",
+    "valuation_date": "November 2025",
+    "industry_raw": "Cryptocurrency",
+    "country": "El Salvador",
+    "founders": "Paolo Ardoino, Brock Pierce"
+  },
+  {
     "company": "Databricks",
     "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
     "valuation_b": 190.0,
@@ -48,16 +58,6 @@
     "industry_raw": "Software",
     "country": "United States",
     "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
-  },
-  {
-    "company": "Tether",
-    "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
-    "valuation_b": 189.0,
-    "valuation_str": "$189B",
-    "valuation_date": "October 2026",
-    "industry_raw": "Cryptocurrency",
-    "country": "El Salvador",
-    "founders": "Paolo Ardoino, Brock Pierce"
   },
   {
     "company": "Stripe",
@@ -2510,6 +2510,16 @@
     "founders": ""
   },
   {
+    "company": "Starcloud",
+    "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
+    "valuation_b": 2.3,
+    "valuation_str": "$2.3B",
+    "valuation_date": "March 2026",
+    "industry_raw": "Orbital Data Centers",
+    "country": "United States",
+    "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
+  },
+  {
     "company": "Headway",
     "wikiLink": "https://en.wikipedia.org/wiki/Headway_(company)?action=edit&redlink=1",
     "valuation_b": 2.3,
@@ -4510,16 +4520,6 @@
     "founders": ""
   },
   {
-    "company": "Starcloud",
-    "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
-    "valuation_b": 1.1,
-    "valuation_str": "$1.1B",
-    "valuation_date": "March 2026",
-    "industry_raw": "Orbital Data Centers",
-    "country": "United States",
-    "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
-  },
-  {
     "company": "Deputy",
     "wikiLink": "https://en.wikipedia.org/wiki/Deputy_(company)",
     "valuation_b": 1.1,
@@ -5501,7 +5501,7 @@
   },
   {
     "company": "MindMaze",
-    "wikiLink": "https://en.wikipedia.org/wiki/MindMaze",
+    "wikiLink": "https://en.wikipedia.org/wiki/MindMaze_(company)?action=edit&redlink=1",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
     "valuation_date": "February 2016",
