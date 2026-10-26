@@ -1,5 +1,159 @@
 {
-  "additions": [],
+  "additions": [
+    {
+      "id": "wiki-92",
+      "source": "wiki",
+      "company": "TypeSafe AI",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$7.5B",
+      "valuation_m": 7500.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Diogo Almeida, Sasha Sheng, Erik Gafni",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Diogo Almeida, Sasha Sheng, Erik Gafni"
+    },
+    {
+      "id": "wiki-109",
+      "source": "wiki",
+      "company": "Flapping Airplanes",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$6B",
+      "valuation_m": 6000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Aidan Smith, Asher Spector, Ben Spector",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Aidan Smith, Asher Spector, Ben Spector"
+    },
+    {
+      "id": "wiki-262",
+      "source": "wiki",
+      "company": "Blackwall",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Cybersecurity",
+      "valuation_str": "$2.2B",
+      "valuation_m": 2200.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Nikita Rozenberg",
+      "country": "Estonia",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "Cybersecurity",
+      "founders": "Nikita Rozenberg"
+    },
+    {
+      "id": "wiki-371",
+      "source": "wiki",
+      "company": "Nous Research",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$1.5B",
+      "valuation_m": 1500.0,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": ""
+    },
+    {
+      "id": "wiki-383",
+      "source": "wiki",
+      "company": "Eka Robotics",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Robotics",
+      "valuation_str": "$1.45B",
+      "valuation_m": 1450.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Pulkit Agrawal, Tuomas Haarnoja",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "Robotics",
+      "founders": "Pulkit Agrawal, Tuomas Haarnoja"
+    },
+    {
+      "id": "wiki-453",
+      "source": "wiki",
+      "company": "Warhound",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Biotechnology",
+      "valuation_str": "$1.2B",
+      "valuation_m": 1200.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Ben Lamm, Palmer Luckey",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "Biotech/Health",
+      "founders": "Ben Lamm, Palmer Luckey"
+    },
+    {
+      "id": "wiki-497",
+      "source": "wiki",
+      "company": "Blacksmith",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Software",
+      "valuation_str": "$1B",
+      "valuation_m": 1000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Aditya Jayaprakash",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "SaaS/Enterprise",
+      "founders": "Aditya Jayaprakash"
+    },
+    {
+      "id": "wiki-503",
+      "source": "wiki",
+      "company": "Daytona",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Cloud computing",
+      "valuation_str": "$1B",
+      "valuation_m": 1000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Ivan Burazin",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "SaaS/Enterprise",
+      "founders": "Ivan Burazin"
+    },
+    {
+      "id": "wiki-597",
+      "source": "wiki",
+      "company": "Town",
+      "wikiLink": "",
+      "wikiSlug": "",
+      "description": "Artificial intelligence",
+      "valuation_str": "$1B",
+      "valuation_m": 1000.0,
+      "vc_raised": "—",
+      "lead_investors": "Founders: Jean-Denis Greze",
+      "country": "United States",
+      "unicorn_as_of": "October 2026",
+      "year": "2026",
+      "industry": "AI/ML",
+      "founders": "Jean-Denis Greze"
+    }
+  ],
   "modifications": [
     {
       "company": "Anthropic",
@@ -96,7 +250,7 @@
       "changes": {
         "valuation_m": {
           "from": 189000.0,
-          "to": 215000.0
+          "to": 350000.0
         }
       },
       "current": {
@@ -118,19 +272,19 @@
         "founders": "Paolo Ardoino, Brock Pierce"
       },
       "proposed": {
-        "id": "wiki-4",
+        "id": "wiki-3",
         "source": "wiki",
         "company": "Tether",
         "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
         "wikiSlug": "Tether_(cryptocurrency)",
         "description": "Cryptocurrency",
-        "valuation_str": "$215B",
-        "valuation_m": 215000.0,
+        "valuation_str": "$350B",
+        "valuation_m": 350000.0,
         "vc_raised": "—",
         "lead_investors": "Founders: Paolo Ardoino, Brock Pierce",
         "country": "El Salvador",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
+        "unicorn_as_of": "February 2026",
+        "year": "2026",
         "industry": "Crypto/Web3",
         "founders": "Paolo Ardoino, Brock Pierce"
       }
@@ -161,7 +315,7 @@
         "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
       },
       "proposed": {
-        "id": "wiki-5",
+        "id": "wiki-4",
         "source": "wiki",
         "company": "Databricks",
         "wikiLink": "https://en.wikipedia.org/wiki/Databricks",
@@ -176,6 +330,49 @@
         "year": "2026",
         "industry": "SaaS/Enterprise",
         "founders": "Ali Ghodsi, Andy Konwinski, Ion Stoica, Reynold Xin, Matei Zaharia"
+      }
+    },
+    {
+      "company": "Ramp",
+      "changes": {
+        "valuation_m": {
+          "from": 44000.0,
+          "to": 60000.0
+        }
+      },
+      "current": {
+        "id": "wiki-11",
+        "source": "wiki",
+        "company": "Ramp",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
+        "wikiSlug": "Ramp_(company)",
+        "description": "Financial technology",
+        "valuation_str": "$44.0B",
+        "valuation_m": 44000,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "November 2025",
+        "year": "2025",
+        "industry": "Fintech",
+        "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
+      },
+      "proposed": {
+        "id": "wiki-8",
+        "source": "wiki",
+        "company": "Ramp",
+        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
+        "wikiSlug": "Ramp_(company)",
+        "description": "Financial technology",
+        "valuation_str": "$60B",
+        "valuation_m": 60000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Eric Glyman, Karim Atiyeh, Gene Lee",
+        "country": "United States",
+        "unicorn_as_of": "October 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
       }
     },
     {
@@ -204,7 +401,7 @@
         "founders": "Scott Wu, Steven Hao, Walden Yan"
       },
       "proposed": {
-        "id": "wiki-10",
+        "id": "wiki-9",
         "source": "wiki",
         "company": "Cognition AI",
         "wikiLink": "https://en.wikipedia.org/wiki/Cognition_AI",
@@ -219,49 +416,6 @@
         "year": "2026",
         "industry": "AI/ML",
         "founders": "Scott Wu, Steven Hao, Walden Yan"
-      }
-    },
-    {
-      "company": "Ramp",
-      "changes": {
-        "valuation_m": {
-          "from": 44000.0,
-          "to": 32000.0
-        }
-      },
-      "current": {
-        "id": "wiki-11",
-        "source": "wiki",
-        "company": "Ramp",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
-        "wikiSlug": "Ramp_(company)",
-        "description": "Financial technology",
-        "valuation_str": "$44.0B",
-        "valuation_m": 44000,
-        "vc_raised": "—",
-        "lead_investors": "—",
-        "country": "United States",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
-        "industry": "Fintech",
-        "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
-      },
-      "proposed": {
-        "id": "wiki-14",
-        "source": "wiki",
-        "company": "Ramp",
-        "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
-        "wikiSlug": "Ramp_(company)",
-        "description": "Financial technology",
-        "valuation_str": "$32B",
-        "valuation_m": 32000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Eric Glyman, Karim Atiyeh, Gene Lee",
-        "country": "United States",
-        "unicorn_as_of": "November 2025",
-        "year": "2025",
-        "industry": "Fintech",
-        "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
       }
     },
     {
@@ -291,7 +445,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-633",
+        "id": "pb-639",
         "source": "pb",
         "tier": "A",
         "company": "Cursor",
@@ -337,7 +491,7 @@
         "pinyinInitial": "D"
       },
       "proposed": {
-        "id": "wiki-31",
+        "id": "wiki-29",
         "source": "wiki",
         "company": "DJI",
         "wikiLink": "https://en.wikipedia.org/wiki/DJI",
@@ -354,49 +508,6 @@
         "founders": "Frank Wang (Wang Tao)",
         "companyZh": "大疆",
         "pinyinInitial": "D"
-      }
-    },
-    {
-      "company": "Helsing",
-      "changes": {
-        "valuation_m": {
-          "from": 18000.0,
-          "to": 14000.0
-        }
-      },
-      "current": {
-        "id": "wiki-35",
-        "source": "wiki",
-        "company": "Helsing",
-        "wikiLink": "https://en.wikipedia.org/wiki/Helsing_(company)",
-        "wikiSlug": "Helsing_(company)",
-        "description": "Defense",
-        "valuation_str": "$18.0B",
-        "valuation_m": 18000,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Torsten Reil, Gundbert Scherf, Niklas Köhler",
-        "country": "Germany",
-        "unicorn_as_of": "September 2025",
-        "year": "2025",
-        "industry": "Aerospace/Defense",
-        "founders": "Torsten Reil, Gundbert Scherf, Niklas Köhler"
-      },
-      "proposed": {
-        "id": "wiki-36",
-        "source": "wiki",
-        "company": "Helsing",
-        "wikiLink": "https://en.wikipedia.org/wiki/Helsing_(company)",
-        "wikiSlug": "Helsing_(company)",
-        "description": "Defense",
-        "valuation_str": "$14B",
-        "valuation_m": 14000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Torsten Reil, Gundbert Scherf, Niklas Köhler",
-        "country": "Germany",
-        "unicorn_as_of": "September 2025",
-        "year": "2025",
-        "industry": "Aerospace/Defense",
-        "founders": "Torsten Reil, Gundbert Scherf, Niklas Köhler"
       }
     },
     {
@@ -427,7 +538,7 @@
         "pinyinInitial": "X"
       },
       "proposed": {
-        "id": "wiki-35",
+        "id": "wiki-33",
         "source": "wiki",
         "company": "Xiaohongshu",
         "wikiLink": "https://en.wikipedia.org/wiki/Xiaohongshu",
@@ -444,6 +555,49 @@
         "founders": "Miranda Qu Fang, Charlwin Mao Wenchao",
         "companyZh": "小红书",
         "pinyinInitial": "X"
+      }
+    },
+    {
+      "company": "Helsing",
+      "changes": {
+        "valuation_m": {
+          "from": 18000.0,
+          "to": 14000.0
+        }
+      },
+      "current": {
+        "id": "wiki-35",
+        "source": "wiki",
+        "company": "Helsing",
+        "wikiLink": "https://en.wikipedia.org/wiki/Helsing_(company)",
+        "wikiSlug": "Helsing_(company)",
+        "description": "Defense",
+        "valuation_str": "$18.0B",
+        "valuation_m": 18000,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Torsten Reil, Gundbert Scherf, Niklas Köhler",
+        "country": "Germany",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "Aerospace/Defense",
+        "founders": "Torsten Reil, Gundbert Scherf, Niklas Köhler"
+      },
+      "proposed": {
+        "id": "wiki-34",
+        "source": "wiki",
+        "company": "Helsing",
+        "wikiLink": "https://en.wikipedia.org/wiki/Helsing_(company)",
+        "wikiSlug": "Helsing_(company)",
+        "description": "Defense",
+        "valuation_str": "$14B",
+        "valuation_m": 14000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Torsten Reil, Gundbert Scherf, Niklas Köhler",
+        "country": "Germany",
+        "unicorn_as_of": "September 2025",
+        "year": "2025",
+        "industry": "Aerospace/Defense",
+        "founders": "Torsten Reil, Gundbert Scherf, Niklas Köhler"
       }
     },
     {
@@ -472,7 +626,7 @@
         "founders": "Arthur Mensch, Guillaume Lample, Timothée Lacroix"
       },
       "proposed": {
-        "id": "wiki-34",
+        "id": "wiki-32",
         "source": "wiki",
         "company": "Mistral AI",
         "wikiLink": "https://en.wikipedia.org/wiki/Mistral_AI",
@@ -487,6 +641,50 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": "Arthur Mensch, Guillaume Lample, Timothée Lacroix"
+      }
+    },
+    {
+      "company": "NinjaOne",
+      "changes": {
+        "wikiLink": {
+          "from": "https://en.wikipedia.org/wiki/NinjaOne?action=edit&redlink=1",
+          "to": "https://en.wikipedia.org/wiki/NinjaOne"
+        }
+      },
+      "current": {
+        "id": "pb-648",
+        "source": "pb",
+        "tier": "A",
+        "company": "NinjaOne",
+        "wikiLink": "https://en.wikipedia.org/wiki/NinjaOne?action=edit&redlink=1",
+        "wikiSlug": "",
+        "description": "Developer of a unified IT operations and endpoint management platform designed to centralize device control, automate maintenance, and strengthen security across organizations.",
+        "valuation_str": "$12.3B",
+        "valuation_m": 12300,
+        "vc_raised": "$765.0M",
+        "lead_investors": "CapitalG, ICONIQ Growth, Summit Partners",
+        "country": "United States",
+        "unicorn_as_of": "February 2024",
+        "year": "2024",
+        "industry": "Cybersecurity",
+        "founders": "Sal Sferlazza and Chris Matarese"
+      },
+      "proposed": {
+        "id": "wiki-44",
+        "source": "wiki",
+        "company": "NinjaOne",
+        "wikiLink": "https://en.wikipedia.org/wiki/NinjaOne",
+        "wikiSlug": "NinjaOne",
+        "description": "Software",
+        "valuation_str": "$12.3B",
+        "valuation_m": 12300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Sal Sferlazza and Chris Matarese",
+        "country": "United States",
+        "unicorn_as_of": "June 2026",
+        "year": "2026",
+        "industry": "SaaS/Enterprise",
+        "founders": "Sal Sferlazza and Chris Matarese"
       }
     },
     {
@@ -516,7 +714,7 @@
         "founders": "Yotam Segev, Tamar Bar-Ilan, and Yonatan Itay"
       },
       "proposed": {
-        "id": "wiki-47",
+        "id": "wiki-45",
         "source": "wiki",
         "company": "Cyera",
         "wikiLink": "https://en.wikipedia.org/wiki/Cyera",
@@ -559,7 +757,7 @@
         "founders": "Grant LaFontaine (CEO), Logan Head"
       },
       "proposed": {
-        "id": "wiki-54",
+        "id": "wiki-52",
         "source": "wiki",
         "company": "Whatnot",
         "wikiLink": "https://en.wikipedia.org/wiki/Whatnot",
@@ -603,7 +801,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-638",
+        "id": "pb-644",
         "source": "pb",
         "tier": "A",
         "company": "Quantinuum",
@@ -650,7 +848,7 @@
         "pinyinInitial": "Y"
       },
       "proposed": {
-        "id": "pb-639",
+        "id": "pb-645",
         "source": "pb",
         "tier": "A",
         "company": "Moonshot",
@@ -668,6 +866,50 @@
         "founders": "",
         "companyZh": "月之暗面",
         "pinyinInitial": "Y"
+      }
+    },
+    {
+      "company": "Legora",
+      "changes": {
+        "valuation_m": {
+          "from": 5600.0,
+          "to": 8800.0
+        }
+      },
+      "current": {
+        "id": "pb-637",
+        "source": "pb",
+        "tier": "A",
+        "company": "Legora",
+        "wikiLink": "https://en.wikipedia.org/wiki/Legora",
+        "wikiSlug": "",
+        "description": "Developer of an artificial intelligence-based legal workflow software designed for research, document analysis, and drafting purposes.",
+        "valuation_str": "$5.6B",
+        "valuation_m": 5600,
+        "vc_raised": "$815.5M",
+        "lead_investors": "Accel, Benchmark Capital Holdings, Bessemer Venture Partners, General Catalyst, ICONIQ Growth, NVentures (Santa Clara), Redpoint Ventures",
+        "country": "Sweden",
+        "unicorn_as_of": "October 2025",
+        "year": "2025",
+        "industry": "AI/ML",
+        "founders": "Max Junestrand, Sigge Labor, August Erséus"
+      },
+      "proposed": {
+        "id": "wiki-77",
+        "source": "wiki",
+        "company": "Legora",
+        "wikiLink": "https://en.wikipedia.org/wiki/Legora",
+        "wikiSlug": "Legora",
+        "description": "Artificial intelligence",
+        "valuation_str": "$8.8B",
+        "valuation_m": 8800.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Max Junestrand, Sigge Labor, August Erséus",
+        "country": "Sweden",
+        "unicorn_as_of": "October 2026",
+        "year": "2026",
+        "industry": "AI/ML",
+        "founders": "Max Junestrand, Sigge Labor, August Erséus"
       }
     },
     {
@@ -696,7 +938,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-84",
+        "id": "wiki-83",
         "source": "wiki",
         "company": "Together AI",
         "wikiLink": "https://en.wikipedia.org/wiki/Together_AI?action=edit&redlink=1",
@@ -739,7 +981,7 @@
         "founders": "Jack Zhang, Max Li, Lucy Liu, Xijing Dai, Ki-lok Wong"
       },
       "proposed": {
-        "id": "wiki-87",
+        "id": "wiki-86",
         "source": "wiki",
         "company": "Airwallex",
         "wikiLink": "https://en.wikipedia.org/wiki/Airwallex",
@@ -800,6 +1042,53 @@
       }
     },
     {
+      "company": "Tenstorrent",
+      "changes": {
+        "valuation_m": {
+          "from": 1000.0,
+          "to": 6200.0
+        },
+        "founders": {
+          "from": "",
+          "to": "Ljubisa Bajic, Milos Trajkovic, Ivan Hamer"
+        }
+      },
+      "current": {
+        "id": "wiki-572",
+        "source": "wiki",
+        "company": "Tenstorrent",
+        "wikiLink": "https://en.wikipedia.org/wiki/Tenstorrent",
+        "wikiSlug": "",
+        "description": "Semiconductors",
+        "valuation_str": "$1B",
+        "valuation_m": 1000.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Canada",
+        "unicorn_as_of": "May 2021",
+        "year": "2021",
+        "industry": "Semiconductors",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-108",
+        "source": "wiki",
+        "company": "Tenstorrent",
+        "wikiLink": "https://en.wikipedia.org/wiki/Tenstorrent",
+        "wikiSlug": "Tenstorrent",
+        "description": "Semiconductors",
+        "valuation_str": "$6.2B",
+        "valuation_m": 6200.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Ljubisa Bajic, Milos Trajkovic, Ivan Hamer",
+        "country": "Canada",
+        "unicorn_as_of": "October 2026",
+        "year": "2026",
+        "industry": "Semiconductors",
+        "founders": "Ljubisa Bajic, Milos Trajkovic, Ivan Hamer"
+      }
+    },
+    {
       "company": "Ineffable Intelligence",
       "changes": {
         "wikiLink": {
@@ -825,7 +1114,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-125",
+        "id": "wiki-126",
         "source": "wiki",
         "company": "Ineffable Intelligence",
         "wikiLink": "https://en.wikipedia.org/wiki/Ineffable_Intelligence?action=edit&redlink=1",
@@ -868,7 +1157,7 @@
         "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
       },
       "proposed": {
-        "id": "wiki-251",
+        "id": "wiki-252",
         "source": "wiki",
         "company": "Starcloud",
         "wikiLink": "https://en.wikipedia.org/wiki/Starcloud",
@@ -911,7 +1200,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-295",
+        "id": "wiki-297",
         "source": "wiki",
         "company": "Simile",
         "wikiLink": "https://en.wikipedia.org/wiki/Simile_(company)?action=edit&redlink=1",
@@ -955,7 +1244,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-773",
+        "id": "pb-779",
         "source": "pb",
         "tier": "B",
         "company": "Varda",
@@ -999,7 +1288,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-382",
+        "id": "wiki-386",
         "source": "wiki",
         "company": "Odyssey",
         "wikiLink": "https://en.wikipedia.org/wiki/Odyssey_(company)?action=edit&redlink=1",
@@ -1042,7 +1331,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-386",
+        "id": "wiki-390",
         "source": "wiki",
         "company": "Deliverect",
         "wikiLink": "https://en.wikipedia.org/wiki/Deliverect?action=edit&redlink=1",
@@ -1086,7 +1375,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "pb-854",
+        "id": "pb-860",
         "source": "pb",
         "tier": "B",
         "company": "Periodic",
@@ -1130,7 +1419,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-409",
+        "id": "wiki-413",
         "source": "wiki",
         "company": "Corgi",
         "wikiLink": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)",
@@ -1173,7 +1462,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-450",
+        "id": "wiki-455",
         "source": "wiki",
         "company": "HappyRobot",
         "wikiLink": "https://en.wikipedia.org/wiki/HappyRobot?action=edit&redlink=1",
@@ -1216,7 +1505,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-444",
+        "id": "wiki-448",
         "source": "wiki",
         "company": "Mindtickle",
         "wikiLink": "https://en.wikipedia.org/wiki/Mindtickle?action=edit&redlink=1",
@@ -1259,7 +1548,7 @@
         "wikiSlug": ""
       },
       "proposed": {
-        "id": "wiki-580",
+        "id": "wiki-586",
         "source": "wiki",
         "company": "Socket",
         "wikiLink": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1",
@@ -1302,7 +1591,7 @@
         "founders": ""
       },
       "proposed": {
-        "id": "wiki-550",
+        "id": "wiki-556",
         "source": "wiki",
         "company": "MindMaze",
         "wikiLink": "https://en.wikipedia.org/wiki/MindMaze_(company)?action=edit&redlink=1",
@@ -1373,5 +1662,5 @@
       "founders": ""
     }
   ],
-  "generated_at": "2026-10-19T15:16:45Z"
+  "generated_at": "2026-10-26T14:50:46Z"
 }

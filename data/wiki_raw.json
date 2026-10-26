@@ -30,21 +30,11 @@
     "founders": "Zhang Yiming, Liang Rubo"
   },
   {
-    "company": "Ethereum",
-    "wikiLink": "https://en.wikipedia.org/wiki/Ethereum",
-    "valuation_b": 314.0,
-    "valuation_str": "$314B",
-    "valuation_date": "October 2026",
-    "industry_raw": "Cryptocurrency",
-    "country": "Switzerland",
-    "founders": "Vitalik Buterin, Gavin Wood, Charles Hoskinson,Anthony Di Iorio, Joseph Lubin"
-  },
-  {
     "company": "Tether",
     "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
-    "valuation_b": 215.0,
-    "valuation_str": "$215B",
-    "valuation_date": "November 2025",
+    "valuation_b": 350.0,
+    "valuation_str": "$350B",
+    "valuation_date": "February 2026",
     "industry_raw": "Cryptocurrency",
     "country": "El Salvador",
     "founders": "Paolo Ardoino, Brock Pierce"
@@ -80,16 +70,6 @@
     "founders": "Nikolay Storonsky, Vlad Yatsenko"
   },
   {
-    "company": "BNB",
-    "wikiLink": "https://en.wikipedia.org/wiki/BNB_Smart_Chain_(blockchain_platform)",
-    "valuation_b": 102.0,
-    "valuation_str": "$102B",
-    "valuation_date": "October 2026",
-    "industry_raw": "Cryptocurrency",
-    "country": "Canada",
-    "founders": "Changpeng Zhao"
-  },
-  {
     "company": "Anduril Industries",
     "wikiLink": "https://en.wikipedia.org/wiki/Anduril_Industries",
     "valuation_b": 61.0,
@@ -98,6 +78,16 @@
     "industry_raw": "Defense technology",
     "country": "United States",
     "founders": "Palmer Luckey, Trae Stephens, Matt Grimm, Joe Chen, Brian Schimpf"
+  },
+  {
+    "company": "Ramp",
+    "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
+    "valuation_b": 60.0,
+    "valuation_str": "$60B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Financial technology",
+    "country": "United States",
+    "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
   },
   {
     "company": "Cognition AI",
@@ -138,16 +128,6 @@
     "industry_raw": "Humanoid robotics",
     "country": "United States",
     "founders": "Brett Adcock"
-  },
-  {
-    "company": "Ramp",
-    "wikiLink": "https://en.wikipedia.org/wiki/Ramp_(company)",
-    "valuation_b": 32.0,
-    "valuation_str": "$32B",
-    "valuation_date": "November 2025",
-    "industry_raw": "Financial technology",
-    "country": "United States",
-    "founders": "Eric Glyman, Karim Atiyeh, Gene Lee"
   },
   {
     "company": "Safe Superintelligence",
@@ -461,7 +441,7 @@
   },
   {
     "company": "NinjaOne",
-    "wikiLink": "https://en.wikipedia.org/wiki/NinjaOne?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/NinjaOne",
     "valuation_b": 12.3,
     "valuation_str": "$12.3B",
     "valuation_date": "June 2026",
@@ -790,6 +770,16 @@
     "founders": "David Hindawi, Orion Hindawi"
   },
   {
+    "company": "Legora",
+    "wikiLink": "https://en.wikipedia.org/wiki/Legora",
+    "valuation_b": 8.8,
+    "valuation_str": "$8.8B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "Sweden",
+    "founders": "Max Junestrand, Sigge Labor, August Erséus"
+  },
+  {
     "company": "Kavak",
     "wikiLink": "https://en.wikipedia.org/wiki/Kavak_(company)",
     "valuation_b": 8.7,
@@ -928,6 +918,16 @@
     "industry_raw": "Financial technology",
     "country": "India",
     "founders": "Harshil Mathur, Shashank Kumar"
+  },
+  {
+    "company": "TypeSafe AI",
+    "wikiLink": "",
+    "valuation_b": 7.5,
+    "valuation_str": "$7.5B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Diogo Almeida, Sasha Sheng, Erik Gafni"
   },
   {
     "company": "Carta",
@@ -1080,6 +1080,26 @@
     "founders": ""
   },
   {
+    "company": "Tenstorrent",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tenstorrent",
+    "valuation_b": 6.2,
+    "valuation_str": "$6.2B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Semiconductors",
+    "country": "Canada",
+    "founders": "Ljubisa Bajic, Milos Trajkovic, Ivan Hamer"
+  },
+  {
+    "company": "Flapping Airplanes",
+    "wikiLink": "",
+    "valuation_b": 6.0,
+    "valuation_str": "$6B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Aidan Smith, Asher Spector, Ben Spector"
+  },
+  {
     "company": "iCapital",
     "wikiLink": "https://en.wikipedia.org/wiki/ICapital",
     "valuation_b": 6.0,
@@ -1158,16 +1178,6 @@
     "industry_raw": "Data infrastructure",
     "country": "United States",
     "founders": ""
-  },
-  {
-    "company": "Legora",
-    "wikiLink": "https://en.wikipedia.org/wiki/Legora",
-    "valuation_b": 5.6,
-    "valuation_str": "$5.6B",
-    "valuation_date": "April 2026",
-    "industry_raw": "Artificial intelligence",
-    "country": "Sweden",
-    "founders": "Max Junestrand, Sigge Labor, August Erséus"
   },
   {
     "company": "Postman",
@@ -2610,6 +2620,16 @@
     "founders": ""
   },
   {
+    "company": "Blackwall",
+    "wikiLink": "",
+    "valuation_b": 2.2,
+    "valuation_str": "$2.2B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Cybersecurity",
+    "country": "Estonia",
+    "founders": "Nikita Rozenberg"
+  },
+  {
     "company": "Gympass",
     "wikiLink": "https://en.wikipedia.org/wiki/Gympass?action=edit&redlink=1",
     "valuation_b": 2.2,
@@ -3690,6 +3710,16 @@
     "founders": ""
   },
   {
+    "company": "Nous Research",
+    "wikiLink": "",
+    "valuation_b": 1.5,
+    "valuation_str": "$1.5B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": ""
+  },
+  {
     "company": "Podium",
     "wikiLink": "https://en.wikipedia.org/wiki/Podium_(company)",
     "valuation_b": 1.5,
@@ -3798,6 +3828,16 @@
     "industry_raw": "Holding company",
     "country": "China",
     "founders": ""
+  },
+  {
+    "company": "Eka Robotics",
+    "wikiLink": "",
+    "valuation_b": 1.45,
+    "valuation_str": "$1.45B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Robotics",
+    "country": "United States",
+    "founders": "Pulkit Agrawal, Tuomas Haarnoja"
   },
   {
     "company": "Koudai Gouwu",
@@ -4490,6 +4530,16 @@
     "founders": ""
   },
   {
+    "company": "Warhound",
+    "wikiLink": "",
+    "valuation_b": 1.2,
+    "valuation_str": "$1.2B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Biotechnology",
+    "country": "United States",
+    "founders": "Ben Lamm, Palmer Luckey"
+  },
+  {
     "company": "Workhuman",
     "wikiLink": "https://en.wikipedia.org/wiki/Workhuman",
     "valuation_b": 1.2,
@@ -4920,14 +4970,14 @@
     "founders": ""
   },
   {
-    "company": "Back Market",
-    "wikiLink": "https://en.wikipedia.org/wiki/Back_Market?action=edit&redlink=1",
+    "company": "Blacksmith",
+    "wikiLink": "",
     "valuation_b": 1.0,
     "valuation_str": "$1B",
-    "valuation_date": "October 2021",
-    "industry_raw": "E-commerce",
-    "country": "France",
-    "founders": ""
+    "valuation_date": "October 2026",
+    "industry_raw": "Software",
+    "country": "United States",
+    "founders": "Aditya Jayaprakash"
   },
   {
     "company": "Bluecore",
@@ -4978,6 +5028,16 @@
     "industry_raw": "",
     "country": "China",
     "founders": ""
+  },
+  {
+    "company": "Daytona",
+    "wikiLink": "",
+    "valuation_b": 1.0,
+    "valuation_str": "$1B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Cloud computing",
+    "country": "United States",
+    "founders": "Ivan Burazin"
   },
   {
     "company": "Dt Dream",
@@ -5880,16 +5940,6 @@
     "founders": ""
   },
   {
-    "company": "Tenstorrent",
-    "wikiLink": "https://en.wikipedia.org/wiki/Tenstorrent",
-    "valuation_b": 1.0,
-    "valuation_str": "$1B",
-    "valuation_date": "May 2021",
-    "industry_raw": "Semiconductors",
-    "country": "Canada",
-    "founders": ""
-  },
-  {
     "company": "Tezign",
     "wikiLink": "https://en.wikipedia.org/wiki/Tezign?action=edit&redlink=1",
     "valuation_b": 1.0,
@@ -5918,6 +5968,16 @@
     "industry_raw": "",
     "country": "China",
     "founders": ""
+  },
+  {
+    "company": "Town",
+    "wikiLink": "",
+    "valuation_b": 1.0,
+    "valuation_str": "$1B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Jean-Denis Greze"
   },
   {
     "company": "Tractable",
