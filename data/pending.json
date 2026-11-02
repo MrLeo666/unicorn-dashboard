@@ -52,6 +52,23 @@
       "founders": "Nikita Rozenberg"
     },
     {
+      "id": "wiki-263",
+      "source": "wiki",
+      "company": "Wellhub, formallyGympass",
+      "wikiLink": "https://en.wikipedia.org/wiki/Wellhub",
+      "wikiSlug": "Wellhub",
+      "description": "Fitness",
+      "valuation_str": "$2.2B",
+      "valuation_m": 2200.0,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "Brazil",
+      "unicorn_as_of": "June 2021",
+      "year": "2021",
+      "industry": "Other",
+      "founders": ""
+    },
+    {
       "id": "wiki-371",
       "source": "wiki",
       "company": "Nous Research",
@@ -1132,6 +1149,49 @@
       }
     },
     {
+      "company": "Pleo",
+      "changes": {
+        "wikiLink": {
+          "from": "https://en.wikipedia.org/wiki/Pleo",
+          "to": ""
+        }
+      },
+      "current": {
+        "id": "wiki-134",
+        "source": "wiki",
+        "company": "Pleo",
+        "wikiLink": "https://en.wikipedia.org/wiki/Pleo",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$4.7B",
+        "valuation_m": 4700.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Denmark",
+        "unicorn_as_of": "December 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-141",
+        "source": "wiki",
+        "company": "Pleo",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$4.7B",
+        "valuation_m": 4700.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Denmark",
+        "unicorn_as_of": "December 2021",
+        "year": "2021",
+        "industry": "Fintech",
+        "founders": ""
+      }
+    },
+    {
       "company": "Starcloud",
       "changes": {
         "valuation_m": {
@@ -1172,6 +1232,49 @@
         "year": "2026",
         "industry": "Aerospace/Defense",
         "founders": "Philip Johnston, Ezra Feilden, Adi Oltean"
+      }
+    },
+    {
+      "company": "Eightfold.ai",
+      "changes": {
+        "wikiLink": {
+          "from": "https://en.wikipedia.org/wiki/Eightfold.ai?action=edit&redlink=1",
+          "to": "https://en.wikipedia.org/wiki/Eightfold.ai"
+        }
+      },
+      "current": {
+        "id": "wiki-255",
+        "source": "wiki",
+        "company": "Eightfold.ai",
+        "wikiLink": "https://en.wikipedia.org/wiki/Eightfold.ai?action=edit&redlink=1",
+        "wikiSlug": "",
+        "description": "Artificial intelligence",
+        "valuation_str": "$2.1B",
+        "valuation_m": 2100.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "June 2021",
+        "year": "2021",
+        "industry": "AI/ML",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-266",
+        "source": "wiki",
+        "company": "Eightfold.ai",
+        "wikiLink": "https://en.wikipedia.org/wiki/Eightfold.ai",
+        "wikiSlug": "Eightfold.ai",
+        "description": "Artificial intelligence",
+        "valuation_str": "$2.1B",
+        "valuation_m": 2100.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "United States",
+        "unicorn_as_of": "June 2021",
+        "year": "2021",
+        "industry": "AI/ML",
+        "founders": ""
       }
     },
     {
@@ -1263,6 +1366,49 @@
       }
     },
     {
+      "company": "Wayflyer",
+      "changes": {
+        "wikiLink": {
+          "from": "https://en.wikipedia.org/wiki/Wayflyer",
+          "to": ""
+        }
+      },
+      "current": {
+        "id": "wiki-331",
+        "source": "wiki",
+        "company": "Wayflyer",
+        "wikiLink": "https://en.wikipedia.org/wiki/Wayflyer",
+        "wikiSlug": "Wayflyer",
+        "description": "Financial technology",
+        "valuation_str": "$1.6B",
+        "valuation_m": 1600.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Ireland",
+        "unicorn_as_of": "Feb 2022",
+        "year": "2022",
+        "industry": "Fintech",
+        "founders": ""
+      },
+      "proposed": {
+        "id": "wiki-343",
+        "source": "wiki",
+        "company": "Wayflyer",
+        "wikiLink": "",
+        "wikiSlug": "",
+        "description": "Financial technology",
+        "valuation_str": "$1.6B",
+        "valuation_m": 1600.0,
+        "vc_raised": "—",
+        "lead_investors": "—",
+        "country": "Ireland",
+        "unicorn_as_of": "Feb 2022",
+        "year": "2022",
+        "industry": "Fintech",
+        "founders": ""
+      }
+    },
+    {
       "company": "Odyssey",
       "changes": {
         "wikiLink": {
@@ -1349,6 +1495,49 @@
       }
     },
     {
+      "company": "Corgi",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)"
+        }
+      },
+      "current": {
+        "id": "admin-986",
+        "source": "admin",
+        "company": "Corgi",
+        "description": "Financial technology",
+        "valuation_str": "$1.3B",
+        "valuation_m": 1300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Nico Laqua, Emily Yuan",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Nico Laqua, Emily Yuan",
+        "wikiLink": "",
+        "wikiSlug": ""
+      },
+      "proposed": {
+        "id": "wiki-413",
+        "source": "wiki",
+        "company": "Corgi",
+        "wikiLink": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)",
+        "wikiSlug": "Corgi_(insurance_company)",
+        "description": "Financial technology",
+        "valuation_str": "$1.3B",
+        "valuation_m": 1300.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Nico Laqua, Emily Yuan",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "Fintech",
+        "founders": "Nico Laqua, Emily Yuan"
+      }
+    },
+    {
       "company": "Periodic",
       "changes": {
         "valuation_m": {
@@ -1391,49 +1580,6 @@
         "year": "2025",
         "industry": "AI/ML",
         "founders": ""
-      }
-    },
-    {
-      "company": "Corgi",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)"
-        }
-      },
-      "current": {
-        "id": "admin-986",
-        "source": "admin",
-        "company": "Corgi",
-        "description": "Financial technology",
-        "valuation_str": "$1.3B",
-        "valuation_m": 1300.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Nico Laqua, Emily Yuan",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "Fintech",
-        "founders": "Nico Laqua, Emily Yuan",
-        "wikiLink": "",
-        "wikiSlug": ""
-      },
-      "proposed": {
-        "id": "wiki-413",
-        "source": "wiki",
-        "company": "Corgi",
-        "wikiLink": "https://en.wikipedia.org/wiki/Corgi_(insurance_company)",
-        "wikiSlug": "Corgi_(insurance_company)",
-        "description": "Financial technology",
-        "valuation_str": "$1.3B",
-        "valuation_m": 1300.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Nico Laqua, Emily Yuan",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "Fintech",
-        "founders": "Nico Laqua, Emily Yuan"
       }
     },
     {
@@ -1523,49 +1669,6 @@
       }
     },
     {
-      "company": "Socket",
-      "changes": {
-        "wikiLink": {
-          "from": "",
-          "to": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1"
-        }
-      },
-      "current": {
-        "id": "admin-994",
-        "source": "admin",
-        "company": "Socket",
-        "description": "Security software",
-        "valuation_str": "$1B",
-        "valuation_m": 1000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Feross Aboukhadijeh",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "Cybersecurity",
-        "founders": "Feross Aboukhadijeh",
-        "wikiLink": "",
-        "wikiSlug": ""
-      },
-      "proposed": {
-        "id": "wiki-586",
-        "source": "wiki",
-        "company": "Socket",
-        "wikiLink": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1",
-        "wikiSlug": "",
-        "description": "Security software",
-        "valuation_str": "$1B",
-        "valuation_m": 1000.0,
-        "vc_raised": "—",
-        "lead_investors": "Founders: Feross Aboukhadijeh",
-        "country": "United States",
-        "unicorn_as_of": "May 2026",
-        "year": "2026",
-        "industry": "Cybersecurity",
-        "founders": "Feross Aboukhadijeh"
-      }
-    },
-    {
       "company": "MindMaze",
       "changes": {
         "wikiLink": {
@@ -1607,6 +1710,49 @@
         "industry": "Other",
         "founders": ""
       }
+    },
+    {
+      "company": "Socket",
+      "changes": {
+        "wikiLink": {
+          "from": "",
+          "to": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1"
+        }
+      },
+      "current": {
+        "id": "admin-994",
+        "source": "admin",
+        "company": "Socket",
+        "description": "Security software",
+        "valuation_str": "$1B",
+        "valuation_m": 1000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Feross Aboukhadijeh",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "Cybersecurity",
+        "founders": "Feross Aboukhadijeh",
+        "wikiLink": "",
+        "wikiSlug": ""
+      },
+      "proposed": {
+        "id": "wiki-586",
+        "source": "wiki",
+        "company": "Socket",
+        "wikiLink": "https://en.wikipedia.org/wiki/Socket_(company)?action=edit&redlink=1",
+        "wikiSlug": "",
+        "description": "Security software",
+        "valuation_str": "$1B",
+        "valuation_m": 1000.0,
+        "vc_raised": "—",
+        "lead_investors": "Founders: Feross Aboukhadijeh",
+        "country": "United States",
+        "unicorn_as_of": "May 2026",
+        "year": "2026",
+        "industry": "Cybersecurity",
+        "founders": "Feross Aboukhadijeh"
+      }
     }
   ],
   "removals": [
@@ -1645,6 +1791,23 @@
       "founders": "Parker Conrad"
     },
     {
+      "id": "wiki-252",
+      "source": "wiki",
+      "company": "Gympass",
+      "wikiLink": "https://en.wikipedia.org/wiki/Gympass?action=edit&redlink=1",
+      "wikiSlug": "",
+      "description": "Fitness",
+      "valuation_str": "$2.2B",
+      "valuation_m": 2200.0,
+      "vc_raised": "—",
+      "lead_investors": "—",
+      "country": "Brazil",
+      "unicorn_as_of": "June 2021",
+      "year": "2021",
+      "industry": "Other",
+      "founders": ""
+    },
+    {
       "id": "wiki-429",
       "source": "wiki",
       "company": "MindTickle",
@@ -1662,5 +1825,5 @@
       "founders": ""
     }
   ],
-  "generated_at": "2026-10-26T14:50:46Z"
+  "generated_at": "2026-11-02T17:48:25Z"
 }

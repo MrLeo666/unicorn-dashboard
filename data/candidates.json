@@ -1,28 +1,12 @@
 {
-  "generated_at": "2026-10-26T14:55:11+00:00",
+  "generated_at": "2026-11-02T17:53:02+00:00",
   "new_candidates": [
-    {
-      "company": "with just 14 people is",
-      "valuation_m": 10000.0,
-      "headline": "A startup with just 14 people is now valued at $10 billion — it was founded by a 23-year-old college dropout",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNdmZMS2xFekJoVHdZVjZiNWVFZG5qRm1HNXd6bWlTMjlhWnhGMkhEemJDY3U1Z1BGNkZmMmR0R3BmUlJJV0VYS3plZC1mdFVNcHJFbDQ4aG5LMHppZGRKMU5tR2duTFpUa3pfSTRFU3BDekJUMGY5cW5kdnRhNVo5S01UeUJiVXdROGJtbWlzN01GVF9x?oc=5",
-      "source": "Yahoo Finance",
-      "date": "2026-09-28"
-    },
-    {
-      "company": "FieldAI is set to",
-      "valuation_m": 10000.0,
-      "headline": "Robotics startup FieldAI is set to raise $700 million at a $10 billion valuation",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPdlB3WE40MnpRb2RsaUFaV0tjekEyM2dMNFFWZTc0LWJEa3ZpUEFVVFZWTUtwR3lyY1JRRjFmTlVldHRWbHdZTks4TnR6aFJ3NXVwYXdRdFNKaFR0R241UUNQQVEtZ2hQb0F2WWZyUjNvWmpfNnBjUC1oUzhVdktrdXhFd2t3a2dRRzAtQS1TREZvM011MUlvVGVWaFBLYjlRdFpz?oc=5",
-      "source": "Business Insider",
-      "date": "2026-10-02"
-    },
     {
       "company": "Flapping Airplanes",
       "valuation_m": 6000.0,
       "headline": "AI Research Startup Flapping Airplanes Valued at $6 Billion in Round",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOVWlMcFlyb091cURKSTdxWlZobXVRVVlpSlhQbFUxejRzYmQyVk9FX1ZGT2FlYU5GN2xGc2M3dVFnN292YkNRX3IzbERKUl9BYWlDVGMtU29RcmZ5UHZwRjROUWJneHpzajVHQTNYazhrYlM1SDZMZU1kRzRldTA3TVBNa05DbFJsYldTOVo0R0hOdFdwbmhXYWQ2dFQyWVlXd3RubmlDR0U0ZkZSczdmOVhUNU9DeTJVMUE?oc=5",
-      "source": "Bloomberg.com",
+      "source": "Bloomberg",
       "date": "2026-10-21"
     },
     {
@@ -34,20 +18,36 @@
       "date": "2026-10-20"
     },
     {
-      "company": "Exclusive: Stand",
-      "valuation_m": 1000.0,
-      "headline": "Exclusive: Stand raises $70 million at $1 billion valuation to price wildfire risk by treating homes like airplanes in flight",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNbUFHeGRBVjdXWlM3aUQxS1JUdVhWbUtyMzVlX2ZLOG9Gd1lhOWh5b2UxLUEycW5VOGpQdjhTamxVYmM1MXRCQW9DM1NSUVRrQXhuNDhDYUFoVG9xOFhhMlFvdmtqSm55Q2dZZVE2V1RreXJZSTgweERNa2tGVF9nTVIwQ1YweVdISTJkQ2M1elViNVROUDlYSzE1VlpvNXctbmdUbQ?oc=5",
-      "source": "Fortune",
-      "date": "2026-10-15"
+      "company": "Boston AI firm",
+      "valuation_m": 3000.0,
+      "headline": "Boston AI firm valued at $3 billion after winning big contracts from the FAA and US Army",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNRzlsQ2wtb3U1WkpHamZ6b25uSDVtWHFnVXJia0NFWVAyQm0yOVpaeXVtcFJVeGZNYTFWdk9QVUdOSE9sNi1DekFONlBpQlFKY290V0wtd2dnaDdyZTAtVEFkVjAtTVdNRTdtLVFVM1FxTThfU0F4VERfNmtyOGw1MVQxcWhtVjNEd2xoYkVqOA?oc=5",
+      "source": "The Boston Globe",
+      "date": "2026-10-20"
     },
     {
-      "company": "Daytona",
-      "valuation_m": 1000.0,
-      "headline": "Daytona Raises $60 Million Series B At $1 Billion Valuation Led By FirstMark Growth: what 5 outlets left out",
-      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQSkdLc0s1cE1LM0s3Y0JXUmM0MVdUSjlwbHFvZUdNZ0liVGhvTENYdjNZV3QtREZ5b3d2SzNkYWVIakgyQ05EWHpXckVHb01iNUNveHVubnhxalVuMm1UZjJCcmlNcVNkNEc0RW9zcFBXQ2FIUFBFQXBucGNpc01FTEh0UE5pd1ZhdmpDQ0FRYTZPWDJXbHhzRUF1YTFQeTVjd3BqbG9FVGMyRkZwU2ZJZ3RvVGNTOEZkWUhIcGtNZkpsUWtfczFOQ1B0azRVVV9MVzlfQ05sc3R4blY2bHBPZUR3WUdsUGFUaHc?oc=5",
-      "source": "NewsCord",
-      "date": "2026-10-23"
+      "company": "Valon",
+      "valuation_m": 2300.0,
+      "headline": "Valon Raises $150M Series D at a $2.3B Valuation to Deploy ValonOS and AI Agents into Mortgage",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxONk9FQlltQlZzN21VV3BYeTlFLThoNUllMUctc2ZVZWRRX0tUZ19wZ3VUOTFERG5qV0ZmMl9HYmtiVnJNNXprY1lpMzZMRHZ4eGVERlk4T2xKcGJHLTZCNXFYUzVtYkQtMUlaajItQWNEWjVoZTBxek04T3lIdlJxN1gyMC1GWUVWVkRVa0htVWhCSHB5eElNRVF2YWJhOHd0VUtVYnoyRHlySHhiaFRKVU14ZzR0N1FtaE00eVFHc24tOHhTeDVhZ1dR?oc=5",
+      "source": "AI Insider",
+      "date": "2026-10-07"
+    },
+    {
+      "company": "Nous Research",
+      "valuation_m": 1500.0,
+      "headline": "Nous Research Raises $90M Series B at $1.5B Valuation to Bring Hermes AI Agents to Enterprises",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdEtLZTZqODJqRjNsVFh5ZTEyaUdxOW9qVjcxNE1sbjlONklvNUJYcHFqUGxRSUtXNXcxaXNPZldmM0J6cXROMU91dzZ3UEs5YnNoZHVvOFViQmF6MHBjenBJdEh4WG1WRm9rU3J4Y3dGekhXN09ZNDNNcW04US1SWGtDWEhOa0d4cXoyWmhUcEJyeGs1MjNNTTlnN0xGS1RWWFUzUGctZ3MxNVl2NTFYSHJ3NXlwQ21ETGdveERxTjdlOU5lSXByeTY2MA?oc=5",
+      "source": "AI Insider",
+      "date": "2026-10-08"
+    },
+    {
+      "company": "Wabi",
+      "valuation_m": 1250.0,
+      "headline": "Wabi, the AI agent that builds mini apps, now valued at $1.25B after latest round",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOdlU2bk9SZ1JlWlQ4eHYzb2F4ZFlUWEttQ1hnSW1WSF9IdHhrcUc2c0VzNFBnQnV2ZHQwOFhWVncxWU5uMDNNb1M5MHVTOE93OXdWQXRPOXJJVDZmLWw4T2tERUtUeVlWSlRuc0pRZGxERWJ2VXd1OFNuaGpWSHJnck00c1JrdkJXLXdMUElTSzlBR0ZTNlk1a3BXYllyRGtsYlM4R2tRUVJCbk9kNnNtVGwwbw?oc=5",
+      "source": "TechCrunch",
+      "date": "2026-10-29"
     },
     {
       "company": "Exclusive: Daytona",
@@ -58,27 +58,11 @@
       "date": "2026-10-20"
     },
     {
-      "company": "Exclusive: AI code-testing startup Blacksmith",
-      "valuation_m": 1000.0,
-      "headline": "Exclusive: AI code-testing startup Blacksmith hits $1 billion valuation as AI-written code surges",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQek85TDBFVkRhT0ZXajM2MTc1SjhJNU0tc0FyeWhjM1lPLXFyZi1DdkdfMmFWbXI0SkJ5c0x5ZVM1akxRbkd2aG1jNGk0VXBGbkxPckxOUHYzN1dZc0dhUERyaWxtVG1SYTFmUGZoeHpJOHB5bmlRanM2MzFzZFZvbzFCVzA2UE9LN3hfTGptSUd3YWVwSHdIdllHQkk0UzREM3FaOHJzRm1La0oxNDdpQlVleEFnTERfNFBUSXRyc05yQlU4RHc?oc=5",
-      "source": "Fortune",
-      "date": "2026-10-21"
-    },
-    {
       "company": "RobCo",
       "valuation_m": 1000.0,
       "headline": "German robot startup RobCo hits $1 billion valuation, CEO moves to US",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPS2Q2ODVLbmROM2lGYXBQX2w3ZHREYXNoQUdQYUpSSmdHN1RMMVRnY3BWbmJIbmZBanlod0NETUZnekhZVVdsUU15eTlzdk81cTJSWnZpWHRtcHljcmstYXpGRjU3UlVKaHc4dFo4OVlIVG82Sm42aF9sendUc3Y4WldoV29QTlIyLXQyeGlhQk9zRF9SdEthUkV1VDg5YWlKb1lZcGJoaDdraGFQZmx4VmVXdTk3bjF2RG92dA?oc=5",
       "source": "Reuters",
-      "date": "2026-10-05"
-    },
-    {
-      "company": "Europe’s new robotics unicorn: Germany’s RobCo",
-      "valuation_m": 1000.0,
-      "headline": "Europe’s new robotics unicorn: Germany’s RobCo hits $1B valuation",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOcDRKUFZ0OE93LXRvdnhVN3Z6TjlXeTFjSXNmLVVXSE9EY0J6WmlSOU5tTEhPd0RzSlBxYnNiRXFwcWFVTFRaUUVEdUVaWkl6NWtqY0pVTTk0YXBsYlY2RVRvSS1fbXVPakZXZmMxcjNONy14eGt2MHVQX21QSlNpYkxCS3hhM0VINXVFMmpCTVBqTnh2?oc=5",
-      "source": "Tech Funding News",
       "date": "2026-10-05"
     }
   ],
@@ -93,13 +77,13 @@
       "date": "2026-09-04"
     },
     {
-      "company": "Cognition AI",
-      "current_m": 26000.0,
-      "detected_m": 48000.0,
-      "headline": "Cognition AI raises $2 billion at $48 billion valuation",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc3hsV1U1MTdYTkgwaHJhanppVTU1cUZVLW94amhlM3liQjE1SUVFdnJtRFlvcExWRkI5RURMMllzd1djSlhUT09VTGotRHhFZm1NTmdDTXpEYmdNaVhITU1STXdTSVE3NlhQVVAySTE1WUVhXzZSZzdSUl9DRVlmVWVpaEl0cXR5ZzBjYUZlaDRzbkVfSFllNVJEOWlHQQ?oc=5",
-      "source": "Reuters",
-      "date": "2026-09-08"
+      "company": "Mercor",
+      "current_m": 10000.0,
+      "detected_m": 20000.0,
+      "headline": "AI Data Labeler Mercor In Talks To Raise $500 Million At $20 Billion Valuation",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9QT3lHLUxZcEhIeXZrVDJCd09ScENfejJvNVQxNHBIS2FOVVFDSGNrNWN0TVZIbVBPamdid3lRXzdVU1dwS2Y1aFlvTW5WYms5bkhQNmZJMmFOTk9xRmloT3lkMFlwY2VaS2NLTzZkcVhEWTcxUFRyVXVn?oc=5",
+      "source": "Forbes",
+      "date": "2026-07-09"
     }
   ]
 }

@@ -1411,7 +1411,7 @@
   },
   {
     "company": "Pleo",
-    "wikiLink": "https://en.wikipedia.org/wiki/Pleo",
+    "wikiLink": "",
     "valuation_b": 4.7,
     "valuation_str": "$4.7B",
     "valuation_date": "December 2021",
@@ -2630,8 +2630,8 @@
     "founders": "Nikita Rozenberg"
   },
   {
-    "company": "Gympass",
-    "wikiLink": "https://en.wikipedia.org/wiki/Gympass?action=edit&redlink=1",
+    "company": "Wellhub, formallyGympass",
+    "wikiLink": "https://en.wikipedia.org/wiki/Wellhub",
     "valuation_b": 2.2,
     "valuation_str": "$2.2B",
     "valuation_date": "June 2021",
@@ -2661,7 +2661,7 @@
   },
   {
     "company": "Eightfold.ai",
-    "wikiLink": "https://en.wikipedia.org/wiki/Eightfold.ai?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/Eightfold.ai",
     "valuation_b": 2.1,
     "valuation_str": "$2.1B",
     "valuation_date": "June 2021",
@@ -3431,7 +3431,7 @@
   },
   {
     "company": "Wayflyer",
-    "wikiLink": "https://en.wikipedia.org/wiki/Wayflyer",
+    "wikiLink": "",
     "valuation_b": 1.6,
     "valuation_str": "$1.6B",
     "valuation_date": "Feb 2022",
