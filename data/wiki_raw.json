@@ -30,14 +30,14 @@
     "founders": "Zhang Yiming, Liang Rubo"
   },
   {
-    "company": "Tether",
-    "wikiLink": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
+    "company": "iFinex Inc.",
+    "wikiLink": "https://en.wikipedia.org/wiki/Tether_Limited",
     "valuation_b": 350.0,
     "valuation_str": "$350B",
     "valuation_date": "February 2026",
     "industry_raw": "Cryptocurrency",
-    "country": "El Salvador",
-    "founders": "Paolo Ardoino, Brock Pierce"
+    "country": "British Virgin Islands",
+    "founders": "Giancarlo Devasini, Raphael Nicolle"
   },
   {
     "company": "Databricks",
@@ -248,6 +248,26 @@
     "industry_raw": "Artificial intelligence",
     "country": "United States",
     "founders": "Jonathan Ross"
+  },
+  {
+    "company": "Deel",
+    "wikiLink": "https://en.wikipedia.org/wiki/Deel_(company)",
+    "valuation_b": 17.3,
+    "valuation_str": "$17.3B",
+    "valuation_date": "October 2025",
+    "industry_raw": "",
+    "country": "Israel /  United States",
+    "founders": ""
+  },
+  {
+    "company": "Fal",
+    "wikiLink": "",
+    "valuation_b": 16.0,
+    "valuation_str": "$16B",
+    "valuation_date": "November 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": "Burkay Gur, Gorkem Yurtseven"
   },
   {
     "company": "Harvey",
@@ -1281,7 +1301,7 @@
   },
   {
     "company": "SambaNova",
-    "wikiLink": "https://en.wikipedia.org/wiki/SambaNova?action=edit&redlink=1",
+    "wikiLink": "https://en.wikipedia.org/wiki/SambaNova",
     "valuation_b": 5.1,
     "valuation_str": "$5.1B",
     "valuation_date": "April 2021",
@@ -1978,6 +1998,16 @@
     "industry_raw": "B2B e-commerce",
     "country": "India",
     "founders": "Vaibhav Gupta, Amod Malviya, Sujeet Kumar"
+  },
+  {
+    "company": "LangChain",
+    "wikiLink": "https://en.wikipedia.org/wiki/LangChain",
+    "valuation_b": 3.0,
+    "valuation_str": "$3B",
+    "valuation_date": "November 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "United States",
+    "founders": ""
   },
   {
     "company": "Wildlife",
@@ -2760,6 +2790,16 @@
     "founders": ""
   },
   {
+    "company": "Northwood Space",
+    "wikiLink": "https://en.wikipedia.org/wiki/Northwood_Space",
+    "valuation_b": 2.0,
+    "valuation_str": "$2B",
+    "valuation_date": "November 2026",
+    "industry_raw": "Space technology",
+    "country": "United States",
+    "founders": "Bridgit Mendler, Griffin Cleverly"
+  },
+  {
     "company": "Tipalti",
     "wikiLink": "https://en.wikipedia.org/wiki/Tipalti",
     "valuation_b": 2.0,
@@ -3281,7 +3321,7 @@
   },
   {
     "company": "Productboard",
-    "wikiLink": "https://en.wikipedia.org/wiki/Productboard",
+    "wikiLink": "https://en.wikipedia.org/wiki/Productboard?action=edit&redlink=1",
     "valuation_b": 1.725,
     "valuation_str": "$1.725B",
     "valuation_date": "February 2022",
@@ -4260,26 +4300,6 @@
     "founders": ""
   },
   {
-    "company": "BigID",
-    "wikiLink": "https://en.wikipedia.org/wiki/BigID?action=edit&redlink=1",
-    "valuation_b": 1.25,
-    "valuation_str": "$1.25B",
-    "valuation_date": "May 2018",
-    "industry_raw": "Cybersecurity",
-    "country": "Israel /  United States",
-    "founders": ""
-  },
-  {
-    "company": "Deel",
-    "wikiLink": "https://en.wikipedia.org/wiki/Deel_(company)",
-    "valuation_b": 17.3,
-    "valuation_str": "$17.3B",
-    "valuation_date": "October 2025",
-    "industry_raw": "",
-    "country": "Israel /  United States",
-    "founders": ""
-  },
-  {
     "company": "ezCater",
     "wikiLink": "https://en.wikipedia.org/wiki/EzCater",
     "valuation_b": 1.25,
@@ -4318,6 +4338,16 @@
     "industry_raw": "Video games",
     "country": "United States",
     "founders": ""
+  },
+  {
+    "company": "Wabi",
+    "wikiLink": "https://en.wikipedia.org/wiki/Wabi",
+    "valuation_b": 1.25,
+    "valuation_str": "$1.25B",
+    "valuation_date": "October 2026",
+    "industry_raw": "Artificial intelligence",
+    "country": "",
+    "founders": "Eugenia Kuyda"
   },
   {
     "company": "Spiber",
@@ -5028,6 +5058,16 @@
     "industry_raw": "",
     "country": "China",
     "founders": ""
+  },
+  {
+    "company": "Dash0",
+    "wikiLink": "https://en.wikipedia.org/wiki/Dash0?action=edit&redlink=1",
+    "valuation_b": 1.0,
+    "valuation_str": "$1B",
+    "valuation_date": "March 2026",
+    "industry_raw": "Software as a service",
+    "country": "United States",
+    "founders": "Marcel Birkner, Ben Blackmore, Miel Donkers, Michele Mancioppi, Mirko Novakovic"
   },
   {
     "company": "Daytona",

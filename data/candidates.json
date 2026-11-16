@@ -1,6 +1,22 @@
 {
-  "generated_at": "2026-11-02T17:53:02+00:00",
+  "generated_at": "2026-11-16T18:00:49+00:00",
   "new_candidates": [
+    {
+      "company": "German AI robotics startup",
+      "valuation_m": 8500.0,
+      "headline": "German AI robotics startup valued at $8.5 billion after new fundraising",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9wdXBKMVJsUmpkejdlalY1X3BNTU5rWTFVb29vVzFEczZkSnluMkJpeEM3Zm83eW9qa2gzQXUzeU9OOVVPZlJ5ZGk0OHZTMXBFYzJTVFlyYUNNOC01QWRZblZXb3hSc2VqS2JLcjJ2OEdJdTVXaUZyZTM4Z1pDSkU?oc=5",
+      "source": "Tech Xplore",
+      "date": "2026-11-12"
+    },
+    {
+      "company": "Fractile",
+      "valuation_m": 7000.0,
+      "headline": "UK-backed AI chip startup Fractile hits $7 billion valuation in funding round",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPU0V1VVc2X0ppTUpCU0lET0pMdzV1YjFLbV83a0luR0VCdmVFN0g0ZzFzZXpZeWdWMjBNWVppUWV5QlNNYkFEdkY3QnJadVhleU5saHFaMk1USXRUZkpoTGEzeE9rejdTbGFnYVVMdk5DZVBLWlFuNnlKZi0wRnR2cE96UlRTWXluUGdpME53bkEtQWZPSGowd2l5OXU0WVM2ZHZ0OXlHSW5KZjFuUFVSYWpSZWlobFZJSnNiblE1YVZSc0ozVlNJaA?oc=5",
+      "source": "Reuters",
+      "date": "2026-11-11"
+    },
     {
       "company": "Flapping Airplanes",
       "valuation_m": 6000.0,
@@ -8,14 +24,6 @@
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOVWlMcFlyb091cURKSTdxWlZobXVRVVlpSlhQbFUxejRzYmQyVk9FX1ZGT2FlYU5GN2xGc2M3dVFnN292YkNRX3IzbERKUl9BYWlDVGMtU29RcmZ5UHZwRjROUWJneHpzajVHQTNYazhrYlM1SDZMZU1kRzRldTA3TVBNa05DbFJsYldTOVo0R0hOdFdwbmhXYWQ2dFQyWVlXd3RubmlDR0U0ZkZSczdmOVhUNU9DeTJVMUE?oc=5",
       "source": "Bloomberg",
       "date": "2026-10-21"
-    },
-    {
-      "company": "ASI",
-      "valuation_m": 3000.0,
-      "headline": "AI startup ASI valued at $3 billion in latest funding round",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNWjR1SjBuOXZkbzFpSXdTZHpVc0R5bVhDZlJGNWNEVkZOX3RCeDhSSEg4UkJUWlg0ZWkxNFhIb0VfdExYQWpRblJKSnZaY28tdDEtcU9wSk9xcy1CWTYxal9YRXRqV29FcTdFTlNPLVdpdGJ6VEFOX3Bfb1hGb0J0MUtUVE5LMm1hZ2RWQmdsOUJzTlVuYllaNWs1aE91QQ?oc=5",
-      "source": "Reuters",
-      "date": "2026-10-20"
     },
     {
       "company": "Boston AI firm",
@@ -26,20 +34,12 @@
       "date": "2026-10-20"
     },
     {
-      "company": "Valon",
-      "valuation_m": 2300.0,
-      "headline": "Valon Raises $150M Series D at a $2.3B Valuation to Deploy ValonOS and AI Agents into Mortgage",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxONk9FQlltQlZzN21VV3BYeTlFLThoNUllMUctc2ZVZWRRX0tUZ19wZ3VUOTFERG5qV0ZmMl9HYmtiVnJNNXprY1lpMzZMRHZ4eGVERlk4T2xKcGJHLTZCNXFYUzVtYkQtMUlaajItQWNEWjVoZTBxek04T3lIdlJxN1gyMC1GWUVWVkRVa0htVWhCSHB5eElNRVF2YWJhOHd0VUtVYnoyRHlySHhiaFRKVU14ZzR0N1FtaE00eVFHc24tOHhTeDVhZ1dR?oc=5",
-      "source": "AI Insider",
-      "date": "2026-10-07"
-    },
-    {
-      "company": "Nous Research",
-      "valuation_m": 1500.0,
-      "headline": "Nous Research Raises $90M Series B at $1.5B Valuation to Bring Hermes AI Agents to Enterprises",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdEtLZTZqODJqRjNsVFh5ZTEyaUdxOW9qVjcxNE1sbjlONklvNUJYcHFqUGxRSUtXNXcxaXNPZldmM0J6cXROMU91dzZ3UEs5YnNoZHVvOFViQmF6MHBjenBJdEh4WG1WRm9rU3J4Y3dGekhXN09ZNDNNcW04US1SWGtDWEhOa0d4cXoyWmhUcEJyeGs1MjNNTTlnN0xGS1RWWFUzUGctZ3MxNVl2NTFYSHJ3NXlwQ21ETGdveERxTjdlOU5lSXByeTY2MA?oc=5",
-      "source": "AI Insider",
-      "date": "2026-10-08"
+      "company": "ASI",
+      "valuation_m": 3000.0,
+      "headline": "AI startup ASI valued at $3 billion in latest funding round",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNWjR1SjBuOXZkbzFpSXdTZHpVc0R5bVhDZlJGNWNEVkZOX3RCeDhSSEg4UkJUWlg0ZWkxNFhIb0VfdExYQWpRblJKSnZaY28tdDEtcU9wSk9xcy1CWTYxal9YRXRqV29FcTdFTlNPLVdpdGJ6VEFOX3Bfb1hGb0J0MUtUVE5LMm1hZ2RWQmdsOUJzTlVuYllaNWs1aE91QQ?oc=5",
+      "source": "Reuters",
+      "date": "2026-10-20"
     },
     {
       "company": "Wabi",
@@ -56,34 +56,35 @@
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOaThmSzZMdDVvNU1rVXNtemZrVnU3WnZMQ2QxWTR3eXdaTTlxczN2T2RZZU5URHZ6aTJRd0l1WlRQSk5ObFdHMjVNUUJfZkUxMTlnZ2lZd1Q3YTJTakJnN0hXQW9TRlp2MXFRYjQ0dlpuS3JJTTYyaUw2RS1RRDR4VHByVDhUaV9lT0g4WWtTbEl4V2k0SVJEOXhGSVpuN1JrQUxuYTlueFh0R0VqYmo2VzhQU1liZVhSOGc?oc=5",
       "source": "Fortune",
       "date": "2026-10-20"
-    },
-    {
-      "company": "RobCo",
-      "valuation_m": 1000.0,
-      "headline": "German robot startup RobCo hits $1 billion valuation, CEO moves to US",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPS2Q2ODVLbmROM2lGYXBQX2w3ZHREYXNoQUdQYUpSSmdHN1RMMVRnY3BWbmJIbmZBanlod0NETUZnekhZVVdsUU15eTlzdk81cTJSWnZpWHRtcHljcmstYXpGRjU3UlVKaHc4dFo4OVlIVG82Sm42aF9sendUc3Y4WldoV29QTlIyLXQyeGlhQk9zRF9SdEthUkV1VDg5YWlKb1lZcGJoaDdraGFQZmx4VmVXdTk3bjF2RG92dA?oc=5",
-      "source": "Reuters",
-      "date": "2026-10-05"
     }
   ],
   "valuation_jumps": [
     {
-      "company": "Thinking Machines Lab",
-      "current_m": 12000.0,
-      "detected_m": 40000.0,
-      "headline": "Thinking Machines Lab Seeks $40B Valuation as Nvidia Extends Its Capital Allocator Role Into Model-Space",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUkdWaHp4cjRwVno1T05zaGxXNkN5ZGlmVzl5aGZSemNiTTdyajRqY3gtbVJhV01jbGRkaGx0YVRkWU5xanFwRC1mZlkxdTFOaExsTVhtLWNlQTJFdFBBYUx2c3ItZlVwVlRmMHdRMDZROGtJcjlqWmZZV0ZvVHdpSDE5QVk5Ulk5VHNmdVJUT2IxRmc0QmdVZjdIQQ?oc=5",
-      "source": "Yahoo Finance",
-      "date": "2026-09-04"
-    },
-    {
       "company": "Mercor",
       "current_m": 10000.0,
       "detected_m": 20000.0,
-      "headline": "AI Data Labeler Mercor In Talks To Raise $500 Million At $20 Billion Valuation",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9QT3lHLUxZcEhIeXZrVDJCd09ScENfejJvNVQxNHBIS2FOVVFDSGNrNWN0TVZIbVBPamdid3lRXzdVU1dwS2Y1aFlvTW5WYms5bkhQNmZJMmFOTk9xRmloT3lkMFlwY2VaS2NLTzZkcVhEWTcxUFRyVXVn?oc=5",
-      "source": "Forbes",
-      "date": "2026-07-09"
+      "headline": "AI training startup Mercor valued at $20 billion in latest funding round",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQakRyVVFaNHJEdFVOdTVHYUtNSWN3MEw4SkZXNFFXZFRtM21LLTZmWGtHRU9RcU9QM0dSUENscUhOZWV0WkFBZ1hQQV9vcHBFMzZxRlNrTjZvZFZwZzFZeDR2eGo2U2Q5b3VEcExyek9GY0JxQ0o4SkZYZmRTR21GaDhLTmE2b3J3MzJrRGZORXd0akdkVm41V0gzRGJYVTlvZ1hnZ0VUZ3RSa1RqckxUYUMyQ291NjVVQkdZa3NB?oc=5",
+      "source": "Reuters",
+      "date": "2026-11-10"
+    },
+    {
+      "company": "Cyera",
+      "current_m": 12000.0,
+      "detected_m": 20000.0,
+      "headline": "Cyber startup Cyera eyes $20 billion valuation in new funding talks",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5xLUpCMU1SeG1wTHlDdktUNDRQaElMM3JDR2swUUp5d3pHVzdyeFVreXd1MEJfeVlwdnhJb2hCekU0My1SdkxMXzRSMUhvNFVsV25fX0pYUDJGWnBGdEZIY3lnWEVWZ1U?oc=5",
+      "source": "CTech",
+      "date": "2026-10-30"
+    },
+    {
+      "company": "Shield AI",
+      "current_m": 12600.0,
+      "detected_m": 5300.0,
+      "headline": "Shield to acquire Echodyne in a transaction valued at $5.3 billion and raise $2.5 billion at a $28.8 billion valuation",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNRk5sM3I2clNfQ1lwdEZicDNXT0lTeEZDVnR6dzNPeFVkdlFXR0x4R2Vub29UVTFXNnpnOGFuc3l2dzJoNjVfZFF2YTRJTV9zbTZrS1RYMUhVY0JSWm1VNWhnRUZlcmJLVlAzOG8wNVJtT3ktaWM2TC1CdUU4Q3ctSDktUkZHVkZJM3hNQUZuNjFUVkdDcnljOE1ZVDNFVUUwV0dxWG1rWnRTak5iSTg1UDYwQWdZM21DT3daaUNJYjVKbFNaY1dXOHo0WnMza1E?oc=5",
+      "source": "Shield AI",
+      "date": "2026-11-05"
     }
   ]
 }
